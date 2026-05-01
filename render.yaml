@@ -1,0 +1,10 @@
+services:
+  - type: web
+    runtime: node
+    name: app
+    buildCommand: npm install && (node migrate.js || echo "migrate warning") && (node scripts/build-uplink.js || echo "uplink build warning")
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
