@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Substitution Policy — Sugar Oak Lane</title>
+  <meta name="description" content="Sugar Oak Lane's flower substitution policy. What happens when a specific bloom isn't available, how we choose substitutions, and how to specify must-have flowers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <style>
+    .substitute-table{width:100%;border-collapse:collapse;margin:20px 0;}
+    .substitute-table th{text-align:left;padding:12px 16px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);border-bottom:2px solid var(--border);background:var(--linen);}
+    .substitute-table td{padding:13px 16px;font-size:14px;color:var(--text-md);border-bottom:1px solid var(--border-lt);}
+    .substitute-table td:first-child{font-weight:600;color:var(--text);}
+  </style>
+</head>
+<body>
+
+<div id="announce-bar">🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a><button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button></div>
+<header id="header">
+  <div class="header-top">
+    <div class="header-side"><button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right"><button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button><button class="header-icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button></div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <div class="nav-item"><a href="/shop" class="nav-link">Shop <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a></div></div>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item"><a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a></div></div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item"><a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div></div>
+  </nav>
+</header>
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /><button class="drawer-close" onclick="closeDrawer()">&times;</button></div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Shop</div><a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a><a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div><a href="/wholesale">Wholesale</a><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a><a href="/workshops">Workshops</a>
+    <div class="drawer-section-label">Explore</div><a href="/blog">Blog</a><a href="/about">Our Story</a><a href="/contact">Contact Us</a>
+  </div>
+</nav>
+<div id="search-overlay" role="dialog" aria-label="Search"><div class="search-inner"><div class="search-row"><svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" /><button class="search-close-btn" onclick="closeSearch()">&times;</button></div></div></div>
+
+<main>
+  <section class="page-hero" data-hero-text="Policy">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Our Commitment to You</p>
+      <h1 class="page-hero-headline">Substitution Policy</h1>
+      <p class="page-hero-subtitle">What happens when a flower isn't available — and what you can do about it.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:#fff;">
+    <div class="container-sm">
+      <div class="policy-content">
+
+        <div class="policy-intro-block">
+          <p>Sugar Oak Lane grows with the seasons. That means sometimes a specific flower in your arrangement isn't at its peak on the day we cut for you. When that happens, we substitute thoughtfully — never downgrading quality, always maintaining the spirit of your order.</p>
+        </div>
+
+        <h2>When We Substitute</h2>
+        <p>Substitutions happen when: a specific bloom isn't available due to weather or crop timing; a flower isn't at peak quality on your order date; supply of a specific variety runs out. We substitute with flowers of equivalent or greater value that maintain the overall design integrity.</p>
+
+        <h2>How We Choose Substitutions</h2>
+        <ul class="policy-list">
+          <li><strong>Color-first:</strong> We match the color palette before anything else</li>
+          <li><strong>Stem-for-stem value:</strong> Substitutes are never of lesser value than the original</li>
+          <li><strong>Style integrity:</strong> We maintain the overall feel (garden-style stays garden-style, lush stays lush)</li>
+          <li><strong>Size matters:</strong> We won't substitute a 3-inch dahlia with a tiny button flower</li>
+        </ul>
+
+        <h2>Specifying Must-Have Flowers</h2>
+        <p>You can specify up to 2 flowers that are non-negotiable for your order. Write them clearly in your order notes with the label "MUST HAVE" and we'll make every effort to honor them or contact you before substituting.</p>
+        <p>Example: "MUST HAVE: Café au Lait dahlias. MUST HAVE: Sweet peas." We'll work around those two and substitute freely elsewhere if needed.</p>
+
+        <h2>Common Substitution Examples</h2>
+        <table class="substitute-table">
+          <thead>
+            <tr>
+              <th>If We Can't Provide</th>
+              <th>We Might Substitute</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Café au Lait dahlia</td>
+              <td>Similar blush/peach dinnerplate variety</td>
+            </tr>
+            <tr>
+              <td>Sweet peas</td>
+              <td>Lisianthus or ranunculus in same palette</td>
+            </tr>
+            <tr>
+              <td>Sunflowers</td>
+              <td>Rudbeckia or tithonia in similar warm tones</td>
+            </tr>
+            <tr>
+              <td>Eucalyptus</td>
+              <td>Seeded eucalyptus, Italian ruscus, or similar foliage</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Questions?</h2>
+        <p>If you'd like to discuss your order's flowers in detail before we cut, reach out at <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a> at least 48 hours before your order date. We're happy to talk through what's growing and what's at peak.</p>
+        <p><a href="/contact" class="policy-cta-link">Contact Us &rarr;</a></p>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer"><div class="container"><div class="footer-top">
+  <div><img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div><p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p><div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+  <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+  <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+  <div><div class="footer-nl-title">Stay in Touch</div><p class="footer-nl-desc">Fresh blooms, seasonal updates, and farm stories delivered to your inbox.</p><form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)"><input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" /><button class="footer-nl-btn" type="submit" id="footer-nl-btn">Subscribe</button></form><div class="footer-nl-success" id="footer-nl-success">You're on the list! Welcome to the farm family.</div></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+</script>
+
+<style>
+.container-sm { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.policy-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: var(--text, #1a1a1a);
+  margin: 48px 0 16px;
+  line-height: 1.2;
+}
+.policy-content p {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-md, #555);
+  margin: 0 0 16px;
+}
+.policy-content strong { color: var(--text, #1a1a1a); font-weight: 600; }
+.policy-content a { color: var(--green, #3d6b44); }
+.policy-content a:hover { text-decoration: underline; }
+.policy-intro-block {
+  background: var(--linen, #f7f3ee);
+  border-left: 3px solid var(--green, #3d6b44);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+.policy-intro-block p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text, #1a1a1a);
+  margin: 0;
+}
+.policy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.policy-list li {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  color: var(--text-md, #555);
+  padding: 10px 0 10px 24px;
+  border-bottom: 1px solid var(--border-lt, #ede9e2);
+  position: relative;
+  line-height: 1.5;
+}
+.policy-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green, #3d6b44);
+  opacity: 0.6;
+}
+.policy-cta-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--green, #3d6b44);
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 1.5px solid var(--green, #3d6b44);
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 8px;
+}
+.policy-cta-link:hover {
+  background: var(--green, #3d6b44);
+  color: #fff;
+  text-decoration: none;
+}
+</style>
+
+</body>
+</html>

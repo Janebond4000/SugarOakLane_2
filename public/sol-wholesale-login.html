@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wholesale Portal Login | Sugar Oak Lane</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --linen: #FEFDF8;
+      --pink:  #F0A8C0;
+      --pink-dk: #D98BA8;
+      --pink-lt: #FDF0F5;
+      --green: #3A5A40;
+      --text:  #1A1A1A;
+      --text-md: #6A6260;
+      --border: #DDD8CC;
+    }
+
+    html, body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: var(--linen);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem 1.25rem;
+      background-image: radial-gradient(ellipse at top, #fdf5f8 0%, var(--linen) 70%);
+    }
+
+    .brand {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .brand-leaf {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 1rem;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-leaf svg { width: 28px; height: 28px; fill: #fff; }
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .brand-tagline {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-md);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 2.5rem 2.25rem;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 24px rgba(26,26,26,0.06);
+    }
+
+    .card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .card p.sub {
+      font-size: 13px;
+      color: var(--text-md);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .field { margin-bottom: 1.25rem; }
+    label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-md);
+      margin-bottom: 0.4rem;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      padding: 0.7rem 0.9rem;
+      font-size: 14px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      background: var(--linen);
+    }
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: var(--pink-dk);
+      box-shadow: 0 0 0 3px rgba(240,168,192,0.2);
+      background: #fff;
+    }
+
+    .btn-login {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      padding: 0.8rem;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      margin-top: 0.5rem;
+      transition: background 0.15s;
+    }
+    .btn-login:hover { background: #2C4730; }
+    .btn-login:disabled { background: #9ca3af; cursor: not-allowed; }
+
+    .error {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      border-radius: 4px;
+      padding: 0.65rem 0.9rem;
+      font-size: 13px;
+      margin-bottom: 1.25rem;
+      align-items: center;
+      gap: 8px;
+    }
+    .error.show { display: flex; }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 12px;
+      color: var(--text-md);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--green); text-decoration: underline; }
+
+    .notice {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-md);
+      line-height: 1.6;
+    }
+    .notice a { color: var(--green); text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="brand">
+    <div class="brand-leaf">
+      <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2 1-1.5 3.5-2 3.5-2S13.5 1 12 3.5C11 5 10 7 10 7c-.5-2 1-4 1-4S8 4 8 6c0 1.5.5 2.5.5 2.5S7 8 7 6c-1 2-1 4 0 5.5 0 0-1-1-1-3-1 2.5 0 5 2 6.5 0 0-1-.5-1.5-2-.5 1.5 0 3 1.5 4-1 0-2-.5-2.5-1.5C6.5 18 8 19.5 10 20c2 .5 4 0 5.5-1 .5-.5 1-1.5 1-2.5S17 8 17 8Z"/></svg>
+    </div>
+    <div class="brand-name">Sugar Oak Lane</div>
+    <div class="brand-tagline">Wholesale Portal</div>
+  </div>
+
+  <div class="card">
+    <h1>Welcome back</h1>
+    <p class="sub">Sign in to browse products and place your order.</p>
+
+    <div class="error" id="error-msg">
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span id="error-text">Invalid email or password.</span>
+    </div>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="you@business.com" autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="••••••••" autocomplete="current-password" />
+      </div>
+      <button type="submit" class="btn-login" id="login-btn">Sign In</button>
+    </form>
+
+    <a href="/" class="back-link">← Back to Sugar Oak Lane</a>
+  </div>
+
+  <div class="notice">
+    New to wholesale? <a href="mailto:hello@sugaroaklane.com">Contact us</a> to set up your account.
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('error') === '1') {
+      document.getElementById('error-msg').classList.add('show');
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('login-btn');
+      btn.disabled = true;
+      btn.textContent = 'Signing in…';
+
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      try {
+        const res = await fetch('/api/wholesale/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+        const data = await res.json();
+        if (data.success) {
+          window.location.href = '/wholesale-portal';
+        } else {
+          document.getElementById('error-text').textContent = data.error || 'Invalid email or password.';
+          document.getElementById('error-msg').classList.add('show');
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+        }
+      } catch {
+        document.getElementById('error-text').textContent = 'Connection error. Please try again.';
+        document.getElementById('error-msg').classList.add('show');
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
+  </script>
+</body>
+</html>

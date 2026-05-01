@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flowers | Sugar Oak Lane — Fresh Bouquets, Subscriptions &amp; Wholesale</title>
+  <meta name="description" content="Farm-fresh cut flowers from Sugar Oak Lane. Subscribe for weekly delivery, shop curated arrangements, or order wholesale buckets for DIY arranging." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <link rel="stylesheet" href="/api/theme.css" />
+  <style>
+    /* ─── PINK ACCENT TOKENS ──────────────────────────────── */
+    :root {
+      --pink:       #F0A8C0;
+      --pink-dk:    #D4749A;
+      --pink-lt:    #FBE8F2;
+      --pink-mid:   #F5C8DC;
+      --pink-border:#EEC0D6;
+    }
+
+    /* ─── PAGE HERO ──────────────────────────────────────── */
+    .flowers-hero {
+      background: linear-gradient(150deg, #2C4730 0%, #3A5A40 55%, #F0A8C0 150%);
+      position: relative;
+      overflow: hidden;
+      padding: 96px 40px 100px;
+      text-align: center;
+    }
+    .flowers-hero-bg-petals {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.07;
+    }
+    .flowers-hero-bg-petals svg { width: 100%; height: 100%; }
+    .flowers-hero-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--pink-mid); margin-bottom: 18px;
+    }
+    .flowers-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 7vw, 84px);
+      font-weight: 400; color: #fff; line-height: 1.0; margin-bottom: 22px;
+    }
+    .flowers-hero h1 em { font-style: italic; font-weight: 300; color: var(--pink-mid); }
+    .flowers-hero p {
+      font-size: 16px; color: rgba(255,255,255,0.82);
+      max-width: 560px; margin: 0 auto 36px; line-height: 1.75;
+    }
+    .flowers-hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-pink {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--pink); color: #fff; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 34px;
+      border: 2px solid var(--pink); transition: background 0.2s, border-color 0.2s; white-space: nowrap;
+    }
+    .btn-pink:hover { background: var(--pink-dk); border-color: var(--pink-dk); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: rgba(255,255,255,0.92); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; padding: 15px 34px;
+      border: 2px solid rgba(255,255,255,0.45); transition: border-color 0.2s, background 0.2s; white-space: nowrap;
+    }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); }
+
+    /* ─── SECTION SHARED ─────────────────────────────────── */
+    .flowers-section { padding: 88px 40px; }
+    .flowers-section .container { max-width: 1200px; margin: 0 auto; }
+    .pink-divider { width: 40px; height: 3px; background: var(--pink); margin: 0 auto 20px; border-radius: 2px; }
+    .pink-divider.left { margin-left: 0; }
+    .fs-eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink-dk); }
+    .fs-title {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400; line-height: 1.08; color: var(--text); margin: 12px 0 18px;
+    }
+    .fs-title em { font-style: italic; font-weight: 300; color: var(--pink-dk); }
+    .fs-subtitle { font-size: 15px; color: var(--text-md); line-height: 1.75; }
+
+    /* ─── CARE STRIP ─────────────────────────────────────── */
+    .care-strip {
+      background: var(--linen); border-top: 1px solid var(--border-lt);
+      border-bottom: 1px solid var(--border-lt); padding: 32px 40px;
+    }
+    .care-strip-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap; }
+    .care-tip { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 180px; }
+    .care-tip-icon {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--pink-lt);
+      border: 1.5px solid var(--pink-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .care-tip-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--pink-dk); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .care-tip-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink-dk); margin-bottom: 2px; }
+    .care-tip-value { font-size: 13px; color: var(--text-md); line-height: 1.5; }
+    .care-strip-divider { width: 1px; height: 40px; background: var(--border); flex-shrink: 0; }
+
+    /* ─── SECTION 1: FLOWER SUBSCRIPTION ─────────────────── */
+    .sub-section { background: var(--pink-lt); border-top: 3px solid var(--pink); }
+    .sub-split { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .sub-img-main {
+      aspect-ratio: 4/5; border-radius: 2px; overflow: hidden;
+      background: linear-gradient(135deg, #FAD6E7 0%, #F0A8C0 40%, #D4749A 100%);
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .sub-img-main svg { width: 80px; height: 80px; opacity: 0.25; fill: none; stroke: #fff; stroke-width: 1.2; }
+    .sub-img-col { position: relative; }
+    .sub-badge {
+      position: absolute; bottom: -20px; right: -20px; background: var(--green); color: #fff;
+      width: 110px; height: 110px; border-radius: 50%; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 14px;
+      box-shadow: 0 6px 24px rgba(44,71,48,0.28);
+    }
+    .sub-badge-number { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; line-height: 1; }
+    .sub-badge-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; margin-top: 2px; }
+    .sub-pricing-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+    .sub-card {
+      border: 1.5px solid var(--pink-border); background: #fff; padding: 22px 18px;
+      text-align: center; transition: border-color 0.2s, box-shadow 0.2s; position: relative;
+    }
+    .sub-card:hover { border-color: var(--pink); box-shadow: 0 4px 20px rgba(240,168,192,0.25); }
+    .sub-card.popular { border-color: var(--pink); background: var(--pink-lt); }
+    .sub-card-popular-tag {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--pink); color: #fff; font-size: 9px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; white-space: nowrap;
+    }
+    .sub-card-freq { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-md); margin-bottom: 8px; }
+    .sub-card-price { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--text); line-height: 1; }
+    .sub-card-price sup { font-size: 18px; vertical-align: super; }
+    .sub-card-desc { font-size: 12px; color: var(--text-md); margin-top: 6px; line-height: 1.5; }
+    .sub-features { list-style: none; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px; }
+    .sub-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text-md); }
+    .sub-features li::before {
+      content: ''; width: 16px; height: 16px; border-radius: 50%; background: var(--pink);
+      flex-shrink: 0; margin-top: 3px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: cover;
+    }
+    .sub-note { font-size: 12px; color: var(--text-lt); margin-top: 14px; font-style: italic; }
+
+    /* ─── SECTION 2: FEATURED ARRANGEMENTS ──────────────── */
+    .arr-section { background: var(--white); }
+    .arr-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; gap: 24px; }
+    .arr-header-link {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--pink-dk); white-space: nowrap; border-bottom: 1.5px solid var(--pink-border);
+      padding-bottom: 2px; transition: border-color 0.2s, color 0.2s;
+    }
+    .arr-header-link:hover { color: var(--pink); border-color: var(--pink); }
+    .arr-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .arr-card {
+      background: var(--white); border: 1px solid var(--border-lt);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .arr-card:hover { box-shadow: 0 8px 32px rgba(240,168,192,0.22); transform: translateY(-2px); }
+    .arr-card-img { aspect-ratio: 3/4; overflow: hidden; background: var(--linen-dk); position: relative; }
+    .arr-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; display: block; }
+    .arr-card:hover .arr-card-img img { transform: scale(1.04); }
+    .arr-card-img-placeholder {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--linen-dk), var(--linen-md));
+    }
+    .arr-card-img-placeholder svg { width: 48px; height: 48px; opacity: 0.18; fill: none; stroke: var(--green); stroke-width: 1.2; }
+    .arr-card-tag {
+      position: absolute; top: 12px; left: 12px; background: var(--pink); color: #fff;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .arr-card-body { padding: 16px 18px 20px; }
+    .arr-card-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; color: var(--text); margin-bottom: 5px; line-height: 1.2; }
+    .arr-card-desc { font-size: 12.5px; color: var(--text-md); line-height: 1.6; margin-bottom: 12px; }
+    .arr-card-footer { display: flex; align-items: center; justify-content: space-between; }
+    .arr-card-price { font-size: 17px; font-weight: 600; color: var(--text); }
+    .arr-card-btn {
+      display: inline-flex; align-items: center; background: var(--green); color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 9px 16px; border: none; transition: background 0.2s; text-decoration: none;
+    }
+    .arr-card-btn:hover { background: var(--green-dk); }
+    .arr-card-btn.sold-out { background: var(--linen-dk); color: var(--text-lt); pointer-events: none; }
+    .arr-empty { grid-column: 1/-1; text-align: center; padding: 60px 0; color: var(--text-md); }
+    .arr-empty p { font-size: 15px; margin-bottom: 20px; }
+
+    /* ─── SECTION 3: WHOLESALE BUCKET ─────────────────────── */
+    .wholesale-section {
+      background: linear-gradient(160deg, #2C4730 0%, #3A5A40 60%, #4D7A55 100%);
+      position: relative; overflow: hidden;
+    }
+    .wholesale-section .container { max-width: 1200px; margin: 0 auto; }
+    .whl-bg1 {
+      position: absolute; right: -120px; top: -80px; width: 500px; height: 500px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(240,168,192,0.12) 0%, transparent 70%); pointer-events: none;
+    }
+    .whl-bg2 {
+      position: absolute; left: -60px; bottom: -60px; width: 300px; height: 300px;
+      border-radius: 50%; background: radial-gradient(circle, rgba(240,168,192,0.08) 0%, transparent 70%); pointer-events: none;
+    }
+    .wholesale-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+    .wholesale-eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--pink-mid); margin-bottom: 18px; }
+    .wholesale-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5vw, 58px); font-weight: 400; color: #fff; line-height: 1.05; margin-bottom: 22px; }
+    .wholesale-title em { font-style: italic; font-weight: 300; color: var(--pink-mid); }
+    .wholesale-desc { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.8; margin-bottom: 36px; }
+    .whl-buckets { display: flex; flex-direction: column; gap: 14px; }
+    .whl-bucket-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(240,168,192,0.25);
+      padding: 20px 24px; display: flex; align-items: center; gap: 20px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .whl-bucket-card:hover { background: rgba(255,255,255,0.13); border-color: rgba(240,168,192,0.5); }
+    .wbc-icon {
+      width: 48px; height: 48px; border-radius: 50%; background: rgba(240,168,192,0.18);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .wbc-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--pink-mid); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .wbc-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+    .wbc-desc { font-size: 12.5px; color: rgba(255,255,255,0.6); }
+    .wbc-price { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--pink-mid); white-space: nowrap; }
+    .whl-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+    .btn-white-solid {
+      display: inline-flex; align-items: center; justify-content: center; background: #fff; color: var(--green-dk);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 15px 34px; border: 2px solid #fff; transition: background 0.2s, color 0.2s;
+    }
+    .btn-white-solid:hover { background: var(--linen); }
+    .btn-white-solid-sm {
+      display: inline-flex; align-items: center; justify-content: center; background: #fff; color: var(--green-dk);
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 8px 18px; border: 1.5px solid #fff; transition: background 0.2s, color 0.2s;
+      white-space: nowrap; flex-shrink: 0; text-decoration: none;
+    }
+    .btn-white-solid-sm:hover { background: var(--linen); }
+    .btn-pink-sm {
+      display: inline-block; text-align: center; background: var(--pink); color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 10px 20px; border: 1.5px solid var(--pink); transition: background 0.2s; text-decoration: none;
+    }
+    .btn-pink-sm:hover { background: var(--pink-dk); border-color: var(--pink-dk); }
+    .btn-pink-outline {
+      display: inline-flex; align-items: center; justify-content: center; background: transparent; color: var(--pink-mid);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 15px 34px; border: 2px solid rgba(240,168,192,0.5); transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-pink-outline:hover { border-color: var(--pink-mid); background: rgba(240,168,192,0.1); }
+    .wholesale-visual { position: relative; }
+    .wholesale-visual-main {
+      aspect-ratio: 4/5; background: linear-gradient(160deg, rgba(240,168,192,0.2) 0%, rgba(44,71,48,0.5) 100%);
+      border: 1px solid rgba(240,168,192,0.2); display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .wholesale-visual-main svg { width: 80px; height: 80px; opacity: 0.2; fill: none; stroke: var(--pink-mid); stroke-width: 0.8; }
+    .wv-stat {
+      position: absolute; background: rgba(255,255,255,0.1); border: 1px solid rgba(240,168,192,0.3);
+      backdrop-filter: blur(8px); padding: 14px 20px;
+    }
+    .wv-stat-top { top: 24px; left: -28px; }
+    .wv-stat-bot { bottom: 32px; right: -28px; }
+    .wv-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 600; color: #fff; line-height: 1; }
+    .wv-stat-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1100px) { .arr-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 960px) {
+      .wholesale-inner { grid-template-columns: 1fr; gap: 52px; }
+      .wholesale-visual { display: none; }
+    }
+    @media (max-width: 900px) {
+      .sub-split { grid-template-columns: 1fr; gap: 48px; }
+      .sub-badge { bottom: -16px; right: -12px; width: 90px; height: 90px; }
+      .sub-badge-number { font-size: 28px; }
+      .arr-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 700px) {
+      .arr-grid { grid-template-columns: repeat(2, 1fr); }
+      .care-strip-divider { display: none; }
+      .care-strip-inner { gap: 20px; }
+    }
+    @media (max-width: 460px) {
+      .arr-grid { grid-template-columns: 1fr; }
+      .sub-pricing-cards { grid-template-columns: 1fr; gap: 12px; }
+    }
+    @media (max-width: 768px) {
+      .flowers-section { padding: 64px 24px; }
+      .flowers-hero { padding: 72px 24px 76px; }
+      .care-strip { padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="announce-bar">
+  🌸 &nbsp;Dahlia season starts July — <a href="/blog/how-to-grow-dahlias">read our growing guide</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="header-icon-btn" data-sol-cart-btn aria-label="Cart" style="position:relative"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link active">Flowers</a>
+    <a href="/shop" class="nav-link">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/weddings">Weddings</a>
+        <a href="/weddings/diy">DIY Wedding Flowers</a>
+        <a href="/weddings/events">Banquets + Special Occasions</a>
+      </div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div>
+    </div>
+  </nav>
+</header>
+
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head">
+    <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" />
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop" class="active-drawer">Flower Shop</a>
+    <a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a>
+    <a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a>
+    <a href="/shop?cat=dahlias">Dahlias</a>
+    <a href="/shop?cat=farm-goods">Farm Goods + Gifts</a>
+    <a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a>
+    <a href="/weddings">Weddings</a>
+    <a href="/weddings/diy">DIY Wedding Flowers</a>
+    <a href="/weddings/events">Banquets + Special Occasions</a>
+    <a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog">Blog</a>
+    <a href="/about">Our Story</a>
+    <a href="/contact">Contact Us</a>
+  </div>
+</nav>
+
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner">
+    <div class="search-row">
+      <svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" />
+      <button class="search-close-btn" onclick="closeSearch()">&times;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────── -->
+<!-- HERO                                                 -->
+<!-- ─────────────────────────────────────────────────── -->
+<section class="flowers-hero" aria-label="Flowers hero">
+  <div class="flowers-hero-bg-petals" aria-hidden="true">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+      <ellipse cx="100" cy="200" rx="200" ry="80" fill="white" transform="rotate(-30 100 200)"/>
+      <ellipse cx="1100" cy="100" rx="160" ry="60" fill="white" transform="rotate(20 1100 100)"/>
+      <ellipse cx="600" cy="350" rx="180" ry="70" fill="white" transform="rotate(-10 600 350)"/>
+    </svg>
+  </div>
+  <div class="flowers-hero-eyebrow">Farm-Grown · Cut Fresh · Delivered with Care</div>
+  <h1>The Flower<br><em>Shop</em></h1>
+  <p>Every stem grown on our land in Loganville, Georgia. Subscribe for weekly beauty, shop curated arrangements, or order a loose bucket for your own creative vision.</p>
+  <div class="flowers-hero-ctas">
+    <a href="#subscription" class="btn-pink">Subscribe to Flowers</a>
+    <a href="#arrangements" class="btn-outline-white">Shop Arrangements</a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────── -->
+<!-- CARE TIPS STRIP                                      -->
+<!-- ─────────────────────────────────────────────────── -->
+<div class="care-strip">
+  <div class="care-strip-inner">
+    <div class="care-tip">
+      <div class="care-tip-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8 8 6 12 6 15a6 6 0 0012 0c0-3-2-7-6-13z"/></svg>
+      </div>
+      <div>
+        <div class="care-tip-label">Fresh Cut</div>
+        <div class="care-tip-value">Harvested morning of delivery</div>
+      </div>
+    </div>
+    <div class="care-strip-divider"></div>
+    <div class="care-tip">
+      <div class="care-tip-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div>
+        <div class="care-tip-label">Farm-Direct</div>
+        <div class="care-tip-value">No warehouses, no middlemen</div>
+      </div>
+    </div>
+    <div class="care-strip-divider"></div>
+    <div class="care-tip">
+      <div class="care-tip-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="care-tip-label">Vase Life</div>
+        <div class="care-tip-value">7–14 days with proper care</div>
+      </div>
+    </div>
+    <div class="care-strip-divider"></div>
+    <div class="care-tip">
+      <div class="care-tip-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="care-tip-label">Seasonal</div>
+        <div class="care-tip-value">What's peak that week, always</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────── -->
+<!-- SECTION 1: FLOWER SUBSCRIPTION                       -->
+<!-- ─────────────────────────────────────────────────── -->
+<section class="flowers-section sub-section" id="subscription" aria-label="Flower subscription">
+  <div class="container">
+    <div class="sub-split">
+
+      <!-- Visual side -->
+      <div class="sub-img-col">
+        <div class="sub-img-main">
+          <svg viewBox="0 0 64 80"><path d="M32 8 C32 8 16 22 16 38 C16 50 23 58 32 58 C41 58 48 50 48 38 C48 22 32 8 32 8Z"/><path d="M32 30 L32 72"/><path d="M20 46 C26 43 38 43 44 46"/><path d="M28 52 C30 50 34 50 36 52"/></svg>
+        </div>
+        <div class="sub-badge">
+          <div class="sub-badge-number">4.9</div>
+          <div class="sub-badge-label">Star<br>Rating</div>
+        </div>
+      </div>
+
+      <!-- Content side -->
+      <div>
+        <div class="pink-divider left"></div>
+        <div class="fs-eyebrow">Recurring Delivery</div>
+        <h2 class="fs-title">Flowers on your<br><em>doorstep, always.</em></h2>
+        <p class="fs-subtitle" style="margin-bottom:24px">Skip the last-minute scramble. Subscribe for a weekly or bi-weekly bouquet of whatever's peaking in our fields — dahlias, sweet peas, zinnias, and more — delivered to your door in the Loganville–Snellville area.</p>
+
+        <div class="sub-pricing-cards">
+          <div class="sub-card">
+            <div class="sub-card-freq">Bi-Weekly</div>
+            <div class="sub-card-price"><sup>$</sup>38</div>
+            <div class="sub-card-desc">Every other week · $76/mo</div>
+            <a href="https://buy.stripe.com/4gMcN5b0Kg7a0OL2czgYU01" class="btn-pink-sm" style="margin-top:12px">Subscribe →</a>
+          </div>
+          <div class="sub-card popular">
+            <div class="sub-card-popular-tag">Most Popular</div>
+            <div class="sub-card-freq">Weekly</div>
+            <div class="sub-card-price"><sup>$</sup>32</div>
+            <div class="sub-card-desc">Delivered weekly · $128/mo</div>
+            <a href="https://buy.stripe.com/8x29AT6Kuf369lh04rgYU00" class="btn-pink-sm" style="margin-top:12px">Subscribe →</a>
+          </div>
+          <div class="sub-card">
+            <div class="sub-card-freq">Monthly</div>
+            <div class="sub-card-price"><sup>$</sup>45</div>
+            <div class="sub-card-desc">Once a month · $45/mo</div>
+            <a href="https://buy.stripe.com/aFa00jc4Og7a5512czgYU02" class="btn-pink-sm" style="margin-top:12px">Subscribe →</a>
+          </div>
+        </div>
+
+        <ul class="sub-features">
+          <li>Seasonal stems at their absolute peak — whatever's best that week</li>
+          <li>Delivery to Loganville, Snellville, Dacula &amp; Lawrenceville</li>
+          <li>Skip or pause any week with 48h notice — no penalty</li>
+          <li>Includes care card with tips to maximize vase life</li>
+          <li>Cancel anytime, no contracts, no hidden fees</li>
+        </ul>
+
+        <p class="sub-note">Secure checkout via Stripe. You'll receive a confirmation email with your first delivery window.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────── -->
+<!-- SECTION 2: FEATURED ARRANGEMENTS                     -->
+<!-- ─────────────────────────────────────────────────── -->
+<section class="flowers-section arr-section" id="arrangements" aria-label="Featured arrangements">
+  <div class="container">
+    <div class="arr-header">
+      <div>
+        <div class="pink-divider left"></div>
+        <div class="fs-eyebrow">Ready to Order</div>
+        <h2 class="fs-title">Featured <em>Arrangements</em></h2>
+        <p class="fs-subtitle" style="max-width:520px">Curated bouquets and arrangements, farm-grown and made to order. Each one reflects what's at its absolute peak right now.</p>
+      </div>
+      <a href="/shop?cat=flower-shop" class="arr-header-link">View All Flowers →</a>
+    </div>
+
+    <div class="arr-grid" id="arrangements-grid">
+      <div class="arr-empty">
+        <p style="color:var(--text-lt)">Loading arrangements…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────── -->
+<!-- SECTION 3: WHOLESALE FLOWER BUCKET                   -->
+<!-- ─────────────────────────────────────────────────── -->
+<section class="flowers-section wholesale-section" id="wholesale-bucket" aria-label="Wholesale flower buckets">
+  <div class="whl-bg1" aria-hidden="true"></div>
+  <div class="whl-bg2" aria-hidden="true"></div>
+  <div class="container">
+    <div class="wholesale-inner">
+
+      <!-- Content -->
+      <div>
+        <div class="wholesale-eyebrow">DIY &amp; Bulk Stems</div>
+        <h2 class="wholesale-title">Wholesale<br><em>Flower Bucket</em></h2>
+        <p class="wholesale-desc">For the DIY arranger, the home decorator, or anyone who just wants a lot of flowers. Our loose stem buckets give you 40–60+ stems of mixed or single-variety blooms straight from the field — no markup, no middleman. Pick up at the farm or add delivery.</p>
+
+        <div class="whl-buckets">
+          <div class="whl-bucket-card">
+            <div class="wbc-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8 8 6 12 6 15a6 6 0 0012 0c0-3-2-7-6-13z"/></svg>
+            </div>
+            <div style="flex:1">
+              <div class="wbc-name">Mixed Seasonal Bucket</div>
+              <div class="wbc-desc">40–50 stems · Whatever's at peak · Mixed varieties</div>
+            </div>
+            <div class="wbc-price">$55</div>
+            <a href="https://buy.stripe.com/00w5kD7OybQUbtp5oLgYU03" class="btn-white-solid-sm" title="Buy Mixed Seasonal Bucket">Buy →</a>
+          </div>
+          <div class="whl-bucket-card">
+            <div class="wbc-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M12 13v9"/><path d="M8 17h8"/></svg>
+            </div>
+            <div style="flex:1">
+              <div class="wbc-name">Dahlia Grower's Bucket</div>
+              <div class="wbc-desc">30–40 stems · All dahlias · Mixed colors &amp; forms</div>
+            </div>
+            <div class="wbc-price">$72</div>
+            <a href="https://buy.stripe.com/5kQcN59WGaMQbtp2czgYU04" class="btn-white-solid-sm" title="Buy Dahlia Grower's Bucket">Buy →</a>
+          </div>
+          <div class="whl-bucket-card">
+            <div class="wbc-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div style="flex:1">
+              <div class="wbc-name">Event Grower's Bundle</div>
+              <div class="wbc-desc">100+ stems · Great for weddings &amp; events · Call to discuss</div>
+            </div>
+            <div class="wbc-price">From $140</div>
+            <a href="https://buy.stripe.com/5kQ28r5Gq8EI695aJ5gYU05" class="btn-white-solid-sm" title="Buy Event Grower's Bundle">Buy →</a>
+          </div>
+        </div>
+
+        <div class="whl-ctas">
+          <a href="/wholesale" class="btn-pink-outline">Full Wholesale Info</a>
+        </div>
+      </div>
+
+      <!-- Visual panel (desktop only) -->
+      <div class="wholesale-visual" aria-hidden="true">
+        <div class="wholesale-visual-main">
+          <svg viewBox="0 0 120 150">
+            <ellipse cx="60" cy="90" rx="35" ry="50" stroke-width="0.8"/>
+            <path d="M60 40 C60 40 45 55 45 68 C45 78 52 84 60 84 C68 84 75 78 75 68 C75 55 60 40 60 40Z" stroke-width="0.8"/>
+            <path d="M35 65 C50 60 70 60 85 65" stroke-width="0.8"/>
+            <line x1="60" y1="84" x2="60" y2="135" stroke-width="0.8"/>
+          </svg>
+          <div class="wv-stat wv-stat-top">
+            <div class="wv-stat-num">60+</div>
+            <div class="wv-stat-lbl">Stems Per<br>Bucket</div>
+          </div>
+          <div class="wv-stat wv-stat-bot">
+            <div class="wv-stat-num">24h</div>
+            <div class="wv-stat-lbl">Advance<br>Order</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ──────────────────────────────────────── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
+        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p>
+        <div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23l-.23.93c-.04.14-.12.18-.28.11-1.04-.49-1.69-2.02-1.69-3.25 0-2.64 1.92-5.07 5.54-5.07 2.91 0 5.17 2.07 5.17 4.84 0 2.89-1.82 5.21-4.34 5.21-.85 0-1.65-.44-1.92-.96l-.52 1.95c-.19.73-.7 1.64-1.04 2.2.78.24 1.61.37 2.46.37 5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="rgba(255,255,255,0.75)"/></svg></a>
+        </div>
+      </div>
+      <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+      <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+      <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+      <div>
+        <div class="footer-nl-title">Stay in Touch</div>
+        <p class="footer-nl-desc">Fresh blooms, farm stories, and exclusive offers delivered to your inbox. Join for 10% off your first order.</p>
+        <form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)">
+          <input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" />
+          <button class="footer-nl-btn" type="submit" id="footer-nl-btn">Join &amp; Get 10% Off</button>
+        </form>
+        <div class="footer-nl-success" id="footer-nl-success">Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span>
+      <div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/sol-cart.js"></script>
+<script>
+/* ── Nav / Utilities ── */
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+
+/* ── Newsletter ── */
+async function handleNlSubmit(e){
+  e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');
+  if(!email)return;btn.textContent='Signing up...';btn.disabled=true;
+  try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();
+    if(data.success){document.getElementById('footer-nl-form').style.display='none';const s=document.getElementById('footer-nl-success');s.innerHTML=data.already_subscribed?'You\'re already subscribed! Your code is <strong>WELCOME10</strong>.':'Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.';s.style.display='block';}
+    else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+
+/* ── Featured Arrangements (max 5) ── */
+const AVAIL_BADGE = {'in_stock':'In Stock','seasonal':'Seasonal','pre_order':'Pre-Order','out_of_stock':'Sold Out'};
+
+async function loadArrangements() {
+  const grid = document.getElementById('arrangements-grid');
+  try {
+    const res = await fetch('/api/sol/products?category=flower-shop&limit=8');
+    const data = await res.json();
+    if (!data.success) throw new Error(data.message);
+    const products = (data.products || []).slice(0, 5);
+    if (!products.length) {
+      grid.innerHTML = '<div class="arr-empty"><p>New arrangements coming soon. <a href="/contact" style="color:var(--pink-dk)">Contact us</a> to place a custom order.</p></div>';
+      return;
+    }
+    grid.innerHTML = products.map((p, i) => {
+      const imgs = Array.isArray(p.images) ? p.images : (typeof p.images==='string' ? JSON.parse(p.images||'[]') : []);
+      var flowerFallback = 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+      const imgHtml = imgs[0]
+        ? '<img src="' + imgs[0] + '" alt="' + p.name + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" onerror="if(this.src!==\'' + flowerFallback + '\')this.src=\'' + flowerFallback + '\';" />'
+        : '<div class="arr-card-img-placeholder"><svg viewBox="0 0 64 80"><path d="M32 8 C32 8 20 20 20 32 C20 40 25.4 46 32 46 C38.6 46 44 40 44 32 C44 20 32 8 32 8Z"/><path d="M32 20 L32 56"/></svg></div>';
+      const isOos = (p.availability || '') === 'out_of_stock';
+      const badge = AVAIL_BADGE[p.availability] || 'Available';
+      const showBadge = p.availability && p.availability !== 'in_stock';
+      return '<div class="arr-card">' +
+        '<a href="/shop/product/' + p.slug + '" style="display:block;text-decoration:none;color:inherit">' +
+          '<div class="arr-card-img">' + imgHtml + (showBadge ? '<span class="arr-card-tag">' + badge + '</span>' : '') + '</div>' +
+        '</a>' +
+        '<div class="arr-card-body">' +
+          '<a href="/shop/product/' + p.slug + '" style="text-decoration:none;color:inherit"><div class="arr-card-name">' + p.name + '</div></a>' +
+          '<p class="arr-card-desc">' + (p.short_description || '') + '</p>' +
+          '<div class="arr-card-footer">' +
+            '<div class="arr-card-price">' + (p.price_label || ('$' + parseFloat(p.price).toFixed(2))) + '</div>' +
+            '<a href="/shop/product/' + p.slug + '" class="arr-card-btn' + (isOos ? ' sold-out' : '') + '">' + (isOos ? 'Sold Out' : 'Order &rarr;') + '</a>' +
+          '</div>' +
+        '</div></div>';
+    }).join('');
+  } catch(err) {
+    grid.innerHTML = '<div class="arr-empty"><p>Could not load arrangements. <a href="/contact" style="color:var(--pink-dk)">Contact us to order</a>.</p></div>';
+  }
+}
+
+loadArrangements();
+</script>
+<script src="/js/email-capture.js"></script>
+</body>
+</html>

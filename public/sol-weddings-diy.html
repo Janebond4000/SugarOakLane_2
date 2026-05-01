@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIY Wedding Flowers — Sugar Oak Lane</title>
+  <meta name="description" content="Buckets of farm-fresh stems for DIY wedding arrangements. Get professional-quality flowers at bulk stem prices — straight from our fields to your hands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<div id="announce-bar">
+  🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="header-icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link active">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a></div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div>
+    </div>
+  </nav>
+</header>
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /><button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a><a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a><a href="/weddings">Weddings</a><a href="/weddings/diy" class="active-drawer">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a><a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog">Blog</a><a href="/about">Our Story</a><a href="/contact">Contact Us</a>
+  </div>
+</nav>
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner"><div class="search-row"><svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" /><button class="search-close-btn" onclick="closeSearch()">&times;</button></div></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero hero-earth" data-hero-text="DIY">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">For the Hands-On Bride</div>
+    <h1 class="hero-headline">DIY Wedding Flowers</h1>
+    <p class="hero-subtitle">Buckets of farm-fresh stems, ready for you to arrange. Get professional-quality flowers at a fraction of the cost — straight from our fields to your hands.</p>
+    <a href="#diy-inquiry" class="hero-cta">Request a DIY Bucket Quote →</a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-white section-pad">
+  <div class="container">
+    <div class="section-header centered">
+      <h2 class="section-title">Fresh stems. <em>Your creativity.</em></h2>
+    </div>
+    <div class="container-md" style="margin:0 auto 48px;">
+      <p style="line-height:1.85;color:var(--text-md);text-align:center;font-size:17px;">Our DIY program is simple: you tell us what you need, we grow and cut it, and you pick it up from the farm the morning of (or the day before) your wedding. You get the same quality stems we'd use in our own arrangements — dahlias, zinnias, sweet peas, eucalyptus, lisianthus, whatever's at peak — at bulk stem prices, not arranged-bouquet prices. It's perfect for brides who have craft skills, a creative bridal party, or family members who want to contribute.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:900px;margin:0 auto;">
+      <div class="info-card" style="position:relative;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin:0 auto 16px;">1</div>
+        <div class="info-card-title">You choose your palette</div>
+        <div class="info-card-text">Tell us your color story, preferred flowers, and any must-haves. We'll confirm what's in season and build a custom stem list just for your wedding.</div>
+      </div>
+      <div class="info-card" style="position:relative;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin:0 auto 16px;">2</div>
+        <div class="info-card-title">We grow and cut</div>
+        <div class="info-card-text">We harvest everything the morning of pickup. Stems go directly into water buckets. No cold storage, maximum freshness — flowers the way they're meant to be.</div>
+      </div>
+      <div class="info-card" style="position:relative;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin:0 auto 16px;">3</div>
+        <div class="info-card-title">You arrange</div>
+        <div class="info-card-text">Pick up your flowers from the farm (or arrange for local delivery). We include a care sheet and basic arranging tips. Our workshops can also prep you ahead of time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-linen section-pad-sm">
+  <div class="container-md">
+    <div class="section-header centered">
+      <div class="section-label">Transparent Pricing</div>
+      <h2 class="section-title">What to <em>Expect</em></h2>
+    </div>
+    <div style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.07);">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--green);color:#fff;">
+            <th style="padding:16px 20px;text-align:left;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;">Bundle</th>
+            <th style="padding:16px 20px;text-align:left;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;">Contents</th>
+            <th style="padding:16px 20px;text-align:left;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;">Approx. Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #eee;">
+            <td style="padding:18px 20px;font-weight:600;color:var(--green-dk);">Bridal Bucket</td>
+            <td style="padding:18px 20px;color:var(--text-md);line-height:1.5;">100–150 mixed stems, 3–5 varieties, greenery included. Perfect for bridal bouquet, bridesmaid bouquets, and a few bouts.</td>
+            <td style="padding:18px 20px;font-weight:600;color:var(--green);">$200 – $350</td>
+          </tr>
+          <tr style="border-bottom:1px solid #eee;background:#fafaf8;">
+            <td style="padding:18px 20px;font-weight:600;color:var(--green-dk);">Full Wedding Bucket Set</td>
+            <td style="padding:18px 20px;color:var(--text-md);line-height:1.5;">500–700 stems, 6–10 varieties, full greenery package. Enough to cover bridal party, ceremony, and table centerpieces.</td>
+            <td style="padding:18px 20px;font-weight:600;color:var(--green);">$750 – $1,200</td>
+          </tr>
+          <tr>
+            <td style="padding:18px 20px;font-weight:600;color:var(--green-dk);">Custom</td>
+            <td style="padding:18px 20px;color:var(--text-md);line-height:1.5;">You specify exactly what you need — variety, count, color range. We build a custom harvest list and provide a quote.</td>
+            <td style="padding:18px 20px;font-weight:600;color:var(--green);">Quoted individually</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:20px;color:var(--text-md);font-size:14px;line-height:1.6;text-align:center;">Pricing varies by season and variety. Spring (sweet peas, ranunculus) and fall (dahlias) are our peak quality months — and some of our most beautiful palettes.</p>
+  </div>
+</section>
+
+<!-- WORKSHOP CTA (section-green) -->
+<section class="section-green section-pad-sm">
+  <div class="container-sm" style="text-align:center;">
+    <h2 class="section-title" style="color:#fff;">Want to <em>practice first?</em></h2>
+    <p style="color:rgba(255,255,255,0.85);line-height:1.8;margin-bottom:28px;font-size:16px;">We offer floral arranging workshops throughout the year. Booking a private workshop before your wedding is the perfect way to develop your skills, test your color palette, and feel confident on the day. Come get your hands in some flowers before the big one.</p>
+    <a href="/workshops" class="hero-cta">Book a Workshop →</a>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="section-white section-pad" id="diy-inquiry">
+  <div class="container-sm">
+    <div class="section-header centered">
+      <div class="section-label">Get Your Quote</div>
+      <h2 class="section-title">Request Your <em>DIY Quote</em></h2>
+      <p class="section-subtitle">Fill out the form below and we'll be in touch with availability and pricing for your wedding date.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="diy-form-el">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="diy-name">Your Name</label>
+            <input type="text" id="diy-name" name="name" placeholder="Full name" required />
+          </div>
+          <div class="form-field">
+            <label for="diy-email">Email Address</label>
+            <input type="email" id="diy-email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="diy-wdate">Wedding Date</label>
+            <input type="date" id="diy-wdate" name="wedding_date" />
+          </div>
+          <div class="form-field">
+            <label for="diy-location">Location</label>
+            <input type="text" id="diy-location" name="location" placeholder="City / Venue name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="diy-guests">Approximate Guest Count</label>
+            <input type="number" id="diy-guests" name="guest_count" placeholder="e.g. 75" min="1" />
+          </div>
+          <div class="form-field">
+            <label for="diy-service">Services Needed</label>
+            <select id="diy-service" name="service_type">
+              <option value="">Select an option...</option>
+              <option value="bridal_bucket">Bridal Bucket only</option>
+              <option value="full_set">Full Wedding Bucket Set</option>
+              <option value="custom">Custom — I'll describe below</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label for="diy-palette">Color Palette + Notes</label>
+            <textarea id="diy-palette" name="palette_notes" rows="4" placeholder="Describe your color palette, any flowers you love or want to avoid, the vibe you're going for. The more you share, the better we can match your vision."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" id="diy-submit-btn" class="hero-cta" style="border:none;cursor:pointer;">Request a Quote</button>
+        </div>
+      </form>
+      <div id="diy-success" class="form-success show" style="display:none;">
+        Got it! We'll review your request and follow up within 2 business days with availability and a custom quote.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer"><div class="container"><div class="footer-top">
+  <div><img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div><p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p><div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a></div></div>
+  <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+  <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+  <div><div class="footer-nl-title">Stay in Touch</div><p class="footer-nl-desc">Fresh blooms, seasonal updates, and farm stories delivered to your inbox.</p><form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)"><input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" /><button class="footer-nl-btn" type="submit" id="footer-nl-btn">Subscribe</button></form><div class="footer-nl-success" id="footer-nl-success">You're on the list! Welcome to the farm family.</div></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+document.getElementById('diy-form-el').addEventListener('submit',async function(e){e.preventDefault();const btn=document.getElementById('diy-submit-btn');btn.textContent='Sending...';btn.disabled=true;await new Promise(r=>setTimeout(r,800));document.getElementById('diy-form-el').style.display='none';document.getElementById('diy-success').style.display='block';});
+</script>
+</body>
+</html>

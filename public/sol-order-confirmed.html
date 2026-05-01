@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Confirmed | Sugar Oak Lane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <style>
+    .confirmed-page { min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 80px 0; }
+    .confirmed-card { max-width: 560px; width: 100%; text-align: center; }
+    .confirmed-icon {
+      width: 72px; height: 72px; background: var(--green-bg);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .confirmed-icon svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .confirmed-headline { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; margin-bottom: 12px; }
+    .confirmed-sub { font-size: 15px; color: var(--text-md); line-height: 1.8; margin-bottom: 32px; }
+    .confirmed-order-number {
+      background: var(--linen); padding: 20px; border: 1px solid var(--border);
+      font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: 0.06em;
+      margin-bottom: 32px;
+    }
+    .confirmed-order-number span { display: block; font-size: 22px; font-weight: 700; color: var(--green); margin-top: 6px; letter-spacing: 0.08em; }
+    .confirmed-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-green { padding: 13px 28px; background: var(--green); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+    .btn-outline { padding: 12px 26px; border: 1.5px solid var(--green); color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; background: none; cursor: pointer; }
+    .confirmed-next-steps {
+      background: var(--green-bg); padding: 24px 28px; margin-top: 40px; text-align: left; border-radius: 2px;
+    }
+    .next-steps-title { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
+    .next-step { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+    .next-step:last-child { margin-bottom: 0; }
+    .next-step-num { width: 22px; height: 22px; background: var(--green); color: #fff; border-radius: 50%; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .next-step-text { font-size: 13px; color: var(--text-md); line-height: 1.7; }
+  </style>
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<header id="header">
+  <div class="header-top">
+    <div class="header-side"></div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right"></div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="confirmed-page">
+    <div class="confirmed-card">
+      <div class="confirmed-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1 class="confirmed-headline">Order Confirmed!</h1>
+      <p class="confirmed-sub" id="confirmed-sub-text">Thank you for your order from Sugar Oak Lane. We'll send a confirmation email shortly with pickup or shipping details.</p>
+
+      <div class="confirmed-order-number" id="order-number-block" style="display:none">
+        Your Order Number
+        <span id="order-number-val"></span>
+      </div>
+
+      <!-- Ship date estimate (shown for shipped orders) -->
+      <div id="ship-estimate-block" style="display:none; background:var(--green-bg); border:1px solid #c8dfc8; padding:16px 20px; margin-bottom:24px; border-radius:2px; font-size:13px; color:var(--text-md); text-align:left;">
+        <strong style="display:block; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:6px;">Estimated Ship Date</strong>
+        <span id="ship-estimate-val"></span>
+        <span style="display:block; margin-top:4px; font-size:12px; color:var(--text-lt)">We ship on Tuesdays and Thursdays. You'll receive a tracking number by email.</span>
+      </div>
+
+      <div class="confirmed-actions">
+        <a href="/shop" class="btn-green">Continue Shopping</a>
+        <a href="/" class="btn-outline">Back to Home</a>
+      </div>
+
+      <div class="confirmed-next-steps">
+        <div class="next-steps-title">What Happens Next</div>
+        <div class="next-step"><div class="next-step-num">1</div><div class="next-step-text">Check your email — you'll receive an order confirmation with your order details.</div></div>
+        <div class="next-step" id="step-2-ship" style="display:none"><div class="next-step-num">2</div><div class="next-step-text">Your order ships on <strong id="step-2-ship-date"></strong>. We'll email you a tracking number when it's on its way.</div></div>
+        <div class="next-step" id="step-2-pickup"><div class="next-step-num">2</div><div class="next-step-text">We'll reach out to confirm pickup time or provide tracking for shipped items.</div></div>
+        <div class="next-step"><div class="next-step-num">3</div><div class="next-step-text">Questions? Email us at <a href="mailto:hello@sugaroaklane.com" style="color:var(--green)">hello@sugaroaklane.com</a> with your order number.</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/shop">Shop</a><a href="/contact">Contact</a></div></div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+
+const params = new URLSearchParams(location.search);
+const orderNum = params.get('order') || params.get('order_number');
+if (orderNum) {
+  const el = document.getElementById('order-number-block');
+  document.getElementById('order-number-val').textContent = orderNum;
+  el.style.display = 'block';
+}
+
+// Compute next Tue or Thu ship date
+function getNextShipDate() {
+  const SHIP_DAYS = [2, 4]; // Tuesday=2, Thursday=4
+  const today = new Date();
+  for (let d = 1; d <= 7; d++) {
+    const candidate = new Date(today);
+    candidate.setDate(today.getDate() + d);
+    if (SHIP_DAYS.includes(candidate.getDay())) {
+      return candidate.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+    }
+  }
+  return 'next Tuesday or Thursday';
+}
+
+// Show ship estimate for shipped orders
+const fulfillment = params.get('fulfillment');
+if (fulfillment === 'ship') {
+  const shipDate = getNextShipDate();
+  document.getElementById('ship-estimate-block').style.display = 'block';
+  document.getElementById('ship-estimate-val').textContent = shipDate;
+  document.getElementById('step-2-ship').style.display = 'flex';
+  document.getElementById('step-2-ship-date').textContent = shipDate;
+  document.getElementById('step-2-pickup').style.display = 'none';
+  document.getElementById('confirmed-sub-text').textContent =
+    'Thank you for your order from Sugar Oak Lane! You\'ll receive a confirmation email, and your order will ship on ' + shipDate + '.';
+}
+</script>
+</body>
+</html>

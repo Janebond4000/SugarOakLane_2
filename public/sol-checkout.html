@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout | Sugar Oak Lane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <style>
+    .checkout-layout { display:grid; grid-template-columns:1fr 380px; gap:56px; padding:56px 0 96px; align-items:start; }
+
+    /* Steps */
+    .checkout-form-col {}
+    .checkout-title { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:500; margin-bottom:8px; }
+    .checkout-subtitle { font-size:13px; color:var(--text-md); margin-bottom:40px; }
+
+    .form-section { margin-bottom:36px; }
+    .form-section-title { font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--text); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+    .form-row.full { grid-template-columns:1fr; }
+    .form-group { display:flex; flex-direction:column; gap:6px; }
+    .form-label { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-md); }
+    .form-label span { color:#c0392b; }
+    .form-input {
+      padding:12px 14px; border:1.5px solid var(--border); border-radius:2px;
+      font-family:inherit; font-size:14px; color:var(--text); background:var(--white);
+      transition:border-color 0.2s; outline:none;
+    }
+    .form-input:focus { border-color:var(--green); }
+    .form-input.error { border-color:#c0392b; }
+
+    /* Fulfillment toggle */
+    .fulfillment-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+    .fulfillment-opt {
+      padding:16px; border:2px solid var(--border); border-radius:2px;
+      cursor:pointer; transition:all 0.2s; text-align:center;
+    }
+    .fulfillment-opt.selected { border-color:var(--green); background:var(--green-bg); }
+    .fulfillment-opt input { display:none; }
+    .fulfillment-opt-icon { font-size:22px; margin-bottom:8px; }
+    .fulfillment-opt-label { font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text); margin-bottom:4px; }
+    .fulfillment-opt-desc { font-size:11px; color:var(--text-md); line-height:1.5; }
+    .fulfillment-opt.selected .fulfillment-opt-label { color:var(--green); }
+
+    /* ZIP section */
+    #delivery-section { display:none; }
+    .zip-row { display:flex; gap:12px; align-items:flex-end; margin-bottom:12px; }
+    .check-zip-btn {
+      padding:12px 20px; background:var(--green); color:#fff;
+      border:none; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+      cursor:pointer; white-space:nowrap; flex-shrink:0;
+    }
+    #zip-result { font-size:13px; margin-bottom:16px; }
+    #zip-result.success { color:#2d6a2d; }
+    #zip-result.error { color:#c0392b; }
+
+    /* Order review */
+    .checkout-summary { background:var(--linen); padding:32px; position:sticky; top:100px; }
+    .cs-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; margin-bottom:24px; }
+    .cs-item { display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--border); align-items:center; }
+    .cs-item-img { width:60px; height:66px; border-radius:2px; overflow:hidden; background:var(--linen-dk); flex-shrink:0; }
+    .cs-item-img img { width:100%;height:100%;object-fit:cover; }
+    .cs-item-info { flex:1; }
+    .cs-item-name { font-size:13px; font-weight:600; margin-bottom:2px; }
+    .cs-item-meta { font-size:11px; color:var(--text-md); }
+    .cs-item-price { font-size:14px; font-weight:700; color:var(--green); white-space:nowrap; }
+    .cs-totals { margin-top:20px; }
+    .cs-row { display:flex; justify-content:space-between; font-size:14px; color:var(--text-md); margin-bottom:10px; }
+    .cs-row.total { font-size:17px; font-weight:700; color:var(--text); border-top:1px solid var(--border); padding-top:14px; margin-top:4px; }
+
+    /* Submit */
+    .submit-section { margin-top:32px; }
+    .submit-btn {
+      width:100%; padding:17px; background:var(--green); color:#fff;
+      font-size:12px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase;
+      border:none; cursor:pointer; transition:background 0.2s; margin-bottom:12px;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+    }
+    .submit-btn:hover:not(:disabled) { background:var(--green-dk); }
+    .submit-btn:disabled { background:var(--text-lt); cursor:not-allowed; }
+    .submit-note { font-size:11px; color:var(--text-lt); text-align:center; line-height:1.7; }
+    .submit-note a { color:var(--green); text-decoration:underline; }
+
+    /* Error banner */
+    #error-banner {
+      background:#fdf2f2; border:1px solid #f5c6cb; color:#721c24;
+      padding:14px 18px; border-radius:2px; font-size:13px; margin-bottom:20px; display:none;
+    }
+
+    @media(max-width:900px){
+      .checkout-layout{grid-template-columns:1fr;gap:32px;}
+      .checkout-summary{position:static;}
+    }
+    @media(max-width:500px){
+      .form-row{grid-template-columns:1fr;}
+      .fulfillment-options{grid-template-columns:1fr;}
+    }
+  </style>
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<div id="announce-bar">
+  🌸 &nbsp;Dahlia season starts July — <a href="/blog/how-to-grow-dahlias">read our growing guide</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" data-sol-cart-btn aria-label="Cart" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer">
+  <div class="drawer-head">
+    <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" />
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="drawer-nav">
+    <a href="/shop">Shop</a><a href="/shop/cart">Cart</a><a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<!-- Redirect if empty cart -->
+<main class="container">
+  <div id="checkout-empty" style="text-align:center;padding:80px 0;display:none">
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;margin-bottom:12px">Your cart is empty</h2>
+    <p style="color:var(--text-md);margin-bottom:24px">Add something wonderful from the farm first.</p>
+    <a href="/shop" style="display:inline-block;padding:13px 30px;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase">Shop the Farm →</a>
+  </div>
+
+  <div id="checkout-content" class="checkout-layout" style="display:none">
+    <div class="checkout-form-col">
+      <h1 class="checkout-title">Checkout</h1>
+      <p class="checkout-subtitle">Secure checkout powered by Stripe. Your card is never stored on our servers.</p>
+
+      <div id="error-banner"></div>
+
+      <form id="checkout-form" onsubmit="submitCheckout(event)">
+        <!-- Contact info -->
+        <div class="form-section">
+          <div class="form-section-title">Your Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Full Name <span>*</span></label>
+              <input class="form-input" id="f-name" type="text" placeholder="Jane Smith" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-email">Email <span>*</span></label>
+              <input class="form-input" id="f-email" type="email" placeholder="jane@example.com" required autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-row full">
+            <div class="form-group">
+              <label class="form-label" for="f-phone">Phone (optional)</label>
+              <input class="form-input" id="f-phone" type="tel" placeholder="(555) 555-5555" autocomplete="tel" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Fulfillment -->
+        <div class="form-section">
+          <div class="form-section-title">Pickup or Delivery</div>
+          <div class="fulfillment-options">
+            <label class="fulfillment-opt selected" id="opt-pickup" onclick="selectFulfillment('pickup')">
+              <input type="radio" name="fulfillment" value="pickup" checked />
+              <div class="fulfillment-opt-icon">🌾</div>
+              <div class="fulfillment-opt-label">Farm Pickup</div>
+              <div class="fulfillment-opt-desc">Free. Pick up from Sugar Oak Lane, Loganville GA. We'll confirm a time by email.</div>
+            </label>
+            <label class="fulfillment-opt" id="opt-ship" onclick="selectFulfillment('ship')">
+              <input type="radio" name="fulfillment" value="ship" />
+              <div class="fulfillment-opt-icon">📦</div>
+              <div class="fulfillment-opt-label">Ship to Me</div>
+              <div class="fulfillment-opt-desc">$4.79 flat rate shipping. Free over $25. Ships Tue &amp; Thu. Seeds, bulbs &amp; goods only — fresh flowers are pickup/local delivery.</div>
+            </label>
+          </div>
+          <div id="delivery-section">
+            <div class="form-section-title" style="margin-bottom:14px">Local Flower Delivery</div>
+            <p style="font-size:13px;color:var(--text-md);margin-bottom:16px">We deliver fresh arrangements to Loganville, Grayson, Lawrenceville, and surrounding areas. Enter your ZIP to check.</p>
+            <div class="zip-row">
+              <div class="form-group" style="flex:1">
+                <label class="form-label" for="f-delivery-zip">Delivery ZIP Code</label>
+                <input class="form-input" id="f-delivery-zip" type="text" placeholder="30052" maxlength="5" pattern="[0-9]{5}" />
+              </div>
+              <button type="button" class="check-zip-btn" onclick="checkZip()">Check ZIP</button>
+            </div>
+            <div id="zip-result"></div>
+          </div>
+
+          <!-- Shipping address (shown when shipping selected) -->
+          <div id="shipping-address-section" style="display:none">
+            <div class="form-section-title" style="margin-bottom:14px">Shipping Address</div>
+            <div class="form-row full"><div class="form-group">
+              <label class="form-label" for="f-address">Street Address <span>*</span></label>
+              <input class="form-input" id="f-address" type="text" placeholder="123 Farm Road" autocomplete="street-address" />
+            </div></div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label" for="f-city">City <span>*</span></label><input class="form-input" id="f-city" type="text" autocomplete="address-level2" /></div>
+              <div class="form-group"><label class="form-label" for="f-state">State <span>*</span></label><input class="form-input" id="f-state" type="text" value="GA" maxlength="2" autocomplete="address-level1" /></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label" for="f-zip">ZIP <span>*</span></label><input class="form-input" id="f-zip" type="text" placeholder="30052" maxlength="5" autocomplete="postal-code" /></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="form-section">
+          <div class="form-section-title">Order Notes</div>
+          <div class="form-group">
+            <label class="form-label" for="f-notes">Special requests or additional info (optional)</label>
+            <textarea class="form-input" id="f-notes" style="resize:vertical;min-height:80px" placeholder="Color preferences, occasion, special timing…"></textarea>
+          </div>
+        </div>
+
+        <!-- Promo Code -->
+        <div class="form-section">
+          <div class="form-section-title">Promo Code</div>
+          <div style="display:flex;gap:10px;align-items:flex-end">
+            <div class="form-group" style="flex:1">
+              <label class="form-label" for="f-promo">Discount Code</label>
+              <input class="form-input" id="f-promo" type="text" placeholder="e.g. WELCOME10" autocomplete="off" style="text-transform:uppercase" oninput="this.value=this.value.toUpperCase()" />
+            </div>
+            <button type="button" onclick="applyPromo()" style="padding:12px 20px;background:var(--green);color:#fff;border:none;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;flex-shrink:0">Apply</button>
+          </div>
+          <div id="promo-result" style="margin-top:8px;font-size:13px;display:none"></div>
+        </div>
+
+        <div class="submit-section">
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            Place Order &amp; Pay Securely
+          </button>
+          <p class="submit-note">
+            By placing your order, you agree to our <a href="/refund-policy">Refund Policy</a>.<br />
+            Payments secured by Stripe. SSL encrypted.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Summary sidebar -->
+    <div class="checkout-summary">
+      <div class="cs-title">Order Summary</div>
+      <div id="cs-items"></div>
+      <div class="cs-totals">
+        <div class="cs-row"><span>Subtotal</span><span id="cs-subtotal">—</span></div>
+        <div class="cs-row" id="cs-discount-row" style="display:none;color:#15803d"><span id="cs-discount-label">Promo (WELCOME10)</span><span id="cs-discount-val">—</span></div>
+        <div class="cs-row"><span id="cs-shipping-label">Farm Pickup</span><span id="cs-shipping-val">Free</span></div>
+        <div class="cs-row total"><span>Total</span><span id="cs-total">—</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
+        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia.</p>
+      </div>
+      <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/refund-policy">Refund Policy</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span></div>
+  </div>
+</footer>
+
+<script src="/js/sol-cart.js"></script>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+
+let _fulfillment = 'pickup';
+let _deliveryZip = null;
+let _deliveryFee = 0;
+let _shippingFee = 0;
+let _promoCode   = null;
+let _discountPct = 0;
+let _discountAmt = 0;
+
+const CAT_LABELS = {
+  'flower-shop':'Flower Shop','seeds-bulbs':'Seeds + Bulbs',
+  'plant-nursery':'Plant Nursery','farm-goods':'Farm Goods + Merch'
+};
+function fmt(n){ return '$'+parseFloat(n||0).toFixed(2); }
+
+function selectFulfillment(type) {
+  _fulfillment = type;
+  document.getElementById('opt-pickup').classList.toggle('selected', type==='pickup');
+  document.getElementById('opt-ship').classList.toggle('selected', type==='ship');
+  document.getElementById('delivery-section').style.display = (type==='delivery') ? 'block' : 'none';
+  document.getElementById('shipping-address-section').style.display = (type==='ship') ? 'block' : 'none';
+  _shippingFee = (type==='ship') ? 4.79 : 0;
+  // Check if subtotal >= 25 for free shipping
+  const sub = SolCart.getSubtotal();
+  if (type==='ship' && sub >= 25) _shippingFee = 0;
+  updateSummaryTotals();
+  updateShippingLabel();
+}
+
+function updateShippingLabel() {
+  const lblEl = document.getElementById('cs-shipping-label');
+  const valEl = document.getElementById('cs-shipping-val');
+  if (_fulfillment === 'pickup') {
+    lblEl.textContent = 'Farm Pickup'; valEl.textContent = 'Free';
+  } else if (_fulfillment === 'delivery') {
+    lblEl.textContent = 'Local Delivery';
+    valEl.textContent = _deliveryFee > 0 ? fmt(_deliveryFee) : 'TBD';
+  } else {
+    lblEl.textContent = 'Shipping';
+    valEl.textContent = _shippingFee === 0 ? 'Free' : fmt(_shippingFee);
+  }
+}
+
+async function checkZip() {
+  const zip = document.getElementById('f-delivery-zip').value.trim();
+  if (zip.length < 5) { showZipResult('Please enter a 5-digit ZIP code.', false); return; }
+  try {
+    const res = await fetch('/api/check-zip', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({zip}) });
+    const data = await res.json();
+    if (data.in_zone) {
+      _deliveryZip = zip;
+      _deliveryFee = data.base_delivery_fee || 12.99;
+      showZipResult(`✓ We deliver to ${data.city || zip}! Delivery fee: ${fmt(_deliveryFee)}`, true);
+      _fulfillment = 'delivery';
+      updateShippingLabel();
+      updateSummaryTotals();
+    } else if (data.coming_soon) {
+      showZipResult('Coming soon to your area. Choose Farm Pickup for now.', false);
+    } else {
+      showZipResult('Sorry, we don\'t deliver to that ZIP yet. Please choose Farm Pickup or Shipping.', false);
+    }
+  } catch(e) {
+    showZipResult('Could not check ZIP. Please try again.', false);
+  }
+}
+function showZipResult(msg, ok) {
+  const el = document.getElementById('zip-result');
+  el.textContent = msg;
+  el.className = 'zip-result ' + (ok ? 'success' : 'error');
+}
+
+async function applyPromo() {
+  const code  = (document.getElementById('f-promo').value || '').trim().toUpperCase();
+  const email = (document.getElementById('f-email').value || '').trim();
+  const resEl = document.getElementById('promo-result');
+  if (!code) { resEl.style.display = 'none'; return; }
+  resEl.style.display = 'block';
+  resEl.style.color = '#6b7280';
+  resEl.textContent = 'Checking…';
+  try {
+    const r = await fetch('/api/validate-promo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, email }),
+    });
+    const d = await r.json();
+    if (d.valid) {
+      _promoCode = code;
+      _discountPct = d.discount_pct || 10;
+      resEl.style.color = '#15803d';
+      resEl.textContent = '✓ ' + (d.message || `${_discountPct}% off applied!`);
+    } else {
+      _promoCode = null;
+      _discountPct = 0;
+      _discountAmt = 0;
+      resEl.style.color = '#c0392b';
+      resEl.textContent = d.message || 'Invalid promo code.';
+    }
+    updateSummaryTotals();
+  } catch(e) {
+    resEl.style.color = '#c0392b';
+    resEl.textContent = 'Could not validate code. Please try again.';
+  }
+}
+
+function updateSummaryTotals() {
+  const sub = SolCart.getSubtotal();
+
+  // Calculate discount
+  _discountAmt = _promoCode && _discountPct > 0 ? parseFloat((sub * _discountPct / 100).toFixed(2)) : 0;
+  const discountedSub = parseFloat((sub - _discountAmt).toFixed(2));
+
+  const discountRow = document.getElementById('cs-discount-row');
+  const discountVal  = document.getElementById('cs-discount-val');
+  if (_discountAmt > 0) {
+    discountRow.style.display = 'flex';
+    discountVal.textContent = '-' + fmt(_discountAmt);
+  } else {
+    discountRow.style.display = 'none';
+  }
+
+  if (_fulfillment==='ship' && discountedSub >= 25) { _shippingFee = 0; updateShippingLabel(); }
+  const fee = _fulfillment==='delivery' ? _deliveryFee : (_fulfillment==='ship' ? _shippingFee : 0);
+  document.getElementById('cs-subtotal').textContent = fmt(sub);
+  document.getElementById('cs-total').textContent = fmt(discountedSub + fee);
+}
+
+function renderSummary() {
+  const items = SolCart.getItems();
+  if (!items.length) {
+    document.getElementById('checkout-empty').style.display = 'block';
+    document.getElementById('checkout-content').style.display = 'none';
+    return;
+  }
+  document.getElementById('checkout-empty').style.display = 'none';
+  document.getElementById('checkout-content').style.display = 'grid';
+
+  document.getElementById('cs-items').innerHTML = items.map(item => {
+    const lineTotal = SolCart.getItemTotal ? SolCart.getItemTotal(item) : parseFloat(item.price) * (item.qty||1);
+    const imgHtml = item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" />` : '';
+    const addonMeta = (item.floral && item.floralAddons && item.floralAddons.length)
+      ? item.floralAddons.map(a => {
+          const label = a.name + (a.option_selected ? ` – ${a.option_selected}` : '') + (a.quantity > 1 ? ` ×${a.quantity}` : '');
+          return `<div class="cs-item-meta">+ ${label} <span style="color:var(--green)">+$${(parseFloat(a.price||0)*(a.quantity||1)).toFixed(2)}</span></div>`;
+        }).join('')
+      : '';
+    return `<div class="cs-item">
+      <div class="cs-item-img">${imgHtml}</div>
+      <div class="cs-item-info">
+        <div class="cs-item-name">${item.name}</div>
+        <div class="cs-item-meta">Qty: ${item.qty||1}</div>
+        ${item.notes ? `<div class="cs-item-meta" style="font-style:italic">"${item.notes}"</div>` : ''}
+        ${addonMeta}
+      </div>
+      <div class="cs-item-price">${fmt(lineTotal)}</div>
+    </div>`;
+  }).join('');
+  updateSummaryTotals();
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-banner');
+  el.textContent = msg; el.style.display = 'block';
+  el.scrollIntoView({ behavior:'smooth', block:'center' });
+}
+function hideError() { document.getElementById('error-banner').style.display = 'none'; }
+
+async function submitCheckout(e) {
+  e.preventDefault();
+  hideError();
+
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const notes = document.getElementById('f-notes').value.trim();
+
+  if (!name) { showError('Please enter your full name.'); return; }
+  if (!email || !email.includes('@')) { showError('Please enter a valid email address.'); return; }
+
+  let shippingAddress = null, shippingCity = null, shippingState = 'GA', shippingZip = null;
+  let deliveryZip = null, deliveryFee = 0;
+
+  if (_fulfillment === 'ship') {
+    shippingAddress = document.getElementById('f-address').value.trim();
+    shippingCity    = document.getElementById('f-city').value.trim();
+    shippingState   = document.getElementById('f-state').value.trim();
+    shippingZip     = document.getElementById('f-zip').value.trim();
+    if (!shippingAddress || !shippingCity || !shippingZip) {
+      showError('Please fill in your shipping address.'); return;
+    }
+    _shippingFee = SolCart.getSubtotal() >= 25 ? 0 : 4.79;
+  } else if (_fulfillment === 'delivery') {
+    if (!_deliveryZip) { showError('Please enter and check your delivery ZIP code.'); return; }
+    deliveryZip = _deliveryZip;
+    deliveryFee = _deliveryFee;
+  }
+
+  const items = SolCart.getItems();
+  if (!items.length) { showError('Your cart is empty.'); return; }
+
+  const subtotal = SolCart.getSubtotal();
+  const discount = _promoCode && _discountPct > 0 ? parseFloat((subtotal * _discountPct / 100).toFixed(2)) : 0;
+  const discountedSubtotal = parseFloat((subtotal - discount).toFixed(2));
+  const fee = _fulfillment==='delivery' ? deliveryFee : (_fulfillment==='ship' ? _shippingFee : 0);
+  const total = discountedSubtotal + fee;
+
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  btn.innerHTML = `<svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;animation:spin 1s linear infinite" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10"/></svg> Processing…`;
+
+  // Inject spin animation if not present
+  if (!document.getElementById('spin-css')) {
+    const s = document.createElement('style');
+    s.id = 'spin-css';
+    s.textContent = '@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}';
+    document.head.appendChild(s);
+  }
+
+  try {
+    const payload = {
+      customer_name: name,
+      customer_email: email,
+      customer_phone: phone || null,
+      fulfillment_type: _fulfillment,
+      shipping_address: shippingAddress,
+      shipping_city: shippingCity,
+      shipping_state: shippingState,
+      shipping_zip: shippingZip,
+      delivery_zip: deliveryZip,
+      delivery_fee: deliveryFee,
+      shipping_fee: _shippingFee,
+      subtotal: discountedSubtotal,
+      total_price: total,
+      items: items.map(i => ({ slug:i.slug, name:i.name, price:i.price, qty:i.qty||1, notes:i.notes||'' })),
+      notes: notes || null,
+      promo_code: _promoCode || null,
+    };
+
+    const res = await fetch('/api/sol/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+
+    const fulfillmentParam = _fulfillment === 'ship' ? '&fulfillment=ship' : '';
+    if (data.checkout_url) {
+      SolCart.clear();
+      window.location.href = data.checkout_url;
+    } else if (data.redirect_url) {
+      SolCart.clear();
+      window.location.href = data.redirect_url + fulfillmentParam;
+    } else if (data.success) {
+      SolCart.clear();
+      window.location.href = `/sol/order-confirmed?order=${data.order_number}${fulfillmentParam}`;
+    } else {
+      showError(data.message || 'Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.innerHTML = `<svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Place Order &amp; Pay Securely`;
+    }
+  } catch(err) {
+    showError('Connection error. Please check your internet and try again.');
+    btn.disabled = false;
+    btn.innerHTML = `<svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Place Order &amp; Pay Securely`;
+  }
+}
+
+renderSummary();
+</script>
+</body>
+</html>

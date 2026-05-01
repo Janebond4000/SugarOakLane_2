@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banquets + Special Occasions — Sugar Oak Lane</title>
+  <meta name="description" content="Farm-fresh flowers for corporate events, fundraisers, galas, showers, and every special occasion in between. Locally grown, farm-direct." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<div id="announce-bar">
+  🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="header-icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link active">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a></div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div>
+    </div>
+  </nav>
+</header>
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /><button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a><a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events" class="active-drawer">Banquets + Special Occasions</a><a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog">Blog</a><a href="/about">Our Story</a><a href="/contact">Contact Us</a>
+  </div>
+</nav>
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner"><div class="search-row"><svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" /><button class="search-close-btn" onclick="closeSearch()">&times;</button></div></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero hero-slate" data-hero-text="Events">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Beyond Weddings</div>
+    <h1 class="hero-headline">Banquets + Special Occasions</h1>
+    <p class="hero-subtitle">Corporate events, fundraisers, dinner parties, galas, showers, and celebrations of all kinds. Farm-fresh flowers for every occasion.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section-white section-pad">
+  <div class="container">
+    <div class="content-split" style="align-items:start;">
+      <div>
+        <h2 class="section-title">Every gathering <em>deserves flowers.</em></h2>
+        <p style="line-height:1.85;color:var(--text-md);margin-bottom:20px;">We've done flowers for weddings, yes. But also birthday galas, corporate dinners, fundraising events, bridal showers, baby showers, holiday parties, and retirement celebrations. The common thread: clients who want flowers that feel genuine, not generic. Farm-grown flowers carry a story. They look different from mass-market arrangements — more textured, more seasonal, more alive. And when guests ask where the flowers came from, there's an actual answer.</p>
+        <p style="line-height:1.85;color:var(--text-md);">We work with event planners, venue coordinators, and individuals planning private celebrations. We can do everything from a single statement table arrangement to complete floral decor for a 300-person gala. Tell us what you're envisioning and we'll tell you honestly what we can do.</p>
+      </div>
+      <div>
+        <div class="product-card-placeholder grad-sky" style="aspect-ratio:4/3;border-radius:8px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-linen section-pad">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">What We <em>Do for Events</em></h2>
+    </div>
+    <div class="info-grid-3" style="gap:24px;">
+      <div class="info-card">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <div class="info-card-title">Corporate Events</div>
+        <div class="info-card-text">Conference centerpieces, reception arrangements, and branded color palettes for product launches and brand events. Invoiced to business. We can coordinate directly with your event team.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <div class="info-card-title">Social Celebrations</div>
+        <div class="info-card-text">Birthday parties, bridal showers, baby showers, anniversary dinners. Flowers that feel personal and intentional — not hotel-lobby generic. We'll work around your color palette and theme.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="info-card-title">Galas + Fundraisers</div>
+        <div class="info-card-text">Large-scale statement florals for fundraising events, charity galas, and formal dinners. We can work directly with venue and event planner teams to coordinate delivery and setup.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PLACEHOLDERS -->
+<section class="section-white section-pad-sm">
+  <div class="container">
+    <div class="section-header centered">
+      <div class="section-label">Recent Work</div>
+      <h2 class="section-title">From the <em>Field to the Table</em></h2>
+    </div>
+    <div class="info-grid-3" style="gap:20px;">
+      <div style="border-radius:8px;overflow:hidden;">
+        <div class="product-card-placeholder grad-sage" style="aspect-ratio:4/3;"></div>
+        <div style="padding:14px 4px 4px;font-size:14px;color:var(--text-md);font-style:italic;">Vineyard Dinner / 2025</div>
+      </div>
+      <div style="border-radius:8px;overflow:hidden;">
+        <div class="product-card-placeholder grad-blush" style="aspect-ratio:4/3;"></div>
+        <div style="padding:14px 4px 4px;font-size:14px;color:var(--text-md);font-style:italic;">Charity Gala / 2025</div>
+      </div>
+      <div style="border-radius:8px;overflow:hidden;">
+        <div class="product-card-placeholder grad-sky" style="aspect-ratio:4/3;"></div>
+        <div style="padding:14px 4px 4px;font-size:14px;color:var(--text-md);font-style:italic;">Corporate Holiday / 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="section-linen section-pad">
+  <div class="container-sm">
+    <div class="section-header centered">
+      <div class="section-label">Start the Conversation</div>
+      <h2 class="section-title">Tell Us <em>About Your Event</em></h2>
+      <p class="section-subtitle">We'll follow up within 2 business days with availability and a custom quote.</p>
+    </div>
+    <div class="form-wrap">
+      <form id="events-form-el">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ev-name">Your Name</label>
+            <input type="text" id="ev-name" name="name" placeholder="Full name" required />
+          </div>
+          <div class="form-field">
+            <label for="ev-email">Email Address</label>
+            <input type="email" id="ev-email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ev-type">Event Type</label>
+            <select id="ev-type" name="event_type">
+              <option value="">Select event type...</option>
+              <option value="corporate">Corporate Event / Conference</option>
+              <option value="gala">Gala / Fundraiser</option>
+              <option value="birthday">Birthday Celebration</option>
+              <option value="shower">Bridal or Baby Shower</option>
+              <option value="anniversary">Anniversary Dinner</option>
+              <option value="holiday">Holiday Party</option>
+              <option value="retirement">Retirement Celebration</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="ev-date">Event Date</label>
+            <input type="date" id="ev-date" name="event_date" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="ev-location">Location / Venue</label>
+            <input type="text" id="ev-location" name="location" placeholder="Venue name and city" />
+          </div>
+          <div class="form-field">
+            <label for="ev-guests">Expected Guest Count</label>
+            <input type="number" id="ev-guests" name="guest_count" placeholder="Approximate number of guests" min="1" />
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label for="ev-budget">Floral Budget</label>
+            <select id="ev-budget" name="budget">
+              <option value="">Select a budget range...</option>
+              <option value="under_500">Under $500</option>
+              <option value="500_1500">$500 – $1,500</option>
+              <option value="1500_3k">$1,500 – $3,000</option>
+              <option value="3k_plus">$3,000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row full">
+          <div class="form-field">
+            <label for="ev-desc">Tell Us About Your Event</label>
+            <textarea id="ev-desc" name="description" rows="5" placeholder="Describe the event, the look you're going for, any specific flowers or colors in mind, and anything else that would help us understand your vision."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" id="events-submit-btn" class="hero-cta" style="border:none;cursor:pointer;">Submit Inquiry</button>
+        </div>
+      </form>
+      <div id="events-success" class="form-success show" style="display:none;">
+        Thank you for reaching out! We'll review your event details and follow up within 2 business days.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer"><div class="container"><div class="footer-top">
+  <div><img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div><p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p><div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a></div></div>
+  <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+  <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+  <div><div class="footer-nl-title">Stay in Touch</div><p class="footer-nl-desc">Fresh blooms, seasonal updates, and farm stories delivered to your inbox.</p><form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)"><input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" /><button class="footer-nl-btn" type="submit" id="footer-nl-btn">Subscribe</button></form><div class="footer-nl-success" id="footer-nl-success">You're on the list! Welcome to the farm family.</div></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+document.getElementById('events-form-el').addEventListener('submit',async function(e){e.preventDefault();const btn=document.getElementById('events-submit-btn');btn.textContent='Sending...';btn.disabled=true;await new Promise(r=>setTimeout(r,800));document.getElementById('events-form-el').style.display='none';document.getElementById('events-success').style.display='block';});
+</script>
+</body>
+</html>

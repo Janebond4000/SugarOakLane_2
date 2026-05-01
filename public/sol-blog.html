@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Sugar Oak Lane — Farm Stories, Growing Guides &amp; Flower Inspiration</title>
+  <meta name="description" content="Growing guides, farm updates, and flower-forward inspiration from Sugar Oak Lane — a specialty cut flower farm in Loganville, Georgia." />
+  <meta name="keywords" content="flower farm blog, growing guides Georgia, dahlia growing tips, cut flower farming, farm stories Loganville, heirloom seed guides" />
+  <link rel="canonical" href="https://sugaroakos.polsia.app/blog" />
+  <meta property="og:title" content="Blog | Sugar Oak Lane — Farm Stories, Growing Guides &amp; Flower Inspiration" />
+  <meta property="og:description" content="Farm stories, growing guides, and flower-forward inspiration — straight from our fields in Loganville, GA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sugaroakos.polsia.app/blog" />
+  <meta property="og:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta property="og:site_name" content="Sugar Oak Lane" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog | Sugar Oak Lane — Farm Stories, Growing Guides &amp; Flower Inspiration" />
+  <meta name="twitter:description" content="Farm stories, growing guides, and flower-forward inspiration — straight from our fields in Loganville, GA." />
+  <meta name="twitter:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── DESIGN TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --white:      #FFFFFF;
+      --linen:      #FEFDF8;
+      --linen-dk:   #F5F0E8;
+      --linen-md:   #EDE7DC;
+      --green:      #3A5A40;
+      --green-dk:   #2C4730;
+      --green-lt:   #4D7A55;
+      --green-bg:   #EDF3EE;
+      --text:       #1A1A1A;
+      --text-md:    #6A6260;
+      --text-lt:    #9A9490;
+      --border:     #DDD8CC;
+      --border-lt:  #EEEBE3;
+      --shadow:     0 1px 10px rgba(26,26,26,0.05);
+      --shadow-md:  0 4px 20px rgba(26,26,26,0.08);
+      --shadow-lg:  0 8px 32px rgba(26,26,26,0.10);
+      --max-w:      1280px;
+      /* ─── PINK ACCENTS ─── */
+      --pink:       #E8A0AE;
+      --pink-dk:    #C0607A;
+      --pink-bg:    #FDF2F5;
+      --pink-lt:    #FAEEF2;
+      --pink-mid:   #F0C0CC;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ─── HEADER ─────────────────────────────────────────────────────────── */
+    #header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      transition: box-shadow 0.2s;
+    }
+    #header.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+      height: 80px;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .header-side { display: flex; align-items: center; gap: 6px; min-width: 140px; }
+    .header-side.right { justify-content: flex-end; }
+    .header-icon-btn {
+      background: none; border: none; padding: 8px;
+      color: var(--text); display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.2s; cursor: pointer; border-radius: 4px;
+    }
+    .header-icon-btn:hover { opacity: 0.55; }
+    .header-icon-btn svg { width: 19px; height: 19px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+    .header-logo-wrap { flex: 1; display: flex; align-items: center; justify-content: center; }
+    .header-logo-wrap a { display: flex; align-items: center; justify-content: center; }
+    .header-logo-wrap img { height: 56px; width: auto; object-fit: contain; }
+    .hamburger-btn { display: none; background: none; border: none; padding: 8px; color: var(--text); cursor: pointer; }
+    .hamburger-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+    .header-nav { display: flex; align-items: center; justify-content: center; padding: 0 24px; height: 46px; }
+    .nav-link {
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text); padding: 0 16px; height: 46px; display: flex; align-items: center;
+      transition: color 0.2s; position: relative; white-space: nowrap;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 16px; right: 16px; height: 2px;
+      background: var(--green); transform: scaleX(0); transition: transform 0.25s ease;
+    }
+    .nav-link:hover { color: var(--green); }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link.active { color: var(--green); }
+    .nav-link.active::after { transform: scaleX(1); }
+    .nav-item { position: relative; display: flex; align-items: center; height: 46px; }
+    .nav-link .nav-arrow { width: 8px; height: 8px; transition: transform 0.2s; margin-left: 4px; flex-shrink: 0; }
+    .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+    .nav-dropdown {
+      position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: var(--white); border: 1px solid var(--border-lt); box-shadow: var(--shadow-md);
+      min-width: 240px; padding: 10px 0; opacity: 0; visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s; z-index: 300;
+    }
+    .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; }
+    .nav-dropdown a {
+      display: block; padding: 10px 24px; font-size: 12px; font-weight: 500;
+      letter-spacing: 0.06em; color: var(--text); transition: background 0.15s, color 0.15s; white-space: nowrap;
+    }
+    .nav-dropdown a:hover { background: var(--linen); color: var(--green); }
+
+    /* ─── MOBILE DRAWER ─────────────────────────────────────────────────── */
+    #drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 500; }
+    #drawer-overlay.open { display: block; }
+    #mobile-drawer {
+      position: fixed; top: 0; left: 0; bottom: 0; width: min(340px, 85vw);
+      background: var(--white); z-index: 600; transform: translateX(-100%);
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); display: flex; flex-direction: column; overflow-y: auto;
+    }
+    #mobile-drawer.open { transform: translateX(0); }
+    .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border-lt); }
+    .drawer-head img { height: 38px; }
+    .drawer-close { background: none; border: none; font-size: 26px; color: var(--text-md); line-height: 1; padding: 4px; cursor: pointer; }
+    .drawer-nav { padding: 12px 0; flex: 1; }
+    .drawer-nav a {
+      display: block; padding: 14px 24px; font-size: 12px; letter-spacing: 0.12em;
+      text-transform: uppercase; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--border-lt);
+      transition: background 0.15s, color 0.15s;
+    }
+    .drawer-nav a:hover { background: var(--linen); color: var(--green); }
+    .drawer-nav a.active-drawer { color: var(--green); background: var(--green-bg); }
+    .drawer-section-label { padding: 16px 24px 8px; font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-lt); font-weight: 700; }
+
+    /* ─── SEARCH OVERLAY ────────────────────────────────────────────────── */
+    #search-overlay { display: none; position: fixed; inset: 0; background: rgba(255,255,255,0.96); z-index: 700; align-items: flex-start; justify-content: center; padding-top: 80px; }
+    #search-overlay.open { display: flex; }
+    .search-inner { width: min(600px, 90vw); }
+    .search-row { display: flex; align-items: center; border-bottom: 2px solid var(--text); gap: 12px; padding-bottom: 12px; }
+    .search-row input { flex: 1; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-style: italic; border: none; outline: none; background: transparent; color: var(--text); }
+    .search-row input::placeholder { color: var(--text-lt); }
+    .search-close-btn { background: none; border: none; font-size: 28px; color: var(--text-md); cursor: pointer; line-height: 1; padding: 4px; }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+    /* ─── PAGE HERO ──────────────────────────────────────────────────────── */
+    #page-hero {
+      background: linear-gradient(160deg, #2C4730 0%, #3A5A40 45%, #4D7A55 100%);
+      padding: 72px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #page-hero::before {
+      content: 'The Blog';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: clamp(100px, 16vw, 240px); font-weight: 300;
+      color: rgba(255,255,255,0.04); white-space: nowrap; letter-spacing: -0.02em;
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .hero-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+    .hero-eyebrow { font-size: 10.5px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+    .hero-headline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.05; color: #fff; margin-bottom: 20px; letter-spacing: -0.01em; }
+    .hero-subtitle { font-size: 15px; color: rgba(255,255,255,0.78); letter-spacing: 0.03em; line-height: 1.7; max-width: 500px; margin: 0 auto; }
+
+    /* ─── BLOG LISTING ───────────────────────────────────────────────────── */
+    #blog-listing { padding: 72px 0 100px; background: var(--linen); }
+
+    /* Two-pane layout: posts grid + sidebar */
+    .blog-with-sidebar {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 44px;
+      align-items: start;
+    }
+    .blog-main { min-width: 0; }
+
+    /* ─── BLOG GRID ─────────────────────────────────────────────────────── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .blog-card {
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-5px); }
+    .blog-img-wrap { aspect-ratio: 16/9; overflow: hidden; position: relative; background: var(--linen-dk); }
+    .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .blog-card:hover .blog-img-wrap img { transform: scale(1.05); }
+    .blog-card:hover .blog-img-placeholder { transform: scale(1.05); }
+    .blog-img-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; transition: transform 0.5s ease; }
+    .blog-img-svg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .blog-img-svg svg { width: 48px; height: 48px; opacity: 0.2; fill: none; stroke: #fff; stroke-width: 1; }
+    .blog-body { padding: 22px 22px 26px; flex: 1; display: flex; flex-direction: column; }
+    .blog-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .blog-cat { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink-dk); }
+    .blog-meta-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-lt); flex-shrink: 0; }
+    .blog-date { font-size: 11px; color: var(--text-lt); }
+    .blog-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; line-height: 1.25; color: var(--text); margin-bottom: 12px; transition: color 0.2s; }
+    .blog-card:hover .blog-title { color: var(--green); }
+    .blog-excerpt { font-size: 13px; color: var(--text-md); line-height: 1.7; flex: 1; margin-bottom: 20px; }
+    .blog-read-more {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--pink-dk); display: inline-flex; align-items: center; gap: 6px;
+      width: fit-content; border-bottom: 1.5px solid transparent; padding-bottom: 1px;
+      transition: border-color 0.2s, gap 0.2s;
+    }
+    .blog-card:hover .blog-read-more { border-color: var(--pink-dk); gap: 10px; }
+
+    /* ─── INLINE BANNERS ────────────────────────────────────────────────── */
+    .blog-banner {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 28px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-banner-pink { background: var(--pink-bg); border: 1px solid var(--pink-mid); }
+    .blog-banner-green { background: var(--green-bg); border: 1px solid rgba(58,90,64,0.2); }
+    .blog-banner-content { flex: 1; }
+    .blog-banner-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--pink-dk); margin-bottom: 8px;
+    }
+    .blog-banner-green .blog-banner-label { color: var(--green); }
+    .blog-banner-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: var(--text); line-height: 1.2; margin-bottom: 7px; }
+    .blog-banner-desc { font-size: 13px; color: var(--text-md); line-height: 1.65; }
+    .blog-banner-action { flex-shrink: 0; }
+    .blog-banner-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; border: none; cursor: pointer; transition: background 0.2s, transform 0.2s; white-space: nowrap;
+    }
+    .blog-banner-btn:hover { transform: translateY(-1px); }
+    .blog-banner-btn-pink { background: var(--pink-dk); color: #fff; }
+    .blog-banner-btn-pink:hover { background: var(--pink); }
+    .blog-banner-btn-green { background: var(--green); color: #fff; }
+    .blog-banner-btn-green:hover { background: var(--green-dk); }
+    .blog-banner-email-row { display: flex; gap: 8px; margin-top: 12px; }
+    .blog-banner-email-input {
+      flex: 1; padding: 9px 12px; border: 1px solid var(--pink-mid); font-family: 'Inter', sans-serif;
+      font-size: 13px; background: var(--white); color: var(--text); outline: none; transition: border-color 0.2s;
+    }
+    .blog-banner-email-input:focus { border-color: var(--pink-dk); }
+    .blog-banner-email-input::placeholder { color: var(--text-lt); }
+
+    /* ─── SIDEBAR ────────────────────────────────────────────────────────── */
+    .blog-sidebar {
+      position: sticky;
+      top: 110px;
+      max-height: calc(100vh - 130px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .blog-sidebar::-webkit-scrollbar { width: 3px; }
+    .blog-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .blog-sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .sidebar-widget { background: var(--white); border: 1px solid var(--border-lt); padding: 20px; }
+    .sidebar-widget.pink-bg { background: var(--pink-lt); border-color: var(--pink-mid); }
+    .sidebar-widget.green-bg { background: var(--green-bg); border-color: rgba(58,90,64,0.18); }
+
+    .sidebar-widget-hd {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 16px; padding-bottom: 11px;
+      border-bottom: 2px solid var(--pink); display: flex; align-items: center; gap: 7px;
+    }
+    .sidebar-widget-hd svg { width: 13px; height: 13px; stroke: var(--pink-dk); fill: none; stroke-width: 2.2; flex-shrink: 0; }
+    .sidebar-widget.pink-bg .sidebar-widget-hd { color: var(--pink-dk); border-bottom-color: var(--pink-mid); }
+    .sidebar-widget.green-bg .sidebar-widget-hd { color: var(--green-dk); border-bottom-color: var(--green-lt); }
+    .sidebar-widget.pink-bg .sidebar-widget-hd svg { stroke: var(--pink-dk); }
+    .sidebar-widget.green-bg .sidebar-widget-hd svg { stroke: var(--green); }
+
+    /* Search widget */
+    .sidebar-search-wrap { position: relative; }
+    .sidebar-search-input {
+      width: 100%; padding: 10px 36px 10px 12px;
+      border: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 13px;
+      color: var(--text); background: var(--linen); outline: none; transition: border-color 0.2s;
+    }
+    .sidebar-search-input:focus { border-color: var(--green); background: var(--white); }
+    .sidebar-search-input::placeholder { color: var(--text-lt); }
+    .sidebar-search-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+    .sidebar-search-icon svg { width: 15px; height: 15px; stroke: var(--text-lt); fill: none; stroke-width: 1.8; }
+    .search-clear-btn {
+      margin-top: 8px; font-size: 11px; color: var(--text-lt); background: none; border: none;
+      cursor: pointer; padding: 0; display: none; transition: color 0.2s;
+    }
+    .search-clear-btn:hover { color: var(--green); }
+    .search-no-results { display: none; font-size: 12.5px; color: var(--text-lt); margin-top: 8px; font-style: italic; }
+
+    /* Blooming now */
+    .blooming-season { font-size: 10.5px; color: var(--pink-dk); font-weight: 600; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .blooming-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+    .blooming-chip {
+      background: var(--white); border: 1px solid var(--pink-mid); padding: 8px 7px;
+      font-size: 11px; color: var(--text-md); font-weight: 500; text-align: center; line-height: 1.35;
+    }
+    .blooming-chip .bloom-em { font-size: 15px; display: block; margin-bottom: 2px; }
+    .blooming-note { font-size: 11.5px; color: var(--text-lt); margin-top: 12px; line-height: 1.6; font-style: italic; }
+
+    /* Planting guide */
+    .planting-month {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 7px 0; border-bottom: 1px solid var(--border-lt); font-size: 12px;
+    }
+    .planting-month:last-child { border-bottom: none; padding-bottom: 0; }
+    .planting-month-name { font-weight: 700; font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); min-width: 28px; padding-top: 2px; }
+    .planting-month-action { color: var(--text-md); line-height: 1.5; font-size: 11.5px; flex: 1; }
+    .planting-current .planting-month-name { color: var(--pink-dk); }
+    .planting-current .planting-month-action { color: var(--text); font-weight: 500; }
+    .planting-current { background: var(--pink-lt); margin: 0 -4px; padding: 7px 4px; }
+
+    /* Templates */
+    .template-item { display: flex; align-items: center; gap: 11px; padding: 9px 0; border-bottom: 1px solid var(--border-lt); }
+    .template-item:last-of-type { border-bottom: none; margin-bottom: 13px; }
+    .template-icon { width: 34px; height: 34px; background: var(--white); border: 1px solid var(--pink-mid); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .template-icon svg { width: 15px; height: 15px; stroke: var(--pink-dk); fill: none; stroke-width: 1.8; }
+    .template-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.4; }
+    .template-sub { font-size: 10.5px; color: var(--text-lt); }
+    .sidebar-email-input { width: 100%; padding: 9px 12px; border: 1px solid var(--border); font-family: 'Inter', sans-serif; font-size: 12.5px; color: var(--text); background: var(--white); outline: none; margin-bottom: 7px; transition: border-color 0.2s; }
+    .sidebar-email-input:focus { border-color: var(--pink-dk); }
+    .sidebar-email-input::placeholder { color: var(--text-lt); }
+    .sidebar-email-btn { width: 100%; padding: 10px 16px; border: none; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+    .sidebar-email-btn-pink { background: var(--pink-dk); color: #fff; }
+    .sidebar-email-btn-pink:hover { background: var(--pink); }
+    .sidebar-email-btn-green { background: var(--green); color: #fff; }
+    .sidebar-email-btn-green:hover { background: var(--green-dk); }
+    .sidebar-email-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .sidebar-success { display: none; font-size: 12.5px; color: var(--green-dk); line-height: 1.6; margin-top: 6px; }
+    .sidebar-success.pink { color: var(--pink-dk); }
+
+    /* Popular posts */
+    .popular-post-item { display: flex; align-items: flex-start; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border-lt); transition: opacity 0.2s; }
+    .popular-post-item:last-child { border-bottom: none; }
+    .popular-post-item:hover { opacity: 0.7; }
+    .popular-post-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--pink); line-height: 1; min-width: 26px; text-align: center; padding-top: 1px; }
+    .popular-post-info { flex: 1; }
+    .popular-post-title { font-size: 12.5px; font-weight: 500; color: var(--text); line-height: 1.45; }
+    .popular-post-cat { font-size: 10px; color: var(--text-lt); margin-top: 2px; }
+
+    /* Workshops */
+    .workshop-item { padding: 9px 0; border-bottom: 1px solid var(--border-lt); }
+    .workshop-item:last-of-type { border-bottom: none; margin-bottom: 12px; }
+    .workshop-date { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink-dk); margin-bottom: 3px; }
+    .workshop-name { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; }
+    .workshop-spots { font-size: 11px; color: var(--text-lt); margin-top: 2px; }
+    .sidebar-link-btn {
+      display: block; text-align: center; padding: 10px; background: var(--white);
+      border: 1px solid var(--pink-mid); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink-dk);
+      transition: background 0.2s, color 0.2s;
+    }
+    .sidebar-link-btn:hover { background: var(--pink-dk); color: #fff; }
+    .sidebar-link-btn-green { border-color: rgba(58,90,64,0.3); color: var(--green); }
+    .sidebar-link-btn-green:hover { background: var(--green); color: #fff; }
+
+    /* ─── LOAD MORE ──────────────────────────────────────────────────────── */
+    #blog-load-more-btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 13px 36px;
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--green); border: 1.5px solid var(--green); background: transparent; cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    #blog-load-more-btn:hover { background: var(--green); color: #fff; }
+    #blog-load-more-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────────── */
+    #footer { background: var(--green-dk); color: rgba(255,255,255,0.85); padding: 72px 0 0; }
+    .footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1.4fr; gap: 40px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand-logo { height: 46px; width: auto; object-fit: contain; filter: brightness(0) invert(1); margin-bottom: 20px; }
+    .footer-brand-wordmark { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #fff; letter-spacing: 0.06em; margin-bottom: 20px; }
+    .footer-brand-desc { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.55); margin-bottom: 24px; max-width: 280px; }
+    .footer-contact { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 24px; }
+    .footer-contact a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .footer-contact a:hover { color: #fff; }
+    .footer-social { display: flex; gap: 10px; }
+    .footer-social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s; }
+    .footer-social a:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+    .footer-social svg { width: 16px; height: 16px; }
+    .footer-col-title { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #fff; margin-bottom: 20px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; font-size: 11.5px; color: rgba(255,255,255,0.35); flex-wrap: wrap; gap: 12px; }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.65); }
+    .footer-nl-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: #fff; line-height: 1.25; margin-bottom: 10px; }
+    .footer-nl-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-bottom: 20px; }
+    .footer-nl-form { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nl-input { width: 100%; padding: 12px 16px; font-family: 'Inter', sans-serif; font-size: 13px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.06); color: #fff; outline: none; transition: border-color 0.2s; }
+    .footer-nl-input:focus { border-color: rgba(255,255,255,0.5); }
+    .footer-nl-input::placeholder { color: rgba(255,255,255,0.35); }
+    .footer-nl-btn { padding: 12px 20px; background: #fff; color: var(--green-dk); border: none; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, opacity 0.2s; white-space: nowrap; }
+    .footer-nl-btn:hover { background: var(--linen); }
+    .footer-nl-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .footer-nl-success { display: none; color: rgba(255,255,255,0.8); font-size: 13px; line-height: 1.6; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .blog-with-sidebar { grid-template-columns: 1fr 260px; gap: 28px; }
+    }
+    @media (max-width: 900px) {
+      .blog-with-sidebar { grid-template-columns: 1fr; }
+      .blog-sidebar { position: static; max-height: none; overflow-y: visible; }
+      .footer-top { grid-template-columns: 1fr 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 768px) {
+      .header-top { padding: 0 20px; height: 68px; }
+      .header-logo-wrap img { height: 44px; }
+      .header-nav { display: none; }
+      .hamburger-btn { display: flex; }
+      .container { padding: 0 20px; }
+      #page-hero { padding: 56px 20px 64px; }
+      .hero-headline { font-size: 48px; }
+      .blog-banner { flex-direction: column; gap: 16px; }
+      .blog-banner-action { width: 100%; }
+      .blog-banner-btn { width: 100%; justify-content: center; }
+      .blog-banner-email-row { flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      #page-hero { padding: 48px 16px 56px; }
+      .hero-headline { font-size: 40px; }
+      .blog-body { padding: 20px 20px 24px; }
+      #blog-listing { padding: 56px 0 72px; }
+      .blooming-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    /* CWV: Touch target minimums */
+    @media (max-width: 768px) {
+      .header-icon-btn { min-width: 44px; min-height: 44px; }
+      .hamburger-btn { min-width: 44px; min-height: 44px; }
+      .drawer-nav a { min-height: 44px; display: flex; align-items: center; }
+      .drawer-close { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+    }
+    /* Prevent horizontal scroll */
+    html, body { overflow-x: hidden; }
+  </style>
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<!-- ─── HEADER ─────────────────────────────────────────────────────────────── -->
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="header-logo-wrap">
+      <a href="/" aria-label="Sugar Oak Lane Home">
+        <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:0.08em;color:var(--text)">Sugar Oak Lane</span>
+      </a>
+    </div>
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button class="header-icon-btn" aria-label="Shopping cart" onclick="window.location='/shop'">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/weddings">Weddings</a>
+        <a href="/weddings/diy">DIY Wedding Flowers</a>
+        <a href="/weddings/events">Banquets + Special Occasions</a>
+      </div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link active">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/about">Our Story</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ─── MOBILE DRAWER ──────────────────────────────────────────────────────── -->
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head">
+    <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" />
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop">Flower Shop</a>
+    <a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a>
+    <a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a>
+    <a href="/shop?cat=dahlias">Dahlias</a>
+    <a href="/shop?cat=farm-goods">Farm Goods + Gifts</a>
+    <a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a>
+    <a href="/weddings">Weddings</a>
+    <a href="/weddings/diy">DIY Wedding Flowers</a>
+    <a href="/weddings/events">Banquets + Special Occasions</a>
+    <a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog" class="active-drawer">Blog</a>
+    <a href="/about">Our Story</a>
+    <a href="/contact">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ─── SEARCH OVERLAY ─────────────────────────────────────────────────────── -->
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner">
+    <div class="search-row">
+      <svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" />
+      <button class="search-close-btn" onclick="closeSearch()" aria-label="Close search">&times;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─── PAGE HERO ──────────────────────────────────────────────────────────── -->
+<section id="page-hero" aria-label="Blog hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Farm Stories</div>
+    <h1 class="hero-headline">The Blog</h1>
+    <p class="hero-subtitle">Growing guides, farm updates, and flower-forward inspiration — straight from our fields.</p>
+  </div>
+</section>
+
+<!-- ─── BLOG LISTING ───────────────────────────────────────────────────────── -->
+<section id="blog-listing" aria-label="Blog posts">
+  <div class="container">
+    <div class="blog-with-sidebar">
+
+      <!-- ── MAIN CONTENT ─────────────────────────────────────────────── -->
+      <main class="blog-main">
+        <!-- ── CATEGORY FILTER TABS ──────────────────────────────────── -->
+        <div id="blog-filter-tabs" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;">
+          <button class="blog-filter-btn active" data-filter="all" onclick="setBlogFilter('all', this)" style="padding:7px 18px;border-radius:999px;border:1.5px solid var(--green-dk);background:var(--green-dk);color:#fff;font-size:12.5px;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:all 0.2s;">All Posts</button>
+          <button class="blog-filter-btn" data-filter="farm-stories" onclick="setBlogFilter('farm-stories', this)" style="padding:7px 18px;border-radius:999px;border:1.5px solid var(--border-md);background:transparent;color:var(--text-md);font-size:12.5px;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:all 0.2s;">Farm Stories</button>
+          <button class="blog-filter-btn" data-filter="growing-guides" onclick="setBlogFilter('growing-guides', this)" style="padding:7px 18px;border-radius:999px;border:1.5px solid var(--border-md);background:transparent;color:var(--text-md);font-size:12.5px;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:all 0.2s;">Growing Guides</button>
+          <button class="blog-filter-btn" data-filter="seasonal" onclick="setBlogFilter('seasonal', this)" style="padding:7px 18px;border-radius:999px;border:1.5px solid var(--border-md);background:transparent;color:var(--text-md);font-size:12.5px;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:all 0.2s;">Seasonal</button>
+          <button class="blog-filter-btn" data-filter="wedding" onclick="setBlogFilter('wedding', this)" style="padding:7px 18px;border-radius:999px;border:1.5px solid var(--border-md);background:transparent;color:var(--text-md);font-size:12.5px;font-weight:600;letter-spacing:0.04em;cursor:pointer;transition:all 0.2s;">Wedding &amp; Events</button>
+        </div>
+        <div class="blog-grid" id="blog-grid">
+          <div id="blog-loading" style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-lt);font-size:14px;">
+            Loading posts...
+          </div>
+        </div>
+
+        <!-- Load More -->
+        <div id="blog-load-more-wrap" style="display:none;text-align:center;margin-top:40px;">
+          <button id="blog-load-more-btn" onclick="loadMorePosts()">
+            Load More Posts <span aria-hidden="true">&darr;</span>
+          </button>
+        </div>
+        <div id="blog-post-count" style="text-align:center;margin-top:16px;font-size:11.5px;color:var(--text-lt);"></div>
+      </main>
+
+      <!-- ── SIDEBAR ──────────────────────────────────────────────────── -->
+      <aside class="blog-sidebar" id="blog-sidebar" aria-label="Blog sidebar">
+
+        <!-- 1. Blog Search -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Search Posts
+          </div>
+          <div class="sidebar-search-wrap">
+            <input type="text" class="sidebar-search-input" id="sidebar-search" placeholder="Search topics, flowers..." autocomplete="off" oninput="handleSidebarSearch(this.value)" />
+            <div class="sidebar-search-icon">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+          <button class="search-clear-btn" id="search-clear-btn" onclick="clearSidebarSearch()">Clear search &times;</button>
+          <div class="search-no-results" id="search-no-results">No posts found. Try a different keyword.</div>
+        </div>
+
+        <!-- 2. What's Blooming Now -->
+        <div class="sidebar-widget pink-bg">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            What's Blooming Now
+          </div>
+          <div class="blooming-season">April 2026 — Peak Spring</div>
+          <div class="blooming-grid">
+            <div class="blooming-chip"><span class="bloom-em">🌸</span>Ranunculus</div>
+            <div class="blooming-chip"><span class="bloom-em">🌿</span>Sweet Peas</div>
+            <div class="blooming-chip"><span class="bloom-em">🌺</span>Anemones</div>
+            <div class="blooming-chip"><span class="bloom-em">🌷</span>Tulips</div>
+            <div class="blooming-chip"><span class="bloom-em">💐</span>Stock</div>
+            <div class="blooming-chip"><span class="bloom-em">🌼</span>Poppies</div>
+          </div>
+          <p class="blooming-note">Dahlias start in July. Sign up below to get notified when they're available.</p>
+          <a href="/shop/flower-shop" class="sidebar-link-btn" style="display:block;text-align:center;margin-top:12px;padding:9px;background:var(--white);border:1px solid var(--pink-mid);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--pink-dk);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--pink-dk)';this.style.color='#fff'" onmouseout="this.style.background='var(--white)';this.style.color='var(--pink-dk)'">Shop Fresh Flowers &rarr;</a>
+        </div>
+
+        <!-- 3. Zone 7b Planting Guide -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Zone 7b Planting Guide
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Jan</div>
+            <div class="planting-month-action">Order seeds &amp; tubers. Plan your beds.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Feb</div>
+            <div class="planting-month-action">Direct sow larkspur &amp; poppies. Start snapdragons indoors.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Mar</div>
+            <div class="planting-month-action">Plant ranunculus &amp; anemone corms. Start zinnia seeds inside.</div>
+          </div>
+          <div class="planting-month planting-current">
+            <div class="planting-month-name">Apr ✦</div>
+            <div class="planting-month-action">Transplant sweet peas. Start dahlia tubers in pots.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">May</div>
+            <div class="planting-month-action">Plant dahlias after last frost (~May 1). Direct sow zinnias.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Jun</div>
+            <div class="planting-month-action">Stake dahlias. Succession sow sunflowers every 2 weeks.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Jul–Sep</div>
+            <div class="planting-month-action">Peak cutting season. Harvest daily to encourage blooms.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Oct</div>
+            <div class="planting-month-action">Dig dahlia tubers after frost. Plant spring bulbs.</div>
+          </div>
+          <div class="planting-month">
+            <div class="planting-month-name">Nov–Dec</div>
+            <div class="planting-month-action">Rest, reflect, and plan next year's garden.</div>
+          </div>
+          <a href="/blog/georgia-flower-farming-calendar" style="display:block;margin-top:14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);text-align:center;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Read the Full Calendar Guide &rarr;</a>
+        </div>
+
+        <!-- 4. Free Garden Templates -->
+        <div class="sidebar-widget pink-bg">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Free Garden Templates
+          </div>
+          <div class="template-item">
+            <div class="template-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div>
+              <div class="template-name">Garden Bed Planner</div>
+              <div class="template-sub">Zone 7b optimized · PDF</div>
+            </div>
+          </div>
+          <div class="template-item">
+            <div class="template-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div>
+              <div class="template-name">Succession Planting Calendar</div>
+              <div class="template-sub">April–October · PDF</div>
+            </div>
+          </div>
+          <div class="template-item">
+            <div class="template-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8 6 6 9 6 13a6 6 0 0 0 12 0c0-4-2-7-6-11z"/></svg></div>
+            <div>
+              <div class="template-name">Dahlia Variety Tracker</div>
+              <div class="template-sub">Name, color, height · PDF</div>
+            </div>
+          </div>
+          <input type="email" class="sidebar-email-input" id="tmpl-email" placeholder="Your email address" autocomplete="email" />
+          <button class="sidebar-email-btn sidebar-email-btn-pink" id="tmpl-btn" onclick="handleTemplateSubmit()">Get Free Templates</button>
+          <div class="sidebar-success pink" id="tmpl-success">Templates sent! Check your inbox.</div>
+        </div>
+
+        <!-- 5. Newsletter Signup -->
+        <div class="sidebar-widget green-bg">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Join the Farm Family
+          </div>
+          <p style="font-size:12.5px;color:var(--text-md);line-height:1.65;margin-bottom:13px;">Farm updates, bloom alerts, workshop news — delivered when they matter most. No fluff, we promise.</p>
+          <input type="email" class="sidebar-email-input" id="nl-sidebar-email" placeholder="Your email address" autocomplete="email" />
+          <button class="sidebar-email-btn sidebar-email-btn-green" id="nl-sidebar-btn" onclick="handleSidebarNewsletter()">Subscribe to Farm Updates</button>
+          <div class="sidebar-success" id="nl-sidebar-success">You're in! Welcome to the farm family. 🌸</div>
+        </div>
+
+        <!-- 6. Popular Posts -->
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Popular Posts
+          </div>
+          <a href="/blog/how-to-grow-dahlias" class="popular-post-item" style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-lt);text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <div class="popular-post-num">1</div>
+            <div class="popular-post-info">
+              <div class="popular-post-title">How to Grow Dahlias from Tubers</div>
+              <div class="popular-post-cat">Growing Guide</div>
+            </div>
+          </a>
+          <a href="/blog/georgia-flower-farming-calendar" class="popular-post-item" style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-lt);text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <div class="popular-post-num">2</div>
+            <div class="popular-post-info">
+              <div class="popular-post-title">A Flower Farmer's Calendar for Georgia</div>
+              <div class="popular-post-cat">Farm Life</div>
+            </div>
+          </a>
+          <a href="/blog/farm-to-vase-bouquet-tips" class="popular-post-item" style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-lt);text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <div class="popular-post-num">3</div>
+            <div class="popular-post-info">
+              <div class="popular-post-title">Farm to Vase: How to Make Flowers Last Longer</div>
+              <div class="popular-post-cat">Flower Care</div>
+            </div>
+          </a>
+          <a href="/blog/sweet-pea-growing-guide" class="popular-post-item" style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border-lt);text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <div class="popular-post-num">4</div>
+            <div class="popular-post-info">
+              <div class="popular-post-title">Growing Sweet Peas from Seed in Georgia</div>
+              <div class="popular-post-cat">Growing Guide</div>
+            </div>
+          </a>
+          <a href="/blog/ranunculus-zone-7b" class="popular-post-item" style="display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:none;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <div class="popular-post-num">5</div>
+            <div class="popular-post-info">
+              <div class="popular-post-title">Growing Ranunculus in Zone 7b: Our Method</div>
+              <div class="popular-post-cat">Growing Guide</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- 7. Upcoming Workshops -->
+        <div class="sidebar-widget pink-bg">
+          <div class="sidebar-widget-hd">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Upcoming Workshops
+          </div>
+          <div class="workshop-item">
+            <div class="workshop-date">April 19, 2026</div>
+            <div class="workshop-name">Spring Bouquet &amp; Arrangement Workshop</div>
+            <div class="workshop-spots">4 spots remaining · 2hrs · Loganville Farm</div>
+          </div>
+          <div class="workshop-item">
+            <div class="workshop-date">May 3, 2026</div>
+            <div class="workshop-name">Private Farm Tour + Flower Picking Experience</div>
+            <div class="workshop-spots">8 spots remaining · 1.5hrs · Sugar Oak Lane</div>
+          </div>
+          <div class="workshop-item">
+            <div class="workshop-date">May 17, 2026</div>
+            <div class="workshop-name">Dahlia Tuber Planting &amp; Garden Planning</div>
+            <div class="workshop-spots">12 spots remaining · 2.5hrs · Includes tubers</div>
+          </div>
+          <a href="/workshops" style="display:block;text-align:center;margin-top:4px;padding:10px;background:var(--white);border:1px solid var(--pink-mid);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--pink-dk);transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--pink-dk)';this.style.color='#fff'" onmouseout="this.style.background='var(--white)';this.style.color='var(--pink-dk)'">View All Workshops &rarr;</a>
+        </div>
+
+      </aside><!-- /blog-sidebar -->
+    </div><!-- /blog-with-sidebar -->
+  </div><!-- /container -->
+</section>
+
+<!-- ─── NEWSLETTER STRIP ─────────────────────────────────────────────────── -->
+<section id="blog-nl-strip" aria-label="Newsletter signup" style="background:#edf3ee;padding:64px 20px;text-align:center;">
+  <style>
+    #blog-nl-strip .nl-strip-inner{max-width:560px;margin:0 auto}
+    #blog-nl-strip .nl-strip-eyebrow{font-family:"Helvetica Neue",Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#3a5a40;margin-bottom:10px}
+    #blog-nl-strip .nl-strip-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:34px;font-weight:400;color:#1a1a1a;line-height:1.25;margin-bottom:10px}
+    #blog-nl-strip .nl-strip-title em{font-style:italic;font-weight:300;color:#3a5a40}
+    #blog-nl-strip .nl-strip-sub{font-family:"Helvetica Neue",Arial,sans-serif;font-size:14px;color:#6a6260;line-height:1.6;margin-bottom:24px}
+    #blog-nl-strip .nl-strip-sub strong{color:#1a1a1a}
+    #blog-nl-form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+    #blog-nl-email{flex:1;padding:13px 16px;border:1.5px solid #ddd8cc;border-radius:8px;font-size:15px;font-family:"Helvetica Neue",Arial,sans-serif;outline:none;color:#1a1a1a;background:#fff;transition:border-color 0.2s}
+    #blog-nl-email:focus{border-color:#3a5a40}
+    #blog-nl-email::placeholder{color:#b0aba5}
+    #blog-nl-btn{padding:13px 22px;background:#3a5a40;color:#fff;border:none;border-radius:8px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+    #blog-nl-btn:hover{background:#2c4730}
+    #blog-nl-btn:disabled{opacity:0.65;cursor:not-allowed}
+    #blog-nl-success{display:none;margin-top:16px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:15px;color:#3a5a40;font-weight:500}
+    @media(max-width:540px){#blog-nl-form{flex-direction:column}#blog-nl-btn{width:100%}}
+  </style>
+  <div class="nl-strip-inner">
+    <div class="nl-strip-eyebrow">Join the Garden Club</div>
+    <h2 class="nl-strip-title">Get <em>10% off</em> your first order</h2>
+    <p class="nl-strip-sub">Seasonal updates, bloom alerts, and your <strong>WELCOME10</strong> discount code — straight to your inbox.</p>
+    <form id="blog-nl-form" onsubmit="handleBlogNlStripSubmit(event)" novalidate>
+      <input type="email" id="blog-nl-email" placeholder="Your email address" required autocomplete="email" />
+      <button type="submit" id="blog-nl-btn">Get 10% Off</button>
+    </form>
+    <div id="blog-nl-success" role="status"></div>
+  </div>
+  <script>
+  async function handleBlogNlStripSubmit(e) {
+    e.preventDefault();
+    var email = document.getElementById('blog-nl-email').value.trim();
+    var btn = document.getElementById('blog-nl-btn');
+    if (!email || !email.includes('@')) return;
+    btn.textContent = 'Joining\u2026'; btn.disabled = true;
+    try {
+      var res = await fetch('/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'blog-inline-banner' }) });
+      var data = await res.json();
+      if (data.success) {
+        document.getElementById('blog-nl-form').style.display = 'none';
+        var s = document.getElementById('blog-nl-success');
+        s.innerHTML = data.already_subscribed
+          ? '\u2713 You\'re already subscribed! Your code is <strong>WELCOME10</strong>.'
+          : '\u2713 Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.';
+        s.style.display = 'block';
+        try { localStorage.setItem('sol_subscribed', '1'); } catch(x) {}
+      } else { btn.textContent = 'Get 10% Off'; btn.disabled = false; }
+    } catch (err) { btn.textContent = 'Get 10% Off'; btn.disabled = false; }
+  }
+  </script>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" class="footer-brand-logo" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
+        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia.</p>
+        <div class="footer-contact">
+          Loganville, GA 30052<br/>
+          <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23l-.23.93c-.04.14-.12.18-.28.11-1.04-.49-1.69-2.02-1.69-3.25 0-2.64 1.92-5.07 5.54-5.07 2.91 0 5.17 2.07 5.17 4.84 0 2.89-1.82 5.21-4.34 5.21-.85 0-1.65-.44-1.92-.96l-.52 1.95c-.19.73-.7 1.64-1.04 2.2.78.24 1.61.37 2.46.37 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="/shop">All Products</a></li>
+          <li><a href="/shop/flower-shop">Flower Shop</a></li>
+          <li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li>
+          <li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li>
+          <li><a href="/wholesale">Wholesale</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="/weddings">Weddings + Events</a></li>
+          <li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li>
+          <li><a href="/blog">Farm Blog</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Help</div>
+        <ul class="footer-links">
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/delivery-info">Delivery Info</a></li>
+          <li><a href="/substitution-policy">Substitution Policy</a></li>
+          <li><a href="/refund-policy">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-nl-title">Stay in Touch</div>
+        <p class="footer-nl-desc">Fresh blooms, farm stories, and exclusive offers delivered to your inbox. Join for 10% off your first order.</p>
+        <form class="footer-nl-form" id="footer-nl-form" onsubmit="handleFooterNlSubmit(event)">
+          <input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" />
+          <button class="footer-nl-btn" type="submit" id="footer-nl-btn">Join &amp; Get 10% Off</button>
+        </form>
+        <div class="footer-nl-success" id="footer-nl-success">Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── SCRIPTS ─────────────────────────────────────────────────────────────── -->
+<script>
+// Sticky header shadow
+window.addEventListener('scroll', function() {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+// Mobile drawer
+function openDrawer() {
+  document.getElementById('mobile-drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('mobile-drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Search overlay
+function openSearch() {
+  document.getElementById('search-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function() { document.getElementById('search-input').focus(); }, 50);
+}
+function closeSearch() {
+  document.getElementById('search-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeDrawer(); closeSearch(); }
+});
+
+// ─── BLOG GRADIENTS ────────────────────────────────────────────────────────
+var blogGradients = [
+  'linear-gradient(135deg, #5a6b40 0%, #8a9a60 100%)',
+  'linear-gradient(135deg, #C97D8F 0%, #E8A0AE 100%)',
+  'linear-gradient(135deg, #5a4a30 0%, #8a7a50 100%)',
+  'linear-gradient(135deg, #4a5a80 0%, #7a8ab0 100%)',
+  'linear-gradient(135deg, #3a5040 0%, #6a8060 100%)',
+  'linear-gradient(135deg, #7a4050 0%, #b07080 100%)',
+  'linear-gradient(135deg, #5a6b40 0%, #7a9a55 100%)',
+  'linear-gradient(135deg, #4a3060 0%, #8a6090 100%)',
+  'linear-gradient(135deg, #5a3030 0%, #9a6060 100%)',
+  'linear-gradient(135deg, #3a4a60 0%, #6a7a9a 100%)',
+  'linear-gradient(135deg, #6a5030 0%, #a08050 100%)',
+  'linear-gradient(135deg, #C97D8F 0%, #9a4060 100%)'
+];
+
+// ─── BANNER TEMPLATES ───────────────────────────────────────────────────────
+var bannerHtml = [
+  // Banner 1: Newsletter (after row 2 = after 4 posts)
+  '<div class="blog-banner blog-banner-pink" aria-label="Newsletter signup">' +
+    '<div class="blog-banner-content">' +
+      '<div class="blog-banner-label">Join the Farm Family</div>' +
+      '<div class="blog-banner-title">Get Bloom Alerts &amp; Growing Tips</div>' +
+      '<div class="blog-banner-desc">Be the first to know when dahlias are ready, new varieties arrive, and workshop spots open.</div>' +
+      '<div class="blog-banner-email-row">' +
+        '<input type="email" class="blog-banner-email-input" id="banner1-email" placeholder="Your email address" autocomplete="email" />' +
+        '<button class="blog-banner-btn blog-banner-btn-pink" onclick="handleBannerNl(\'banner1\')">Subscribe &rarr;</button>' +
+      '</div>' +
+      '<div id="banner1-success" style="display:none;font-size:12.5px;color:var(--pink-dk);margin-top:8px;">You\'re on the list — welcome! 🌸</div>' +
+    '</div>' +
+    '<div class="blog-banner-action" style="align-self:center">' +
+      '<div style="font-size:56px;line-height:1;text-align:center;padding:8px">🌸</div>' +
+    '</div>' +
+  '</div>',
+
+  // Banner 2: Spring Dahlia Collection (after row 4 = after 8 posts)
+  '<div class="blog-banner blog-banner-green" aria-label="Spring Dahlia Collection">' +
+    '<div class="blog-banner-content">' +
+      '<div class="blog-banner-label">Now Available</div>' +
+      '<div class="blog-banner-title">Spring Dahlia Collection 2026</div>' +
+      '<div class="blog-banner-desc">Fifty+ varieties — dinner plates, pompoms, café au lait, and more. Available for pickup and local delivery in the Loganville area.</div>' +
+    '</div>' +
+    '<div class="blog-banner-action">' +
+      '<a href="/shop?cat=dahlias" class="blog-banner-btn blog-banner-btn-green" style="display:inline-flex;">Shop Dahlias &rarr;</a>' +
+    '</div>' +
+  '</div>',
+
+  // Banner 3: Farm Tour Workshop (after row 6 = after 12 posts)
+  '<div class="blog-banner blog-banner-pink" aria-label="Book a farm tour">' +
+    '<div class="blog-banner-content">' +
+      '<div class="blog-banner-label">Experiences</div>' +
+      '<div class="blog-banner-title">Book a Private Farm Tour</div>' +
+      '<div class="blog-banner-desc">Walk the fields, pick your own blooms, and learn how we grow 100+ varieties each season. Perfect for groups, date nights, and flower lovers of all ages.</div>' +
+    '</div>' +
+    '<div class="blog-banner-action">' +
+      '<a href="/workshops" class="blog-banner-btn blog-banner-btn-pink" style="display:inline-flex;">Book a Tour &rarr;</a>' +
+    '</div>' +
+  '</div>'
+];
+
+// ─── BLOG LOADING ───────────────────────────────────────────────────────────
+var blogCurrentPage = 0;
+var blogTotalPages = 1;
+var blogTotalPosts = 0;
+var blogLoading = false;
+var allRenderedPosts = []; // track for sidebar search
+
+function formatBlogDate(dateStr) {
+  if (!dateStr) return '';
+  try {
+    var d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  } catch (e) { return dateStr; }
+}
+
+var _catLabels = { 'growing-guides': 'Growing Guides', 'farm-stories': 'Farm Stories', 'seasonal': 'Seasonal', 'wedding': 'Wedding & Events' };
+function formatCatLabel(cat) { return _catLabels[cat] || cat; }
+
+function renderBlogCard(post, index) {
+  var slug = post.slug || '';
+  var title = post.title || 'Untitled';
+  var excerpt = post.excerpt || '';
+  var cat = post.category || post._category || (post.tags && post.tags[0]) || 'Blog';
+  var catDisplay = formatCatLabel(cat);
+  var dateStr = formatBlogDate(post.published_at || post.created_at);
+  var grad = post._gradient ? 'linear-gradient(135deg, ' + post._gradient + ')' : blogGradients[index % blogGradients.length];
+  var imgHtml = '';
+  if (post.image_url) {
+    imgHtml = '<img src="' + post.image_url + '" alt="' + title.replace(/"/g, '&quot;') + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">' +
+      '<div class="blog-img-placeholder" style="display:none;background:' + grad + '"><div class="blog-img-svg"><svg viewBox="0 0 64 64"><path d="M32 8C32 8 20 20 20 32c0 8 5.4 14 12 14s12-6 12-14C44 20 32 8 32 8Z"/><path d="M32 20L32 52"/></svg></div></div>';
+  } else {
+    imgHtml = '<div class="blog-img-placeholder" style="background:' + grad + '"><div class="blog-img-svg"><svg viewBox="0 0 64 64"><path d="M32 8C32 8 20 20 20 32c0 8 5.4 14 12 14s12-6 12-14C44 20 32 8 32 8Z"/><path d="M32 20L32 52"/></svg></div></div>';
+  }
+  return '<a href="/blog/' + slug + '" class="blog-card" data-title="' + title.toLowerCase().replace(/"/g, '') + '" data-cat="' + cat.toLowerCase() + '" data-excerpt="' + excerpt.toLowerCase().substring(0, 100).replace(/"/g, '') + '" aria-label="Read: ' + title.replace(/"/g, '&quot;') + '">' +
+    '<div class="blog-img-wrap">' + imgHtml + '</div>' +
+    '<div class="blog-body">' +
+      '<div class="blog-meta">' +
+        '<span class="blog-cat">' + catDisplay + '</span>' +
+        '<span class="blog-meta-dot"></span>' +
+        '<span class="blog-date">' + dateStr + '</span>' +
+      '</div>' +
+      '<h2 class="blog-title">' + title + '</h2>' +
+      '<p class="blog-excerpt">' + excerpt + '</p>' +
+      '<span class="blog-read-more">Read More <span aria-hidden="true">&rarr;</span></span>' +
+    '</div>' +
+  '</a>';
+}
+
+async function loadMorePosts() {
+  if (blogLoading || blogCurrentPage >= blogTotalPages) return;
+  blogLoading = true;
+  blogCurrentPage++;
+  var btn = document.getElementById('blog-load-more-btn');
+  if (btn) { btn.textContent = 'Loading...'; btn.disabled = true; }
+  try {
+    var resp = await fetch('/api/blog/posts?page=' + blogCurrentPage + '&limit=12');
+    var data = await resp.json();
+    if (!data.success) throw new Error('Failed to load posts');
+    blogTotalPages = data.pages || 1;
+    blogTotalPosts = data.total || 0;
+    var grid = document.getElementById('blog-grid');
+    var loading = document.getElementById('blog-loading');
+    if (loading) loading.remove();
+
+    var postsOnPage = data.posts.length;
+    var globalOffset = (blogCurrentPage - 1) * 12;
+
+    // Build HTML — inject banners at row positions 2, 4, 6 (after every 4 posts)
+    var html = '';
+    data.posts.forEach(function(post, i) {
+      var globalIdx = globalOffset + i;
+      html += renderBlogCard(post, globalIdx);
+      // Inject banner after every 4th post (2 rows of 2-col grid)
+      var posInPage = i + 1;
+      if (posInPage === 4 && bannerHtml[0]) html += bannerHtml[0];
+      if (posInPage === 8 && bannerHtml[1]) html += bannerHtml[1];
+      if (posInPage === 12 && bannerHtml[2]) html += bannerHtml[2];
+    });
+
+    grid.insertAdjacentHTML('beforeend', html);
+
+    var wrap = document.getElementById('blog-load-more-wrap');
+    if (blogCurrentPage < blogTotalPages) {
+      wrap.style.display = 'block';
+      if (btn) { btn.innerHTML = 'Load More Posts <span aria-hidden="true">&darr;</span>'; btn.disabled = false; }
+    } else {
+      wrap.style.display = 'none';
+    }
+    var counted = grid.querySelectorAll('.blog-card').length;
+    document.getElementById('blog-post-count').textContent = 'Showing ' + counted + ' of ' + blogTotalPosts + ' post' + (blogTotalPosts === 1 ? '' : 's');
+  } catch (err) {
+    console.error('Blog load error:', err);
+    var grid = document.getElementById('blog-grid');
+    var loading = document.getElementById('blog-loading');
+    if (loading) loading.textContent = 'Failed to load posts. Please try again.';
+  }
+  blogLoading = false;
+}
+
+// Initial load
+loadMorePosts();
+
+// ─── SIDEBAR SEARCH ─────────────────────────────────────────────────────────
+var searchDebounce = null;
+function handleSidebarSearch(val) {
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(function() {
+    var q = val.trim().toLowerCase();
+    var grid = document.getElementById('blog-grid');
+    var cards = grid.querySelectorAll('.blog-card');
+    var banners = grid.querySelectorAll('.blog-banner');
+    var clearBtn = document.getElementById('search-clear-btn');
+    var noResults = document.getElementById('search-no-results');
+    var matchCount = 0;
+    if (!q) {
+      // Re-apply the active category filter when search is cleared
+      cards.forEach(function(c) {
+        var cardCat = (c.dataset.cat || '').toLowerCase();
+        c.style.display = (_activeBlogFilter === 'all' || cardCat === _activeBlogFilter || cardCat.indexOf(_activeBlogFilter) !== -1) ? '' : 'none';
+      });
+      banners.forEach(function(b) { b.style.display = _activeBlogFilter === 'all' ? '' : 'none'; });
+      clearBtn.style.display = 'none';
+      noResults.style.display = 'none';
+      return;
+    }
+    // Reset category filter visually when searching
+    _activeBlogFilter = 'all';
+    document.querySelectorAll('.blog-filter-btn').forEach(function(b) {
+      if (b.dataset.filter === 'all') { b.style.background = 'var(--green-dk)'; b.style.borderColor = 'var(--green-dk)'; b.style.color = '#fff'; }
+      else { b.style.background = 'transparent'; b.style.borderColor = 'var(--border-md)'; b.style.color = 'var(--text-md)'; }
+    });
+    clearBtn.style.display = 'inline';
+    banners.forEach(function(b) { b.style.display = 'none'; });
+    cards.forEach(function(card) {
+      var t = (card.dataset.title || '') + ' ' + (card.dataset.cat || '') + ' ' + (card.dataset.excerpt || '');
+      var match = t.indexOf(q) !== -1;
+      card.style.display = match ? '' : 'none';
+      if (match) matchCount++;
+    });
+    noResults.style.display = matchCount === 0 ? 'block' : 'none';
+  }, 220);
+}
+
+function clearSidebarSearch() {
+  var inp = document.getElementById('sidebar-search');
+  inp.value = '';
+  handleSidebarSearch('');
+}
+
+// ─── CATEGORY FILTER TABS ────────────────────────────────────────────────────
+var _activeBlogFilter = 'all';
+function setBlogFilter(filter, btn) {
+  _activeBlogFilter = filter;
+  // Update button styles
+  document.querySelectorAll('.blog-filter-btn').forEach(function(b) {
+    if (b.dataset.filter === filter) {
+      b.style.background = 'var(--green-dk)';
+      b.style.borderColor = 'var(--green-dk)';
+      b.style.color = '#fff';
+    } else {
+      b.style.background = 'transparent';
+      b.style.borderColor = 'var(--border-md)';
+      b.style.color = 'var(--text-md)';
+    }
+  });
+  // Filter visible cards
+  var cards = document.querySelectorAll('#blog-grid .blog-card');
+  var visible = 0;
+  cards.forEach(function(card) {
+    var cardCat = (card.dataset.cat || '').toLowerCase();
+    var show = filter === 'all' || cardCat === filter || cardCat.indexOf(filter) !== -1;
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  // Also clear sidebar search so filters don't conflict
+  var inp = document.getElementById('sidebar-search');
+  if (inp && inp.value) { inp.value = ''; }
+  var noRes = document.getElementById('search-no-results');
+  if (noRes) noRes.style.display = 'none';
+}
+
+// ─── NEWSLETTER HANDLERS ────────────────────────────────────────────────────
+async function postNewsletter(email, source) {
+  var res = await fetch('/api/newsletter', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email, source: source }),
+  });
+  return res.json();
+}
+
+async function handleBannerNl(id) {
+  var inp = document.getElementById(id + '-email');
+  var email = inp ? inp.value.trim() : '';
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    inp.style.borderColor = '#C97D8F';
+    setTimeout(function() { inp.style.borderColor = ''; }, 1500);
+    return;
+  }
+  try {
+    await postNewsletter(email, 'blog-banner-newsletter');
+    document.getElementById(id + '-success').style.display = 'block';
+    if (inp) inp.style.display = 'none';
+    var btn = inp.parentNode.querySelector('button');
+    if (btn) btn.style.display = 'none';
+  } catch(e) {}
+}
+
+async function handleTemplateSubmit() {
+  var email = document.getElementById('tmpl-email').value.trim();
+  var btn = document.getElementById('tmpl-btn');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('tmpl-email').style.borderColor = '#C97D8F';
+    setTimeout(function() { document.getElementById('tmpl-email').style.borderColor = ''; }, 1500);
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Sending...';
+  try {
+    await postNewsletter(email, 'blog-sidebar-templates');
+    document.getElementById('tmpl-success').style.display = 'block';
+    document.getElementById('tmpl-email').style.display = 'none';
+    btn.style.display = 'none';
+  } catch(e) { btn.disabled = false; btn.textContent = 'Get Free Templates'; }
+}
+
+async function handleSidebarNewsletter() {
+  var email = document.getElementById('nl-sidebar-email').value.trim();
+  var btn = document.getElementById('nl-sidebar-btn');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById('nl-sidebar-email').style.borderColor = '#C97D8F';
+    setTimeout(function() { document.getElementById('nl-sidebar-email').style.borderColor = ''; }, 1500);
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Subscribing...';
+  try {
+    await postNewsletter(email, 'blog-sidebar-newsletter');
+    document.getElementById('nl-sidebar-success').style.display = 'block';
+    document.getElementById('nl-sidebar-email').style.display = 'none';
+    btn.style.display = 'none';
+  } catch(e) { btn.disabled = false; btn.textContent = 'Subscribe to Farm Updates'; }
+}
+
+// Footer newsletter
+async function handleFooterNlSubmit(e) {
+  e.preventDefault();
+  var email = document.getElementById('footer-nl-email').value.trim();
+  var btn = document.getElementById('footer-nl-btn');
+  if (!email) return;
+  btn.textContent = 'Signing up...'; btn.disabled = true;
+  try {
+    var res = await fetch('/api/newsletter', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'blog-footer-newsletter' }),
+    });
+    var data = await res.json();
+    if (data.success) {
+      document.getElementById('footer-nl-form').style.display = 'none';
+      const s = document.getElementById('footer-nl-success');
+      s.innerHTML = data.already_subscribed ? 'You\'re already subscribed! Your code is <strong>WELCOME10</strong>.' : 'Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.';
+      s.style.display = 'block';
+    } else {
+      btn.textContent = 'Subscribe'; btn.disabled = false;
+    }
+  } catch (err) { btn.textContent = 'Subscribe'; btn.disabled = false; }
+}
+
+document.addEventListener('DOMContentLoaded',()=>initPageHero('blog'));
+</script>
+<script src="/js/sol-hero.js"></script>
+<script src="/js/email-capture.js"></script>
+</body>
+</html>

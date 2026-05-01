@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flower Subscriptions | Sugar Oak Lane</title>
+  <meta name="description" content="Subscribe to fresh seasonal flowers from Sugar Oak Lane. Weekly, bi-weekly, or monthly farm-grown bouquets delivered to your door in the Atlanta &amp; Loganville, GA area." />
+  <meta name="keywords" content="flower subscription Georgia, farm flower delivery Atlanta, seasonal bouquet subscription, Sugar Oak Lane subscriptions" />
+  <link rel="canonical" href="https://sugaroakos.polsia.app/subscriptions" />
+  <meta property="og:title" content="Flower Subscriptions | Sugar Oak Lane" />
+  <meta property="og:description" content="Fresh seasonal flowers delivered on a rhythm you choose. Weekly, bi-weekly, or monthly farm-grown bouquets." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sugaroakos.polsia.app/subscriptions" />
+  <meta property="og:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flower Subscriptions | Sugar Oak Lane" />
+  <meta name="twitter:description" content="Fresh seasonal flowers delivered on a rhythm you choose." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── DESIGN TOKENS ─────────────────────────────────────── */
+    :root {
+      --white:      #FFFFFF;
+      --linen:      #FEFDF8;
+      --linen-dk:   #F5F0E8;
+      --linen-md:   #EDE7DC;
+      --green:      #3A5A40;
+      --green-dk:   #2C4730;
+      --green-lt:   #4D7A55;
+      --green-bg:   #EDF3EE;
+      --text:       #1A1A1A;
+      --text-md:    #6A6260;
+      --text-lt:    #9A9490;
+      --border:     #DDD8CC;
+      --border-lt:  #EEEBE3;
+      --shadow:     0 1px 10px rgba(26,26,26,0.05);
+      --shadow-md:  0 4px 20px rgba(26,26,26,0.08);
+      --max-w:      1280px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ─── ANNOUNCEMENT BAR ──────────────────────────────────── */
+    #announce-bar {
+      position: relative;
+      background: var(--green);
+      color: #FEFDF8;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 10px 48px;
+      line-height: 1.4;
+    }
+    #announce-bar a { color: #FEFDF8; text-decoration: underline; text-underline-offset: 2px; }
+    #announce-close {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: rgba(254,253,248,0.7);
+      font-size: 18px;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border-lt);
+      transition: box-shadow 0.2s;
+    }
+    #header.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding: 0 32px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .header-side { display: flex; align-items: center; gap: 4px; min-width: 100px; }
+    .header-side.right { justify-content: flex-end; }
+    .header-icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: opacity 0.15s;
+      color: var(--text);
+    }
+    .header-icon-btn:hover { opacity: 0.55; }
+    .header-icon-btn svg {
+      width: 20px; height: 20px;
+      stroke: currentColor; fill: none; stroke-width: 1.6;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .hamburger-btn svg { width: 22px; height: 22px; stroke: var(--text); fill: none; stroke-width: 1.8; stroke-linecap: round; }
+
+    .header-logo-wrap {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .header-logo-wrap a { display: flex; align-items: center; justify-content: center; }
+    .header-logo-wrap img { height: 52px; width: auto; }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      height: 46px;
+      border-top: 1px solid var(--border-lt);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .nav-link {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      padding: 0 18px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      position: relative;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 18px;
+      right: 18px;
+      height: 2px;
+      background: var(--green);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+    .nav-link:hover { color: var(--green); }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link.active { color: var(--green); }
+    .nav-link.active::after { transform: scaleX(1); }
+
+    .nav-item { position: relative; display: flex; align-items: center; height: 46px; }
+    .nav-link .nav-arrow { width: 8px; height: 8px; transition: transform 0.2s; margin-left: 4px; flex-shrink: 0; }
+    .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      box-shadow: var(--shadow-md);
+      min-width: 200px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s, visibility 0.15s;
+      z-index: 200;
+    }
+    .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; }
+    .nav-dropdown a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      transition: background 0.12s, color 0.12s;
+    }
+    .nav-dropdown a:hover { background: var(--linen); color: var(--green); }
+
+    /* ─── MOBILE DRAWER ──────────────────────────────────────── */
+    #drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,26,0.4);
+      z-index: 200;
+    }
+    #drawer-overlay.open { display: block; }
+    #mobile-drawer {
+      position: fixed;
+      top: 0;
+      left: -320px;
+      width: 300px;
+      height: 100%;
+      background: var(--white);
+      z-index: 300;
+      overflow-y: auto;
+      transition: left 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    #mobile-drawer.open { left: 0; }
+    .drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 20px;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .drawer-head img { height: 40px; width: auto; }
+    .drawer-close { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-md); padding: 4px 8px; }
+    .drawer-nav { padding: 12px 0; flex: 1; }
+    .drawer-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      padding: 16px 20px 6px;
+    }
+    .drawer-nav a {
+      display: block;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      transition: background 0.12s, color 0.12s;
+    }
+    .drawer-nav a:hover { background: var(--linen); color: var(--green); }
+    .drawer-nav a.active { color: var(--green); font-weight: 600; }
+
+    /* ─── SEARCH OVERLAY ─────────────────────────────────────── */
+    #search-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,26,0.5);
+      z-index: 500;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 80px;
+    }
+    #search-overlay.open { display: flex; }
+    .search-inner {
+      background: var(--white);
+      width: 100%;
+      max-width: 640px;
+      padding: 20px;
+      border-radius: 4px;
+      margin: 0 20px;
+    }
+    .search-row { display: flex; align-items: center; gap: 12px; }
+    #search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--text);
+      background: transparent;
+    }
+    .search-close-btn { background: none; border: none; cursor: pointer; font-size: 22px; color: var(--text-md); }
+
+    /* ─── LAYOUT HELPERS ─────────────────────────────────────── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+    .section-pad { padding: 96px 0; }
+    .section-pad-sm { padding: 64px 0; }
+    .section-white { background: var(--white); }
+    .section-linen { background: var(--linen); }
+    .section-linen-dk { background: var(--linen-dk); }
+    .section-green-bg { background: var(--green-bg); }
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 46px);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+    .section-title em { font-style: italic; font-weight: 300; }
+    .section-sub {
+      font-size: 15px;
+      color: var(--text-md);
+      margin-top: 16px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* ─── BUTTONS ────────────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border: 2px solid var(--green);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary:hover { background: var(--green-dk); border-color: var(--green-dk); }
+    .btn-primary:disabled { opacity: 0.65; cursor: not-allowed; }
+    .btn-outline-green {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border: 2px solid var(--green);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-outline-green:hover { background: var(--green); color: #fff; }
+
+    /* ─── 1. HERO ─────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      width: 100%;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #2C4730 0%, #3A5A40 50%, #4D7A55 100%);
+    }
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(26,26,26,0.42) 0%,
+        rgba(26,26,26,0.18) 40%,
+        rgba(26,26,26,0.55) 100%
+      );
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 24px;
+      max-width: 760px;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: 0.01em;
+      margin-bottom: 24px;
+    }
+    .hero-subline {
+      font-size: 15px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.75;
+      margin-bottom: 10px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-body {
+      font-size: 14px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      border: 2px solid transparent;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .hero-cta:hover {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* ─── 2. HOW IT WORKS ─────────────────────────────────────── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+    }
+    .step-card {
+      text-align: center;
+      padding: 40px 32px;
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+    }
+    .step-number {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--green);
+      margin: 0 auto 24px;
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-md);
+      line-height: 1.65;
+    }
+
+    /* ─── 3. SUBSCRIPTION PLANS ───────────────────────────────── */
+    #subscription-plans { scroll-margin-top: 80px; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .plan-card {
+      background: var(--white);
+      border: 2px solid var(--border-lt);
+      padding: 40px 32px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+      position: relative;
+    }
+    .plan-card:hover {
+      border-color: var(--green);
+      box-shadow: var(--shadow-md);
+    }
+    .plan-card.selected {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(58,90,64,0.12);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+    }
+    .plan-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--green-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .plan-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .plan-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .plan-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .plan-price-unit {
+      font-size: 13px;
+      color: var(--text-lt);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .plan-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 auto 20px;
+    }
+    .plan-desc {
+      font-size: 13px;
+      color: var(--text-md);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .plan-btn {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ─── 4. DELIVERY DAY ─────────────────────────────────────── */
+    #delivery-day { scroll-margin-top: 80px; }
+    .day-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .day-card {
+      flex: 1;
+      max-width: 260px;
+      min-width: 180px;
+      border: 2px solid var(--border);
+      padding: 28px 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      user-select: none;
+    }
+    .day-card:hover { border-color: var(--green-lt); }
+    .day-card.selected {
+      border-color: var(--green);
+      background: var(--green-bg);
+    }
+    .day-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--linen-dk);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      transition: background 0.2s;
+    }
+    .day-card.selected .day-card-icon { background: var(--green); }
+    .day-card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+    .day-card.selected .day-card-icon svg { stroke: #fff; }
+    .day-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .day-note {
+      font-size: 12px;
+      color: var(--text-lt);
+    }
+    .day-check {
+      margin-top: 14px;
+      display: none;
+    }
+    .day-card.selected .day-check { display: block; }
+
+    /* ─── 5. START DATE ───────────────────────────────────────── */
+    #start-date-section { scroll-margin-top: 80px; }
+    .date-pick-wrap {
+      max-width: 360px;
+      margin: 0 auto;
+    }
+    .date-pick-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-md);
+      margin-bottom: 10px;
+      display: block;
+    }
+    .date-pick-input {
+      width: 100%;
+      border: 2px solid var(--border);
+      padding: 14px 18px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .date-pick-input:focus { border-color: var(--green); }
+
+    /* ─── 6. FORM ─────────────────────────────────────────────── */
+    #subscription-form-section { scroll-margin-top: 80px; }
+    .form-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border-lt);
+      padding: 56px 56px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-md);
+      margin-bottom: 8px;
+    }
+    .form-label span { color: var(--text-lt); font-weight: 400; margin-left: 4px; }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      border: 2px solid var(--border);
+      padding: 13px 16px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus { border-color: var(--green); }
+    .form-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236A6260' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-input.date-input { cursor: pointer; }
+
+    /* Gift toggle */
+    .gift-toggle-row {
+      display: flex;
+      gap: 16px;
+      margin-top: 2px;
+    }
+    .gift-option {
+      flex: 1;
+      border: 2px solid var(--border);
+      padding: 12px 16px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-md);
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      user-select: none;
+    }
+    .gift-option:hover { border-color: var(--green-lt); color: var(--green); }
+    .gift-option.selected { border-color: var(--green); background: var(--green-bg); color: var(--green); }
+
+    /* Plan selected indicator */
+    .selected-plan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-bg);
+      border: 1px solid rgba(58,90,64,0.2);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      margin-bottom: 32px;
+    }
+    .selected-plan-badge .change-plan {
+      cursor: pointer;
+      text-decoration: underline;
+      font-weight: 400;
+      color: var(--text-md);
+      font-size: 11px;
+    }
+    .no-plan-note {
+      font-size: 13px;
+      color: var(--text-lt);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .no-plan-note a { color: var(--green); font-weight: 500; }
+
+    /* ─── 7. PAYMENT NOTE ─────────────────────────────────────── */
+    .payment-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-md);
+      margin: 28px 0 0;
+      padding: 16px 20px;
+      background: var(--linen);
+      border: 1px solid var(--border-lt);
+    }
+    .payment-note svg {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── 8. SUBMIT BUTTON ────────────────────────────────────── */
+    .submit-btn-wrap {
+      margin-top: 32px;
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: 2px solid var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 18px 40px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-submit:hover { background: var(--green-dk); border-color: var(--green-dk); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+
+    /* ─── SUCCESS MESSAGE ─────────────────────────────────────── */
+    #form-success {
+      display: none;
+      text-align: center;
+      padding: 56px 40px;
+    }
+    #form-success.visible { display: block; }
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .success-icon svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .success-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .success-body {
+      font-size: 15px;
+      color: var(--text-md);
+      line-height: 1.7;
+      max-width: 460px;
+      margin: 0 auto 32px;
+    }
+
+    /* ─── 9. FAQ ──────────────────────────────────────────────── */
+    .faq-list { max-width: 740px; margin: 0 auto; }
+    .faq-item {
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border-lt); }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 0;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.01em;
+      user-select: none;
+    }
+    .faq-arrow {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--green-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, transform 0.25s;
+    }
+    .faq-arrow svg { width: 10px; height: 10px; stroke: var(--green); fill: none; stroke-width: 2.5; stroke-linecap: round; }
+    .faq-item.open .faq-arrow { background: var(--green); transform: rotate(180deg); }
+    .faq-item.open .faq-arrow svg { stroke: #fff; }
+    .faq-a {
+      display: none;
+      font-size: 14px;
+      color: var(--text-md);
+      line-height: 1.75;
+      padding: 0 0 22px;
+      max-width: 640px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    #footer {
+      background: var(--green-dk);
+      color: rgba(254,253,248,0.85);
+      padding: 72px 0 0;
+    }
+    #footer .container { max-width: var(--max-w); }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+    }
+    .footer-brand-logo { height: 48px; width: auto; margin-bottom: 20px; }
+    .footer-brand-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(254,253,248,0.9);
+      margin-bottom: 20px;
+    }
+    .footer-brand-desc { font-size: 13px; line-height: 1.7; color: rgba(254,253,248,0.65); margin-bottom: 16px; }
+    .footer-contact { font-size: 13px; color: rgba(254,253,248,0.65); line-height: 1.7; margin-bottom: 20px; }
+    .footer-contact a { color: rgba(254,253,248,0.75); }
+    .footer-contact a:hover { color: rgba(254,253,248,1); }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(254,253,248,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .footer-social a:hover { border-color: rgba(254,253,248,0.5); background: rgba(254,253,248,0.1); }
+    .footer-social a svg { width: 14px; height: 14px; }
+    .footer-col-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(254,253,248,0.5);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 13px; color: rgba(254,253,248,0.7); transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(254,253,248,1); }
+    .footer-nl-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: rgba(254,253,248,0.95); margin-bottom: 10px; }
+    .footer-nl-desc { font-size: 13px; color: rgba(254,253,248,0.65); line-height: 1.65; margin-bottom: 20px; }
+    .footer-nl-form { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nl-input { background: rgba(254,253,248,0.08); border: 1px solid rgba(254,253,248,0.18); padding: 12px 16px; color: rgba(254,253,248,0.9); font-size: 13px; font-family: 'Inter', sans-serif; outline: none; }
+    .footer-nl-input::placeholder { color: rgba(254,253,248,0.4); }
+    .footer-nl-input:focus { border-color: rgba(254,253,248,0.4); }
+    .footer-nl-btn { background: rgba(254,253,248,0.15); border: 1px solid rgba(254,253,248,0.3); color: rgba(254,253,248,0.9); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 20px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.15s; }
+    .footer-nl-btn:hover { background: rgba(254,253,248,0.25); }
+    .footer-nl-success { display: none; font-size: 13px; color: rgba(254,253,248,0.75); margin-top: 8px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(254,253,248,0.1);
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(254,253,248,0.45);
+    }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { color: rgba(254,253,248,0.45); transition: color 0.15s; }
+    .footer-bottom-links a:hover { color: rgba(254,253,248,0.8); }
+
+    /* ─── TOAST ──────────────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 14px 24px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+      white-space: nowrap;
+    }
+    .toast.show { opacity: 1; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .plans-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .header-top { padding: 0 20px; height: 68px; }
+      .header-logo-wrap img { height: 44px; }
+      .header-nav { display: none; }
+      .hamburger-btn { display: flex; }
+      .container { padding: 0 20px; }
+      .section-pad { padding: 64px 0; }
+      .steps-grid { grid-template-columns: 1fr; gap: 20px; }
+      .plans-grid { grid-template-columns: 1fr; gap: 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-wrap { padding: 32px 24px; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-content { padding: 64px 20px; }
+    }
+    @media (max-width: 480px) {
+      .section-pad { padding: 48px 0; }
+      .form-wrap { padding: 24px 16px; }
+      .day-grid { flex-direction: column; align-items: center; }
+      .day-card { max-width: 100%; width: 100%; }
+    }
+  </style>
+  <!-- Dynamic theme colors from admin -->
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<!-- ─── ANNOUNCEMENT BAR ─────────────────────────────────────────────── -->
+<div id="announce-bar">
+  <span id="announce-text">🌸 Flower Subscriptions Now Live — Weekly farm-fresh bouquets delivered to your door. <a href="/subscriptions">Subscribe now →</a></span>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<!-- ─── HEADER ───────────────────────────────────────────────────────── -->
+<header id="header">
+
+  <!-- Row 1: icons | centered logo | icons -->
+  <div class="header-top">
+    <!-- Left: search + hamburger (mobile) -->
+    <div class="header-side">
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- Center: Logo -->
+    <div class="header-logo-wrap">
+      <a href="/" aria-label="Sugar Oak Lane Home">
+        <img
+          src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png"
+          alt="Sugar Oak Lane"
+          width="180" height="56"
+          fetchpriority="high"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;letter-spacing:0.08em;color:var(--text)">Sugar Oak Lane</span>
+      </a>
+    </div>
+
+    <!-- Right: account + cart -->
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </button>
+      <button class="header-icon-btn" data-sol-cart-btn aria-label="Shopping cart" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Row 2: Main navigation -->
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/weddings">Weddings</a>
+        <a href="/weddings/diy">DIY Wedding Flowers</a>
+        <a href="/weddings/events">Banquets + Special Occasions</a>
+      </div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link active">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/about">Our Story</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+<!-- ─── MOBILE DRAWER ────────────────────────────────────────────────── -->
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head">
+    <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="56" onerror="this.style.display='none'" />
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">×</button>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop">Flower Shop</a>
+    <a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a>
+    <a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a>
+    <a href="/shop?cat=dahlias">Dahlias</a>
+    <a href="/shop?cat=farm-goods">Farm Goods + Gifts</a>
+    <a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a>
+    <a href="/weddings">Weddings</a>
+    <a href="/weddings/diy">DIY Wedding Flowers</a>
+    <a href="/weddings/events">Banquets + Special Occasions</a>
+    <a href="/workshops">Workshops</a>
+    <a href="/subscriptions" class="active">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog">Blog</a>
+    <a href="/about">Our Story</a>
+    <a href="/contact">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ─── SEARCH OVERLAY ───────────────────────────────────────────────── -->
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner">
+    <div class="search-row">
+      <svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search flowers, seeds, workshops…" id="search-input" autocomplete="off" />
+      <button class="search-close-btn" onclick="closeSearch()" aria-label="Close search">×</button>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 1. HERO                                                                  -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="hero" aria-label="Hero">
+  <img
+    class="hero-bg-img"
+    src="https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1400&q=80"
+    alt="Fresh seasonal flower bouquet from Sugar Oak Lane"
+    fetchpriority="high"
+    onerror="this.style.display='none'"
+  />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Sugar Oak Lane · Loganville, GA</div>
+    <h1 class="hero-headline">Flower<br/><em>Subscriptions</em></h1>
+    <p class="hero-subline">Fresh seasonal flowers delivered on a rhythm you choose.</p>
+    <p class="hero-body">Enjoy farm-grown flowers throughout the season with a recurring subscription designed for your home, office, or someone special.</p>
+    <a href="#subscription-plans" class="hero-cta">
+      <svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Choose Your Plan
+    </a>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 2. HOW IT WORKS                                                          -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section class="section-white section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Simple by Design</div>
+      <h2 class="section-title">How It <em>Works</em></h2>
+      <p class="section-sub">Three easy steps to farm-fresh flowers at your door, on your schedule.</p>
+    </div>
+
+    <div class="steps-grid">
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Choose Your Plan</div>
+        <p class="step-desc">Select weekly, bi-weekly, or monthly flowers. Each plan delivers a fresh seasonal arrangement straight from our fields.</p>
+      </div>
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Pick Your Start Date</div>
+        <p class="step-desc">Choose when you would like your subscription to begin. We deliver on Tuesdays and Thursdays — pick the day that works best for you.</p>
+      </div>
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Enjoy Seasonal Blooms</div>
+        <p class="step-desc">We deliver fresh farm-grown flowers on your selected schedule. Every arrangement is unique, featuring what's blooming on the farm that week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 3. SUBSCRIPTION PLANS                                                    -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="subscription-plans" class="section-linen section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Farm-Grown Flower Delivery</div>
+      <h2 class="section-title">Subscription <em>Plans</em></h2>
+      <p class="section-sub">Choose the rhythm that fits your life. Every delivery brings a fresh, seasonal arrangement grown on our farm.</p>
+    </div>
+
+    <div class="plans-grid">
+      <!-- Plan 1: Weekly -->
+      <div class="plan-card" id="plan-card-weekly" onclick="selectPlan('weekly')">
+        <div class="plan-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 8 5 14a7 7 0 0 0 14 0C19 8 12 2 12 2Z"/><path d="M12 10v6"/><path d="M9 13l3 3 3-3"/></svg>
+        </div>
+        <div class="plan-name">Weekly Flowers</div>
+        <div class="plan-price">$45</div>
+        <div class="plan-price-unit">per week</div>
+        <div class="plan-divider"></div>
+        <p class="plan-desc">A fresh seasonal arrangement delivered every week. Perfect for keeping your home filled with the beauty of the season.</p>
+        <div class="plan-btn">
+          <button class="btn-primary" onclick="event.stopPropagation();selectPlanAndScroll('weekly')">Select Weekly</button>
+        </div>
+      </div>
+
+      <!-- Plan 2: Bi-Weekly (featured) -->
+      <div class="plan-card" id="plan-card-biweekly" onclick="selectPlan('biweekly')" style="position:relative">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-icon" style="margin-top:12px">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        </div>
+        <div class="plan-name">Bi-Weekly Flowers</div>
+        <div class="plan-price">$50</div>
+        <div class="plan-price-unit">per delivery</div>
+        <div class="plan-divider"></div>
+        <p class="plan-desc">A fresh seasonal arrangement delivered every other week. The ideal balance of fresh flowers and flexibility.</p>
+        <div class="plan-btn">
+          <button class="btn-primary" onclick="event.stopPropagation();selectPlanAndScroll('biweekly')">Select Bi-Weekly</button>
+        </div>
+      </div>
+
+      <!-- Plan 3: Monthly -->
+      <div class="plan-card" id="plan-card-monthly" onclick="selectPlan('monthly')">
+        <div class="plan-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="plan-name">Monthly Flowers</div>
+        <div class="plan-price">$60</div>
+        <div class="plan-price-unit">per month</div>
+        <div class="plan-divider"></div>
+        <p class="plan-desc">A fresh seasonal arrangement delivered once per month. A thoughtful touch that arrives as a welcome surprise each month.</p>
+        <div class="plan-btn">
+          <button class="btn-primary" onclick="event.stopPropagation();selectPlanAndScroll('monthly')">Select Monthly</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 4. DELIVERY DAY                                                          -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="delivery-day" class="section-white section-pad-sm">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:40px">
+      <div class="section-eyebrow">Available Delivery Days</div>
+      <h2 class="section-title">Choose Your <em>Delivery Day</em></h2>
+      <p class="section-sub">Subscription deliveries are available on Tuesdays and Thursdays within our delivery area.</p>
+    </div>
+
+    <div class="day-grid">
+      <!-- Tuesday -->
+      <div class="day-card" id="day-tuesday" onclick="selectDay('tuesday')">
+        <div class="day-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="day-name">Tuesday</div>
+        <div class="day-note">Delivered each cycle</div>
+        <div class="day-check">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+      <!-- Thursday -->
+      <div class="day-card" id="day-thursday" onclick="selectDay('thursday')">
+        <div class="day-card-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div class="day-name">Thursday</div>
+        <div class="day-note">Delivered each cycle</div>
+        <div class="day-check">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 5. START DATE                                                            -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="start-date-section" class="section-linen-dk section-pad-sm">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:40px">
+      <div class="section-eyebrow">When Should We Start?</div>
+      <h2 class="section-title">Choose Your <em>Start Date</em></h2>
+      <p class="section-sub">Select your first delivery date. We'll follow your chosen schedule from there.</p>
+    </div>
+
+    <div class="date-pick-wrap">
+      <label class="date-pick-label" for="global-start-date">Preferred start date</label>
+      <input
+        type="date"
+        id="global-start-date"
+        class="date-pick-input"
+        min=""
+        onchange="syncStartDate(this.value)"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 6. FORM                                                                  -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section id="subscription-form-section" class="section-white section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Ready to Start?</div>
+      <h2 class="section-title">Recipient &amp; <em>Delivery Details</em></h2>
+      <p class="section-sub">Fill in your details below and we'll be in touch to confirm your subscription and process payment securely through Stripe.</p>
+    </div>
+
+    <div class="form-wrap">
+      <!-- Success message (hidden until submission) -->
+      <div id="form-success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="success-title">You're on your way to fresh flowers!</h3>
+        <p class="success-body">We've received your subscription request and will be in touch within 1–2 business days to confirm your plan and complete checkout through Stripe. Can't wait to bring blooms to your door.</p>
+        <a href="/" class="btn-primary">Return Home</a>
+      </div>
+
+      <!-- Form (shown by default) -->
+      <div id="form-body">
+        <!-- Selected plan indicator -->
+        <div id="selected-plan-display" style="display:none" class="selected-plan-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span id="selected-plan-text">Weekly Plan selected</span>
+          <a class="change-plan" href="#subscription-plans">Change</a>
+        </div>
+        <div id="no-plan-display" class="no-plan-note">No plan selected yet — <a href="#subscription-plans">choose a plan above</a> or select one in the form below.</div>
+
+        <form id="sub-form" onsubmit="handleFormSubmit(event)" novalidate>
+          <!-- Plan type (hidden + select) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-plan">Subscription Plan <span>*</span></label>
+              <select id="f-plan" name="plan_type" class="form-select" required onchange="onPlanSelectChange(this.value)">
+                <option value="">Select a plan…</option>
+                <option value="weekly">Weekly — $45/week</option>
+                <option value="biweekly">Bi-Weekly — $50/delivery</option>
+                <option value="monthly">Monthly — $60/month</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-delivery-day">Delivery Day <span>*</span></label>
+              <select id="f-delivery-day" name="delivery_day" class="form-select" required>
+                <option value="">Select a day…</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="thursday">Thursday</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Customer Name + Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-cname">Your Full Name <span>*</span></label>
+              <input type="text" id="f-cname" name="customer_name" class="form-input" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-cemail">Your Email <span>*</span></label>
+              <input type="email" id="f-cemail" name="customer_email" class="form-input" placeholder="jane@example.com" required />
+            </div>
+          </div>
+
+          <!-- Customer Phone + Recipient Name -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-cphone">Your Phone <span>optional</span></label>
+              <input type="tel" id="f-cphone" name="customer_phone" class="form-input" placeholder="(404) 555-0123" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-rname">Recipient Name <span>optional</span></label>
+              <input type="text" id="f-rname" name="recipient_name" class="form-input" placeholder="If different from you" />
+            </div>
+          </div>
+
+          <!-- Recipient Phone + Delivery Address -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-rphone">Recipient Phone <span>optional</span></label>
+              <input type="tel" id="f-rphone" name="recipient_phone" class="form-input" placeholder="(404) 555-0456" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-address">Delivery Address <span>*</span></label>
+              <input type="text" id="f-address" name="delivery_address" class="form-input" placeholder="123 Bloom Lane, Atlanta, GA 30305" required />
+            </div>
+          </div>
+
+          <!-- Start Date -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-start-date">Start Date <span>optional</span></label>
+              <input type="date" id="f-start-date" name="start_date" class="form-input date-input" />
+            </div>
+            <div class="form-group">
+              <!-- Spacer or future field -->
+            </div>
+          </div>
+
+          <!-- Delivery Notes -->
+          <div class="form-row full">
+            <div class="form-group">
+              <label class="form-label" for="f-notes">Delivery Notes <span>optional</span></label>
+              <textarea id="f-notes" name="delivery_notes" class="form-textarea" placeholder="Gate code, leave at door, ring doorbell, etc."></textarea>
+            </div>
+          </div>
+
+          <!-- Is this a gift? -->
+          <div class="form-row full" style="margin-bottom:12px">
+            <div class="form-group">
+              <label class="form-label">Is this a gift?</label>
+              <div class="gift-toggle-row">
+                <div class="gift-option" id="gift-no" onclick="setGift(false)">No, for me</div>
+                <div class="gift-option" id="gift-yes" onclick="setGift(true)">Yes, it's a gift!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Message -->
+          <div class="form-row full">
+            <div class="form-group">
+              <label class="form-label" for="f-card-msg">Card Message <span>optional</span></label>
+              <textarea id="f-card-msg" name="card_message" class="form-textarea" placeholder="Include a personal note to be included with the first delivery…" style="min-height:80px"></textarea>
+            </div>
+          </div>
+
+          <!-- Payment note -->
+          <div class="payment-note">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Recurring checkout will be completed securely through <strong>Stripe</strong>. We'll reach out to finalize your plan before any charge.</span>
+          </div>
+
+          <!-- Submit -->
+          <div class="submit-btn-wrap">
+            <button type="submit" class="btn-submit" id="submit-btn">
+              <svg style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M12 2C12 2 5 8 5 14a7 7 0 0 0 14 0C19 8 12 2 12 2Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg>
+              Start My Subscription
+            </button>
+          </div>
+        </form>
+      </div><!-- #form-body -->
+    </div><!-- .form-wrap -->
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<!-- 9. FAQ                                                                   -->
+<!-- ─────────────────────────────────────────────────────────────────────── -->
+<section class="section-linen section-pad">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Got Questions?</div>
+      <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    </div>
+
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" aria-expanded="false">
+          Can I gift a subscription?
+          <span class="faq-arrow"><svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <p class="faq-a">Yes! During checkout, select "This is a gift" and include a personalized card message. We'll deliver directly to your recipient with a handwritten note from you.</p>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" aria-expanded="false">
+          What flowers are included?
+          <span class="faq-arrow"><svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <p class="faq-a">Arrangements feature seasonal, farm-grown blooms that change throughout the growing season. Think dahlias, zinnias, lisianthus, sunflowers, and more — every delivery is unique and designed to reflect what's at its peak on the farm.</p>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" aria-expanded="false">
+          Can I pause or cancel?
+          <span class="faq-arrow"><svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <p class="faq-a">Absolutely. You can pause or cancel your subscription at any time — just contact us at <a href="mailto:hello@sugaroaklane.com" style="color:var(--green);font-weight:500">hello@sugaroaklane.com</a> and we'll take care of it. We ask for 48 hours notice before your next scheduled delivery.</p>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" aria-expanded="false">
+          What days do you deliver?
+          <span class="faq-arrow"><svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+        <p class="faq-a">Subscription deliveries are available on Tuesdays and Thursdays within our delivery area (Atlanta metro &amp; Loganville, GA). When you sign up, you'll choose your preferred delivery day.</p>
+      </div>
+    </div><!-- .faq-list -->
+  </div>
+</section>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────────── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+
+      <!-- Brand column -->
+      <div>
+        <img
+          src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png"
+          alt="Sugar Oak Lane"
+          class="footer-brand-logo"
+          width="180" height="56"
+          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
+        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. We grow with intention, sell farm-direct, and believe the best mornings start with fresh flowers.</p>
+        <div class="footer-contact">
+          Loganville, GA 30052<br/>
+          <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a>
+        </div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.75)"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23l-.23.93c-.04.14-.12.18-.28.11-1.04-.49-1.69-2.02-1.69-3.25 0-2.64 1.92-5.07 5.54-5.07 2.91 0 5.17 2.07 5.17 4.84 0 2.89-1.82 5.21-4.34 5.21-.85 0-1.65-.44-1.92-.96l-.52 1.95c-.19.73-.7 1.64-1.04 2.2.78.24 1.61.37 2.46.37 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shop column -->
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="/shop">All Products</a></li>
+          <li><a href="/shop/flower-shop">Flower Shop</a></li>
+          <li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li>
+          <li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li>
+          <li><a href="/wholesale">Wholesale</a></li>
+        </ul>
+      </div>
+
+      <!-- Explore column -->
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="/weddings">Weddings + Events</a></li>
+          <li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li>
+          <li><a href="/blog">Farm Blog</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter column -->
+      <div>
+        <div class="footer-nl-title">Join the Garden Club</div>
+        <p class="footer-nl-desc">Get 10% off your first order + seasonal updates, new varieties, and farm stories delivered to your inbox.</p>
+        <form class="footer-nl-form" id="footer-nl-form" onsubmit="handleFooterNlSubmit(event)">
+          <input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" />
+          <button class="footer-nl-btn" type="submit" id="footer-nl-btn">Join &amp; Get 10% Off</button>
+        </form>
+        <div class="footer-nl-success" id="footer-nl-success">
+          ✓ Welcome! Use code <strong style="color:#fff">WELCOME10</strong> at checkout for 10% off your first order.
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sugar Oak Lane. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── TOAST ─────────────────────────────────────────────────────────── -->
+<div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+<!-- ─── SCRIPTS ───────────────────────────────────────────────────────── -->
+<script src="/js/sol-cart.js"></script>
+<script>
+// ── State ────────────────────────────────────────────────────────────────
+let selectedPlan = '';
+let selectedDay  = '';
+let isGift       = false;
+
+// ── Sticky header ────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+
+// ── Mobile drawer ────────────────────────────────────────────────────────
+function openDrawer() {
+  document.getElementById('mobile-drawer').classList.add('open');
+  document.getElementById('drawer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  document.getElementById('mobile-drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── Search overlay ───────────────────────────────────────────────────────
+function openSearch() {
+  document.getElementById('search-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('search-input').focus(), 50);
+}
+function closeSearch() {
+  document.getElementById('search-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeDrawer(); closeSearch(); }
+});
+
+// ── Set minimum date for date pickers ───────────────────────────────────
+(function() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const min = tomorrow.toISOString().split('T')[0];
+  document.getElementById('global-start-date').min = min;
+  document.getElementById('f-start-date').min = min;
+})();
+
+// ── Plan selection ───────────────────────────────────────────────────────
+const PLAN_LABELS = { weekly: 'Weekly — $45/week', biweekly: 'Bi-Weekly — $50/delivery', monthly: 'Monthly — $60/month' };
+
+function selectPlan(plan) {
+  selectedPlan = plan;
+  ['weekly','biweekly','monthly'].forEach(p => {
+    document.getElementById('plan-card-' + p).classList.toggle('selected', p === plan);
+  });
+  // Sync form select
+  const sel = document.getElementById('f-plan');
+  if (sel) sel.value = plan;
+  // Update indicator
+  const display = document.getElementById('selected-plan-display');
+  const text    = document.getElementById('selected-plan-text');
+  const noplan  = document.getElementById('no-plan-display');
+  if (display && text) {
+    text.textContent = PLAN_LABELS[plan] + ' selected';
+    display.style.display = 'inline-flex';
+    if (noplan) noplan.style.display = 'none';
+  }
+}
+
+function onPlanSelectChange(val) {
+  if (val) selectPlan(val);
+}
+
+function selectPlanAndScroll(plan) {
+  selectPlan(plan);
+  const formSection = document.getElementById('subscription-form-section');
+  if (formSection) {
+    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+// ── Delivery day selection ───────────────────────────────────────────────
+function selectDay(day) {
+  selectedDay = day;
+  ['tuesday','thursday'].forEach(d => {
+    document.getElementById('day-' + d).classList.toggle('selected', d === day);
+  });
+  // Sync form select
+  const sel = document.getElementById('f-delivery-day');
+  if (sel) sel.value = day;
+}
+
+// ── Start date sync ──────────────────────────────────────────────────────
+function syncStartDate(val) {
+  const formDate = document.getElementById('f-start-date');
+  if (formDate) formDate.value = val;
+}
+document.getElementById('f-start-date').addEventListener('change', function() {
+  const global = document.getElementById('global-start-date');
+  if (global) global.value = this.value;
+});
+
+// ── Gift toggle ──────────────────────────────────────────────────────────
+function setGift(val) {
+  isGift = val;
+  document.getElementById('gift-yes').classList.toggle('selected', val === true);
+  document.getElementById('gift-no').classList.toggle('selected', val === false);
+}
+// Default: not a gift
+setGift(false);
+
+// ── Toast ────────────────────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.remove('show');
+  // Force reflow
+  void t.offsetWidth;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ── FAQ accordion ────────────────────────────────────────────────────────
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  });
+  // Open this one if it was closed
+  if (!isOpen) {
+    item.classList.add('open');
+    el.setAttribute('aria-expanded', 'true');
+  }
+}
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaq(q); }
+  });
+});
+
+// ── Form submission ──────────────────────────────────────────────────────
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn  = document.getElementById('submit-btn');
+
+  // Validate required fields
+  const plan     = document.getElementById('f-plan').value;
+  const cname    = document.getElementById('f-cname').value.trim();
+  const cemail   = document.getElementById('f-cemail').value.trim();
+  const address  = document.getElementById('f-address').value.trim();
+  const day      = document.getElementById('f-delivery-day').value;
+
+  if (!plan)    { showToast('Please select a subscription plan.'); return; }
+  if (!cname)   { showToast('Please enter your full name.'); return; }
+  if (!cemail || !cemail.includes('@')) { showToast('Please enter a valid email address.'); return; }
+  if (!address) { showToast('Please enter your delivery address.'); return; }
+  if (!day)     { showToast('Please choose a delivery day.'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const payload = {
+    plan_type:        plan,
+    customer_name:    cname,
+    customer_email:   cemail,
+    customer_phone:   document.getElementById('f-cphone').value.trim() || null,
+    recipient_name:   document.getElementById('f-rname').value.trim() || null,
+    recipient_phone:  document.getElementById('f-rphone').value.trim() || null,
+    delivery_address: address,
+    delivery_day:     day,
+    start_date:       document.getElementById('f-start-date').value || null,
+    delivery_notes:   document.getElementById('f-notes').value.trim() || null,
+    is_gift:          isGift,
+    card_message:     document.getElementById('f-card-msg').value.trim() || null,
+  };
+
+  try {
+    const res  = await fetch('/api/subscriptions', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    const data = await res.json();
+
+    if (data.success) {
+      // Show success
+      document.getElementById('form-body').style.display = 'none';
+      document.getElementById('form-success').classList.add('visible');
+      // Scroll to success
+      document.getElementById('subscription-form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      showToast(data.message || 'Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.innerHTML = '<svg style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M12 2C12 2 5 8 5 14a7 7 0 0 0 14 0C19 8 12 2 12 2Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg> Start My Subscription';
+    }
+  } catch (err) {
+    showToast('Connection error. Please try again.');
+    btn.disabled = false;
+    btn.innerHTML = '<svg style="width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><path d="M12 2C12 2 5 8 5 14a7 7 0 0 0 14 0C19 8 12 2 12 2Z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg> Start My Subscription';
+  }
+}
+
+// ── Footer newsletter ────────────────────────────────────────────────────
+async function handleFooterNlSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('footer-nl-email').value.trim();
+  const btn   = document.getElementById('footer-nl-btn');
+  if (!email) return;
+  btn.textContent = 'Joining…';
+  btn.disabled = true;
+  try {
+    const res  = await fetch('/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'subscriptions-footer' }) });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById('footer-nl-form').style.display = 'none';
+      const successEl = document.getElementById('footer-nl-success');
+      successEl.innerHTML = data.already_subscribed
+        ? '✓ You\'re already subscribed! Your code is <strong style="color:#fff">WELCOME10</strong>.'
+        : '✓ Welcome! Use code <strong style="color:#fff">WELCOME10</strong> at checkout for 10% off your first order.';
+      successEl.style.display = 'block';
+    } else {
+      btn.textContent = 'Join & Get 10% Off';
+      btn.disabled = false;
+    }
+  } catch (err) {
+    btn.textContent = 'Join & Get 10% Off';
+    btn.disabled = false;
+  }
+}
+
+// ── Load announcement bar from site settings ─────────────────────────────
+(async function() {
+  try {
+    const res  = await fetch('/api/site-settings');
+    const data = await res.json();
+    if (data.success && data.settings && data.settings.announcement_bar) {
+      const el = document.getElementById('announce-text');
+      if (el) el.innerHTML = data.settings.announcement_bar;
+    }
+  } catch (e) { /* use default */ }
+})();
+</script>
+</body>
+</html>

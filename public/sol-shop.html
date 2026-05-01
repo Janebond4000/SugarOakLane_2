@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Sugar Oak Lane — Farm-Grown Flowers, Seeds &amp; More</title>
+  <meta name="description" content="Shop Sugar Oak Lane's full collection — heirloom seeds, dahlia tubers, nursery plants, and farm goods. Grown in Loganville, Georgia." />
+  <meta name="keywords" content="buy farm flowers online, heirloom seeds Georgia, dahlia tubers for sale, nursery plants Loganville, farm goods Georgia, cut flowers shop" />
+  <link rel="canonical" href="https://sugaroakos.polsia.app/shop" />
+  <meta property="og:title" content="Shop | Sugar Oak Lane — Farm-Grown Flowers, Seeds &amp; More" />
+  <meta property="og:description" content="Shop Sugar Oak Lane's full collection — heirloom seeds, dahlia tubers, nursery plants, and farm goods. Grown in Loganville, Georgia." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sugaroakos.polsia.app/shop" />
+  <meta property="og:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta property="og:site_name" content="Sugar Oak Lane" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shop | Sugar Oak Lane — Farm-Grown Flowers, Seeds &amp; More" />
+  <meta name="twitter:description" content="Shop Sugar Oak Lane's full collection — heirloom seeds, dahlia tubers, nursery plants, and farm goods. Grown in Loganville, Georgia." />
+  <meta name="twitter:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <link rel="stylesheet" href="/api/theme.css" />
+  <style>
+    /* ── Shop Page Layout ─────────────────────────────────────────────────── */
+    .sol-shop-page { padding: 28px 0 80px; }
+
+    .sol-shop-wrap {
+      display: grid;
+      grid-template-columns: 224px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── Sidebar ──────────────────────────────────────────────────────────── */
+    .sol-shop-sidebar {
+      position: sticky;
+      top: 88px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-lt) transparent;
+    }
+    .sol-shop-sidebar::-webkit-scrollbar { width: 3px; }
+    .sol-shop-sidebar::-webkit-scrollbar-thumb { background: var(--border-lt); border-radius: 2px; }
+
+    .sidebar-section-hdr {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dk);
+      padding: 0 0 10px;
+      margin-bottom: 0;
+      border-bottom: 1px solid var(--border-lt);
+    }
+
+    .sidebar-cat-item {
+      border-bottom: 1px solid var(--border-lt);
+    }
+
+    .sidebar-cat-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dk);
+      text-align: left;
+      transition: color 0.15s;
+    }
+    .sidebar-cat-btn:hover { color: var(--green); }
+
+    .sidebar-cat-icon {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-lt);
+      line-height: 1;
+      flex-shrink: 0;
+      margin-left: 6px;
+    }
+
+    .sidebar-cat-body {
+      display: none;
+      padding-bottom: 10px;
+    }
+    .sidebar-cat-body.open { display: block; }
+
+    .sidebar-sub-link {
+      display: block;
+      font-size: 12.5px;
+      color: var(--text-md);
+      padding: 4px 0 4px 10px;
+      cursor: pointer;
+      transition: color 0.15s;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      line-height: 1.4;
+    }
+    .sidebar-sub-link:hover { color: var(--green); }
+    .sidebar-sub-link.active {
+      color: var(--green);
+      font-weight: 600;
+      border-left-color: var(--green);
+    }
+
+    .sidebar-filter-group-lbl {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      margin: 10px 0 4px 10px;
+    }
+
+    .sidebar-sub-indent { padding-left: 20px; font-size: 12px; }
+
+    .sidebar-refine-section { margin-top: 18px; }
+
+    .sidebar-avail-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      color: var(--text-md);
+      padding: 5px 0 5px 10px;
+      cursor: pointer;
+    }
+    .sidebar-avail-label input { accent-color: var(--green); cursor: pointer; }
+
+    /* ── Mobile sidebar toggle ─────────────────────────────────────────────── */
+    .mobile-filter-bar {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0 14px;
+      border-bottom: 1px solid var(--border-lt);
+      margin-bottom: 20px;
+    }
+    .mobile-filter-btn {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: none;
+      border: 1px solid var(--border-lt);
+      padding: 8px 14px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--text-dk);
+    }
+    .mobile-filter-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+    /* Mobile sidebar drawer */
+    .mobile-sidebar-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 900;
+    }
+    .mobile-sidebar-overlay.open { display: block; }
+    .mobile-sidebar-drawer {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--linen);
+      z-index: 901;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      padding: 20px 20px 40px;
+    }
+    .mobile-sidebar-drawer.open { left: 0; }
+    .mobile-sidebar-close {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 16px;
+    }
+    .mobile-sidebar-close button {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--text-dk);
+    }
+
+    /* ── Products Area ─────────────────────────────────────────────────────── */
+    .shop-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-lt);
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .shop-breadcrumbs {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+    }
+    .shop-breadcrumbs a {
+      color: var(--text-lt);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .shop-breadcrumbs a:hover { color: var(--text-dk); }
+    .bc-sep { margin: 0 5px; }
+
+    /* Pagination */
+    .pg-row {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--text-lt);
+      white-space: nowrap;
+    }
+    .pg-lbl { margin-right: 4px; }
+    .pg-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 24px;
+      padding: 0 2px;
+      cursor: pointer;
+      color: var(--text-md);
+      text-decoration: none;
+      transition: color 0.15s;
+      font-size: 10.5px;
+    }
+    .pg-num:hover { color: var(--text-dk); }
+    .pg-num.active {
+      color: var(--text-dk);
+      font-weight: 700;
+      border-bottom: 2px solid var(--text-dk);
+    }
+    .pg-ellipsis { color: var(--text-lt); padding: 0 2px; }
+    .pg-row-bottom { justify-content: center; margin-top: 48px; }
+
+    .shop-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-dk);
+      margin: 0 0 3px;
+    }
+    .shop-product-count {
+      font-size: 11.5px;
+      color: var(--text-lt);
+      margin-bottom: 20px;
+    }
+
+    /* Product Grid */
+    .shop-product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px 16px;
+    }
+    .shop-empty {
+      grid-column: 1 / -1;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .shop-empty-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--text-md);
+      margin-bottom: 8px;
+    }
+    .shop-empty-sub { font-size: 13px; color: var(--text-lt); }
+
+    /* SOL Product Card */
+    .sol-pc {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .sol-pc:hover .sol-pc-img { transform: scale(1.04); }
+    .sol-pc-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      background: var(--linen-dk);
+      margin-bottom: 10px;
+    }
+    .sol-pc-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+    .sol-pc-img-soldout {
+      filter: grayscale(30%) brightness(0.92);
+    }
+    /* Sold-out image overlay */
+    .sol-pc-img-wrap .sol-pc-sold-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.22);
+      pointer-events: none;
+    }
+    /* Sold-out banner — full-width bar at bottom of image */
+    .sol-pc-badge {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--green, #3A5A40);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      text-align: center;
+    }
+    /* Bestseller badge — top-left corner chip */
+    .sol-pc-bestseller {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--green, #3A5A40);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .sol-pc-name {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-dk);
+      line-height: 1.35;
+      margin-bottom: 3px;
+    }
+    .sol-pc-price {
+      font-size: 12px;
+      color: var(--text-md);
+    }
+    .sol-pc-stars {
+      display: flex; align-items: center; gap: 4px;
+      margin-top: 4px;
+    }
+    .sol-pc-stars-row {
+      font-size: 11px; color: #c8a84b; line-height: 1; letter-spacing: 1px;
+    }
+    .sol-pc-stars-count {
+      font-size: 10px; color: var(--text-lt);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .sol-shop-wrap { grid-template-columns: 1fr; }
+      .sol-shop-sidebar { display: none; }
+      .mobile-filter-bar { display: flex; }
+    }
+    @media (max-width: 980px) and (min-width: 641px) {
+      .shop-product-grid { grid-template-columns: repeat(3, 1fr); gap: 20px 14px; }
+    }
+    @media (max-width: 640px) {
+      .shop-product-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
+      .shop-section-title { font-size: 24px; }
+    }
+    @media (max-width: 400px) {
+      .shop-product-grid { gap: 12px 8px; }
+    }
+
+    /* ── Search + Sort Bar ─────────────────────────────────────────────────── */
+    .shop-search-sort-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .shop-search-input-wrap {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      border: 1.5px solid var(--border-lt);
+      background: #fff;
+      transition: border-color 0.15s;
+    }
+    .shop-search-input-wrap:focus-within { border-color: var(--green); }
+    .shop-search-icon {
+      position: absolute;
+      left: 12px;
+      width: 15px;
+      height: 15px;
+      stroke: var(--text-lt);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      pointer-events: none;
+      flex-shrink: 0;
+    }
+    .shop-search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 10px 36px 10px 36px;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--text-dk);
+      background: transparent;
+    }
+    .shop-search-input::placeholder { color: var(--text-lt); }
+    .shop-search-clear {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 17px;
+      cursor: pointer;
+      color: var(--text-lt);
+      line-height: 1;
+      padding: 4px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .shop-search-clear:hover { color: var(--text-dk); }
+    .shop-sort-select {
+      border: 1.5px solid var(--border-lt);
+      background: #fff;
+      padding: 10px 30px 10px 12px;
+      font-size: 11.5px;
+      font-family: inherit;
+      color: var(--text-dk);
+      outline: none;
+      cursor: pointer;
+      white-space: nowrap;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      min-width: 178px;
+      transition: border-color 0.15s;
+    }
+    .shop-sort-select:focus { border-color: var(--green); }
+
+    /* ── Filter Chips ──────────────────────────────────────────────────────── */
+    .shop-filter-chips {
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 8px 4px 12px;
+      background: var(--linen-dk, #edeae2);
+      font-size: 11.5px;
+      color: var(--text-dk);
+      white-space: nowrap;
+    }
+    .filter-chip button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--text-lt);
+      line-height: 1;
+      padding: 0 0 0 2px;
+      display: flex;
+      align-items: center;
+    }
+    .filter-chip button:hover { color: var(--text-dk); }
+    .filter-chip-clear-all {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-lt);
+      padding: 4px 8px;
+      text-decoration: underline;
+      transition: color 0.15s;
+    }
+    .filter-chip-clear-all:hover { color: var(--text-dk); }
+
+    /* ── Price Range Filter ────────────────────────────────────────────────── */
+    .price-range-inputs { padding: 8px 0 4px 10px; }
+    .price-input-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .price-input-row span {
+      font-size: 12px;
+      color: var(--text-lt);
+      flex-shrink: 0;
+    }
+    .price-input-field {
+      width: 72px;
+      border: 1.5px solid var(--border-lt);
+      padding: 7px 8px;
+      font-size: 12px;
+      font-family: inherit;
+      color: var(--text-dk);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.15s;
+      -moz-appearance: textfield;
+    }
+    .price-input-field:focus { border-color: var(--green); }
+    .price-input-field::-webkit-inner-spin-button,
+    .price-input-field::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+    .price-apply-hint {
+      font-size: 10.5px;
+      color: var(--text-lt);
+      margin-top: 7px;
+      padding-left: 10px;
+    }
+
+    /* ── Search bar responsive ─────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .shop-search-sort-bar { flex-direction: column; gap: 8px; }
+      .shop-sort-select { width: 100%; min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="announce-bar">
+  🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="header-icon-btn" data-sol-cart-btn aria-label="Cart" style="position:relative"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link active">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/weddings">Weddings</a>
+        <a href="/weddings/diy">DIY Wedding Flowers</a>
+        <a href="/weddings/events">Banquets + Special Occasions</a>
+      </div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown">
+        <a href="/about">Our Story</a>
+        <a href="/contact">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head">
+    <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" />
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop">Flower Shop</a>
+    <a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a>
+    <a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a>
+    <a href="/shop?cat=dahlias">Dahlias</a>
+    <a href="/shop?cat=farm-goods">Farm Goods + Gifts</a>
+    <a href="/shop" class="active-drawer">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a>
+    <a href="/weddings">Weddings</a>
+    <a href="/weddings/diy">DIY Wedding Flowers</a>
+    <a href="/weddings/events">Banquets + Special Occasions</a>
+    <a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog">Blog</a>
+    <a href="/about">Our Story</a>
+    <a href="/contact">Contact Us</a>
+  </div>
+</nav>
+
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner">
+    <div class="search-row">
+      <svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" />
+      <button class="search-close-btn" onclick="closeSearch()" aria-label="Close search">&times;</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile sidebar overlay -->
+<div class="mobile-sidebar-overlay" id="mobile-sidebar-overlay" onclick="closeMobileSidebar()"></div>
+<div class="mobile-sidebar-drawer" id="mobile-sidebar-drawer">
+  <div class="mobile-sidebar-close">
+    <button onclick="closeMobileSidebar()" aria-label="Close filters">&times;</button>
+  </div>
+  <div id="mobile-sidebar-content">
+    <!-- Mirror of desktop sidebar, injected by JS -->
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="container sol-shop-page">
+
+  <!-- Mobile filter toggle bar (visible on mobile only) -->
+  <div class="mobile-filter-bar">
+    <button class="mobile-filter-btn" onclick="openMobileSidebar()">
+      <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>
+      Filter &amp; Browse
+    </button>
+    <div id="mobile-active-filter" style="font-size:12px;color:var(--text-md)"></div>
+  </div>
+
+  <!-- Search + Sort Bar -->
+  <div class="shop-search-sort-bar">
+    <div class="shop-search-input-wrap">
+      <svg class="shop-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="shop-search-input" id="shop-search-input" placeholder="Search seeds, plants, herbs…" autocomplete="off" oninput="handleSearchInput(this.value)" />
+      <button class="shop-search-clear" id="shop-search-clear" onclick="clearSearch()" aria-label="Clear search">×</button>
+    </div>
+    <select class="shop-sort-select" id="shop-sort-select" onchange="applySort(this.value)">
+      <option value="featured">Sort: Featured</option>
+      <option value="price_asc">Price: Low to High</option>
+      <option value="price_desc">Price: High to Low</option>
+      <option value="newest">Newest</option>
+      <option value="name_az">Name A–Z</option>
+    </select>
+  </div>
+  <!-- Active Filter Chips -->
+  <div class="shop-filter-chips" id="shop-filter-chips"></div>
+
+  <div class="sol-shop-wrap">
+
+    <!-- ── SIDEBAR ──────────────────────────────────────────────────────── -->
+    <aside class="sol-shop-sidebar" id="sol-shop-sidebar">
+
+      <!-- SHOP BY CATEGORY (dynamically built from /api/categories tree) -->
+      <div class="sidebar-section-hdr">Shop by Category</div>
+      <div id="sidebar-cat-tree">
+        <div style="padding:12px 8px;color:#aaa;font-size:12px"><i class="fa-solid fa-spinner fa-spin"></i> Loading…</div>
+      </div>
+
+      <!-- REFINE BY -->
+      <div class="sidebar-refine-section">
+        <div class="sidebar-section-hdr" style="margin-top:18px">Refine By</div>
+        <div class="sidebar-cat-item">
+          <button class="sidebar-cat-btn" onclick="toggleSidebarCat('availability')" id="btn-availability">
+            <span>Availability</span>
+            <span class="sidebar-cat-icon" id="icon-availability">+</span>
+          </button>
+          <div class="sidebar-cat-body" id="body-availability">
+            <label class="sidebar-avail-label">
+              <input type="checkbox" id="filter-in-stock" onchange="toggleInStock(this.checked)" />
+              <span>In Stock</span>
+            </label>
+          </div>
+        </div>
+        <!-- Price Range -->
+        <div class="sidebar-cat-item">
+          <button class="sidebar-cat-btn" onclick="toggleSidebarCat('price')" id="btn-price">
+            <span>Price Range</span>
+            <span class="sidebar-cat-icon" id="icon-price">+</span>
+          </button>
+          <div class="sidebar-cat-body" id="body-price">
+            <div class="price-range-inputs">
+              <div class="price-input-row">
+                <input type="number" class="price-input-field" id="price-min" placeholder="Min" min="0" step="0.01" oninput="applyPriceRange()" />
+                <span>–</span>
+                <input type="number" class="price-input-field" id="price-max" placeholder="Max" min="0" step="0.01" oninput="applyPriceRange()" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── PRODUCTS AREA ─────────────────────────────────────────────────── -->
+    <div class="sol-shop-products">
+
+      <!-- Top bar: breadcrumbs + pagination -->
+      <div class="shop-top-bar">
+        <div class="shop-breadcrumbs" id="shop-breadcrumbs">
+          <a href="/">HOME</a>
+          <span class="bc-sep">/</span>
+          <a href="/shop">SHOP</a>
+        </div>
+        <div id="pg-top"></div>
+      </div>
+
+      <!-- Section title + count -->
+      <h2 class="shop-section-title" id="shop-section-title">All Products</h2>
+      <div class="shop-product-count" id="shop-product-count"></div>
+
+      <!-- Product grid -->
+      <div class="shop-product-grid" id="shop-product-grid">
+        <div class="shop-empty">
+          <div class="shop-empty-title">Loading…</div>
+        </div>
+      </div>
+
+      <!-- Bottom pagination -->
+      <div id="pg-bottom"></div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ─── NEWSLETTER STRIP ─────────────────────────────────────────────────── -->
+<section id="shop-nl-strip" aria-label="Newsletter signup" style="background:#edf3ee;padding:64px 20px;text-align:center;">
+  <style>
+    #shop-nl-strip .nl-strip-inner{max-width:560px;margin:0 auto}
+    #shop-nl-strip .nl-strip-eyebrow{font-family:"Helvetica Neue",Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#3a5a40;margin-bottom:10px}
+    #shop-nl-strip .nl-strip-title{font-family:"Cormorant Garamond",Georgia,serif;font-size:34px;font-weight:400;color:#1a1a1a;line-height:1.25;margin-bottom:10px}
+    #shop-nl-strip .nl-strip-title em{font-style:italic;font-weight:300;color:#3a5a40}
+    #shop-nl-strip .nl-strip-sub{font-family:"Helvetica Neue",Arial,sans-serif;font-size:14px;color:#6a6260;line-height:1.6;margin-bottom:24px}
+    #shop-nl-strip .nl-strip-sub strong{color:#1a1a1a}
+    #shop-nl-form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+    #shop-nl-email{flex:1;padding:13px 16px;border:1.5px solid #ddd8cc;border-radius:8px;font-size:15px;font-family:"Helvetica Neue",Arial,sans-serif;outline:none;color:#1a1a1a;background:#fff;transition:border-color 0.2s}
+    #shop-nl-email:focus{border-color:#3a5a40}
+    #shop-nl-email::placeholder{color:#b0aba5}
+    #shop-nl-btn{padding:13px 22px;background:#3a5a40;color:#fff;border:none;border-radius:8px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+    #shop-nl-btn:hover{background:#2c4730}
+    #shop-nl-btn:disabled{opacity:0.65;cursor:not-allowed}
+    #shop-nl-success{display:none;margin-top:16px;font-family:"Helvetica Neue",Arial,sans-serif;font-size:15px;color:#3a5a40;font-weight:500}
+    @media(max-width:540px){#shop-nl-form{flex-direction:column}#shop-nl-btn{width:100%}}
+  </style>
+  <div class="nl-strip-inner">
+    <div class="nl-strip-eyebrow">Join the Garden Club</div>
+    <h2 class="nl-strip-title">Get <em>10% off</em> your first order</h2>
+    <p class="nl-strip-sub">Seasonal updates, exclusive offers, and your <strong>WELCOME10</strong> discount code — straight to your inbox.</p>
+    <form id="shop-nl-form" onsubmit="handleShopNlSubmit(event)" novalidate>
+      <input type="email" id="shop-nl-email" placeholder="Your email address" required autocomplete="email" />
+      <button type="submit" id="shop-nl-btn">Get 10% Off</button>
+    </form>
+    <div id="shop-nl-success" role="status"></div>
+  </div>
+  <script>
+  async function handleShopNlSubmit(e) {
+    e.preventDefault();
+    var email = document.getElementById('shop-nl-email').value.trim();
+    var btn = document.getElementById('shop-nl-btn');
+    if (!email || !email.includes('@')) return;
+    btn.textContent = 'Joining\u2026'; btn.disabled = true;
+    try {
+      var res = await fetch('/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'shop-inline-banner' }) });
+      var data = await res.json();
+      if (data.success) {
+        document.getElementById('shop-nl-form').style.display = 'none';
+        var s = document.getElementById('shop-nl-success');
+        s.innerHTML = data.already_subscribed
+          ? '\u2713 You\'re already subscribed! Your code is <strong>WELCOME10</strong>.'
+          : '\u2713 Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.';
+        s.style.display = 'block';
+        try { localStorage.setItem('sol_subscribed', '1'); } catch(x) {}
+      } else { btn.textContent = 'Get 10% Off'; btn.disabled = false; }
+    } catch (err) { btn.textContent = 'Get 10% Off'; btn.disabled = false; }
+  }
+  </script>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
+        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p>
+        <div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.23-5.22 1.23-5.22s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.1-2.38 3.1-5.19 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.79-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.15.06.23l-.23.93c-.04.14-.12.18-.28.11-1.04-.49-1.69-2.02-1.69-3.25 0-2.64 1.92-5.07 5.54-5.07 2.91 0 5.17 2.07 5.17 4.84 0 2.89-1.82 5.21-4.34 5.21-.85 0-1.65-.44-1.92-.96l-.52 1.95c-.19.73-.7 1.64-1.04 2.2.78.24 1.61.37 2.46.37 5.52 0 10-4.48 10-10S17.52 2 12 2z" fill="rgba(255,255,255,0.75)"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Shop</div>
+        <ul class="footer-links">
+          <li><a href="/shop">All Products</a></li>
+          <li><a href="/shop/flower-shop">Flower Shop</a></li>
+          <li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li>
+          <li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li>
+          <li><a href="/shop?cat=dahlias">Dahlias</a></li>
+          <li><a href="/wholesale">Wholesale</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Explore</div>
+        <ul class="footer-links">
+          <li><a href="/weddings">Weddings + Events</a></li>
+          <li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li>
+          <li><a href="/blog">Farm Blog</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Help</div>
+        <ul class="footer-links">
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/delivery-info">Delivery Info</a></li>
+          <li><a href="/substitution-policy">Substitution Policy</a></li>
+          <li><a href="/refund-policy">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-nl-title">Stay in Touch</div>
+        <p class="footer-nl-desc">Fresh blooms, farm stories, and exclusive offers delivered to your inbox. Join for 10% off your first order.</p>
+        <form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)">
+          <input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" />
+          <button class="footer-nl-btn" type="submit" id="footer-nl-btn">Join &amp; Get 10% Off</button>
+        </form>
+        <div class="footer-nl-success" id="footer-nl-success">Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span>
+      <div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/sol-cart.js"></script>
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// Header / Nav / Drawer / Search
+// ─────────────────────────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+}, { passive: true });
+function openDrawer() { document.getElementById('mobile-drawer').classList.add('open'); document.getElementById('drawer-overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeDrawer() { document.getElementById('mobile-drawer').classList.remove('open'); document.getElementById('drawer-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+function openSearch() { document.getElementById('search-overlay').classList.add('open'); document.body.style.overflow = 'hidden'; setTimeout(() => document.getElementById('search-input').focus(), 50); }
+function closeSearch() { document.getElementById('search-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDrawer(); closeSearch(); closeMobileSidebar(); } });
+
+// Mobile sidebar
+function openMobileSidebar() {
+  document.getElementById('mobile-sidebar-overlay').classList.add('open');
+  document.getElementById('mobile-sidebar-drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  const desktop = document.getElementById('sol-shop-sidebar');
+  const mobileContent = document.getElementById('mobile-sidebar-content');
+  mobileContent.innerHTML = desktop.innerHTML;
+}
+function closeMobileSidebar() {
+  document.getElementById('mobile-sidebar-overlay').classList.remove('open');
+  document.getElementById('mobile-sidebar-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Newsletter
+async function handleNlSubmit(e) {
+  e.preventDefault();
+  const email = document.getElementById('footer-nl-email').value.trim();
+  const btn = document.getElementById('footer-nl-btn');
+  if (!email) return;
+  btn.textContent = 'Signing up...'; btn.disabled = true;
+  try {
+    const res = await fetch('/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, source: 'footer-newsletter' }) });
+    const data = await res.json();
+    if (data.success) { document.getElementById('footer-nl-form').style.display = 'none'; const s = document.getElementById('footer-nl-success'); s.innerHTML = data.already_subscribed ? 'You\'re already subscribed! Your code is <strong>WELCOME10</strong>.' : 'Welcome! Use code <strong>WELCOME10</strong> at checkout for 10% off your first order.'; s.style.display = 'block'; }
+    else { btn.textContent = 'Subscribe'; btn.disabled = false; }
+  } catch (err) { btn.textContent = 'Subscribe'; btn.disabled = false; }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Shop State
+// ─────────────────────────────────────────────────────────────────────────────
+const SHOP_STATE = {
+  category: null,
+  subcategory: null,
+  flower_name: null,
+  flower_type: null,
+  dahlia_type: null,
+  in_stock: false,
+  search: '',
+  sort: 'featured',
+  priceMin: '',
+  priceMax: '',
+  page: 1,
+  perPage: 16
+};
+
+let CAT_LABELS = {};
+let CAT_ACCORDION_KEY = {};
+let _categoryTree = [];
+let _allProducts = [];
+let _filteredProducts = [];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Client-side search / sort / price filter
+// ─────────────────────────────────────────────────────────────────────────────
+function applySearchSort() {
+  let results = [..._allProducts];
+  const q = SHOP_STATE.search.trim().toLowerCase();
+
+  // Search
+  if (q) {
+    results = results.filter(p => {
+      const name = (p.name || '').toLowerCase();
+      const desc = (p.description || '').toLowerCase();
+      const cat = (p.category_name || p.category_slug || p.category || '').toLowerCase();
+      return name.includes(q) || desc.includes(q) || cat.includes(q);
+    });
+  }
+
+  // Price range
+  const minP = parseFloat(SHOP_STATE.priceMin);
+  const maxP = parseFloat(SHOP_STATE.priceMax);
+  if (!isNaN(minP) && SHOP_STATE.priceMin !== '') {
+    results = results.filter(p => parseFloat(p.price || 0) >= minP);
+  }
+  if (!isNaN(maxP) && SHOP_STATE.priceMax !== '') {
+    results = results.filter(p => parseFloat(p.price || 0) <= maxP);
+  }
+
+  // Sort
+  switch (SHOP_STATE.sort) {
+    case 'price_asc':
+      results.sort((a, b) => parseFloat(a.price || 0) - parseFloat(b.price || 0));
+      break;
+    case 'price_desc':
+      results.sort((a, b) => parseFloat(b.price || 0) - parseFloat(a.price || 0));
+      break;
+    case 'newest':
+      results.sort((a, b) => (b.id || 0) - (a.id || 0));
+      break;
+    case 'name_az':
+      results.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
+      break;
+    // 'featured': keep original API order
+  }
+
+  _filteredProducts = results;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Search handlers
+// ─────────────────────────────────────────────────────────────────────────────
+let _searchDebounce = null;
+function handleSearchInput(val) {
+  clearTimeout(_searchDebounce);
+  _searchDebounce = setTimeout(() => {
+    SHOP_STATE.search = val;
+    SHOP_STATE.page = 1;
+    const clearBtn = document.getElementById('shop-search-clear');
+    if (clearBtn) clearBtn.style.display = val ? 'flex' : 'none';
+    applySearchSort();
+    renderProducts();
+    updateFilterChips();
+    updateURL();
+  }, 180);
+}
+
+function clearSearch() {
+  SHOP_STATE.search = '';
+  const inp = document.getElementById('shop-search-input');
+  if (inp) inp.value = '';
+  const clearBtn = document.getElementById('shop-search-clear');
+  if (clearBtn) clearBtn.style.display = 'none';
+  SHOP_STATE.page = 1;
+  applySearchSort();
+  renderProducts();
+  updateFilterChips();
+  updateURL();
+}
+
+function applySort(val) {
+  SHOP_STATE.sort = val;
+  sessionStorage.setItem('sol_sort', val);
+  SHOP_STATE.page = 1;
+  applySearchSort();
+  renderProducts();
+  updateURL();
+}
+
+function applyPriceRange() {
+  SHOP_STATE.priceMin = (document.getElementById('price-min') || {}).value || '';
+  SHOP_STATE.priceMax = (document.getElementById('price-max') || {}).value || '';
+  SHOP_STATE.page = 1;
+  applySearchSort();
+  renderProducts();
+  updateFilterChips();
+  updateURL();
+}
+
+function clearPriceFilter() {
+  SHOP_STATE.priceMin = '';
+  SHOP_STATE.priceMax = '';
+  const minEl = document.getElementById('price-min');
+  const maxEl = document.getElementById('price-max');
+  if (minEl) minEl.value = '';
+  if (maxEl) maxEl.value = '';
+  SHOP_STATE.page = 1;
+  applySearchSort();
+  renderProducts();
+  updateFilterChips();
+  updateURL();
+}
+
+function clearAllFilters() {
+  clearSearch();
+  clearPriceFilter();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Filter chips
+// ─────────────────────────────────────────────────────────────────────────────
+function updateFilterChips() {
+  const container = document.getElementById('shop-filter-chips');
+  if (!container) return;
+  const s = SHOP_STATE;
+  const chips = [];
+
+  if (s.search) chips.push({ label: `"${s.search}"`, onRemove: 'clearSearch()' });
+  if (s.priceMin && s.priceMax) chips.push({ label: `$${s.priceMin} – $${s.priceMax}`, onRemove: 'clearPriceFilter()' });
+  else if (s.priceMin) chips.push({ label: `From $${s.priceMin}`, onRemove: 'clearPriceFilter()' });
+  else if (s.priceMax) chips.push({ label: `Up to $${s.priceMax}`, onRemove: 'clearPriceFilter()' });
+
+  if (!chips.length) {
+    container.style.display = 'none';
+    container.innerHTML = '';
+    return;
+  }
+
+  container.style.display = 'flex';
+  let html = chips.map(c =>
+    `<span class="filter-chip">${escHtml(c.label)}<button onclick="${c.onRemove}" aria-label="Remove filter">×</button></span>`
+  ).join('');
+  if (chips.length > 1) {
+    html += `<button class="filter-chip-clear-all" onclick="clearAllFilters()">Clear all</button>`;
+  }
+  container.innerHTML = html;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Build sidebar from category tree API
+// ─────────────────────────────────────────────────────────────────────────────
+async function buildSidebar() {
+  const container = document.getElementById('sidebar-cat-tree');
+  if (!container) return;
+  try {
+    const res = await fetch('/api/categories');
+    const data = await res.json();
+    _categoryTree = data.tree || [];
+    const flat = data.categories || [];
+
+    CAT_LABELS = {};
+    CAT_ACCORDION_KEY = {};
+    flat.forEach(c => {
+      CAT_LABELS[c.slug] = c.name;
+      if ((c.level || 0) === 0) {
+        CAT_ACCORDION_KEY[c.slug] = c.slug;
+      }
+    });
+
+    if (!_categoryTree.length) {
+      container.innerHTML = '<div style="padding:12px 8px;color:#aaa;font-size:12px">No categories yet.</div>';
+      return;
+    }
+
+    const visibleRoots = _categoryTree.filter(c => c.sidebar_visible !== false);
+    let html = '';
+
+    visibleRoots.forEach(root => {
+      const key = root.slug;
+      const hasChildren = root.children && root.children.length > 0;
+      const visibleChildren = hasChildren ? root.children.filter(c => c.sidebar_visible !== false) : [];
+
+      html += `<div class="sidebar-cat-item">`;
+      html += `<button class="sidebar-cat-btn" onclick="toggleSidebarCat('${key}')" aria-expanded="false" id="btn-${key}">`;
+      html += `<span>${escHtml(root.name)}</span>`;
+      html += `<span class="sidebar-cat-icon" id="icon-${key}">+</span>`;
+      html += `</button>`;
+      html += `<div class="sidebar-cat-body" id="body-${key}">`;
+      html += `<a class="sidebar-sub-link" data-filter='{"category":"${key}"}' onclick="applyFilter(this)">All ${escHtml(root.name)}</a>`;
+
+      visibleChildren.forEach(child => {
+        const childKey = child.slug;
+        const grandchildren = (child.children || []).filter(gc => gc.sidebar_visible !== false);
+        html += `<a class="sidebar-sub-link" data-filter='{"category":"${childKey}"}' onclick="applyFilter(this)">${escHtml(child.name)}</a>`;
+        if (grandchildren.length) {
+          grandchildren.forEach(gc => {
+            html += `<a class="sidebar-sub-link sidebar-sub-indent" data-filter='{"category":"${gc.slug}"}' onclick="applyFilter(this)">${escHtml(gc.name)}</a>`;
+          });
+        }
+      });
+
+      html += `</div></div>`;
+    });
+
+    container.innerHTML = html;
+  } catch (err) {
+    container.innerHTML = '<div style="padding:12px 8px;color:#c44;font-size:12px">Failed to load categories</div>';
+    console.error('[sidebar]', err);
+  }
+}
+
+function escHtml(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Init — read URL params, expand sidebar, load products
+// ─────────────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', async () => {
+  const q = new URLSearchParams(window.location.search);
+  const cat = q.get('cat') || q.get('category');
+  const sub = q.get('sub') || q.get('subcategory');
+  const fname = q.get('name') || q.get('flower_name');
+  const ftype = q.get('type') || q.get('flower_type');
+  const dtype = q.get('dahlia') || q.get('dahlia_type');
+  const searchQ = q.get('q');
+  const sortQ = q.get('sort');
+  const priceMinQ = q.get('price_min');
+  const priceMaxQ = q.get('price_max');
+
+  if (cat) SHOP_STATE.category = cat;
+  if (sub) SHOP_STATE.subcategory = sub;
+  if (fname) SHOP_STATE.flower_name = fname;
+  if (ftype) SHOP_STATE.flower_type = ftype;
+  if (dtype) SHOP_STATE.dahlia_type = dtype;
+  if (searchQ) SHOP_STATE.search = searchQ;
+  if (sortQ) SHOP_STATE.sort = sortQ;
+  else { const ss = sessionStorage.getItem('sol_sort'); if (ss) SHOP_STATE.sort = ss; }
+  if (priceMinQ) SHOP_STATE.priceMin = priceMinQ;
+  if (priceMaxQ) SHOP_STATE.priceMax = priceMaxQ;
+
+  // Restore UI state
+  const searchInp = document.getElementById('shop-search-input');
+  if (searchInp && SHOP_STATE.search) {
+    searchInp.value = SHOP_STATE.search;
+    const cb = document.getElementById('shop-search-clear');
+    if (cb) cb.style.display = 'flex';
+  }
+  const sortSel = document.getElementById('shop-sort-select');
+  if (sortSel) sortSel.value = SHOP_STATE.sort;
+  if (SHOP_STATE.priceMin) {
+    const el = document.getElementById('price-min');
+    if (el) el.value = SHOP_STATE.priceMin;
+  }
+  if (SHOP_STATE.priceMax) {
+    const el = document.getElementById('price-max');
+    if (el) el.value = SHOP_STATE.priceMax;
+  }
+
+  await buildSidebar();
+
+  if (cat) {
+    const akey = CAT_ACCORDION_KEY[cat] || cat;
+    expandSidebarCat(akey);
+    const flatCats = (_categoryTree || []).flatMap(function flatten(node) {
+      return [node, ...(node.children || []).flatMap(flatten)];
+    });
+    const matched = flatCats.find(c => c.slug === cat);
+    if (matched && matched.parent_id) {
+      const parent = flatCats.find(c => c.id === matched.parent_id);
+      if (parent) expandSidebarCat(parent.slug);
+    }
+  }
+
+  const activeLink = document.querySelector(`.sidebar-sub-link[data-filter*='"category":"${cat}"']`);
+  if (activeLink) updateActiveSidebarLink(activeLink);
+
+  // Expand price filter if price params set
+  if (SHOP_STATE.priceMin || SHOP_STATE.priceMax) expandSidebarCat('price');
+
+  loadShopProducts();
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Load products from API
+// ─────────────────────────────────────────────────────────────────────────────
+async function loadShopProducts() {
+  const grid = document.getElementById('shop-product-grid');
+  grid.innerHTML = '<div class="shop-empty"><div class="shop-empty-title">Loading…</div></div>';
+
+  try {
+    const params = new URLSearchParams();
+    const s = SHOP_STATE;
+
+    if (s.category === 'dahlias') {
+      params.set('virtual_category', 'dahlias');
+      if (s.dahlia_type) params.set('dahlia_type', s.dahlia_type);
+    } else if (s.category) {
+      params.set('category', s.category);
+      if (s.subcategory) params.set('subcategory', s.subcategory);
+      if (s.flower_name) params.set('flower_name', s.flower_name);
+      if (s.flower_type) params.set('flower_type', s.flower_type);
+    } else {
+      params.set('exclude_category', 'flower-shop');
+    }
+
+    if (s.in_stock) params.set('in_stock', 'true');
+    params.set('limit', '200');
+
+    const res = await fetch('/api/sol/products?' + params.toString());
+    const data = await res.json();
+    _allProducts = data.products || [];
+    SHOP_STATE.page = 1;
+    applySearchSort();
+    renderProducts();
+    updateUI();
+    updateFilterChips();
+  } catch (err) {
+    document.getElementById('shop-product-grid').innerHTML = '<div class="shop-empty"><div class="shop-empty-title">Unable to load products</div><div class="shop-empty-sub">Please try refreshing the page.</div></div>';
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render product grid + pagination
+// ─────────────────────────────────────────────────────────────────────────────
+function renderProducts() {
+  const total = _filteredProducts.length;
+  const totalAll = _allProducts.length;
+  const totalPages = Math.max(1, Math.ceil(total / SHOP_STATE.perPage));
+  const start = (SHOP_STATE.page - 1) * SHOP_STATE.perPage;
+  const pageProducts = _filteredProducts.slice(start, start + SHOP_STATE.perPage);
+  const grid = document.getElementById('shop-product-grid');
+
+  if (!pageProducts.length) {
+    const hasFilters = SHOP_STATE.search || SHOP_STATE.priceMin || SHOP_STATE.priceMax;
+    const emptyMsg = hasFilters
+      ? `<div class="shop-empty-title">No products match your search</div><div class="shop-empty-sub">Try clearing filters or browsing by category.</div>`
+      : `<div class="shop-empty-title">No products found</div><div class="shop-empty-sub">Try a different category or remove filters.</div>`;
+    grid.innerHTML = `<div class="shop-empty">${emptyMsg}</div>`;
+    document.getElementById('pg-top').innerHTML = '';
+    document.getElementById('pg-bottom').innerHTML = '';
+  } else {
+    grid.innerHTML = pageProducts.map(renderProductCard).join('');
+    const pgHtml = totalPages > 1 ? buildPaginationHtml(SHOP_STATE.page, totalPages) : '';
+    document.getElementById('pg-top').innerHTML = pgHtml;
+    document.getElementById('pg-bottom').innerHTML = pgHtml ? `<div style="margin-top:48px">${pgHtml}</div>` : '';
+  }
+
+  // Count: "Showing X of Y" when filtered, else just "X products"
+  const countEl = document.getElementById('shop-product-count');
+  if (countEl) {
+    if (!total) {
+      countEl.textContent = '';
+    } else if (total < totalAll) {
+      countEl.textContent = `Showing ${total} of ${totalAll} product${totalAll === 1 ? '' : 's'}`;
+    } else {
+      countEl.textContent = `${total} product${total === 1 ? '' : 's'}`;
+    }
+  }
+}
+
+// PLACEHOLDER: bestseller slugs manually tagged — update once order volume supports data-driven ranking
+const _BESTSELLER_SLUGS = new Set([
+  'dahlia-feature',
+  'wrapped-stem-bundle',
+  'sunflower-arrangement',
+  'ranunculus-corms-pastel',
+  'zinnia-seeds-benarys-giant'
+]);
+
+function renderProductCard(p) {
+  let imgs = [];
+  try { imgs = Array.isArray(p.images) ? p.images : JSON.parse(p.images || '[]'); } catch(e) {}
+  const img = imgs[0] || 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+  const sold = p.availability === 'out_of_stock' || p.availability === 'sold_out' || (p.track_inventory && p.stock_quantity === 0);
+  const isLowStock = !sold && p.track_inventory && p.stock_quantity !== null && p.stock_quantity !== undefined && p.stock_quantity > 0 && p.stock_quantity <= (p.low_stock_threshold || 5);
+  const isBestseller = !sold && _BESTSELLER_SLUGS.has(p.slug);
+  const price = p.price_label || (p.price ? '$' + parseFloat(p.price).toFixed(2) : '');
+  const name = (p.name || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const fallbackImg = 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+  const avgRating = p.avg_rating ? parseFloat(p.avg_rating) : null;
+  const reviewCount = parseInt(p.review_count) || 0;
+  const starsHtml = (avgRating && reviewCount > 0) ? (() => {
+    return `<div class="sol-pc-stars"><span class="sol-pc-stars-row">${'★'.repeat(Math.round(avgRating))}${'☆'.repeat(5-Math.round(avgRating))}</span><span class="sol-pc-stars-count">(${reviewCount})</span></div>`;
+  })() : '';
+  const urgencyHtml = isLowStock ? `<div style="color:#c2410c;font-size:11px;font-weight:600;margin-top:2px">Only ${p.stock_quantity} left!</div>` : '';
+  return `<a href="/shop/product/${p.slug}" class="sol-pc">
+    <div class="sol-pc-img-wrap">
+      <img src="${img}" alt="${name}" loading="lazy" class="sol-pc-img${sold ? ' sol-pc-img-soldout' : ''}" onerror="if(this.src!=='${fallbackImg}'){this.src='${fallbackImg}';}" />
+      ${sold ? '<div class="sol-pc-sold-overlay"></div><div class="sol-pc-badge">Sold Out</div>' : ''}
+      ${isBestseller ? '<div class="sol-pc-bestseller">Bestseller</div>' : ''}
+    </div>
+    <div class="sol-pc-name">${name}</div>
+    <div class="sol-pc-price">${price}</div>
+    ${urgencyHtml}
+    ${starsHtml}
+  </a>`;
+}
+
+function buildPaginationHtml(cur, total) {
+  const showSet = new Set();
+  for (let i = 1; i <= Math.min(3, total); i++) showSet.add(i);
+  if (total > 1) showSet.add(total);
+  for (let i = Math.max(1, cur - 1); i <= Math.min(total, cur + 1); i++) showSet.add(i);
+  const sorted = Array.from(showSet).sort((a, b) => a - b);
+
+  let html = '<div class="pg-row"><span class="pg-lbl">PAGE</span>';
+  let prev = 0;
+  sorted.forEach(n => {
+    if (n - prev > 1) html += '<span class="pg-ellipsis">...</span>';
+    if (n === cur) {
+      html += `<span class="pg-num active">${n}</span>`;
+    } else {
+      html += `<a class="pg-num" onclick="goToPage(${n})">${n}</a>`;
+    }
+    prev = n;
+  });
+  html += '</div>';
+  return html;
+}
+
+function goToPage(n) {
+  SHOP_STATE.page = n;
+  renderProducts();
+  window.scrollTo({ top: 100, behavior: 'smooth' });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Sidebar interaction
+// ─────────────────────────────────────────────────────────────────────────────
+function applyFilter(el) {
+  let opts = {};
+  try { opts = JSON.parse(el.dataset.filter || '{}'); } catch(e) {}
+
+  SHOP_STATE.category = opts.category || null;
+  SHOP_STATE.subcategory = opts.subcategory || null;
+  SHOP_STATE.flower_name = opts.flower_name || null;
+  SHOP_STATE.flower_type = opts.flower_type || null;
+  SHOP_STATE.dahlia_type = opts.dahlia_type || null;
+  SHOP_STATE.page = 1;
+
+  updateActiveSidebarLink(el);
+  updateURL();
+  loadShopProducts();
+}
+
+function toggleInStock(checked) {
+  SHOP_STATE.in_stock = checked;
+  loadShopProducts();
+  const mobileCheck = document.querySelector('#mobile-sidebar-content #filter-in-stock');
+  if (mobileCheck) mobileCheck.checked = checked;
+}
+
+function toggleSidebarCat(key) {
+  const body = document.getElementById('body-' + key);
+  const icon = document.getElementById('icon-' + key);
+  if (!body) return;
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  if (icon) icon.textContent = isOpen ? '+' : '−';
+}
+
+function expandSidebarCat(key) {
+  const body = document.getElementById('body-' + key);
+  const icon = document.getElementById('icon-' + key);
+  if (body) body.classList.add('open');
+  if (icon) icon.textContent = '−';
+}
+
+function updateActiveSidebarLink(activeEl) {
+  document.querySelectorAll('.sidebar-sub-link').forEach(l => l.classList.remove('active'));
+  if (activeEl) activeEl.classList.add('active');
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Update breadcrumbs, title, URL
+// ─────────────────────────────────────────────────────────────────────────────
+function updateUI() {
+  updateBreadcrumbs();
+  updateTitle();
+  updateMobileActiveFilter();
+}
+
+function updateBreadcrumbs() {
+  const el = document.getElementById('shop-breadcrumbs');
+  if (!el) return;
+  const s = SHOP_STATE;
+  let html = '<a href="/">HOME</a><span class="bc-sep">/</span><a href="/shop">SHOP</a>';
+  if (s.category) {
+    const catLabel = CAT_LABELS[s.category] || s.category;
+    html += `<span class="bc-sep">/</span><a onclick="applyFilter({dataset:{filter:JSON.stringify({category:'${s.category}'})}})" style="cursor:pointer">${catLabel.toUpperCase()}</a>`;
+    if (s.subcategory) html += `<span class="bc-sep">/</span><span>${s.subcategory.toUpperCase()}</span>`;
+    else if (s.flower_name) html += `<span class="bc-sep">/</span><span>${s.flower_name.toUpperCase()}</span>`;
+    else if (s.flower_type) html += `<span class="bc-sep">/</span><span>${s.flower_type.toUpperCase()}</span>`;
+    else if (s.dahlia_type) html += `<span class="bc-sep">/</span><span>${s.dahlia_type.toUpperCase()}</span>`;
+  }
+  el.innerHTML = html;
+}
+
+function updateTitle() {
+  const el = document.getElementById('shop-section-title');
+  if (!el) return;
+  const s = SHOP_STATE;
+  if (s.search) el.textContent = `Results for "${s.search}"`;
+  else if (s.dahlia_type) el.textContent = 'Dahlias — ' + s.dahlia_type;
+  else if (s.flower_name) el.textContent = s.flower_name;
+  else if (s.flower_type) el.textContent = s.flower_type + ' Seeds';
+  else if (s.subcategory) el.textContent = toTitleCase(s.subcategory);
+  else if (s.category) el.textContent = CAT_LABELS[s.category] || toTitleCase(s.category);
+  else el.textContent = 'All Products';
+}
+
+function updateMobileActiveFilter() {
+  const el = document.getElementById('mobile-active-filter');
+  if (!el) return;
+  const s = SHOP_STATE;
+  if (s.search) el.textContent = `Search: "${s.search}"`;
+  else if (s.dahlia_type) el.textContent = 'Dahlias — ' + s.dahlia_type;
+  else if (s.flower_name) el.textContent = s.flower_name;
+  else if (s.category) el.textContent = CAT_LABELS[s.category] || s.category;
+  else el.textContent = '';
+}
+
+function updateURL() {
+  const s = SHOP_STATE;
+  const params = new URLSearchParams();
+  if (s.category) params.set('cat', s.category);
+  if (s.subcategory) params.set('sub', s.subcategory);
+  if (s.flower_name) params.set('name', s.flower_name);
+  if (s.flower_type) params.set('type', s.flower_type);
+  if (s.dahlia_type) params.set('dahlia', s.dahlia_type);
+  if (s.search) params.set('q', s.search);
+  if (s.sort && s.sort !== 'featured') params.set('sort', s.sort);
+  if (s.priceMin) params.set('price_min', s.priceMin);
+  if (s.priceMax) params.set('price_max', s.priceMax);
+  const qs = params.toString();
+  window.history.replaceState({}, '', qs ? '/shop?' + qs : '/shop');
+}
+
+function toTitleCase(str) {
+  return str.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+</script>
+<script src="/js/email-capture.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Refund Policy — Sugar Oak Lane</title>
+  <meta name="description" content="Sugar Oak Lane's refund policy. When refunds are offered, what is not eligible, and how to request a refund for farm-fresh flower orders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+</head>
+<body>
+
+<div id="announce-bar">🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a><button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button></div>
+<header id="header">
+  <div class="header-top">
+    <div class="header-side"><button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right"><button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button><button class="header-icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button></div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <div class="nav-item"><a href="/shop" class="nav-link">Shop <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a></div></div>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item"><a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a></div></div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item"><a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div></div>
+  </nav>
+</header>
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /><button class="drawer-close" onclick="closeDrawer()">&times;</button></div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Shop</div><a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a><a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div><a href="/wholesale">Wholesale</a><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a><a href="/workshops">Workshops</a>
+    <div class="drawer-section-label">Explore</div><a href="/blog">Blog</a><a href="/about">Our Story</a><a href="/contact">Contact Us</a>
+  </div>
+</nav>
+<div id="search-overlay" role="dialog" aria-label="Search"><div class="search-inner"><div class="search-row"><svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" /><button class="search-close-btn" onclick="closeSearch()">&times;</button></div></div></div>
+
+<main>
+  <section class="page-hero" data-hero-text="Policy">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Our Policies</p>
+      <h1 class="page-hero-headline">Refund Policy</h1>
+      <p class="page-hero-subtitle">We stand behind our flowers. Here's exactly when and how refunds work.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:#fff;">
+    <div class="container-sm">
+      <div class="policy-content">
+
+        <div class="policy-intro-block">
+          <p>Sugar Oak Lane produces natural, perishable products. We take great care in growing, cutting, and delivering flowers at their best — but we also want you to know exactly what protections you have if something goes wrong.</p>
+        </div>
+
+        <h2>When You Qualify for a Refund</h2>
+        <p>We offer full or partial refunds in the following situations only:</p>
+        <ul class="policy-list policy-list-check">
+          <li><strong>Non-delivery:</strong> Your order was paid for but never arrived and we cannot confirm delivery</li>
+          <li><strong>Significant damage:</strong> Flowers arrived in a condition that made them unusable (not just "not what I expected") — must be reported with photo evidence within 2 hours of delivery</li>
+          <li><strong>Wrong order:</strong> You received someone else's order or the wrong item entirely</li>
+          <li><strong>Our cancellation:</strong> If we cancel your order for any reason, you'll receive a full refund within 5 business days</li>
+        </ul>
+
+        <h2>When We Do Not Offer Refunds</h2>
+        <p>The following are not eligible for refunds:</p>
+        <ul class="policy-list policy-list-x">
+          <li>Subjective dissatisfaction with the appearance or style of an arrangement</li>
+          <li>Flowers that were not cared for properly after delivery (re-cut stems, clean water, etc.)</li>
+          <li>Color variations within the natural spectrum of the described palette</li>
+          <li>Flower substitutions made under our substitution policy</li>
+          <li>Orders not picked up at scheduled time without advance notice</li>
+        </ul>
+
+        <h2>How to Request a Refund</h2>
+        <p>If you believe you qualify for a refund, email <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a> within 2 hours of receiving your order. Include:</p>
+        <ul class="policy-list">
+          <li>Your order number or name</li>
+          <li>A clear photo of the flowers as received</li>
+          <li>A description of the issue</li>
+        </ul>
+        <p>We'll review your request and respond within 24 hours. Approved refunds are processed within 5–7 business days to your original payment method.</p>
+
+        <h2>Cancellations</h2>
+        <p>You may cancel an order without penalty up to 48 hours before your scheduled delivery or pickup. Cancellations within 48 hours may be subject to a 50% cancellation fee to cover materials already harvested. Email <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a> as soon as possible if you need to cancel.</p>
+
+        <h2>Questions?</h2>
+        <p>We'd rather resolve any issue than leave you unhappy. Reach out directly — we're a small farm and we care about every order.</p>
+        <p><a href="/contact" class="policy-cta-link">Contact Us &rarr;</a></p>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer"><div class="container"><div class="footer-top">
+  <div><img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div><p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p><div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+  <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+  <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+  <div><div class="footer-nl-title">Stay in Touch</div><p class="footer-nl-desc">Fresh blooms, seasonal updates, and farm stories delivered to your inbox.</p><form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)"><input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" /><button class="footer-nl-btn" type="submit" id="footer-nl-btn">Subscribe</button></form><div class="footer-nl-success" id="footer-nl-success">You're on the list! Welcome to the farm family.</div></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+</script>
+
+<style>
+.container-sm { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+.policy-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 500;
+  color: var(--text, #1a1a1a);
+  margin: 48px 0 16px;
+  line-height: 1.2;
+}
+.policy-content p {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-md, #555);
+  margin: 0 0 16px;
+}
+.policy-content strong { color: var(--text, #1a1a1a); font-weight: 600; }
+.policy-content a { color: var(--green, #3d6b44); }
+.policy-content a:hover { text-decoration: underline; }
+.policy-intro-block {
+  background: var(--linen, #f7f3ee);
+  border-left: 3px solid var(--green, #3d6b44);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+.policy-intro-block p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text, #1a1a1a);
+  margin: 0;
+}
+.policy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.policy-list li {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  color: var(--text-md, #555);
+  padding: 10px 0 10px 28px;
+  border-bottom: 1px solid var(--border-lt, #ede9e2);
+  position: relative;
+  line-height: 1.6;
+}
+.policy-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green, #3d6b44);
+  opacity: 0.6;
+}
+.policy-list-check li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 14px;
+  width: 12px;
+  height: 7px;
+  border: none;
+  background: none;
+  border-radius: 0;
+  border-left: 2px solid var(--green, #3d6b44);
+  border-bottom: 2px solid var(--green, #3d6b44);
+  transform: rotate(-45deg);
+  opacity: 1;
+}
+.policy-list-x li::before {
+  content: '\00D7';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: #c0392b;
+  background: none;
+  border-radius: 0;
+  width: auto;
+  height: auto;
+  top: 10px;
+  left: 0;
+  opacity: 1;
+}
+.policy-cta-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--green, #3d6b44);
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 1.5px solid var(--green, #3d6b44);
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 8px;
+}
+.policy-cta-link:hover {
+  background: var(--green, #3d6b44);
+  color: #fff;
+  text-decoration: none;
+}
+</style>
+
+</body>
+</html>

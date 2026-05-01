@@ -1,0 +1,119 @@
+/* ─────────────────────────────────────────────────────────────────── */
+/* MAIN CSS ENTRY POINT */
+/* All modular component and template imports */
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* GLOBAL DESIGN TOKENS & BASE STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('./design-tokens.css');
+
+/* COMPONENT STYLES */
+@import url('./components/header.css');
+@import url('./components/footer.css');
+@import url('./components/product-grid.css');
+@import url('./components/sidebar.css');
+
+/* TEMPLATE STYLES */
+@import url('./templates/shop-template.css');
+@import url('./templates/gallery-template.css');
+@import url('./templates/landing-template.css');
+@import url('./templates/blog-template.css');
+
+/* ─────────────────────────────────────────────────────────────────── */
+/* UTILITY CLASSES & COMMON PATTERNS */
+/* ─────────────────────────────────────────────────────────────────── */
+
+/* Visibility utilities */
+.hidden { display: none !important; }
+.visible { display: block !important; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-normal { font-weight: 400; }
+.italic { font-style: italic; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Color utilities */
+.text-green { color: var(--green); }
+.text-green-dk { color: var(--green-dk); }
+.text-muted { color: var(--text-md); }
+.text-light { color: var(--text-lt); }
+.bg-green { background: var(--green); }
+.bg-linen { background: var(--linen); }
+.bg-white { background: var(--white); }
+
+/* Spacing utilities - already in design-tokens but here for reference */
+.p-sm { padding: var(--spacing-sm); }
+.p-md { padding: var(--spacing-md); }
+.p-lg { padding: var(--spacing-lg); }
+.px-md { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.py-lg { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+
+/* Border utilities */
+.border { border: 1px solid var(--border); }
+.border-t { border-top: 1px solid var(--border); }
+.border-b { border-bottom: 1px solid var(--border); }
+.border-green { border: 1px solid var(--green); }
+.rounded { border-radius: 2px; }
+
+/* Shadow utilities */
+.shadow { box-shadow: var(--shadow); }
+.shadow-md { box-shadow: var(--shadow-md); }
+
+/* Animation utilities */
+.transition { transition: var(--transition); }
+.animate-fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states for accessibility */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none; }
+  body { background: white; }
+}

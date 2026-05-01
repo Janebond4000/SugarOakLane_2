@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | Sugar Oak Lane</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <style>
+    .cart-layout { display: grid; grid-template-columns: 1fr 340px; gap: 48px; padding: 56px 0 96px; align-items: start; }
+    .cart-items-col {}
+    .cart-header-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 20px; border-bottom: 2px solid var(--text);
+      margin-bottom: 0;
+    }
+    .cart-heading { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:500; }
+    .cart-count { font-size:13px; color:var(--text-md); }
+    .cart-item {
+      display: grid; grid-template-columns: 100px 1fr auto;
+      gap: 20px; align-items: start;
+      padding: 24px 0; border-bottom: 1px solid var(--border);
+    }
+    .cart-item-img {
+      width: 100px; height: 110px; border-radius: 2px; overflow: hidden; background: var(--linen-dk);
+    }
+    .cart-item-img img { width:100%;height:100%;object-fit:cover; }
+    .cart-item-info {}
+    .cart-item-name { font-size:15px; font-weight:600; margin-bottom:4px; }
+    .cart-item-cat { font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-lt); margin-bottom:10px; }
+    .cart-item-notes { font-size:12px; color:var(--text-md); margin-bottom:12px; font-style:italic; }
+    .cart-item-actions { display:flex; align-items:center; gap:14px; }
+    .cart-qty-control {
+      display:flex; align-items:center;
+      border:1.5px solid var(--border); border-radius:2px; overflow:hidden;
+    }
+    .cart-qty-btn {
+      background:none; border:none; width:32px; height:34px;
+      font-size:16px; color:var(--text); cursor:pointer; transition:background 0.15s;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .cart-qty-btn:hover { background:var(--linen-dk); }
+    .cart-qty-val {
+      width:36px; height:34px; text-align:center;
+      font-size:13px; font-weight:600; color:var(--text);
+      border:none; border-left:1.5px solid var(--border); border-right:1.5px solid var(--border);
+      background:none; font-family:inherit;
+    }
+    .cart-remove-btn {
+      background:none; border:none; color:var(--text-lt);
+      font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+      cursor:pointer; transition:color 0.2s; padding:0;
+    }
+    .cart-remove-btn:hover { color:#c0392b; }
+    .cart-item-price { font-size:16px; font-weight:700; color:var(--green); white-space:nowrap; }
+
+    /* Summary */
+    .cart-summary {
+      background:var(--linen); padding:32px; position:sticky; top:100px;
+    }
+    .summary-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; margin-bottom:24px; }
+    .summary-row { display:flex; justify-content:space-between; font-size:14px; margin-bottom:12px; color:var(--text-md); }
+    .summary-row.total { font-size:17px; font-weight:700; color:var(--text); border-top:1px solid var(--border); padding-top:16px; margin-top:4px; }
+    .summary-note { font-size:12px; color:var(--text-lt); margin:12px 0 20px; line-height:1.7; }
+    .checkout-btn {
+      width:100%; padding:16px; background:var(--green); color:#fff;
+      font-size:11px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+      border:none; cursor:pointer; transition:background 0.2s; margin-bottom:12px;
+    }
+    .checkout-btn:hover { background:var(--green-dk); }
+    .continue-btn {
+      width:100%; padding:14px; background:transparent; color:var(--green);
+      border:1.5px solid var(--green); font-size:11px; font-weight:700; letter-spacing:0.14em;
+      text-transform:uppercase; cursor:pointer; transition:all 0.2s;
+    }
+    .continue-btn:hover { background:var(--green); color:#fff; }
+
+    /* Empty state */
+    .cart-empty { text-align:center; padding:80px 0; }
+    .cart-empty-icon { font-size:48px; margin-bottom:20px; }
+    .cart-empty h2 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; margin-bottom:12px; }
+    .cart-empty p { color:var(--text-md); font-size:14px; margin-bottom:28px; }
+    .cart-empty a {
+      display:inline-flex; align-items:center; gap:8px; padding:13px 30px;
+      background:var(--green); color:#fff; font-size:11px; font-weight:700;
+      letter-spacing:0.14em; text-transform:uppercase;
+    }
+
+    /* ── Floral delivery details ───────────────────────────────────────── */
+    .floral-details-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #fdf2f8; border: 1px solid #f3d8ea;
+      border-radius: 3px; padding: 4px 10px;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #c0789a; margin-bottom: 8px; cursor: pointer;
+      transition: background 0.15s;
+    }
+    .floral-details-badge:hover { background: #fae8f3; }
+    .floral-details-panel {
+      background: #fdf9fc; border: 1px solid #f0e0ec;
+      border-radius: 3px; padding: 12px 14px;
+      margin-bottom: 10px; font-size: 12px; color: #555;
+      display: none;
+    }
+    .floral-details-panel.open { display: block; }
+    .floral-detail-row {
+      display: flex; gap: 6px; margin-bottom: 5px; line-height: 1.5;
+    }
+    .floral-detail-row:last-child { margin-bottom: 0; }
+    .floral-detail-label {
+      font-weight: 700; color: #c0789a; min-width: 120px; flex-shrink: 0;
+      font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding-top: 1px;
+    }
+    .floral-detail-val { color: #333; }
+    .floral-addons-list {
+      display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px;
+    }
+    .floral-addon-chip {
+      background: #faeef6; border: 1px solid #f0d8e8;
+      border-radius: 2px; padding: 2px 8px;
+      font-size: 10px; font-weight: 600; color: #a05878;
+    }
+
+    @media (max-width:800px) {
+      .cart-layout { grid-template-columns:1fr; gap:32px; }
+      .cart-summary { position:static; }
+      .cart-item { grid-template-columns:80px 1fr auto; gap:14px; }
+      .cart-item-img { width:80px; height:88px; }
+    }
+    @media (max-width:500px) {
+      .cart-item { grid-template-columns:72px 1fr; gap:12px; }
+      .cart-item-price { grid-column:2; }
+    }
+  </style>
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<div id="announce-bar">
+  🌸 &nbsp;Dahlia season starts July — <a href="/blog/how-to-grow-dahlias">read our growing guide</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" data-sol-cart-btn aria-label="Cart" style="position:relative">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link active">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us</a>
+    </div>
+  </nav>
+</header>
+
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer">
+  <div class="drawer-head">
+    <img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" />
+    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button>
+  </div>
+  <div class="drawer-nav">
+    <a href="/shop/flower-shop">Flower Shop</a>
+    <a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a>
+    <a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a>
+    <a href="/shop?cat=dahlias">Dahlias</a>
+    <a href="/shop?cat=farm-goods">Farm Goods + Gifts</a>
+    <a href="/shop">All Products</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">Our Story</a>
+  </div>
+</nav>
+
+<main class="container">
+  <div id="cart-empty" class="cart-empty" style="display:none">
+    <div class="cart-empty-icon">🛒</div>
+    <h2>Your cart is empty</h2>
+    <p>Add some farm-fresh flowers, seeds, or goods to get started.</p>
+    <a href="/shop">Shop the Farm →</a>
+  </div>
+
+  <div id="cart-filled" class="cart-layout" style="display:none">
+    <div class="cart-items-col">
+      <div class="cart-header-row">
+        <span class="cart-heading">Your Cart</span>
+        <span class="cart-count" id="cart-count-label"></span>
+      </div>
+      <div id="cart-items-list"></div>
+    </div>
+
+    <div class="cart-summary">
+      <div class="summary-title">Order Summary</div>
+      <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">—</span></div>
+      <div class="summary-row"><span>Shipping / Delivery</span><span>Calculated at checkout</span></div>
+      <div class="summary-row total"><span>Estimated Total</span><span id="summary-total">—</span></div>
+      <p class="summary-note">Shipping fees and pickup options will be confirmed at checkout. Farm pickup is always free.</p>
+      <button class="checkout-btn" onclick="location.href='/shop/checkout'">Proceed to Checkout →</button>
+      <button class="continue-btn" onclick="location.href='/shop'">Continue Shopping</button>
+    </div>
+  </div>
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
+        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia.</p>
+        <div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div>
+      </div>
+      <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li></ul></div>
+      <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/contact">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/sol-cart.js"></script>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+
+const CAT_LABELS = {
+  'flower-shop':'Flower Shop','seeds-bulbs':'Seeds + Bulbs',
+  'plant-nursery':'Plant Nursery','farm-goods':'Farm Goods + Merch'
+};
+
+function fmt(n){ return '$' + parseFloat(n).toFixed(2); }
+function escH(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+let _floralPanelOpen = {};
+
+function buildFloralDetailsHtml(item, idx) {
+  if (!item.floral || !item.floralDetails) return '';
+  const d = item.floralDetails;
+  const panelId = `floral-panel-${idx}`;
+  const isOpen = !!_floralPanelOpen[panelId];
+
+  const addrParts = [d.delivery_address, d.delivery_city, d.delivery_state, d.delivery_zip].filter(Boolean);
+  const addrStr = addrParts.join(', ');
+
+  let addonsHtml = '';
+  if (item.floralAddons && item.floralAddons.length) {
+    const chipList = item.floralAddons.map(a => {
+      const label = a.name + (a.option_selected ? ` – ${a.option_selected}` : '') + (a.quantity > 1 ? ` ×${a.quantity}` : '');
+      const priceStr = a.price ? ` <span style="color:#a08080;font-weight:400">+$${(parseFloat(a.price)*(a.quantity||1)).toFixed(2)}</span>` : '';
+      return `<span class="floral-addon-chip">${escH(label)}${priceStr}</span>`;
+    }).join('');
+    addonsHtml = `<div class="floral-detail-row">
+      <span class="floral-detail-label">Add-Ons</span>
+      <div class="floral-detail-val">
+        <div class="floral-addons-list">${chipList}</div>
+      </div>
+    </div>`;
+  }
+
+  return `
+    <div class="floral-details-badge" onclick="toggleFloralPanel('${panelId}')">
+      💐 Delivery Details
+      <svg style="width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;margin-left:2px;transition:transform 0.2s;transform:rotate(${isOpen?'180':'0'}deg)" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="floral-details-panel${isOpen ? ' open' : ''}" id="${panelId}">
+      <div class="floral-detail-row">
+        <span class="floral-detail-label">Delivery Date</span>
+        <span class="floral-detail-val">${escH(d.delivery_date)}</span>
+      </div>
+      <div class="floral-detail-row">
+        <span class="floral-detail-label">Recipient</span>
+        <span class="floral-detail-val">${escH(d.recipient_name)}</span>
+      </div>
+      <div class="floral-detail-row">
+        <span class="floral-detail-label">Address</span>
+        <span class="floral-detail-val">${escH(addrStr)}</span>
+      </div>
+      <div class="floral-detail-row">
+        <span class="floral-detail-label">Location Type</span>
+        <span class="floral-detail-val">${escH(d.location_type)}</span>
+      </div>
+      ${d.card_message ? `<div class="floral-detail-row">
+        <span class="floral-detail-label">Card Message</span>
+        <span class="floral-detail-val">"${escH(d.card_message)}" — ${escH(d.sender_name||'')}</span>
+      </div>` : ''}
+      ${d.delivery_instructions ? `<div class="floral-detail-row">
+        <span class="floral-detail-label">Instructions</span>
+        <span class="floral-detail-val">${escH(d.delivery_instructions)}</span>
+      </div>` : ''}
+      ${addonsHtml}
+    </div>`;
+}
+
+function toggleFloralPanel(panelId) {
+  _floralPanelOpen[panelId] = !_floralPanelOpen[panelId];
+  renderCart();
+}
+
+function renderCart() {
+  const items = SolCart.getItems();
+  const count = items.reduce((n,i) => n+(i.qty||1), 0);
+  const subtotal = SolCart.getSubtotal();
+
+  if (!items.length) {
+    document.getElementById('cart-empty').style.display = 'block';
+    document.getElementById('cart-filled').style.display = 'none';
+    return;
+  }
+  document.getElementById('cart-empty').style.display = 'none';
+  document.getElementById('cart-filled').style.display = 'grid';
+
+  document.getElementById('cart-count-label').textContent = count + (count === 1 ? ' item' : ' items');
+  document.getElementById('summary-subtotal').textContent = fmt(subtotal);
+  document.getElementById('summary-total').textContent = fmt(subtotal);
+
+  const list = document.getElementById('cart-items-list');
+  list.innerHTML = items.map((item, idx) => {
+    const lineTotal = SolCart.getItemTotal ? SolCart.getItemTotal(item) : parseFloat(item.price) * (item.qty || 1);
+    const imgHtml = item.image
+      ? `<img src="${item.image}" alt="${item.name}" loading="lazy" />`
+      : `<div style="width:100%;height:100%;background:var(--linen-dk)"></div>`;
+    const floralHtml = buildFloralDetailsHtml(item, idx);
+    return `
+      <div class="cart-item" data-slug="${item.slug}">
+        <a href="/shop/product/${item.slug}" class="cart-item-img">${imgHtml}</a>
+        <div class="cart-item-info">
+          <a href="/shop/product/${item.slug}" style="text-decoration:none;color:inherit">
+            <div class="cart-item-name">${item.name}</div>
+          </a>
+          <div class="cart-item-cat">${CAT_LABELS[item.category] || item.category || ''}</div>
+          ${floralHtml}
+          ${item.notes && !item.floral ? `<div class="cart-item-notes">"${item.notes}"</div>` : ''}
+          <div class="cart-item-actions">
+            <div class="cart-qty-control">
+              <button class="cart-qty-btn" onclick="updateQty('${item.slug}', ${(item.qty||1)-1})">−</button>
+              <input class="cart-qty-val" type="number" value="${item.qty||1}" min="1" max="99"
+                     onchange="updateQty('${item.slug}', parseInt(this.value)||1)" />
+              <button class="cart-qty-btn" onclick="updateQty('${item.slug}', ${(item.qty||1)+1})">+</button>
+            </div>
+            <button class="cart-remove-btn" onclick="removeItem('${item.slug}')">Remove</button>
+          </div>
+        </div>
+        <div class="cart-item-price">${fmt(lineTotal)}</div>
+      </div>`;
+  }).join('');
+}
+
+function updateQty(slug, qty) {
+  SolCart.updateQty(slug, qty);
+  renderCart();
+}
+function removeItem(slug) {
+  SolCart.removeItem(slug);
+  renderCart();
+}
+
+window.addEventListener('sol:cart:change', renderCart);
+renderCart();
+</script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Sugar Oak Lane | Flower Farm in Loganville, Georgia</title>
+  <meta name="description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll respond within 24–48 hours." />
+  <meta name="keywords" content="contact Sugar Oak Lane, flower farm contact Georgia, flower farm Loganville phone, hello sugaroaklane.com" />
+  <link rel="canonical" href="https://sugaroakos.polsia.app/contact" />
+  <meta property="og:title" content="Contact Sugar Oak Lane | Flower Farm in Loganville, Georgia" />
+  <meta property="og:description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll respond within 24–48 hours." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sugaroakos.polsia.app/contact" />
+  <meta property="og:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta property="og:site_name" content="Sugar Oak Lane" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact Sugar Oak Lane | Flower Farm in Loganville, Georgia" />
+  <meta name="twitter:description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll respond within 24–48 hours." />
+  <meta name="twitter:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+<style>
+.contact-two-col {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 64px;
+  align-items: start;
+}
+.contact-form-col h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
+  color: var(--text, #1a1a1a);
+  margin: 0 0 32px;
+  line-height: 1.2;
+}
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+.contact-form label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-md, #555);
+  margin-bottom: 7px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: var(--text, #1a1a1a);
+  background: #fff;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--green, #3d6b44);
+  box-shadow: 0 0 0 3px rgba(61,107,68,0.08);
+}
+.contact-form textarea { resize: vertical; min-height: 140px; }
+.contact-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+  padding-right: 38px;
+  cursor: pointer;
+}
+.form-success {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: #eef6f0;
+  border: 1px solid #b8d9bc;
+  border-radius: 8px;
+  color: #2d5c35;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.contact-info-block {
+  background: var(--linen, #f7f3ee);
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+}
+.contact-info-block .section-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green, #3d6b44);
+  margin: 0 0 20px;
+}
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: var(--text-md, #555);
+}
+.contact-info-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  stroke: var(--green, #3d6b44);
+}
+.contact-info-item a {
+  color: var(--green, #3d6b44);
+  text-decoration: none;
+}
+.contact-info-item a:hover { text-decoration: underline; }
+.contact-info-hours { align-items: flex-start; }
+.contact-info-hours div { line-height: 1.7; }
+.contact-visit-note {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: var(--text-md, #777);
+  font-style: italic;
+  margin: 0;
+  padding: 0 4px;
+}
+.grad-moss { background: linear-gradient(135deg, #3d6b44 0%, #5a8b60 50%, #7aaa80 100%); }
+.quick-links-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.quick-link-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 24px;
+  background: #fff;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.quick-link-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.quick-link-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--linen, #f7f3ee);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.quick-link-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--green, #3d6b44);
+}
+.quick-link-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text, #1a1a1a);
+  margin-bottom: 2px;
+}
+.quick-link-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: var(--text-md, #777);
+}
+@media (max-width: 860px) {
+  .contact-two-col { grid-template-columns: 1fr; gap: 40px; }
+  .quick-links-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 540px) {
+  .quick-links-row { gap: 12px; }
+}
+</style>
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<div id="announce-bar">🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a><button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button></div>
+<header id="header">
+  <div class="header-top">
+    <div class="header-side"><button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button></div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right"><button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button><button class="header-icon-btn" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button></div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item"><a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a></div></div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item"><a href="/about" class="nav-link active">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div></div>
+  </nav>
+</header>
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /><button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div><a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a><a href="/shop?cat=dahlias">Dahlias</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a><a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div><a href="/wholesale">Wholesale</a><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a><a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div><a href="/blog">Blog</a><a href="/about">Our Story</a><a href="/contact" class="active-drawer">Contact Us</a>
+  </div>
+</nav>
+<div id="search-overlay" role="dialog" aria-label="Search"><div class="search-inner"><div class="search-row"><svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" /><button class="search-close-btn" onclick="closeSearch()">&times;</button></div></div></div>
+
+<main>
+  <section class="page-hero hero-earth" data-hero-text="Contact">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Get in Touch</p>
+      <h1 class="page-hero-headline">Contact Us</h1>
+      <p class="page-hero-subtitle">Questions, orders, inquiries — we're real people on a real farm. We'll respond within 24–48 hours.</p>
+    </div>
+  </section>
+
+  <section class="section-pad" style="background:#fff;">
+    <div class="container">
+      <div class="contact-two-col">
+
+        <div class="contact-form-col">
+          <h2>Send us <em>a message</em></h2>
+          <form id="contact-form-el" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="cf-name">Your Name</label>
+              <input type="text" id="cf-name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email Address</label>
+              <input type="email" id="cf-email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">Subject</label>
+              <select id="cf-subject" name="subject">
+                <option value="general">General Question</option>
+                <option value="order">Order Inquiry</option>
+                <option value="wedding">Wedding</option>
+                <option value="workshop">Workshop</option>
+                <option value="wholesale">Wholesale</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" name="message" rows="6" placeholder="Tell us how we can help..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="contact-submit-btn">Send Message</button>
+            <div class="form-success" id="contact-success" style="display:none;">
+              Message sent! We'll get back to you within 24–48 hours.
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-info-col">
+          <div class="contact-info-block">
+            <p class="section-label">Sugar Oak Lane Farm</p>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <span>Loganville, GA 30052</span>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a>
+            </div>
+            <div class="contact-info-item contact-info-hours">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <div>Mon–Sat: 8am–6pm</div>
+                <div>Sunday: 10am–4pm</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-map-placeholder grad-moss" style="aspect-ratio:16/9;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:28px 0 16px;">
+            <div style="text-align:center;color:rgba(255,255,255,0.85);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;margin-bottom:8px;opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              <p style="margin:0;font-size:13px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:0.05em;">Farm Location — Map Coming Soon</p>
+            </div>
+          </div>
+
+          <p class="contact-visit-note">Farm visits by appointment only. We'd love to have you out!</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-pad-sm" style="background:var(--linen,#f7f3ee);">
+    <div class="container">
+      <div class="quick-links-row">
+        <a href="/faq" class="quick-link-card">
+          <div class="quick-link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div>
+            <div class="quick-link-title">FAQ</div>
+            <div class="quick-link-desc">Common Questions</div>
+          </div>
+        </a>
+        <a href="/delivery-info" class="quick-link-card">
+          <div class="quick-link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <div class="quick-link-title">Delivery Info</div>
+            <div class="quick-link-desc">Where We Deliver</div>
+          </div>
+        </a>
+        <a href="/wholesale" class="quick-link-card">
+          <div class="quick-link-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="quick-link-title">Wholesale</div>
+            <div class="quick-link-desc">Business Inquiries</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="footer"><div class="container"><div class="footer-top">
+  <div><img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div><p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p><div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+  <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+  <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+  <div><div class="footer-nl-title">Stay in Touch</div><p class="footer-nl-desc">Fresh blooms, seasonal updates, and farm stories delivered to your inbox.</p><form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)"><input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" /><button class="footer-nl-btn" type="submit" id="footer-nl-btn">Subscribe</button></form><div class="footer-nl-success" id="footer-nl-success">You're on the list! Welcome to the farm family.</div></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+
+document.getElementById('contact-form-el').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contact-submit-btn');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  setTimeout(() => {
+    this.style.display = 'none';
+    document.getElementById('contact-success').style.display = 'block';
+  }, 800);
+});
+
+document.addEventListener('DOMContentLoaded',()=>initPageHero('contact'));
+</script>
+<script src="/js/sol-hero.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — Sugar Oak Lane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #052e16 0%, #14532d 50%, #166534 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    background: #15803d;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .logo-icon svg { width: 26px; height: 26px; fill: #fff; }
+  .logo-text { line-height: 1.2; }
+  .logo-name { font-size: 1rem; font-weight: 700; color: #111827; }
+  .logo-sub { font-size: 0.75rem; color: #6b7280; font-weight: 500; }
+  h1 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 0.4rem; }
+  p.subtitle { font-size: 0.875rem; color: #6b7280; margin-bottom: 1.75rem; }
+  label { display: block; font-size: 0.8125rem; font-weight: 600; color: #374151; margin-bottom: 0.35rem; }
+  input[type="password"] {
+    width: 100%;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    color: #111827;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+    font-family: inherit;
+  }
+  input[type="password"]:focus {
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.15);
+  }
+  .input-group { margin-bottom: 1.5rem; }
+  .btn {
+    width: 100%;
+    background: #15803d;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn:hover { background: #166534; }
+  .btn:active { transform: scale(0.98); }
+  .error-msg {
+    display: none;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+  .error-msg.show { display: flex; align-items: center; gap: 8px; }
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.8125rem;
+    color: #6b7280;
+    text-decoration: none;
+  }
+  .back-link:hover { color: #374151; }
+  .loading { opacity: 0.7; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17,8C8,10 5.9,16.17 3.82,21H5.71C6.5,19.36 7.5,18 9,17C11,19 11,21 11,21H13C13,21 13,19 15,17C16.5,18 17.5,19.36 18.29,21H20.18C18.1,16.17 16,10 17,8Z"/>
+      </svg>
+    </div>
+    <div class="logo-text">
+      <div class="logo-name">Sugar Oak Lane</div>
+      <div class="logo-sub">Admin Dashboard</div>
+    </div>
+  </div>
+
+  <h1>Welcome back</h1>
+  <p class="subtitle">Enter your admin password to continue.</p>
+
+  <div id="error-msg" class="error-msg">
+    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+    <span id="error-text">Incorrect password. Try again.</span>
+  </div>
+
+  <form id="login-form" method="POST" action="/admin/login">
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter admin password" autofocus autocomplete="current-password" required>
+    </div>
+    <p style="text-align:center;margin:10px 0"><a href="#" onclick="fetch('/admin/forgot-password',{method:'POST'}).then(()=>{this.textContent='Password sent to your email!';this.style.color='green'}).catch(()=>{this.textContent='Error sending email'});return false" style="color:#888;font-size:13px">Forgot Password?</a></p>
+    <button type="submit" class="btn" id="submit-btn">Sign In</button>
+  </form>
+
+  <a href="/" class="back-link">← Back to Sugar Oak Lane</a>
+</div>
+
+<script>
+  // Show error if URL has ?error=1
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('error') === '1') {
+    const msg = document.getElementById('error-msg');
+    msg.classList.add('show');
+    document.getElementById('password').value = '';
+    document.getElementById('password').focus();
+  } else if (params.get('error') === 'no-password-set') {
+    const msg = document.getElementById('error-msg');
+    const txt = document.getElementById('error-text');
+    txt.textContent = 'ADMIN_PASSWORD environment variable is not set. Please configure it.';
+    msg.classList.add('show');
+  }
+
+  // Show loading state on submit
+  document.getElementById('login-form').addEventListener('submit', function() {
+    document.getElementById('submit-btn').textContent = 'Signing in…';
+    document.getElementById('submit-btn').classList.add('loading');
+  });
+</script>
+</body>
+</html>

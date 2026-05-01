@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plant Nursery | Sugar Oak Lane — Georgia-Grown Perennials, Hydrangeas &amp; Native Plants</title>
+  <meta name="description" content="Licensed Georgia nursery growing perennials, hydrangeas, native plants, fruiting shrubs, and herbs. Grown in Loganville, Georgia for zone 7b/8a gardens." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/sol.css" />
+  <style>
+    .sol-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 30px;background:var(--green);color:#fff;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border:none;cursor:pointer;transition:background 0.2s;text-decoration:none;}
+    .sol-btn:hover{background:var(--green-dk);}
+    .sol-btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:transparent;color:var(--green);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;text-decoration:none;}
+    .sol-btn-outline:hover{background:var(--green);color:#fff;}
+
+    /* Shop filter sidebar */
+    .shop-with-filters { display: grid; grid-template-columns: 220px 1fr; gap: 40px; margin-top: 0; }
+    .filter-sidebar { }
+    .filter-group { margin-bottom: 28px; }
+    .filter-group-title { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text); margin-bottom: 12px; }
+    .filter-option { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; }
+    .filter-option input { accent-color: var(--green); cursor: pointer; }
+    .filter-option label { font-size: 13px; color: var(--text-md); cursor: pointer; }
+    .filter-option label:hover { color: var(--text); }
+    .filter-clear-btn { background: none; border: 1.5px solid var(--border); padding: 8px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-md); cursor: pointer; width: 100%; transition: all 0.2s; }
+    .filter-clear-btn:hover { border-color: var(--green); color: var(--green); }
+    .filter-product-area { min-width: 0; }
+    @media (max-width: 900px) { .shop-with-filters { grid-template-columns: 1fr; } .filter-sidebar { display: none !important; } }
+  </style>
+  <link rel="stylesheet" href="/api/theme.css" />
+</head>
+<body>
+
+<div id="announce-bar">
+  🌱 &nbsp;New dahlia tubers now available — <a href="/shop?cat=dahlias">shop dahlias</a>
+  <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
+</div>
+
+<header id="header">
+  <div class="header-top">
+    <div class="header-side">
+      <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open menu"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="header-icon-btn" onclick="openSearch()" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    <div class="header-logo-wrap"><a href="/"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" fetchpriority="high" width="180" height="56" onerror="this.style.display='none'" /></a></div>
+    <div class="header-side right">
+      <button class="header-icon-btn" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></button>
+      <button class="header-icon-btn" data-sol-cart-btn aria-label="Cart" style="position:relative"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></button>
+    </div>
+  </div>
+  <nav class="header-nav" aria-label="Main navigation">
+    <a href="/shop/flower-shop" class="nav-link">Flowers</a>
+    <a href="/shop" class="nav-link active">Seeds+Plants</a>
+    <a href="/wholesale" class="nav-link">Wholesale</a>
+    <div class="nav-item">
+      <a href="/weddings" class="nav-link">Weddings + Events <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a></div>
+    </div>
+    <a href="/workshops" class="nav-link">Workshops</a>
+    <a href="/subscriptions" class="nav-link">Subscriptions</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <div class="nav-item">
+      <a href="/about" class="nav-link">About Us <svg class="nav-arrow" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="nav-dropdown"><a href="/about">Our Story</a><a href="/contact">Contact Us</a></div>
+    </div>
+  </nav>
+</header>
+
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<nav id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="drawer-head"><img src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" onerror="this.style.display='none'" /><button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">&times;</button></div>
+  <div class="drawer-nav">
+    <div class="drawer-section-label">Seeds+Plants</div>
+    <a href="/shop/flower-shop">Flower Shop</a><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a><a href="/shop?cat=plant-nursery" class="active-drawer">Plants &amp; Plugs</a><a href="/shop?cat=farm-goods">Farm Goods + Gifts</a><a href="/shop">All Products</a>
+    <div class="drawer-section-label">Services</div>
+    <a href="/wholesale">Wholesale</a><a href="/weddings">Weddings</a><a href="/weddings/diy">DIY Wedding Flowers</a><a href="/weddings/events">Banquets + Special Occasions</a><a href="/workshops">Workshops</a>
+    <a href="/subscriptions">Subscriptions</a>
+    <div class="drawer-section-label">Explore</div>
+    <a href="/blog">Blog</a><a href="/about">Our Story</a><a href="/contact">Contact Us</a>
+  </div>
+</nav>
+
+<div id="search-overlay" role="dialog" aria-label="Search">
+  <div class="search-inner"><div class="search-row"><svg style="width:22px;height:22px;stroke:var(--text-md);fill:none;stroke-width:1.8;stroke-linecap:round;flex-shrink:0" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Search flowers, seeds, workshops..." id="search-input" autocomplete="off" /><button class="search-close-btn" onclick="closeSearch()">&times;</button></div></div>
+</div>
+
+<!-- HERO -->
+<section class="page-hero hero-slate" data-hero-text="Nursery" aria-label="Plant nursery hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Licensed Nursery</div>
+    <h1 class="hero-headline">Plant Nursery</h1>
+    <p class="hero-subtitle">Build beautiful beds and borders with plants grown right here. We hold a Georgia nursery license and grow everything from perennials to fruiting shrubs, native plants, and hydrangeas.</p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section-white section-pad-sm" aria-label="Nursery introduction">
+  <div class="container" style="max-width:860px">
+    <div class="section-label">From Our Ground to Yours</div>
+    <h2 class="section-title">Beautiful beds start with <em>the right plants.</em></h2>
+    <p style="font-size:15px;color:var(--text-md);line-height:1.8;margin-bottom:16px">Sugar Oak Lane holds a Georgia nursery license, which means we grow plants — not just flowers. Our nursery section was built for gardeners who want to create something lasting: pollinator gardens, cutting beds that come back every year, kitchen gardens with fruiting plants, and borders that reward you with blooms season after season.</p>
+    <p style="font-size:15px;color:var(--text-md);line-height:1.8;margin-bottom:28px">We grow our own stock from seeds and cuttings, select varieties for zone 7b/8a performance, and sell only plants we'd plant in our own garden. Every variety has been trialed through Georgia summers — which means it's been through real heat, real humidity, and the occasional stretch of drought. If it's in our nursery, it earned its place.</p>
+    <div class="quote-block"><p>"We don't just grow flowers. We grow gardens."</p></div>
+  </div>
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="section-linen section-pad" aria-label="Nursery plants">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Available at the Farm Stand</div>
+      <h2 class="section-title">What's <em>Growing Now</em></h2>
+      <p class="section-subtitle">Locally grown plants for your garden. Click any product to view details and add to cart.</p>
+    </div>
+        <div class="shop-with-filters">
+      <aside class="filter-sidebar" id="filter-sidebar" style="display:none">
+        <div class="filter-group" id="filter-availability-group">
+          <div class="filter-group-title">Availability</div>
+          <div id="filter-availability"></div>
+        </div>
+        <div class="filter-group" id="filter-season-group">
+          <div class="filter-group-title">Season</div>
+          <div id="filter-season"></div>
+        </div>
+        <div class="filter-group" id="filter-type-group">
+          <div class="filter-group-title">Type</div>
+          <div id="filter-type"></div>
+        </div>
+        <button class="filter-clear-btn" id="filter-clear-btn" onclick="clearFilters()" style="display:none">Clear Filters</button>
+      </aside>
+      <div class="filter-product-area">
+        <div class="product-card-row" id="product-grid">
+          <div style="grid-column:1/-1;text-align:center;padding:48px 0;color:var(--text-lt)">Loading products…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LICENSED TO GROW CALLOUT -->
+<section class="section-green section-pad-sm" aria-label="Georgia nursery license">
+  <div class="container" style="max-width:740px;text-align:center">
+    <div class="section-label" style="color:rgba(255,255,255,0.6)">Georgia Nursery License</div>
+    <h2 class="section-title" style="color:#fff">Licensed to Grow</h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.8);line-height:1.8;margin-bottom:28px">Our Georgia nursery license means we meet state standards for plant health and labeling. When you buy from us, you know exactly what you're getting — no mystery plants, no mislabeled varieties. Every plant we sell is grown here, inspected, and labeled with the variety name and care requirements before it leaves the farm.</p>
+    <a href="/contact" class="sol-btn" style="background:#fff;color:var(--green);" onmouseover="this.style.background='var(--linen)'" onmouseout="this.style.background='#fff'">Shop the Nursery →</a>
+  </div>
+</section>
+
+<footer id="footer"><div class="container"><div class="footer-top">
+  <div><img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" /><div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div><p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia. Five generations of farming heritage. Non-certified organic, locally grown, farm-direct.</p><div class="footer-contact">Loganville, GA 30052<br /><a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a></div><div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a></div></div>
+  <div><div class="footer-col-title">Shop</div><ul class="footer-links"><li><a href="/shop">All Products</a></li><li><a href="/shop/flower-shop">Flower Shop</a></li><li><a href="/shop?cat=seeds-bulbs">Seeds &amp; Bulbs</a></li><li><a href="/shop?cat=plant-nursery">Plants &amp; Plugs</a></li><li><a href="/wholesale">Wholesale</a></li></ul></div>
+  <div><div class="footer-col-title">Explore</div><ul class="footer-links"><li><a href="/weddings">Weddings + Events</a></li><li><a href="/workshops">Workshops</a></li>
+          <li><a href="/subscriptions">Subscriptions</a></li><li><a href="/blog">Farm Blog</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+  <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/delivery-info">Delivery Info</a></li><li><a href="/substitution-policy">Substitution Policy</a></li><li><a href="/refund-policy">Refund Policy</a></li></ul></div>
+  <div><div class="footer-nl-title">Stay in Touch</div><p class="footer-nl-desc">Fresh blooms, seasonal updates, and farm stories delivered to your inbox.</p><form class="footer-nl-form" id="footer-nl-form" onsubmit="handleNlSubmit(event)"><input class="footer-nl-input" type="email" id="footer-nl-email" placeholder="Your email address" required autocomplete="email" /><button class="footer-nl-btn" type="submit" id="footer-nl-btn">Subscribe</button></form><div class="footer-nl-success" id="footer-nl-success">You're on the list! Welcome to the farm family.</div></div>
+</div><div class="footer-bottom"><span>&copy; 2026 Sugar Oak Lane. All rights reserved.</span><div class="footer-bottom-links"><a href="/privacy">Privacy Policy</a><a href="/terms">Terms of Service</a></div></div></div></footer>
+
+<script src="/js/sol-cart.js"></script>
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
+function openDrawer(){document.getElementById('mobile-drawer').classList.add('open');document.getElementById('drawer-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeDrawer(){document.getElementById('mobile-drawer').classList.remove('open');document.getElementById('drawer-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSearch(){document.getElementById('search-overlay').classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('search-input').focus(),50);}
+function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
+async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
+
+// -- Dynamic SOL product loading --
+const SOL_CATEGORY = 'plant-nursery';
+
+let _allProducts = [];
+let _activeFilters = { availability: new Set(), season: new Set(), type: new Set() };
+
+async function loadSolProducts() {
+  try {
+    const res = await fetch(`/api/sol/products?category=${SOL_CATEGORY}&limit=50`);
+    const data = await res.json();
+    if (!data.success) throw new Error(data.message);
+    _allProducts = data.products || [];
+    buildFilters();
+    renderProducts(_allProducts);
+    if (_allProducts.length > 0) document.getElementById('filter-sidebar').style.display = 'block';
+  } catch(e) {
+    document.getElementById('product-grid').innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px 0;color:var(--text-md)">Could not load products. <a href="/contact" style="color:var(--green)">Contact us</a> to order.</div>`;
+  }
+}
+
+function buildFilters() {
+  const availSet = new Set(), seasonSet = new Set(), typeSet = new Set();
+  _allProducts.forEach(p => {
+    availSet.add(p.availability);
+    (p.season_tags || []).forEach(t => seasonSet.add(t));
+    (p.type_tags || []).forEach(t => typeSet.add(t));
+  });
+
+  const AVAIL_LABELS = {'in_stock':'In Stock','seasonal':'Seasonal','pre_order':'Pre-Order','out_of_stock':'Sold Out'};
+
+  function buildGroup(containerId, groupId, items, filterKey, labelMap) {
+    const el = document.getElementById(containerId);
+    const groupEl = document.getElementById(groupId);
+    if (!items.size) { if(groupEl) groupEl.style.display='none'; return; }
+    el.innerHTML = [...items].map(v => `
+      <div class="filter-option">
+        <input type="checkbox" id="f-${filterKey}-${v}" value="${v}" onchange="toggleFilter('${filterKey}', '${v}', this.checked)" />
+        <label for="f-${filterKey}-${v}">${(labelMap&&labelMap[v])||v.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</label>
+      </div>`).join('');
+  }
+  buildGroup('filter-availability', 'filter-availability-group', availSet, 'availability', AVAIL_LABELS);
+  buildGroup('filter-season', 'filter-season-group', seasonSet, 'season', null);
+  buildGroup('filter-type', 'filter-type-group', typeSet, 'type', null);
+}
+
+function toggleFilter(key, value, checked) {
+  if (checked) _activeFilters[key].add(value);
+  else _activeFilters[key].delete(value);
+  const hasFilters = Object.values(_activeFilters).some(s => s.size > 0);
+  document.getElementById('filter-clear-btn').style.display = hasFilters ? 'block' : 'none';
+  applyFilters();
+}
+
+function clearFilters() {
+  _activeFilters = { availability: new Set(), season: new Set(), type: new Set() };
+  document.querySelectorAll('.filter-option input').forEach(cb => cb.checked = false);
+  document.getElementById('filter-clear-btn').style.display = 'none';
+  renderProducts(_allProducts);
+}
+
+function applyFilters() {
+  let filtered = _allProducts;
+  if (_activeFilters.availability.size) filtered = filtered.filter(p => _activeFilters.availability.has(p.availability));
+  if (_activeFilters.season.size) filtered = filtered.filter(p => (p.season_tags||[]).some(t => _activeFilters.season.has(t)));
+  if (_activeFilters.type.size) filtered = filtered.filter(p => (p.type_tags||[]).some(t => _activeFilters.type.has(t)));
+  renderProducts(filtered);
+}
+
+const AVAIL_COLORS = {'in_stock':'#2d6a2d','seasonal':'#8a5a2a','out_of_stock':'#9a9490','pre_order':'#8a5a2a'};
+
+function renderProducts(products) {
+  const grid = document.getElementById('product-grid');
+  if (!products.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:48px 0;color:var(--text-md)">No products match your filters. <button onclick="clearFilters()" style="color:var(--green);background:none;border:none;cursor:pointer;font-weight:600;font-family:inherit">Clear filters</button></div>`;
+    return;
+  }
+  grid.innerHTML = products.map(p => {
+    const imgs = Array.isArray(p.images) ? p.images : (typeof p.images==='string' ? JSON.parse(p.images||'[]') : []);
+    const nurseryFallback = 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+    const imgHtml = imgs[0]
+      ? `<img src="${imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="if(this.src!=='${nurseryFallback}')this.src='${nurseryFallback}';" />`
+      : `<div style="width:100%;height:100%;background:var(--linen-dk)"></div>`;
+    const avail = p.availability || 'in_stock';
+    const isOos = avail === 'out_of_stock';
+    return `
+      <div class="product-card">
+        <a href="/shop/product/${p.slug}" style="display:block;text-decoration:none;color:inherit">
+          <div class="product-card-img">${imgHtml}</div>
+        </a>
+        <div class="product-card-body">
+          <span class="product-card-tag" style="color:${AVAIL_COLORS[avail]||'#3A5A40'}">${avail.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}</span>
+          <a href="/shop/product/${p.slug}" style="text-decoration:none;color:inherit">
+            <div class="product-card-title">${p.name}</div>
+          </a>
+          <p class="product-card-desc">${p.short_description||''}</p>
+          <div class="product-card-price">${p.price_label||('$'+parseFloat(p.price).toFixed(2))}</div>
+          <a href="/shop/product/${p.slug}" class="product-card-btn">${isOos ? 'Sold Out' : 'View Product →'}</a>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+loadSolProducts();
+</script>
+<script src="/js/email-capture.js"></script>
+</body>
+</html>

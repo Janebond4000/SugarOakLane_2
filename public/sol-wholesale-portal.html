@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wholesale Order Portal | Sugar Oak Lane</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --linen:    #FEFDF8;
+      --linen-dk: #F5F0E8;
+      --pink:     #F0A8C0;
+      --pink-lt:  #FDF0F5;
+      --pink-dk:  #D98BA8;
+      --green:    #3A5A40;
+      --green-dk: #2C4730;
+      --green-lt: #EDF3EE;
+      --text:     #1A1A1A;
+      --text-md:  #6A6260;
+      --text-lt:  #9A9490;
+      --border:   #DDD8CC;
+      --border-lt:#EEEBE3;
+      --shadow:   0 1px 8px rgba(26,26,26,0.05);
+      --shadow-md:0 4px 20px rgba(26,26,26,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--linen); -webkit-font-smoothing: antialiased; }
+
+    /* ── HEADER ───────────────────────────────────────────────────────────── */
+    .ws-header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .ws-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ws-brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ws-brand-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .ws-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .ws-brand-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink-dk);
+      background: var(--pink-lt);
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .ws-header-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ws-customer-name {
+      font-size: 13px;
+      color: var(--text-md);
+    }
+    .btn-logout {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-md);
+      background: none;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-logout:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── HARVEST NOTICE ───────────────────────────────────────────────────── */
+    .harvest-notice {
+      background: var(--pink-lt);
+      border-bottom: 1px solid #f3c6d6;
+      padding: 12px 2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #7a3852;
+    }
+    .harvest-notice svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ── LAYOUT ───────────────────────────────────────────────────────────── */
+    .ws-layout {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .ws-layout { grid-template-columns: 1fr; }
+      .ws-cart-panel { order: -1; }
+    }
+
+    /* ── PRODUCTS ─────────────────────────────────────────────────────────── */
+    .products-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .products-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .products-count {
+      font-size: 12px;
+      color: var(--text-lt);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    @media (max-width: 700px) {
+      .product-grid { grid-template-columns: 1fr; }
+    }
+
+    .product-card {
+      background: #fff;
+      border: 1px solid var(--border-lt);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .product-card:hover { box-shadow: var(--shadow-md); }
+
+    .product-img-wrap {
+      position: relative;
+      padding-bottom: 62%;
+      background: var(--linen-dk);
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.03); }
+    .product-img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--border);
+    }
+    .product-img-placeholder svg { width: 40px; height: 40px; }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--green);
+      color: #fff;
+    }
+
+    .product-body { padding: 1.25rem; }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .product-desc {
+      font-size: 12.5px;
+      color: var(--text-md);
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
+    }
+    .product-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .product-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .product-unit {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-md);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Order Controls ───────────────────────────────────────────────────── */
+    .order-controls { display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .ctrl-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-md);
+      margin-bottom: 3px;
+    }
+    .ctrl-field {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      padding: 0.55rem 0.75rem;
+      font-size: 13px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: var(--linen);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .ctrl-field:focus { border-color: var(--pink-dk); background: #fff; }
+
+    .qty-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      background: var(--linen);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.12s;
+      flex-shrink: 0;
+    }
+    .qty-btn:hover { border-color: var(--green); background: var(--green-lt); }
+    .qty-input {
+      width: 56px;
+      height: 32px;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: var(--linen);
+      outline: none;
+    }
+    .qty-input:focus { border-color: var(--pink-dk); background: #fff; }
+
+    .btn-add {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      padding: 0.7rem;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      margin-top: 0.25rem;
+      transition: background 0.15s;
+    }
+    .btn-add:hover { background: var(--green-dk); }
+    .btn-add.added {
+      background: #166534;
+    }
+
+    /* ── CART PANEL ───────────────────────────────────────────────────────── */
+    .ws-cart-panel {
+      position: sticky;
+      top: 80px;
+    }
+    .cart-box {
+      background: #fff;
+      border: 1px solid var(--border-lt);
+      border-radius: 2px;
+    }
+    .cart-header {
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid var(--border-lt);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cart-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .cart-count {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--pink-lt);
+      color: var(--pink-dk);
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    .cart-empty {
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+      color: var(--text-lt);
+      font-size: 13px;
+    }
+    .cart-items { max-height: 420px; overflow-y: auto; }
+    .cart-item {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--border-lt);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+    }
+    .cart-item:last-child { border-bottom: none; }
+    .ci-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .ci-detail {
+      font-size: 11.5px;
+      color: var(--text-md);
+      margin-top: 2px;
+    }
+    .ci-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .ci-qty-btn {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: var(--linen);
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .ci-qty-btn:hover { border-color: var(--green); }
+    .ci-qty { font-size: 13px; font-weight: 600; min-width: 20px; text-align: center; }
+    .ci-remove { background: none; border: none; color: var(--text-lt); cursor: pointer; font-size: 16px; padding: 2px; margin-left: 4px; }
+    .ci-remove:hover { color: #b91c1c; }
+    .ci-price {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .cart-footer {
+      padding: 1.1rem 1.25rem;
+      border-top: 1px solid var(--border);
+      background: var(--linen);
+    }
+    .cart-subtotal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .cart-subtotal-label { font-size: 13px; font-weight: 600; color: var(--text-md); }
+    .cart-subtotal-amt { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+
+    .cart-notes-wrap { margin-bottom: 0.75rem; }
+    .cart-notes {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      padding: 0.6rem 0.75rem;
+      font-size: 13px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      resize: vertical;
+      min-height: 70px;
+      outline: none;
+    }
+    .cart-notes:focus { border-color: var(--pink-dk); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      padding: 0.85rem;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s;
+    }
+    .btn-submit:hover { background: var(--green-dk); }
+    .btn-submit:disabled { background: #9ca3af; cursor: not-allowed; }
+
+    /* ── CONFIRMATION ─────────────────────────────────────────────────────── */
+    .confirmation {
+      display: none;
+      max-width: 560px;
+      margin: 4rem auto;
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #fff;
+      border: 1px solid var(--border-lt);
+    }
+    .confirmation.show { display: block; }
+    .conf-check {
+      width: 64px;
+      height: 64px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .conf-check svg { width: 32px; height: 32px; stroke: #fff; fill: none; stroke-width: 3; }
+    .conf-h { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 500; margin-bottom: 0.75rem; }
+    .conf-p { font-size: 14px; color: var(--text-md); line-height: 1.6; margin-bottom: 1.5rem; }
+    .btn-new-order {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      padding: 0.75rem 2rem;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── LOADING STATE ────────────────────────────────────────────────────── */
+    .loading-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-md);
+      font-size: 14px;
+    }
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--green);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── EMPTY STATE ──────────────────────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-lt);
+    }
+    .empty-state svg { width: 48px; height: 48px; margin: 0 auto 1rem; opacity: 0.3; }
+
+    /* ── TOAST ────────────────────────────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: var(--green);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(calc(100% + 1.5rem));
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+    .toast.show { transform: translateY(0); }
+    .toast.error { background: #b91c1c; }
+
+    @media (max-width: 640px) {
+      .ws-header { padding: 0 1rem; }
+      .harvest-notice { padding: 10px 1rem; font-size: 12px; }
+      .ws-layout { padding: 1rem; gap: 1rem; }
+      .ws-customer-name { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="ws-header">
+    <div class="ws-brand">
+      <div class="ws-brand-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2-8 2 1-1.5 3.5-2 3.5-2S13.5 1 12 3.5C11 5 10 7 10 7c-.5-2 1-4 1-4S8 4 8 6c0 1.5.5 2.5.5 2.5S7 8 7 6c-1 2-1 4 0 5.5 0 0-1-1-1-3-1 2.5 0 5 2 6.5 0 0-1-.5-1.5-2-.5 1.5 0 3 1.5 4-1 0-2-.5-2.5-1.5C6.5 18 8 19.5 10 20c2 .5 4 0 5.5-1 .5-.5 1-1.5 1-2.5S17 8 17 8Z"/></svg>
+      </div>
+      <div>
+        <div class="ws-brand-name">Sugar Oak Lane</div>
+      </div>
+      <span class="ws-brand-badge">Wholesale</span>
+    </div>
+    <div class="ws-header-right">
+      <span class="ws-customer-name" id="customer-name-display"></span>
+      <button class="btn-logout" onclick="logout()">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- Harvest Notice -->
+  <div class="harvest-notice">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <strong>Please note:</strong>&nbsp;Final availability and substitutions may be confirmed after harvest.
+  </div>
+
+  <!-- Main content -->
+  <div id="main-content">
+    <div class="ws-layout" id="portal-layout">
+      <!-- Products column -->
+      <div id="products-col">
+        <div class="loading-state" id="products-loading">
+          <div class="spinner"></div>
+          Loading products…
+        </div>
+        <div id="products-loaded" style="display:none">
+          <div class="products-header">
+            <h1>Available Products</h1>
+            <span class="products-count" id="products-count"></span>
+          </div>
+          <div class="product-grid" id="product-grid"></div>
+        </div>
+        <div class="empty-state" id="products-empty" style="display:none">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10"/></svg>
+          <p>No products are currently listed. Check back soon!</p>
+        </div>
+      </div>
+
+      <!-- Cart panel -->
+      <div class="ws-cart-panel">
+        <div class="cart-box">
+          <div class="cart-header">
+            <span class="cart-title">Your Order</span>
+            <span class="cart-count" id="cart-count">0 items</span>
+          </div>
+          <div id="cart-empty" class="cart-empty">No items yet. Add products from the catalog.</div>
+          <div class="cart-items" id="cart-items-list" style="display:none"></div>
+          <div class="cart-footer" id="cart-footer" style="display:none">
+            <div class="cart-subtotal">
+              <span class="cart-subtotal-label">Subtotal</span>
+              <span class="cart-subtotal-amt" id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="cart-notes-wrap">
+              <label class="ctrl-label" for="order-notes">Order Notes (optional)</label>
+              <textarea class="cart-notes" id="order-notes" placeholder="Delivery preferences, substitution notes, special requests…"></textarea>
+            </div>
+            <button class="btn-submit" id="submit-btn" onclick="submitOrder()">Submit Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation -->
+    <div class="confirmation" id="confirmation">
+      <div class="conf-check">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2 class="conf-h">Order Submitted!</h2>
+      <p class="conf-p">Your order has been received. We'll confirm availability after harvest and follow up with any questions or substitutions.</p>
+      <p class="conf-p" style="font-size:12px;margin-top:-0.5rem">Order #<strong id="conf-order-id"></strong></p>
+      <button class="btn-new-order" onclick="newOrder()">Place Another Order</button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ── State ──────────────────────────────────────────────────────────────
+    let cart = [];        // { product, variety, quantity, harvestWeekId, harvestWeekLabel, deliveryDate, lineTotal }
+    let products = [];
+    let harvestWeeks = [];
+    let customerInfo = null;
+
+    // ── Init ───────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', init);
+
+    async function init() {
+      try {
+        const [meRes, productsRes, weeksRes] = await Promise.all([
+          fetch('/api/wholesale/me'),
+          fetch('/api/wholesale/products'),
+          fetch('/api/wholesale/harvest-weeks')
+        ]);
+
+        if (meRes.status === 401) { window.location.href = '/wholesale-portal/login'; return; }
+
+        const meData = await meRes.json();
+        customerInfo = meData.customer;
+        document.getElementById('customer-name-display').textContent =
+          customerInfo.contact_name + ' · ' + customerInfo.business_name;
+
+        const productsData = await productsRes.json();
+        const weeksData    = await weeksRes.json();
+
+        products     = productsData.products || [];
+        harvestWeeks = weeksData.weeks || [];
+
+        renderProducts();
+      } catch (err) {
+        console.error('Init error', err);
+        showToast('Failed to load portal. Please refresh.', true);
+      }
+    }
+
+    // ── Render Products ────────────────────────────────────────────────────
+    function renderProducts() {
+      document.getElementById('products-loading').style.display = 'none';
+      const activeProducts = products.filter(p => p.active !== false);
+
+      if (activeProducts.length === 0) {
+        document.getElementById('products-empty').style.display = 'block';
+        return;
+      }
+
+      document.getElementById('products-loaded').style.display = 'block';
+      document.getElementById('products-count').textContent =
+        activeProducts.length + ' product' + (activeProducts.length === 1 ? '' : 's');
+
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = activeProducts.map(p => productCardHTML(p)).join('');
+    }
+
+    function productCardHTML(p) {
+      const varieties = Array.isArray(p.variety_options) ? p.variety_options : [];
+      const imgHTML = p.image_url
+        ? `<img src="${escHTML(p.image_url)}" alt="${escHTML(p.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+        : '';
+      const placeholderHTML = `
+        <div class="product-img-placeholder" style="${p.image_url ? 'display:none' : ''}">
+          <svg fill="none" stroke="#DDD8CC" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>`;
+
+      const varietyHTML = varieties.length > 0 ? `
+        <div>
+          <div class="ctrl-label">Variety</div>
+          <select class="ctrl-field" id="variety-${p.id}">
+            <option value="">Select variety…</option>
+            ${varieties.map(v => `<option value="${escHTML(v)}">${escHTML(v)}</option>`).join('')}
+          </select>
+        </div>` : '';
+
+      const scheduleHTML = p.available_now ? `
+        <div>
+          <div class="ctrl-label">Pickup / Delivery Date</div>
+          <input type="date" class="ctrl-field" id="date-${p.id}" min="${todayStr()}" max="${endOfWeekStr()}" />
+          <div style="font-size:11px;color:var(--text-lt);margin-top:3px">Available this week only</div>
+        </div>` : `
+        <div>
+          <div class="ctrl-label">Harvest Week</div>
+          <select class="ctrl-field" id="week-${p.id}">
+            <option value="">Select harvest week…</option>
+            ${harvestWeeks.filter(w => w.active).map(w =>
+              `<option value="${w.id}">${escHTML(w.label)}</option>`).join('')}
+          </select>
+        </div>`;
+
+      return `
+        <div class="product-card">
+          <div class="product-img-wrap">
+            ${imgHTML}${placeholderHTML}
+            ${p.available_now ? '<div class="product-badge">Available Now</div>' : ''}
+          </div>
+          <div class="product-body">
+            <div class="product-name">${escHTML(p.name)}</div>
+            ${p.description ? `<div class="product-desc">${escHTML(p.description)}</div>` : ''}
+            <div class="product-meta">
+              <span class="product-price">$${parseFloat(p.price_per_unit).toFixed(2)}</span>
+              <span class="product-unit">per ${escHTML(p.unit_type)}</span>
+            </div>
+            <div class="order-controls">
+              ${varietyHTML}
+              ${scheduleHTML}
+              <div>
+                <div class="ctrl-label">Quantity</div>
+                <div class="qty-row">
+                  <button class="qty-btn" onclick="adjustQty(${p.id}, -1)">−</button>
+                  <input type="number" class="qty-input" id="qty-${p.id}" value="1" min="1" max="999" />
+                  <button class="qty-btn" onclick="adjustQty(${p.id}, 1)">+</button>
+                </div>
+              </div>
+              <button class="btn-add" id="add-btn-${p.id}" onclick="addToCart(${p.id})">
+                Add to Order
+              </button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // ── Cart Logic ─────────────────────────────────────────────────────────
+    function adjustQty(productId, delta) {
+      const input = document.getElementById('qty-' + productId);
+      const val = Math.max(1, (parseInt(input.value) || 1) + delta);
+      input.value = val;
+    }
+
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const varieties = Array.isArray(product.variety_options) ? product.variety_options : [];
+      const qtyInput  = document.getElementById('qty-' + productId);
+      const qty       = Math.max(1, parseInt(qtyInput.value) || 1);
+
+      let variety = null;
+      if (varieties.length > 0) {
+        const varSel = document.getElementById('variety-' + productId);
+        variety = varSel.value || null;
+        if (!variety) { showToast('Please select a variety.', true); varSel.focus(); return; }
+      }
+
+      let harvestWeekId = null;
+      let harvestWeekLabel = null;
+      let deliveryDate = null;
+
+      if (product.available_now) {
+        const datePicker = document.getElementById('date-' + productId);
+        deliveryDate = datePicker.value || null;
+        if (!deliveryDate) { showToast('Please select a delivery date.', true); datePicker.focus(); return; }
+      } else {
+        const weekSel = document.getElementById('week-' + productId);
+        harvestWeekId = weekSel.value ? parseInt(weekSel.value) : null;
+        if (!harvestWeekId) { showToast('Please select a harvest week.', true); weekSel.focus(); return; }
+        const week = harvestWeeks.find(w => w.id === harvestWeekId);
+        harvestWeekLabel = week ? week.label : '';
+      }
+
+      const existingIdx = cart.findIndex(item =>
+        item.product.id === productId &&
+        item.variety === variety &&
+        item.harvestWeekId === harvestWeekId &&
+        item.deliveryDate === deliveryDate
+      );
+
+      if (existingIdx >= 0) {
+        cart[existingIdx].quantity += qty;
+        cart[existingIdx].lineTotal = cart[existingIdx].quantity * parseFloat(product.price_per_unit);
+      } else {
+        cart.push({
+          product,
+          variety,
+          quantity: qty,
+          harvestWeekId,
+          harvestWeekLabel,
+          deliveryDate,
+          lineTotal: qty * parseFloat(product.price_per_unit)
+        });
+      }
+
+      // Flash button feedback
+      const btn = document.getElementById('add-btn-' + productId);
+      btn.textContent = '✓ Added';
+      btn.classList.add('added');
+      setTimeout(() => {
+        btn.textContent = 'Add to Order';
+        btn.classList.remove('added');
+      }, 1200);
+
+      renderCart();
+      showToast(product.name + ' added to order.');
+    }
+
+    function removeFromCart(idx) {
+      cart.splice(idx, 1);
+      renderCart();
+    }
+
+    function changeCartQty(idx, delta) {
+      cart[idx].quantity = Math.max(1, cart[idx].quantity + delta);
+      cart[idx].lineTotal = cart[idx].quantity * parseFloat(cart[idx].product.price_per_unit);
+      renderCart();
+    }
+
+    function renderCart() {
+      const count   = cart.reduce((s, i) => s + i.quantity, 0);
+      const subtotal = cart.reduce((s, i) => s + i.lineTotal, 0);
+
+      document.getElementById('cart-count').textContent =
+        count + ' item' + (count === 1 ? '' : 's');
+      document.getElementById('cart-subtotal').textContent = '$' + subtotal.toFixed(2);
+
+      const listEl   = document.getElementById('cart-items-list');
+      const emptyEl  = document.getElementById('cart-empty');
+      const footerEl = document.getElementById('cart-footer');
+
+      if (cart.length === 0) {
+        listEl.style.display   = 'none';
+        footerEl.style.display = 'none';
+        emptyEl.style.display  = 'block';
+        return;
+      }
+
+      emptyEl.style.display  = 'none';
+      listEl.style.display   = 'block';
+      footerEl.style.display = 'block';
+
+      listEl.innerHTML = cart.map((item, idx) => {
+        const schedule = item.deliveryDate
+          ? 'Pickup: ' + formatDate(item.deliveryDate)
+          : (item.harvestWeekLabel || 'No week selected');
+        const varietyLine = item.variety ? ' · ' + item.variety : '';
+        return `
+          <div class="cart-item">
+            <div>
+              <div class="ci-name">${escHTML(item.product.name)}${varietyLine ? `<span style="font-weight:400;color:var(--text-md)">${escHTML(varietyLine)}</span>` : ''}</div>
+              <div class="ci-detail">${escHTML(schedule)}</div>
+              <div class="ci-controls">
+                <button class="ci-qty-btn" onclick="changeCartQty(${idx}, -1)">−</button>
+                <span class="ci-qty">${item.quantity}</span>
+                <button class="ci-qty-btn" onclick="changeCartQty(${idx}, 1)">+</button>
+                <span style="font-size:11px;color:var(--text-lt)">× $${parseFloat(item.product.price_per_unit).toFixed(2)} / ${escHTML(item.product.unit_type)}</span>
+                <button class="ci-remove" onclick="removeFromCart(${idx})" title="Remove">×</button>
+              </div>
+            </div>
+            <div class="ci-price">$${item.lineTotal.toFixed(2)}</div>
+          </div>`;
+      }).join('');
+    }
+
+    // ── Submit Order ───────────────────────────────────────────────────────
+    async function submitOrder() {
+      if (cart.length === 0) { showToast('Your order is empty.', true); return; }
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      const notes    = document.getElementById('order-notes').value.trim();
+      const subtotal = cart.reduce((s, i) => s + i.lineTotal, 0);
+
+      const items = cart.map(item => ({
+        product_id:      item.product.id,
+        variety:         item.variety || null,
+        quantity:        item.quantity,
+        unit_type:       item.product.unit_type,
+        price_per_unit:  parseFloat(item.product.price_per_unit),
+        harvest_week_id: item.harvestWeekId || null,
+        delivery_date:   item.deliveryDate || null
+      }));
+
+      try {
+        const res = await fetch('/api/wholesale/orders', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ notes, subtotal, items })
+        });
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('conf-order-id').textContent = data.order_id;
+          document.getElementById('portal-layout').style.display = 'none';
+          document.getElementById('confirmation').classList.add('show');
+          cart = [];
+          renderCart();
+        } else {
+          throw new Error(data.error || 'Submission failed');
+        }
+      } catch (err) {
+        showToast(err.message || 'Failed to submit. Please try again.', true);
+        btn.disabled = false;
+        btn.textContent = 'Submit Order';
+      }
+    }
+
+    function newOrder() {
+      document.getElementById('confirmation').classList.remove('show');
+      document.getElementById('portal-layout').style.display = '';
+      document.getElementById('order-notes').value = '';
+    }
+
+    // ── Auth ───────────────────────────────────────────────────────────────
+    async function logout() {
+      await fetch('/api/wholesale/logout', { method: 'POST' });
+      window.location.href = '/wholesale-portal/login';
+    }
+
+    // ── Helpers ────────────────────────────────────────────────────────────
+    function escHTML(str) {
+      if (str == null) return '';
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+    }
+
+    function todayStr() {
+      return new Date().toISOString().split('T')[0];
+    }
+
+    function endOfWeekStr() {
+      const d = new Date();
+      const day = d.getDay();
+      const diff = 6 - day; // Saturday
+      d.setDate(d.getDate() + diff);
+      return d.toISOString().split('T')[0];
+    }
+
+    function formatDate(str) {
+      if (!str) return '';
+      const d = new Date(str + 'T12:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function showToast(msg, isError = false) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'toast' + (isError ? ' error' : '');
+      // Force reflow
+      el.offsetHeight;
+      el.classList.add('show');
+      setTimeout(() => el.classList.remove('show'), 2800);
+    }
+  </script>
+</body>
+</html>
