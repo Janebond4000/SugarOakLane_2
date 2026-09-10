@@ -1,11 +1,11 @@
 {
-  "name": "express-postgres-starter",
+  "name": "sugar-oak-lane-staging",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "npm run migrate && node scripts/build-uplink.js",
+    "build": "node -e \"console.log('Railway build complete; database migrations run in pre-deploy')\"",
     "migrate": "node migrate.js"
   },
   "dependencies": {
