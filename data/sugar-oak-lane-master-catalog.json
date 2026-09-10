@@ -1,0 +1,1981 @@
+[
+  {
+    "name": "Dahlia A La Mode",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-a-la-mode"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia AC Ben",
+    "type": "Dahlia",
+    "source": "Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://thefarmhouseflowerfarm.com/products/ac-ben"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Addison June",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-addison-june"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Ali Oop",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-ali-oop"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Aljo",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-aljo"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia All That Jazz",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-all-that-jazz"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Alpen Diamond",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-alpen-diamond"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Alpen Fury",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-alpen-fury"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Alpen Pauline",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-alpen-pauline"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Alpen Sarah",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-alpen-sarah"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Alpen Sundown",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-alpen-sundown"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Alpen Treasure",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-alpen-treasure"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia American Dawn",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-american-dawn"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia American Dream",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-american-dream"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia American Sun",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-american-sun"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Amora",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-amora"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Andries Orange",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-andries-orange"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Andrew Charles",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-andrew-charles"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Angelo's Ballerina",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-angelos-ballerina"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Appleblossom",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-appleblossom",
+      "https://thefarmhouseflowerfarm.com/products/appleblossom"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Apricot Desire",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-apricot-desire"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Arabian Night",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-arabian-night",
+      "https://thefarmhouseflowerfarm.com/products/arabian-night"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Arbatax",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-arbatax"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Audrey Grace",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-audrey-grace"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bacardi",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bacardi"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bellelaine",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bellelaine"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Blizzard",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-blizzard"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Alan",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-alan"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Bethany",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-bethany"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Blush",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-blush"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Compare",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-compare"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Dawn",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-dawn"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Golden",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-golden"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Jean",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-jean"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Karen G",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-karen-g"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bloomquist Tory P",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bloomquist-tory-p"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Break Out",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-break-out",
+      "https://thefarmhouseflowerfarm.com/products/break-out"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bride to Be",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bride-to-be"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bracken Palomino",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bracken-palomino"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Bracken Sarah",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-bracken-sarah"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Brackenridge Ballerina",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-brackenridge-ballerina"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Brown Sugar",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-brown-sugar"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Brownie",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-brownie"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Brulée",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-brulee"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Café au Lait",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-cafe-au-lait",
+      "https://thefarmhouseflowerfarm.com/products/cafe-au-lait"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Café au Lait Royal",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-cafe-au-lait-royal",
+      "https://thefarmhouseflowerfarm.com/products/cafe-au-lait-royal"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Café au Lait Rose",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-cafe-au-lait-rose",
+      "https://thefarmhouseflowerfarm.com/products/cafe-au-lait-rose"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Caitlin's Joy",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-caitlins-joy",
+      "https://thefarmhouseflowerfarm.com/products/caitlins-joy"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Camano Buz",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-camano-buz"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Camano Sitka",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-camano-sitka"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Carmen Bunky",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-carmen-bunky"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Castle Drive",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-castle-drive"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Castle Pink",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-castle-pink"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Chilson's Pride",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-chilsons-pride"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Clearview Butterscotch",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-clearview-butterscotch"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Clearview Peachy",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-clearview-peachy"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Cornel",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-cornel",
+      "https://thefarmhouseflowerfarm.com/products/cornel"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Cornel Bronze",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-cornel-bronze",
+      "https://thefarmhouseflowerfarm.com/products/cornel-bronze"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Crichton Honey",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-crichton-honey",
+      "https://thefarmhouseflowerfarm.com/products/crichton-honey"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia David Howard",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-david-howard"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Diva",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-diva",
+      "https://thefarmhouseflowerfarm.com/products/diva"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Eveline",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-eveline",
+      "https://thefarmhouseflowerfarm.com/products/eveline"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Ferncliff Copper",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-ferncliff-copper"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Ferncliff Ebony",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-ferncliff-ebony"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Ferncliff Illusion",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-ferncliff-illusion"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Ferncliff Inspiration",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-ferncliff-inspiration"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Fleurel",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-fleurel",
+      "https://thefarmhouseflowerfarm.com/products/fleurel"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Genova",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-genova"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Gerrie Hoek",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-gerrie-hoek",
+      "https://thefarmhouseflowerfarm.com/products/gerrie-hoek"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Hollyhill Black Beauty",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-hollyhill-black-beauty"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Hollyhill Cotton Candy",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-hollyhill-cotton-candy"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Hollyhill Pinkie",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-hollyhill-pinkie"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Jowey Winnie",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-jowey-winnie",
+      "https://thefarmhouseflowerfarm.com/products/jowey-winnie"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Labyrinth",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-labyrinth",
+      "https://thefarmhouseflowerfarm.com/products/labyrinth"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Linda's Baby",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-lindas-baby",
+      "https://thefarmhouseflowerfarm.com/products/lindas-baby"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Maarn",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-maarn"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Night Silence",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-night-silence",
+      "https://thefarmhouseflowerfarm.com/products/night-silence"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Peaches N' Cream",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-peaches-n-cream",
+      "https://thefarmhouseflowerfarm.com/products/peaches-n-cream"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Preference",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-preference",
+      "https://thefarmhouseflowerfarm.com/products/preference"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Rock Run Ashley",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-rock-run-ashley"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Salmon Runner",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-salmon-runner",
+      "https://thefarmhouseflowerfarm.com/products/salmon-runner"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Small World",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-small-world",
+      "https://thefarmhouseflowerfarm.com/products/small-world"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Snoho Doris",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-snoho-doris"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Sweet Nathalie",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-sweet-nathalie",
+      "https://thefarmhouseflowerfarm.com/products/sweet-nathalie"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Thomas Edison",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-thomas-edison",
+      "https://thefarmhouseflowerfarm.com/products/thomas-edison"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Totally Tangerine",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-totally-tangerine",
+      "https://thefarmhouseflowerfarm.com/products/totally-tangerine"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Valley Rust Bucket",
+    "type": "Dahlia",
+    "source": "Floret",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-valley-rust-bucket"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Waltzing Mathilda",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-waltzing-mathilda",
+      "https://thefarmhouseflowerfarm.com/products/waltzing-matilda"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Dahlia Wizard of Oz",
+    "type": "Dahlia",
+    "source": "Floret|Farmhouse Flower Farm",
+    "working_price": 7.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/dahlia-wizard-of-oz",
+      "https://thefarmhouseflowerfarm.com/products/wizard-of-oz"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Ranunculus Amandine Barby",
+    "type": "Ranunculus/Corm",
+    "source": "Floret",
+    "working_price": 14.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/ranunculus-amandine-barby"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Ranunculus Amandine Black",
+    "type": "Ranunculus/Corm",
+    "source": "Floret",
+    "working_price": 14.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/ranunculus-amandine-black"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Ranunculus Amandine Cream",
+    "type": "Ranunculus/Corm",
+    "source": "Floret",
+    "working_price": 14.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/ranunculus-amandine-cream"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Ranunculus Amandine Rose",
+    "type": "Ranunculus/Corm",
+    "source": "Floret",
+    "working_price": 14.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/ranunculus-amandine-rose"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Ranunculus Amandine Salmon",
+    "type": "Ranunculus/Corm",
+    "source": "Floret",
+    "working_price": 14.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/ranunculus-amandine-salmon"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Ranunculus Amandine White",
+    "type": "Ranunculus/Corm",
+    "source": "Floret",
+    "working_price": 14.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/ranunculus-amandine-white"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Amaranth Autumn Touch",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/amaranth-autumn-touch"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Amaranth Coral Fountain",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/amaranth-coral-fountain"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Amaranth Green Tails",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/amaranth-green-tails"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Amaranth Hot Biscuits",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/amaranth-hot-biscuits"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Amaranth Mira",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/amaranth-mira"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Amaranth Opopeo",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/amaranth-opopeo"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Annual Baby’s Breath Covent Garden",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/annual-babys-breath-covent-garden"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Apple of Peru",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/apple-of-peru"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Argentine Forget-Me-Not",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/argentine-forget-me-not"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bachelor’s Button Classic Fantastic",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bachelors-button-classic-fantastic"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bachelor’s Button Classic Magic",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bachelors-button-classic-magic"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bachelor’s Button Classic Romantic",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bachelors-button-classic-romantic"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Basil Aromatto",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/basil-aromatto"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Basil Cinnamon",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/basil-cinnamon"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Basil Dark Opal",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/basil-dark-opal"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Basil Mrs. Burns Lemon",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/basil-mrs-burns-lemon"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bee Balm Bergamo",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bee-balm-bergamo"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bee Balm Lambada",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bee-balm-lambada"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bee’s Friend",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bees-friend"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bells of Ireland",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bells-of-ireland"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Cherry Brandy",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-cherry-brandy"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Chim Chiminee",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-chim-chiminee"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Denver Daisy",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-denver-daisy"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Indian Summer",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-indian-summer"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Macau",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-macau"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Prairie Sun",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-prairie-sun"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Black-eyed Susan Sahara",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/black-eyed-susan-sahara"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy Black Beauty",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-black-beauty"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy Frosted Salmon",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-frosted-salmon"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy Lilac Peony",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-lilac-peony"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy Peony Flowered Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-peony-flowered-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy Pink Peony",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-pink-peony"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy Rattle Poppy",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-rattle-poppy"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Breadseed Poppy White Frills",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/breadseed-poppy-white-frills"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Bupleurum Griffithi",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/bupleurum-griffithi"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Calendula Bronze Beauty",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/calendula-bronze-beauty"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Calendula Greenheart Orange",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/calendula-greenheart-orange"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Calendula Ivory Princess",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/calendula-ivory-princess"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Calendula Pink Surprise",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/calendula-pink-surprise"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Calendula Zeolights",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/calendula-zeolights"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "California Poppy Cream Swirl",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/california-poppy-cream-swirl"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "California Poppy Thai Silk Appleblossom Chiffon",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/california-poppy-thai-silk-appleblossom-chiffon"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "California Poppy Thai Silk Apricot Chiffon",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/california-poppy-thai-silk-apricot-chiffon"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "California Poppy Thai Silk Pink Champagne",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/california-poppy-thai-silk-pink-champagne"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Candytuft Pinnacle White",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/candytuft-pinnacle-white"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Canterbury Bells Champion Blue",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/canterbury-bells-champion-blue"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Canterbury Bells Champion Lavender",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/canterbury-bells-champion-lavender"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Canterbury Bells Champion Pink Improved",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/canterbury-bells-champion-pink-improved"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Canterbury Bells Champion White",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/canterbury-bells-champion-white"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Carnation Chabaud Aurora",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/carnation-chabaud-aurora"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Carnation Chabaud Benigna",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/carnation-chabaud-benigna"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Carnation Chabaud Jeanne Dionis",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/carnation-chabaud-jeanne-dionis"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Carnation Chabaud La France",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/carnation-chabaud-la-france"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Carnation Chabaud Orange Sherbet",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/carnation-chabaud-orange-sherbet"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Celosia Flamingo Feather",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/celosia-flamingo-feather"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Celosia Pampas Plume Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/celosia-pampas-plume-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Celosia Supercrest Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/celosia-supercrest-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Celosia Xantippe",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/celosia-xantippe"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Harlekin Light Rose",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-harlekin-light-rose"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Harlekin Violet",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-harlekin-violet"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Juwel Ametrin Lavendel",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-juwel-ametrin-lavendel"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Lady Coral Chamois",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-lady-coral-chamois"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Lady Coral Lavender",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-lady-coral-lavender"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Lady Coral Salmon Rose",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-lady-coral-salmon-rose"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Matador Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-matador-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Rose of Shanghai Light Blue",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-rose-of-shanghai-light-blue"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Sea Starlet Pink",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-sea-starlet-pink"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Tower Chamois Apricot",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-tower-chamois-apricot"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Valkyrie Chamois",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-valkyrie-chamois"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Valkyrie Pink",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-valkyrie-pink"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "China Aster Valkyrie Yellow",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/china-aster-valkyrie-yellow"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Chinese Forget-Me-Not Blue Showers",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/chinese-forget-me-not-blue-showers"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Chinese Forget-Me-Not Ms. Marilyn",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/chinese-forget-me-not-ms-marilyn"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Chinese Forget-Me-Not Mystic Pink",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/chinese-forget-me-not-mystic-pink"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Chocolate Lace Flower Dara",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/chocolate-lace-flower-dara"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Clarkia Tower Coral",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/clarkia-tower-coral"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Clary Sage Tricolor Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/clary-sage-tricolor-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Corn Cockle Dawn Creek Blush",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/corn-cockle-dawn-creek-blush"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Corn Cockle Ocean Pearls",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/corn-cockle-ocean-pearls"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Apricot Lemonade",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-apricot-lemonade"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Apricotta",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-apricotta"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Brownie",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-brownie"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Cupcakes Blush",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-cupcakes-blush"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Cupcakes White",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-cupcakes-white"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Daydream",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-daydream"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Double Click Bicolor Rose",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-double-click-bicolor-rose"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Double Click Cranberries",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-double-click-cranberries"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Double Click Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-double-click-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Double Click Snow Puff",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-double-click-snow-puff"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Psyche White",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-psyche-white"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Purity",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-purity"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Rosetta",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-rosetta"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Rubenza",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-rubenza"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Seashells Mix",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-seashells-mix"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Velouette",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-velouette"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Xanthos",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-xanthos"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "Cosmos Xsenia",
+    "type": "Seed",
+    "source": "Floret",
+    "working_price": 3.95,
+    "reference_urls": [
+      "https://library.floretflowers.com/products/cosmos-xsenia"
+    ],
+    "manual_addition": false
+  },
+  {
+    "name": "ProCut White Nite Sunflower",
+    "type": "Seed",
+    "source": "Manual addition",
+    "working_price": 3.95,
+    "reference_urls": [],
+    "manual_addition": true
+  },
+  {
+    "name": "Teddy Bear Sunflower",
+    "type": "Seed",
+    "source": "Manual addition",
+    "working_price": 3.95,
+    "reference_urls": [],
+    "manual_addition": true
+  },
+  {
+    "name": "Soraya Sunflower",
+    "type": "Seed",
+    "source": "Manual addition",
+    "working_price": 3.95,
+    "reference_urls": [],
+    "manual_addition": true
+  },
+  {
+    "name": "ProCut Red Sunflower",
+    "type": "Seed",
+    "source": "Manual addition",
+    "working_price": 3.95,
+    "reference_urls": [],
+    "manual_addition": true
+  }
+]
