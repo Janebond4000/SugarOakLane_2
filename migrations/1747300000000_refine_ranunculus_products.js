@@ -1,12 +1,58 @@
-const zlib = require('zlib');
-
-const DATA = 'H4sIAI5po2oC/72X247rNBSGX8Wa66ZNmlOLhNAGCYQENwixLxAaOfZKY8axI9tpd0FIvANvyJOwbCc9zEw7EtLsqx7sLK/l9fn3n1//fFC0h4cvHn6ialRslKMlHqquFBAvqamOT4sHqwcdzjFnKYkdJqSNPOUThuHcz6QwUAvxp40Y9NI2I19Mgj1RM4Pk4NwHZHU7GBBDnR/JI3UurdEK2Kd0WpH7GCE/3DQ2yVG52CZEYMTWvk1rvIjwhJKOrHrEtEPlDlyY70jGOALwgwMkEjxBGQARyU+rThGYBKoOWdNnFawJD93cN4PC0aA9QvuqRyBk1abWIghrdQHMHaBSY+GH2PuixAb0zJ6j9OdloB5MSC6xcpNL861HoC6DoyvlmmpzaPSDixW+zKv8GiocoGBHKhYISUDleDro/2RMFAODEbrALfGtyZL//37n6wkQvl+6dEweByNxJHOucF+sVpJ0RhqjkusxYCbKloy3a+wAD4yZ1d3GYgxRU93cBGVcbVEPAbRHkMsu2qFBLvKVmlVlKt6m+erTVFtzotEFmVYBTffL+JbLeDxl/xDWRbbZP3YlBlv16xNtm2WJUXJMA8OLGnrhtICB6psvfx92H21/zKr6qwusyKvHv5a3AdeUvb0BvDzlBPw3OCgE4wobFQcf0HfHuQe3JH01GjE/AK8FoPKo0fLUIeMAN/BXeZD/MYzYwl8coZqgwPYNsJhwKWQDwRpxmpHDQe1JN87S4xg3ZzB1FzCqCIIDA/JS38UMTweyw5bRKQn5zK5KW8bqfPLcGqeSAB2hpCDFAxnL4jD9EZDZajpJdjznnCAYU4Lkz/v4ueBd+7ne8Lr14js5gWyWxdpSvOqSqDZ0qRYNzzZNHmdbOsSOEvppubpM3aL9E12tWq0egPe05wTvXuxF5z4qpWj52g35LodJfLA9YhihFKK2UgpaFTTqOL30A2re/nEbYEgnhFPD+Kh87qmHLHUQ+NpmxAO1CzJDy8zOF0cA9IoFMK3w7b7Z+Z6vIgHyccDin9TYvSoeLgGrnKPuCDRFBNwmC8GHZ2P2WisvgEeTyvDPykeBrWDHhewL6kOh+xZGp8H5FNv34Pk2LvIcJ0+pqygWZs1SZWnNarvtkqajNOkLus8TWtgVQnPCc7fIvibDouRWO99iNnltBPHRuO4V+ELchER/8gOv4y2ixz08U5uMAK4xEoxDNj4YBmw2wFzpGFs2+PbQJ8SJh21UXVRGRdEjf6S5+E+dg4iVj19Qu9wkZ3VZLSAPIeTcADOg6b77AaK9kFOp8MuybeTWgfwMBxSvOteqSoYgFhaLAmP217sNM63ZJC4QdNxnn3WbLCuGb4OHIKGaDc27rPgfdX19yD81EwPeVVt6iR/XNOKV3lbJmmGv4uapsmWtSwpoYRNxYBh4OeY129h/rETDu4jfpinnPD2LhDtsdKHOHhbqWmDCoedXszOdBJJD5kBbzf4tTm4R3jINThsRQD9pxfoYTRThlc04zBzkyeec5h0NUgvsuNPyGVSxIo/gFBrNRNB8UMB7qXljv4FE7QD+oPReVMRTUc8VcIRsANgFH857BEo1HsZrxiUbHdRbEgE9ijLiVB2EMafU38y/OF73X3HfSdzU96f9VP734Pz0NIg5FWaoxkpi2q9zcs2KTZsi1KOKr4pmnVSldu8oGva5DS/ZrzMshuM30b7NaKx8ajXr+N0+c6G2m7h0mPEHn5ieIGDdwyTT5gaPWDrsJ1UvuT64/NlJh8dFiIUXa2ZvuMLWsQtZjYZ38lbR6scgbpwFwFvrZ/8w5RYrybTpFCBF2P8299JuICXXo91fH09Izvj7dHtdA/P+V2cbRE6C6HCO6ffj+kCuaA63j6vQO23/AbO6/QOzlhgi6+enfb3VoDZ/7zJ8//HeFOkq21ab1bZdpueY3//43ePdZmecKzTsqi3RYbO4rf/AP06tcLKEAAA';
+const ITEMS = [
+  {
+    name: 'Ranunculus Amandine Barby', slug: 'ranunculus-amandine-barby',
+    short: 'A premium bubblegum-pink ranunculus with large, wavy blooms on strong spring stems.',
+    description: 'Amandine Barby is a high-impact pink ranunculus with layered, crepe-like petals and a clear bubblegum tone. The Amandine series is valued for larger flowers, sturdy stems, and improved tolerance of warming spring weather.',
+    color_notes: 'clear bubblegum to warm pink, often with a pale creamy center', height: '10–15 in',
+    source_url: 'https://library.floretflowers.com/products/ranunculus-amandine-barby',
+    source_image: 'https://cdn.shopify.com/s/files/1/0645/7933/8468/products/Ranunclulus-AmadineBarbie_V3A5549-2_b51df2cf-9f11-45ce-bdec-f7baa42cf612.jpg?v=1671751436'
+  },
+  {
+    name: 'Ranunculus Amandine Black', slug: 'ranunculus-amandine-black',
+    short: 'A dramatic near-black ranunculus with velvety maroon petals and finely serrated edges.',
+    description: 'Amandine Black brings extraordinary depth to the spring garden. Its rich maroon flowers can read nearly black, while lightly serrated petals soften the dark color with a delicate, textural edge.',
+    color_notes: 'velvety deep maroon to near-black', height: '10–15 in',
+    source_url: 'https://library.floretflowers.com/products/ranunculus-amandine-black',
+    source_image: 'https://cdn.shopify.com/s/files/1/0645/7933/8468/products/Ranunclulus-AmadineBlack_V3A5534-2_7400a366-eb9a-42bd-8b37-975edc0a87d0.jpg?v=1671751440'
+  },
+  {
+    name: 'Ranunculus Amandine Bonbon', slug: 'ranunculus-amandine-bonbon',
+    short: 'A vivid magenta Amandine ranunculus with large, fully double, camellia-like blooms.',
+    description: 'Amandine Bonbon is made for gardeners who want saturated spring color. Large, fully double blooms open in a glowing magenta tone, creating a rounded, camellia-like flower that stands out in both beds and cut arrangements.',
+    color_notes: 'rich glowing magenta', height: '10–15 in',
+    source_url: 'https://library.floretflowers.com/products/ranunculus-amandine-bonbon',
+    source_image: 'https://cdn.shopify.com/s/files/1/0645/7933/8468/products/Ranunclulus-Bonbon_V3A5570_0c4a1f1b-6307-4596-b1da-7573007ec65e.jpg?v=1671751443'
+  },
+  {
+    name: 'Ranunculus Amandine Chamallow', slug: 'ranunculus-amandine-chamallow',
+    short: 'A romantic ranunculus blending blush, cream, and ballet-slipper pink in large fluffy blooms.',
+    description: 'Amandine Chamallow has the soft, nuanced palette that makes ranunculus so useful for weddings and pastel gardens. Flowers range through blush, cream, and pale ballet pink on vigorous plants with strong stems.',
+    color_notes: 'blush, cream, pale pink and ballet-slipper pink', height: '10–15 in',
+    source_url: 'https://library.floretflowers.com/products/ranunculus-amandine-chamallow',
+    source_image: 'https://cdn.shopify.com/s/files/1/0645/7933/8468/products/Ranunclulus-Chamallow_V3A6687-3_2a6d63f5-0187-47a0-9cfc-5e5e86cec064.jpg?v=1671751447'
+  },
+  {
+    name: 'Ranunculus Amandine White', slug: 'ranunculus-amandine-white',
+    short: 'A clean snow-white Amandine ranunculus with abundant, larger blooms for refined spring gardens.',
+    description: 'Amandine White is an elegant pure-white ranunculus selected for abundant flowering and the larger bloom size associated with the Amandine series. Its crisp neutral color makes it especially versatile for cutting gardens and event-inspired plantings.',
+    color_notes: 'clean snow white', height: '10–15 in',
+    source_url: 'https://library.floretflowers.com/products/ranunculus-amandine-white',
+    source_image: 'https://cdn.shopify.com/s/files/1/0645/7933/8468/products/Ranunclulus-White_V3A5603-2_5462935f-48c9-45da-84b2-65934a2ab3a3.jpg?v=1671751511'
+  },
+  {
+    name: 'Ranunculus White', slug: 'ranunculus-white',
+    short: 'A classic pure-white ranunculus with layered rose-like blooms and excellent spring cutting potential.',
+    description: 'White ranunculus brings layer after layer of crisp white petals to the early garden, creating the look of a small garden rose on a slender stem. It is a versatile neutral for home cutting gardens, spring containers, and wedding-inspired palettes.',
+    color_notes: 'pure white', height: '10–20 in',
+    source_url: 'https://thefarmhouseflowerfarm.com/products/ranunculus-white',
+    source_image: 'https://cdn.shopify.com/s/files/1/0840/9078/1990/products/IMG_7503.jpg?v=1705479413'
+  }
+];
 
 module.exports = {
   name: 'refine_ranunculus_products',
   up: async (client) => {
-    const items = JSON.parse(zlib.gunzipSync(Buffer.from(DATA,'base64')).toString('utf8'));
-    for (const p of items) {
+    for (const p of ITEMS) {
       const details = {
         botanical_reference_status: 'source-backed',
         product_unit: '10 corm pack',
