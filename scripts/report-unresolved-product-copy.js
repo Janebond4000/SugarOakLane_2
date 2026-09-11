@@ -1,0 +1,2 @@
+const {Pool}=require('pg');
+async function main(){const pool=new Pool({connectionString:process.env.DATABASE_URL});try{const r=await pool.query(`SELECT name,slug,subcategory,seed_details->'source_references' AS refs,seed_details->>'fact_extraction_source' AS fact_source FROM sol_products WHERE seed_details->>'catalog_status'='staging_ready' AND COALESCE(seed_details->>'content_status','')<>'variety_copy_ready' ORDER BY subcategory,name`);console.log('[unresolved-copy]',JSON.stringify(r.rows));}finally{await pool.end()}}main().catch(e=>{console.error(e);process.exit(1)});
