@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node runtime-hardening.js",
     "dev": "node server.js",
     "build": "node -e \"console.log('Railway build complete; database migrations run in pre-deploy')\"",
     "migrate": "node migrate.js"
