@@ -92,10 +92,14 @@
   </div>
 </footer>
 
+<script src="/js/sol-cart.js"></script>
 <script>
 window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.scrollY>10);},{passive:true});
 
 const params = new URLSearchParams(location.search);
+if (params.get('paid') === '1' && window.SolCart && typeof SolCart.clear === 'function') {
+  SolCart.clear();
+}
 const orderNum = params.get('order') || params.get('order_number');
 if (orderNum) {
   const el = document.getElementById('order-number-block');
