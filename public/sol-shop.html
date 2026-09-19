@@ -1310,13 +1310,13 @@ const _BESTSELLER_SLUGS = new Set([
 function renderProductCard(p) {
   let imgs = [];
   try { imgs = Array.isArray(p.images) ? p.images : JSON.parse(p.images || '[]'); } catch(e) {}
-  const img = imgs[0] || 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+  const img = imgs[0] || '/assets/product-placeholder.svg';
   const sold = p.availability === 'out_of_stock' || p.availability === 'sold_out' || (p.track_inventory && p.stock_quantity === 0);
   const isLowStock = !sold && p.track_inventory && p.stock_quantity !== null && p.stock_quantity !== undefined && p.stock_quantity > 0 && p.stock_quantity <= (p.low_stock_threshold || 5);
   const isBestseller = !sold && _BESTSELLER_SLUGS.has(p.slug);
   const price = p.price_label || (p.price ? '$' + parseFloat(p.price).toFixed(2) : '');
   const name = (p.name || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const fallbackImg = 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+  const fallbackImg = '/assets/product-placeholder.svg';
   const avgRating = p.avg_rating ? parseFloat(p.avg_rating) : null;
   const reviewCount = parseInt(p.review_count) || 0;
   const starsHtml = (avgRating && reviewCount > 0) ? (() => {
