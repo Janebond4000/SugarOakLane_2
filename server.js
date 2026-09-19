@@ -348,6 +348,7 @@ async function getDescendantSlugs(pool, parentSlug) {
 app.get('/health', (req, res) => {
   res.json({ status: 'healthy' });
 });
+app.get('/favicon.ico', (req, res) => res.redirect(302, '/favicon.svg?v=20260919'));
 
 // ─────────────────────────────────────────────────────────────────────────────
 // robots.txt
