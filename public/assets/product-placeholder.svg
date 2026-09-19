@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Sugar Oak Lane product image coming soon</title>
+  <desc id="desc">A clean wireframe-style placeholder used until product photography is available.</desc>
+  <rect width="1200" height="1500" fill="#faf8f2"/>
+  <rect x="44" y="44" width="1112" height="1412" rx="6" fill="none" stroke="#d8d1c5" stroke-width="3"/>
+  <path d="M90 1410L1110 90M90 90l1020 1320" stroke="#e5dfd5" stroke-width="2"/>
+  <circle cx="600" cy="650" r="92" fill="none" stroke="#7f8f79" stroke-width="8"/>
+  <path d="M600 742v220M600 810c-88-16-138-77-150-154 78-4 139 35 150 112M600 858c82-12 139-65 153-136-74-8-134 23-153 92" fill="none" stroke="#7f8f79" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M543 585c10-50 37-83 57-83s47 33 57 83c48-17 91-10 102 8 10 18-6 59-47 91 38 34 52 76 41 94-12 18-56 22-103 3-13 48-39 81-50 81s-39-33-51-81c-47 19-91 15-102-3-11-18 3-60 41-94-41-32-57-73-47-91 11-18 54-25 102-8z" fill="none" stroke="#7f8f79" stroke-width="8" stroke-linejoin="round"/>
+  <text x="600" y="1090" text-anchor="middle" fill="#3a5a40" font-family="Georgia, serif" font-size="52" letter-spacing="3">SUGAR OAK LANE</text>
+  <text x="600" y="1160" text-anchor="middle" fill="#8a8178" font-family="Arial, sans-serif" font-size="26" letter-spacing="6">PRODUCT IMAGE COMING SOON</text>
+</svg>
