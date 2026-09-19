@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Sugar Oak Lane | Flower Farm in Loganville, Georgia</title>
-  <meta name="description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll respond within 24–48 hours." />
+  <meta name="description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll get back to you as soon as we can." />
   <meta name="keywords" content="contact Sugar Oak Lane, flower farm contact Georgia, flower farm Loganville phone, hello sugaroaklane.com" />
   <link rel="canonical" href="https://sugaroakos.polsia.app/contact" />
   <meta property="og:title" content="Contact Sugar Oak Lane | Flower Farm in Loganville, Georgia" />
-  <meta property="og:description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll respond within 24–48 hours." />
+  <meta property="og:description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll get back to you as soon as we can." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sugaroakos.polsia.app/contact" />
   <meta property="og:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
   <meta property="og:site_name" content="Sugar Oak Lane" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Sugar Oak Lane | Flower Farm in Loganville, Georgia" />
-  <meta name="twitter:description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll respond within 24–48 hours." />
+  <meta name="twitter:description" content="Get in touch with Sugar Oak Lane. Questions, orders, wedding inquiries, wholesale — we're real people on a real farm. We'll get back to you as soon as we can." />
   <meta name="twitter:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -234,7 +234,7 @@
     <div class="page-hero-inner">
       <p class="page-hero-eyebrow">Get in Touch</p>
       <h1 class="page-hero-headline">Contact Us</h1>
-      <p class="page-hero-subtitle">Questions, orders, inquiries — we're real people on a real farm. We'll respond within 24–48 hours.</p>
+      <p class="page-hero-subtitle">Questions, orders, inquiries — we're real people on a real farm. We'll get back to you as soon as we can.</p>
     </div>
   </section>
 
@@ -268,9 +268,14 @@
               <label for="cf-message">Message</label>
               <textarea id="cf-message" name="message" rows="6" placeholder="Tell us how we can help..." required></textarea>
             </div>
+            <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
             <button type="submit" class="btn btn-primary" id="contact-submit-btn">Send Message</button>
+            <div id="contact-error" style="display:none;margin-top:14px;color:#a12f2f;font-size:13px;"></div>
             <div class="form-success" id="contact-success" style="display:none;">
-              Message sent! We'll get back to you within 24–48 hours.
+              Message received! We'll get back to you as soon as we can.
             </div>
           </form>
         </div>
@@ -280,29 +285,33 @@
             <p class="section-label">Sugar Oak Lane Farm</p>
             <div class="contact-info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              <span>Loganville, GA 30052</span>
+              <span>Loganville, Georgia</span>
             </div>
             <div class="contact-info-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <a href="mailto:hello@sugaroaklane.com">hello@sugaroaklane.com</a>
             </div>
-            <div class="contact-info-item contact-info-hours">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h6"/></svg>
               <div>
-                <div>Mon–Sat: 8am–6pm</div>
-                <div>Sunday: 10am–4pm</div>
+                <div><strong>Weddings &amp; Events</strong></div>
+                <div><a href="/weddings">Wedding and event information</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
+              <div>
+                <div><strong>Wholesale</strong></div>
+                <div><a href="/wholesale">Wholesale flower information</a></div>
               </div>
             </div>
           </div>
 
-          <div class="contact-map-placeholder grad-moss" style="aspect-ratio:16/9;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:28px 0 16px;">
-            <div style="text-align:center;color:rgba(255,255,255,0.85);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;margin-bottom:8px;opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              <p style="margin:0;font-size:13px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:0.05em;">Farm Location — Map Coming Soon</p>
-            </div>
+          <div style="margin:28px 0 16px;border-radius:12px;overflow:hidden;aspect-ratio:16/9;">
+            <img src="https://images.pexels.com/photos/1562262/pexels-photo-1562262.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Seasonal flowers from Sugar Oak Lane" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
           </div>
 
-          <p class="contact-visit-note">Farm visits by appointment only. We'd love to have you out!</p>
+          <p class="contact-visit-note">For the quickest routing, choose the subject that best matches your question or use the dedicated wedding and wholesale pages above.</p>
         </div>
 
       </div>
@@ -362,15 +371,46 @@ function closeSearch(){document.getElementById('search-overlay').classList.remov
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
 async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
 
-document.getElementById('contact-form-el').addEventListener('submit', function(e) {
+document.getElementById('contact-form-el').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('contact-submit-btn');
+  const errEl = document.getElementById('contact-error');
+  errEl.style.display = 'none';
+
+  const payload = {
+    name: document.getElementById('cf-name').value.trim(),
+    email: document.getElementById('cf-email').value.trim(),
+    subject: document.getElementById('cf-subject').value,
+    message: document.getElementById('cf-message').value.trim(),
+    website: document.getElementById('cf-website').value
+  };
+
+  if (!payload.name || !payload.email || !payload.message) {
+    errEl.textContent = 'Please complete your name, email, and message.';
+    errEl.style.display = 'block';
+    return;
+  }
+
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  setTimeout(() => {
-    this.style.display = 'none';
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.message || 'Unable to send message.');
+    this.querySelectorAll('input:not([type="hidden"]), textarea').forEach(el => el.value = '');
+    this.querySelector('select').selectedIndex = 0;
     document.getElementById('contact-success').style.display = 'block';
-  }, 800);
+    btn.textContent = 'Message Received';
+  } catch(err) {
+    errEl.textContent = err.message || 'We could not send your message. Please email hello@sugaroaklane.com.';
+    errEl.style.display = 'block';
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
+  }
 });
 
 document.addEventListener('DOMContentLoaded',()=>initPageHero('contact'));
