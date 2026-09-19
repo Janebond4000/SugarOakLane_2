@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title id="page-title">Product | Sugar Oak Lane</title>
   <meta name="description" id="page-desc" content="Farm-fresh flowers and plants from Sugar Oak Lane, Loganville GA." />
-  <link rel="canonical" id="page-canonical" href="https://sugaroakos.polsia.app/shop" />
+  <link rel="canonical" id="page-canonical" href="https://www.sugaroaklane.com/shop" />
   <meta property="og:title" id="og-title" content="Product | Sugar Oak Lane" />
   <meta property="og:description" id="og-desc" content="Farm-fresh flowers and plants from Sugar Oak Lane, Loganville GA." />
   <meta property="og:type" content="product" />
-  <meta property="og:url" id="og-url" content="https://sugaroakos.polsia.app/shop" />
+  <meta property="og:url" id="og-url" content="https://www.sugaroaklane.com/shop" />
   <meta property="og:image" id="og-image" content="https://www.sugaroaklane.com/assets/product-placeholder.svg" />
   <meta property="og:site_name" content="Sugar Oak Lane" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -777,7 +777,7 @@ function addToCart() {
     name: _currentProduct.name,
     price: _currentProduct.price,
     price_label: _currentProduct.price_label,
-    image: (_currentProduct.images || [])[0] || '',
+    image: '/assets/product-placeholder.svg',
     category: _currentProduct.sol_category,
     fulfillment: _currentProduct.fulfillment_type || 'pickup',
     notes: notes || '',
@@ -898,7 +898,7 @@ function renderProduct(p) {
   const seoTitle = (p.seo_title || p.name) + ' | Sugar Oak Lane';
   const seoDesc = p.seo_description || p.short_description || '';
   const productUrl = 'https://www.sugaroaklane.com/shop/product/' + p.slug;
-  const productImage = (p.images && p.images[0]) || 'https://www.sugaroaklane.com/assets/product-placeholder.svg';
+  const productImage = 'https://www.sugaroaklane.com/assets/product-placeholder.svg';
   document.getElementById('page-title').textContent = seoTitle;
   document.getElementById('page-desc').content = seoDesc;
   // Canonical
@@ -1033,7 +1033,7 @@ function renderProduct(p) {
   descEl.innerHTML = descText.split('\n\n').map(para => `<p>${para.replace(/\n/g, '<br/>')}</p>`).join('');
 
   // Gallery
-  const images = Array.isArray(p.images) ? p.images : (typeof p.images === 'string' ? JSON.parse(p.images || '[]') : []);
+  const images = []; // Official product photography has not been approved yet; show the Sugar Oak Lane wireframe on every listing.
   const mainImg = document.getElementById('main-image');
   const thumbRow = document.getElementById('thumb-row');
   const imgFallback = '/assets/product-placeholder.svg';
@@ -1077,7 +1077,7 @@ async function loadRelated(current) {
 
     const grid = document.getElementById('related-grid');
     grid.innerHTML = others.map(p => {
-      const imgs = Array.isArray(p.images) ? p.images : (typeof p.images==='string' ? JSON.parse(p.images||'[]') : []);
+      const imgs = []; // Related products also stay wireframe until official photography is approved.
       const relFallback = '/assets/product-placeholder.svg';
       const imgHtml = imgs[0] ? `<img src="${imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="if(this.src!=='${relFallback}')this.src='${relFallback}';" />` : `<img src="/assets/product-placeholder.svg" alt="Product image coming soon" style="width:100%;height:100%;object-fit:cover" loading="lazy" />`;
       return `
