@@ -186,7 +186,7 @@
               <input type="radio" name="fulfillment" value="ship" />
               <div class="fulfillment-opt-icon">📦</div>
               <div class="fulfillment-opt-label">Ship to Me</div>
-              <div class="fulfillment-opt-desc">$4.79 flat rate shipping. Free over $25. Ships Tue &amp; Thu. Seeds, bulbs &amp; goods only — fresh flowers are pickup/local delivery.</div>
+              <div class="fulfillment-opt-desc">$4.79 flat rate shipping. Free over $50. Ships Tue &amp; Thu. Seeds, bulbs &amp; goods only — fresh flowers are pickup/local delivery.</div>
             </label>
           </div>
           <div id="delivery-section">
@@ -309,9 +309,9 @@ function selectFulfillment(type) {
   document.getElementById('delivery-section').style.display = (type==='delivery') ? 'block' : 'none';
   document.getElementById('shipping-address-section').style.display = (type==='ship') ? 'block' : 'none';
   _shippingFee = (type==='ship') ? 4.79 : 0;
-  // Check if subtotal >= 25 for free shipping
+  // Check if subtotal >= 50 for free shipping
   const sub = SolCart.getSubtotal();
-  if (type==='ship' && sub >= 25) _shippingFee = 0;
+  if (type==='ship' && sub >= 50) _shippingFee = 0;
   updateSummaryTotals();
   updateShippingLabel();
 }
@@ -408,7 +408,7 @@ function updateSummaryTotals() {
     discountRow.style.display = 'none';
   }
 
-  if (_fulfillment==='ship' && discountedSub >= 25) { _shippingFee = 0; updateShippingLabel(); }
+  if (_fulfillment==='ship' && discountedSub >= 50) { _shippingFee = 0; updateShippingLabel(); }
   const fee = _fulfillment==='delivery' ? _deliveryFee : (_fulfillment==='ship' ? _shippingFee : 0);
   document.getElementById('cs-subtotal').textContent = fmt(sub);
   document.getElementById('cs-total').textContent = fmt(discountedSub + fee);
@@ -478,7 +478,7 @@ async function submitCheckout(e) {
     if (!shippingAddress || !shippingCity || !shippingZip) {
       showError('Please fill in your shipping address.'); return;
     }
-    _shippingFee = SolCart.getSubtotal() >= 25 ? 0 : 4.79;
+    _shippingFee = SolCart.getSubtotal() >= 50 ? 0 : 4.79;
   } else if (_fulfillment === 'delivery') {
     if (!_deliveryZip) { showError('Please enter and check your delivery ZIP code.'); return; }
     deliveryZip = _deliveryZip;
