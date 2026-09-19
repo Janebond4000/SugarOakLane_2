@@ -537,7 +537,7 @@
           <!-- Tabs -->
           <div class="product-tabs">
             <button class="product-tab-btn active" onclick="showTab('details', this)">Details</button>
-            <button class="product-tab-btn" id="tab-btn-growing" onclick="showTab('growing', this)" style="display:none">Growing Guide</button>
+            <button class="product-tab-btn" id="tab-btn-growing" onclick="showTab('growing', this)" style="display:none">Growing Notes</button>
             <button class="product-tab-btn" onclick="showTab('care', this)">Care & Notes</button>
           </div>
           <div class="product-tab-content">
@@ -982,7 +982,7 @@ function renderProduct(p) {
     document.getElementById('p-packet-qty').style.display = 'inline-flex';
   }
 
-  // Seed details → Growing Guide tab
+  // Seed details → Growing Notes tab
   const sd = p.seed_details && typeof p.seed_details === 'object' ? p.seed_details
            : (typeof p.seed_details === 'string' ? (() => { try { return JSON.parse(p.seed_details); } catch(e) { return null; } })() : null);
   const growingTab = document.getElementById('tab-growing');
