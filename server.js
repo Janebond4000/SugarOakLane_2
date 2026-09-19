@@ -20,7 +20,7 @@ const pool = new Pool({
   ssl: process.env.DATABASE_URL?.includes('localhost') ? false : { rejectUnauthorized: false }
 });
 
-const APP_URL = process.env.APP_URL || 'https://sugaroakos.polsia.app';
+const APP_URL = process.env.APP_URL || 'https://www.sugaroaklane.com';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Utility helpers
