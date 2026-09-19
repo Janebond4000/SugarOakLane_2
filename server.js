@@ -772,6 +772,57 @@ app.post('/api/check-zip', (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// API: Website Contact Form
+// Persists first; notification email is best-effort so a mail outage never loses
+// the customer's inquiry.
+// ─────────────────────────────────────────────────────────────────────────────
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, subject, message, website } = req.body || {};
+
+    // Honeypot for basic bot submissions.
+    if (website) return res.json({ success: true });
+
+    const cleanName = String(name || '').trim().slice(0, 255);
+    const cleanEmail = String(email || '').trim().toLowerCase().slice(0, 320);
+    const cleanSubject = String(subject || 'general').trim().toLowerCase().slice(0, 80);
+    const cleanMessage = String(message || '').trim().slice(0, 10000);
+    const allowedSubjects = new Set(['general','order','wedding','workshop','wholesale','other']);
+
+    if (!cleanName) {
+      return res.status(400).json({ success: false, message: 'Please enter your name.' });
+    }
+    if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+      return res.status(400).json({ success: false, message: 'Please enter a valid email address.' });
+    }
+    if (!cleanMessage) {
+      return res.status(400).json({ success: false, message: 'Please enter a message.' });
+    }
+
+    const finalSubject = allowedSubjects.has(cleanSubject) ? cleanSubject : 'other';
+    const result = await pool.query(
+      `INSERT INTO sol_contact_inquiries (name, email, subject, message, source)
+       VALUES ($1,$2,$3,$4,'website-contact')
+       RETURNING id`,
+      [cleanName, cleanEmail, finalSubject, cleanMessage]
+    );
+
+    const inquiryId = result.rows[0].id;
+    sendEmail({
+      to: 'nakita.hemingway@gmail.com',
+      subject: `Sugar Oak Lane website inquiry #${inquiryId}: ${finalSubject}`,
+      html: `<p><strong>Name:</strong> ${esc(cleanName)}</p><p><strong>Email:</strong> ${esc(cleanEmail)}</p><p><strong>Subject:</strong> ${esc(finalSubject)}</p><p><strong>Message:</strong><br>${esc(cleanMessage).replace(/\n/g,'<br>')}</p><p>Inquiry ID: ${inquiryId}</p>`,
+      text: `Sugar Oak Lane website inquiry #${inquiryId}\nName: ${cleanName}\nEmail: ${cleanEmail}\nSubject: ${finalSubject}\n\n${cleanMessage}`
+    }).catch(err => console.warn('[contact] Notification email failed:', err.message));
+
+    res.json({ success: true, inquiry_id: inquiryId, message: 'Thanks — your message has been received.' });
+  } catch (err) {
+    console.error('[api/contact]', err.message);
+    res.status(500).json({ success: false, message: 'We could not save your message. Please email hello@sugaroaklane.com.' });
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 // API: Create Stripe Checkout Session
 // ─────────────────────────────────────────────────────────────────────────────
 app.post('/api/create-checkout-session', async (req, res) => {
