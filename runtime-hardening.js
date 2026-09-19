@@ -24,39 +24,12 @@ patch(
   "app.use(express.urlencoded({ extended: false }));\n\napp.use((req, res, next) => {\n  const host = String(req.headers.host || '').toLowerCase();\n  if (host.endsWith('.up.railway.app')) {\n    res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');\n  }\n  next();\n});"
 );
 
-// Never silently fall back to a known/default admin secret.
-patch(
-  'remove default admin secret',
-  "return process.env.ADMIN_PASSWORD || process.env.POLSIA_API_KEY || 'changeme';",
-  "return process.env.ADMIN_PASSWORD || process.env.ADMIN_API_KEY || process.env.POLSIA_API_KEY || '';"
-);
-
-// The inherited Polsia-era payment paths could confirm orders without verified payment.
-// Keep them explicitly unavailable until the Stripe webhook implementation is connected.
-patch(
-  'disable legacy floral checkout',
-  "app.post('/api/create-checkout-session', async (req, res) => {",
-  "app.post('/api/create-checkout-session', async (req, res) => {\n  return res.status(503).json({ success: false, payment_unavailable: true, message: 'Secure online payment is being finalized. No charge or order confirmation has occurred.' });"
-);
+// The current checkout paths fail closed and require a signed server confirmation.
+// Keep only the inherited direct legacy order endpoint retired.
 patch(
   'disable legacy direct order endpoint',
   "app.post('/api/orders', async (req, res) => {",
   "app.post('/api/orders', async (req, res) => {\n  return res.status(410).json({ success: false, message: 'This legacy order endpoint has been retired.' });"
-);
-patch(
-  'disable unverified farm checkout',
-  "app.post('/api/sol/checkout', async (req, res) => {",
-  "app.post('/api/sol/checkout', async (req, res) => {\n  return res.status(503).json({ success: false, payment_unavailable: true, message: 'Secure online payment is being finalized. No charge or order confirmation has occurred.' });"
-);
-patch(
-  'disable legacy success confirmation',
-  "app.get('/order-success', async (req, res) => {",
-  "app.get('/order-success', async (req, res) => {\n  return res.status(410).send('Legacy payment confirmation route retired.');"
-);
-patch(
-  'disable unverified SOL confirmation',
-  "app.get('/sol/order-confirmed', async (req, res) => {",
-  "app.get('/sol/order-confirmed', async (req, res) => {\n  return res.status(410).send('Payment confirmation is available only after verified payment processing is connected.');"
 );
 
 // Replace the inherited Polsia R2 uploader at runtime with the owned Sugar Oak Lane
