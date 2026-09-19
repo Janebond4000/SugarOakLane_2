@@ -127,33 +127,13 @@
 <section class="section-white section-pad-sm">
   <div class="container">
     <div class="section-header centered">
-      <div class="section-label">Recent Work</div>
-      <h2 class="section-title">From the <em>Field to the Table</em></h2>
-    </div>
-    <div class="info-grid-3" style="gap:20px;">
-      <div style="border-radius:8px;overflow:hidden;">
-        <div class="product-card-placeholder grad-sage" style="aspect-ratio:4/3;"></div>
-        <div style="padding:14px 4px 4px;font-size:14px;color:var(--text-md);font-style:italic;">Vineyard Dinner / 2025</div>
-      </div>
-      <div style="border-radius:8px;overflow:hidden;">
-        <div class="product-card-placeholder grad-blush" style="aspect-ratio:4/3;"></div>
-        <div style="padding:14px 4px 4px;font-size:14px;color:var(--text-md);font-style:italic;">Charity Gala / 2025</div>
-      </div>
-      <div style="border-radius:8px;overflow:hidden;">
-        <div class="product-card-placeholder grad-sky" style="aspect-ratio:4/3;"></div>
-        <div style="padding:14px 4px 4px;font-size:14px;color:var(--text-md);font-style:italic;">Corporate Holiday / 2025</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INQUIRY FORM -->
+      <!-- INQUIRY FORM -->
 <section class="section-linen section-pad">
   <div class="container-sm">
     <div class="section-header centered">
       <div class="section-label">Start the Conversation</div>
       <h2 class="section-title">Tell Us <em>About Your Event</em></h2>
-      <p class="section-subtitle">We'll follow up within 2 business days with availability and a custom quote.</p>
+      <p class="section-subtitle">Tell us the date, location, scale, and floral needs and we'll follow up with availability and next steps.</p>
     </div>
     <div class="form-wrap">
       <form id="events-form-el">
@@ -220,7 +200,7 @@
         </div>
       </form>
       <div id="events-success" class="form-success show" style="display:none;">
-        Thank you for reaching out! We'll review your event details and follow up within 2 business days.
+        Thank you for reaching out! Your event inquiry has been received.
       </div>
     </div>
   </div>
@@ -243,7 +223,31 @@ function openSearch(){document.getElementById('search-overlay').classList.add('o
 function closeSearch(){document.getElementById('search-overlay').classList.remove('open');document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeDrawer();closeSearch();}});
 async function handleNlSubmit(e){e.preventDefault();const email=document.getElementById('footer-nl-email').value.trim();const btn=document.getElementById('footer-nl-btn');if(!email)return;btn.textContent='Signing up...';btn.disabled=true;try{const res=await fetch('/api/newsletter',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,source:'footer-newsletter'})});const data=await res.json();if(data.success){document.getElementById('footer-nl-form').style.display='none';document.getElementById('footer-nl-success').style.display='block';}else{btn.textContent='Subscribe';btn.disabled=false;}}catch(err){btn.textContent='Subscribe';btn.disabled=false;}}
-document.getElementById('events-form-el').addEventListener('submit',async function(e){e.preventDefault();const btn=document.getElementById('events-submit-btn');btn.textContent='Sending...';btn.disabled=true;await new Promise(r=>setTimeout(r,800));document.getElementById('events-form-el').style.display='none';document.getElementById('events-success').style.display='block';});
+document.getElementById('events-form-el').addEventListener('submit',async function(e){
+  e.preventDefault();
+  const btn=document.getElementById('events-submit-btn');btn.textContent='Sending...';btn.disabled=true;
+  const v=id=>document.getElementById(id)?.value?.trim()||'';
+  const name=v('ev-name'), email=v('ev-email');
+  const message=[
+    'Special event floral inquiry',
+    'Event type: '+v('ev-type'),
+    'Event date: '+v('ev-date'),
+    'Location/venue: '+v('ev-location'),
+    'Guest count: '+v('ev-guests'),
+    'Budget: '+v('ev-budget'),
+    'Event details: '+v('ev-desc')
+  ].join('\n');
+  try{
+    const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,subject:'other',message})});
+    const data=await res.json();
+    if(!res.ok||!data.success) throw new Error(data.message||'Unable to submit inquiry.');
+    document.getElementById('events-form-el').style.display='none';
+    document.getElementById('events-success').style.display='block';
+  }catch(err){
+    btn.textContent='Submit Inquiry';btn.disabled=false;
+    alert(err.message||'We could not submit your inquiry. Please email hello@sugaroaklane.com.');
+  }
+});
 </script>
 </body>
 </html>
