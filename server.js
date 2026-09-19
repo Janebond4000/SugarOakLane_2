@@ -3257,8 +3257,8 @@ app.get('/contact', serveStaticPage('sol-contact'));
 
 // ─── Help / FAQ ─────────────────────────────────────────────────────────────
 app.get('/faq', serveStaticPage('sol-faq'));
-app.get('/privacy', serveStaticPage('sol-coming-soon'));
-app.get('/terms', serveStaticPage('sol-coming-soon'));
+app.get('/privacy', serveStaticPage('sol-privacy'));
+app.get('/terms', serveStaticPage('sol-terms'));
 
 // ─── Blog ───────────────────────────────────────────────────────────────────
 // Public blog API — returns published posts from database
