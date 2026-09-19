@@ -2886,9 +2886,9 @@ app.post('/api/sol/checkout', async (req, res) => {
     const discountedSub = parseFloat((sub - discountAmount).toFixed(2));
 
     // Server-side recalculate shipping to enforce rates (never trust client)
-    // $4.79 flat, free over $25. Ships Tue/Thu only.
+    // $4.79 flat, free over $50. Ships Tue/Thu only.
     const SOL_SHIP_FEE = 4.79;
-    const SOL_FREE_SHIP_THRESHOLD = 25;
+    const SOL_FREE_SHIP_THRESHOLD = 50;
     let calcShippingFee = 0;
     let calcDeliveryFee = parseFloat(delivery_fee) || 0;
     if (fulfillment_type === 'ship') {
