@@ -3044,6 +3044,10 @@ app.get('/admin-login.html', (req, res) => res.redirect(301, '/admin/login'));
 app.get('/sol-wholesale-portal.html', (req, res) => res.redirect(301, '/wholesale-portal'));
 app.get('/sol-wholesale-login.html', (req, res) => res.redirect(301, '/wholesale-portal/login'));
 
+// Confirmation HTML must never be directly browsable; routed pages verify payment state.
+app.get('/sol-order-confirmed.html', (req, res) => res.redirect(302, '/shop/cart?payment=incomplete'));
+app.get('/order-success.html', (req, res) => res.redirect(302, '/?payment=incomplete'));
+
 // Block access to template files (contain raw {{...}} placeholders)
 app.get('/templates/*', (req, res) => res.redirect('/'));
 
