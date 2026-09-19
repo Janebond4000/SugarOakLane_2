@@ -6,17 +6,17 @@
   <title>Shop | Sugar Oak Lane — Farm-Grown Flowers, Seeds &amp; More</title>
   <meta name="description" content="Shop Sugar Oak Lane's full collection — heirloom seeds, dahlia tubers, nursery plants, and farm goods. Grown in Loganville, Georgia." />
   <meta name="keywords" content="buy farm flowers online, heirloom seeds Georgia, dahlia tubers for sale, nursery plants Loganville, farm goods Georgia, cut flowers shop" />
-  <link rel="canonical" href="https://sugaroakos.polsia.app/shop" />
+  <link rel="canonical" href="https://www.sugaroaklane.com/shop" />
   <meta property="og:title" content="Shop | Sugar Oak Lane — Farm-Grown Flowers, Seeds &amp; More" />
   <meta property="og:description" content="Shop Sugar Oak Lane's full collection — heirloom seeds, dahlia tubers, nursery plants, and farm goods. Grown in Loganville, Georgia." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://sugaroakos.polsia.app/shop" />
-  <meta property="og:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta property="og:url" content="https://www.sugaroaklane.com/shop" />
+  <meta property="og:image" content="https://www.sugaroaklane.com/logos/sugar-oak-lane-og.jpg" />
   <meta property="og:site_name" content="Sugar Oak Lane" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shop | Sugar Oak Lane — Farm-Grown Flowers, Seeds &amp; More" />
   <meta name="twitter:description" content="Shop Sugar Oak Lane's full collection — heirloom seeds, dahlia tubers, nursery plants, and farm goods. Grown in Loganville, Georgia." />
-  <meta name="twitter:image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta name="twitter:image" content="https://www.sugaroaklane.com/logos/sugar-oak-lane-og.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
@@ -1311,7 +1311,7 @@ const _BESTSELLER_SLUGS = new Set([
 function renderProductCard(p) {
   let imgs = [];
   try { imgs = Array.isArray(p.images) ? p.images : JSON.parse(p.images || '[]'); } catch(e) {}
-  const img = imgs[0] || '/assets/product-placeholder.svg';
+  const img = '/assets/product-placeholder.svg'; // Entire catalog stays wireframe until official product photography is approved.
   const sold = p.availability === 'out_of_stock' || p.availability === 'sold_out' || (p.track_inventory && p.stock_quantity === 0);
   const isLowStock = !sold && p.track_inventory && p.stock_quantity !== null && p.stock_quantity !== undefined && p.stock_quantity > 0 && p.stock_quantity <= (p.low_stock_threshold || 5);
   const isBestseller = !sold && _BESTSELLER_SLUGS.has(p.slug);
