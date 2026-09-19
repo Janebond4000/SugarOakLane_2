@@ -747,3 +747,14 @@ body { overflow-x: hidden; }
   .sol-page-hero .page-hero-content { padding: 48px 20px 64px; }
   .hero-dots { bottom: 16px; }
 }
+
+
+/* Launch hygiene: hide controls that do not have a real destination yet.
+   Product/shop search remains available inside /shop. */
+.header-icon-btn[aria-label="Account"],
+.header-icon-btn[aria-label="Search"] {
+  display: none !important;
+}
+.footer-social a[href="#"] {
+  display: none !important;
+}
