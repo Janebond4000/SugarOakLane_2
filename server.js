@@ -203,7 +203,7 @@ app.use((req, res, next) => {
 // Admin Auth — cookie-based session (ADMIN_PASSWORD env var)
 // ─────────────────────────────────────────────────────────────────────────────
 function adminAuthSecret() {
-  return process.env.ADMIN_PASSWORD || process.env.POLSIA_API_KEY || 'changeme';
+  return process.env.ADMIN_PASSWORD || process.env.ADMIN_API_KEY || null;
 }
 
 function checkoutConfirmSecret() {
@@ -242,15 +242,17 @@ function parseCookies(header) {
 }
 
 function signAdminCookie() {
+  const secret = adminAuthSecret();
+  if (!secret) return null;
   const val = 'admin-auth-v1';
-  const sig = crypto.createHmac('sha256', adminAuthSecret()).update(val).digest('base64url');
+  const sig = crypto.createHmac('sha256', secret).update(val).digest('base64url');
   return `${val}.${sig}`;
 }
 
 function isValidAdminCookie(cookieVal) {
   if (!cookieVal) return false;
   const expected = signAdminCookie();
-  if (cookieVal.length !== expected.length) return false;
+  if (!expected || cookieVal.length !== expected.length) return false;
   try {
     return crypto.timingSafeEqual(Buffer.from(cookieVal), Buffer.from(expected));
   } catch { return false; }
@@ -269,8 +271,10 @@ function isAdminRequest(req) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 function signWsCookie(customerId) {
+  const secret = adminAuthSecret();
+  if (!secret) return null;
   const val = `ws-auth-v1:${customerId}`;
-  const sig = crypto.createHmac('sha256', adminAuthSecret()).update(val).digest('base64url');
+  const sig = crypto.createHmac('sha256', secret).update(val).digest('base64url');
   return `${val}.${sig}`;
 }
 
@@ -280,7 +284,9 @@ function parseWsCookie(cookieVal) {
   if (lastDot < 0) return null;
   const val = cookieVal.slice(0, lastDot);
   const sig = cookieVal.slice(lastDot + 1);
-  const expectedSig = crypto.createHmac('sha256', adminAuthSecret()).update(val).digest('base64url');
+  const secret = adminAuthSecret();
+  if (!secret) return null;
+  const expectedSig = crypto.createHmac('sha256', secret).update(val).digest('base64url');
   try {
     if (sig.length !== expectedSig.length) return null;
     if (!crypto.timingSafeEqual(Buffer.from(sig), Buffer.from(expectedSig))) return null;
@@ -3132,22 +3138,18 @@ app.post('/admin/login', (req, res) => {
     return res.redirect('/admin/login?error=1');
   }
   const cookieVal = signAdminCookie();
+  if (!cookieVal) return res.redirect('/admin/login?error=no-secret-set');
   const maxAge = 7 * 24 * 60 * 60; // 7 days
   res.setHeader('Set-Cookie', `admin_session=${encodeURIComponent(cookieVal)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}`);
   res.redirect('/admin');
 });
 
-app.post('/admin/forgot-password', async (req, res) => {
-  try {
-    const pw = process.env.ADMIN_PASSWORD || 'changeme';
-    const baseUrl = process.env.BASE_URL || 'https://sugaroakos.polsia.app';
-    await sendEmail({
-      to: 'nakita.hemingway@gmail.com',
-      subject: 'Sugar Oak Lane - Your Admin Password',
-      html: '<p>Your admin password is: <strong>' + pw + '</strong></p><p>Log in at: <a href="' + baseUrl + '/admin/login">' + baseUrl + '/admin/login</a></p>'
-    });
-  } catch (e) { console.error('[Admin] Forgot password email error:', e); }
-  res.json({ success: true, message: 'Password sent to admin email.' });
+app.post('/admin/forgot-password', (req, res) => {
+  // Never transmit or reveal the configured admin password.
+  res.status(403).json({
+    success: false,
+    message: 'Password recovery by email is disabled for security. An authorized owner can reset ADMIN_PASSWORD in the hosting settings.'
+  });
 });
 
 // Logout
