@@ -106,7 +106,7 @@
 <body>
 
 <div id="announce-bar">
-  🌸 &nbsp;Dahlia season starts July — <a href="/blog/how-to-grow-dahlias">read our growing guide</a>
+  🌿 &nbsp;Seasonal flowers and garden favorites change throughout the year — <a href="/shop">shop what’s available</a>
   <button id="announce-close" onclick="document.getElementById('announce-bar').style.display='none'" aria-label="Close">×</button>
 </div>
 
@@ -274,7 +274,7 @@
       <div>
         <img class="footer-brand-logo" src="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev/company_52536/images/d58df01e-f648-4b7e-a11d-ba42cd4dec8f.png" alt="Sugar Oak Lane" width="180" height="46" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <div class="footer-brand-wordmark" style="display:none">Sugar Oak Lane</div>
-        <p class="footer-brand-desc">A specialty cut flower farm in Loganville, Georgia.</p>
+        <p class="footer-brand-desc">Family-owned and operated in Loganville, Georgia since 2018. Seasonal flowers, seeds, plants, farm goods and more.</p>
       </div>
       <div><div class="footer-col-title">Help</div><ul class="footer-links"><li><a href="/faq">FAQ</a></li><li><a href="/refund-policy">Refund Policy</a></li><li><a href="/contact">Contact</a></li></ul></div>
     </div>
@@ -426,7 +426,8 @@ function renderSummary() {
 
   document.getElementById('cs-items').innerHTML = items.map(item => {
     const lineTotal = SolCart.getItemTotal ? SolCart.getItemTotal(item) : parseFloat(item.price) * (item.qty||1);
-    const imgHtml = item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy" />` : '';
+    const imgSrc = item.image || '/assets/product-placeholder.svg';
+    const imgHtml = `<img src="${imgSrc}" alt="${item.name}" loading="lazy" onerror="this.onerror=null;this.src='/assets/product-placeholder.svg';" />`;
     const addonMeta = (item.floral && item.floralAddons && item.floralAddons.length)
       ? item.floralAddons.map(a => {
           const label = a.name + (a.option_selected ? ` – ${a.option_selected}` : '') + (a.quantity > 1 ? ` ×${a.quantity}` : '');
@@ -534,14 +535,16 @@ async function submitCheckout(e) {
 
     const fulfillmentParam = _fulfillment === 'ship' ? '&fulfillment=ship' : '';
     if (data.checkout_url) {
-      SolCart.clear();
+      // Keep the cart until the server has verified the payment return.
       window.location.href = data.checkout_url;
     } else if (data.redirect_url) {
-      SolCart.clear();
       window.location.href = data.redirect_url + fulfillmentParam;
     } else if (data.success) {
-      SolCart.clear();
-      window.location.href = `/sol/order-confirmed?order=${data.order_number}${fulfillmentParam}`;
+      // A successful order response without a secure payment URL is not enough
+      // to clear the cart or show a paid confirmation.
+      showError('Payment has not been completed. Please try again.');
+      btn.disabled = false;
+      btn.innerHTML = `<svg style="width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg> Place Order &amp; Pay Securely`;
     } else {
       showError(data.message || 'Something went wrong. Please try again.');
       btn.disabled = false;
