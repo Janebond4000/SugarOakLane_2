@@ -10,12 +10,12 @@
   <meta property="og:description" id="og-desc" content="Farm-fresh flowers and plants from Sugar Oak Lane, Loganville GA." />
   <meta property="og:type" content="product" />
   <meta property="og:url" id="og-url" content="https://sugaroakos.polsia.app/shop" />
-  <meta property="og:image" id="og-image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta property="og:image" id="og-image" content="https://www.sugaroaklane.com/assets/product-placeholder.svg" />
   <meta property="og:site_name" content="Sugar Oak Lane" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" id="tw-title" content="Product | Sugar Oak Lane" />
   <meta name="twitter:description" id="tw-desc" content="Farm-fresh flowers and plants from Sugar Oak Lane, Loganville GA." />
-  <meta name="twitter:image" id="tw-image" content="https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg" />
+  <meta name="twitter:image" id="tw-image" content="https://www.sugaroaklane.com/assets/product-placeholder.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://pub-629428d185ca4960a0a73c850d32294b.r2.dev" crossorigin />
@@ -897,8 +897,8 @@ function renderProduct(p) {
   // SEO — title + description
   const seoTitle = (p.seo_title || p.name) + ' | Sugar Oak Lane';
   const seoDesc = p.seo_description || p.short_description || '';
-  const productUrl = 'https://sugaroakos.polsia.app/shop/product/' + p.slug;
-  const productImage = (p.images && p.images[0]) || 'https://sugaroakos.polsia.app/logos/sugar-oak-lane-og.jpg';
+  const productUrl = 'https://www.sugaroaklane.com/shop/product/' + p.slug;
+  const productImage = (p.images && p.images[0]) || 'https://www.sugaroaklane.com/assets/product-placeholder.svg';
   document.getElementById('page-title').textContent = seoTitle;
   document.getElementById('page-desc').content = seoDesc;
   // Canonical
