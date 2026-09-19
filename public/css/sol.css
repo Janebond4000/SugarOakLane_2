@@ -758,3 +758,7 @@ body { overflow-x: hidden; }
 .footer-social a[href="#"] {
   display: none !important;
 }
+
+.header-icon-btn[aria-label="Cart"]:not([data-sol-cart-btn]) {
+  display: none !important;
+}
