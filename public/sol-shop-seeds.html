@@ -275,10 +275,10 @@ function renderProducts(products) {
   }
   grid.innerHTML = products.map(p => {
     const imgs = Array.isArray(p.images) ? p.images : (typeof p.images==='string' ? JSON.parse(p.images||'[]') : []);
-    const seedFallback = 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
+    const seedFallback = '/assets/product-placeholder.svg';
     const imgHtml = imgs[0]
       ? `<img src="${imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="if(this.src!=='${seedFallback}')this.src='${seedFallback}';" />`
-      : `<div style="width:100%;height:100%;background:var(--linen-dk)"></div>`;
+      : `<img src="/assets/product-placeholder.svg" alt="Product image coming soon" style="width:100%;height:100%;object-fit:cover" loading="lazy" />`;
     const avail = p.availability || 'in_stock';
     const isOos = avail === 'out_of_stock';
     return `
