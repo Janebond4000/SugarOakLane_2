@@ -1204,9 +1204,9 @@ function buildNurtureEmail1Html() {
   <div style="background:#ffffff;padding:32px;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 12px 12px">
     <p style="margin:0 0 20px;font-size:16px;color:#374151;line-height:1.7">Hi there,</p>
     <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7">Welcome to Sugar Oak Lane — I'm so glad you're here.</p>
-    <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7">We're a small specialty cut flower farm nestled in <strong>Loganville, Georgia</strong>, growing with care for the land. While we're not certified organic, we follow sustainable, low-spray practices — because we believe flowers grown with intention are flowers worth having in your home.</p>
-    <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7">Sugar Oak Lane started as a dream and a patch of dirt. Today we grow dozens of specialty varieties — from heirloom zinnias and lisianthus to dahlias and ranunculus — each one chosen for its beauty, vase life, and the joy it brings.</p>
-    <p style="margin:0 0 24px;font-size:15px;color:#374151;line-height:1.7">Whether you're looking for a weekly bouquet, seeds to start your own cutting garden, or flowers for a special occasion — we've got you covered.</p>
+    <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7">Sugar Oak Lane is our family-owned and operated flower farm in <strong>Loganville, Georgia</strong>, established in 2018 by the Hemingway family.</p>
+    <p style="margin:0 0 16px;font-size:15px;color:#374151;line-height:1.7">Our shop brings together seasonal flowers, heirloom and specialty seeds, dahlia tubers, plants, farm goods, workshops, and other ways to enjoy flowers at home and in the garden.</p>
+    <p style="margin:0 0 24px;font-size:15px;color:#374151;line-height:1.7">We're glad you're here, whether you're sending flowers, starting a garden, or looking for something beautiful for a special occasion.</p>
     <div style="background:#f0fdf4;border:2px solid #3A5A40;border-radius:12px;padding:24px;text-align:center;margin-bottom:28px">
       <p style="margin:0 0 8px;font-size:13px;color:#6b7280;text-transform:uppercase;letter-spacing:0.1em;font-weight:600">Your Welcome Gift</p>
       <div style="font-family:'Courier New',monospace;font-size:30px;font-weight:700;color:#3A5A40;letter-spacing:0.15em;margin:8px 0">WELCOME10</div>
@@ -4075,7 +4075,10 @@ app.get('/blog/:slug', async (req, res) => {
     if (hc) post = hc;
   }
   if (!post) {
-    return serveStaticPage('sol-coming-soon')(req, res);
+    const html404 = path.join(__dirname, 'public', 'sol-not-found.html');
+    return fs.existsSync(html404)
+      ? res.status(404).set('Cache-Control','no-cache').type('html').sendFile(html404)
+      : res.status(404).send('Page not found');
   }
   const slug = req.params.slug;
   const ogImage = post.image_url || `${APP_URL}/logos/sugar-oak-lane-og.jpg`;
@@ -5680,9 +5683,9 @@ app.get('/pages/:slug', async (req, res) => {
       );
     }
     if (!pr.rows.length) {
-      const html404 = path.join(__dirname, 'public', 'sol-coming-soon.html');
+      const html404 = path.join(__dirname, 'public', 'sol-not-found.html');
       return fs.existsSync(html404)
-        ? res.set('Cache-Control', 'no-cache').type('html').sendFile(html404)
+        ? res.status(404).set('Cache-Control', 'no-cache').type('html').sendFile(html404)
         : res.status(404).send('Page not found');
     }
     const page = pr.rows[0];
@@ -5697,19 +5700,6 @@ app.get('/pages/:slug', async (req, res) => {
     console.error('[pages/:slug]', err.message);
     res.status(500).send('Error rendering page');
   }
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Romance Book Club — standalone digital library category page
-// ─────────────────────────────────────────────────────────────────────────────
-app.get('/romance-book-club', (req, res) => {
-  const htmlPath = path.join(__dirname, 'public', 'romance-book-club', 'index.html');
-  res.set('Cache-Control', 'no-cache').type('html').sendFile(htmlPath);
-});
-
-app.get('/romance-book-club/', (req, res) => {
-  const htmlPath = path.join(__dirname, 'public', 'romance-book-club', 'index.html');
-  res.set('Cache-Control', 'no-cache').type('html').sendFile(htmlPath);
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -6732,15 +6722,14 @@ app.get('/admin/export-download', async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Catch-all: serve Coming Soon for unmatched Sugar Oak Lane routes
+// Catch-all: real 404 for unmatched Sugar Oak Lane routes
 // ─────────────────────────────────────────────────────────────────────────────
 app.get('*', (req, res) => {
-  const htmlPath = path.join(__dirname, 'public', 'sol-coming-soon.html');
+  const htmlPath = path.join(__dirname, 'public', 'sol-not-found.html');
   if (fs.existsSync(htmlPath)) {
-    res.set('Cache-Control', 'no-cache, no-store, must-revalidate').type('html').sendFile(htmlPath);
-  } else {
-    res.redirect('/');
+    return res.status(404).set('Cache-Control', 'no-cache, no-store, must-revalidate').type('html').sendFile(htmlPath);
   }
+  res.status(404).send('Page not found');
 });
 
 app.listen(port, () => {
