@@ -665,10 +665,8 @@ async function loadArrangements() {
     }
     grid.innerHTML = products.map((p, i) => {
       const imgs = Array.isArray(p.images) ? p.images : (typeof p.images==='string' ? JSON.parse(p.images||'[]') : []);
-      var flowerFallback = 'https://images.pexels.com/photos/931171/pexels-photo-931171.jpeg?auto=compress&cs=tinysrgb&w=600';
-      const imgHtml = imgs[0]
-        ? '<img src="' + imgs[0] + '" alt="' + p.name + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" onerror="if(this.src!==\'' + flowerFallback + '\')this.src=\'' + flowerFallback + '\';" />'
-        : '<div class="arr-card-img-placeholder"><svg viewBox="0 0 64 80"><path d="M32 8 C32 8 20 20 20 32 C20 40 25.4 46 32 46 C38.6 46 44 40 44 32 C44 20 32 8 32 8Z"/><path d="M32 20 L32 56"/></svg></div>';
+      var flowerFallback = '/assets/product-placeholder.svg';
+      const imgHtml = '<img src="' + (imgs[0] || flowerFallback) + '" alt="' + p.name + (imgs[0] ? '' : ' product image coming soon') + '" loading="' + (i === 0 ? 'eager' : 'lazy') + '" onerror="if(this.src!==\'' + flowerFallback + '\')this.src=\'' + flowerFallback + '\';" />';
       const isOos = (p.availability || '') === 'out_of_stock';
       const badge = AVAIL_BADGE[p.availability] || 'Available';
       const showBadge = p.availability && p.availability !== 'in_stock';
