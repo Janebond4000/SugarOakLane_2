@@ -206,6 +206,28 @@ function adminAuthSecret() {
   return process.env.ADMIN_PASSWORD || process.env.POLSIA_API_KEY || 'changeme';
 }
 
+function checkoutConfirmSecret() {
+  return process.env.CHECKOUT_CONFIRM_SECRET || process.env.ADMIN_PASSWORD || process.env.ADMIN_API_KEY || null;
+}
+
+function checkoutConfirmToken(orderId, orderNumber, totalPrice) {
+  const secret = checkoutConfirmSecret();
+  if (!secret) return null;
+  const payload = `sol-checkout-v1:${orderId}:${orderNumber}:${Number(totalPrice || 0).toFixed(2)}`;
+  return crypto.createHmac('sha256', secret).update(payload).digest('base64url');
+}
+
+function isValidCheckoutConfirmToken(token, orderId, orderNumber, totalPrice) {
+  if (!token) return false;
+  const expected = checkoutConfirmToken(orderId, orderNumber, totalPrice);
+  if (!expected || token.length !== expected.length) return false;
+  try {
+    return crypto.timingSafeEqual(Buffer.from(token), Buffer.from(expected));
+  } catch {
+    return false;
+  }
+}
+
 function parseCookies(header) {
   const out = {};
   if (!header) return out;
@@ -840,11 +862,16 @@ app.post('/api/create-checkout-session', async (req, res) => {
 
     // Create Stripe checkout session via Polsia payment proxy
     const polsiaApiKey = process.env.POLSIA_API_KEY;
-    if (!polsiaApiKey) {
-      // No payment key configured — fall back to pending order (mark confirmed, skip Stripe)
-      await pool.query(`UPDATE sol_orders SET status='confirmed', tracker_stage='order_received' WHERE id=$1`, [orderId]);
-      console.warn('[create-checkout-session] POLSIA_API_KEY not set — skipping Stripe, order confirmed');
-      return res.json({ success: true, order_id: orderId, order_number: orderNumber, fallback: true, redirect_url: `/order-tracker?order=${orderNumber}&confirmed=1`, total_price: totalAmount });
+    const confirmToken = checkoutConfirmToken(orderId, orderNumber, totalAmount);
+    if (!polsiaApiKey || !confirmToken) {
+      console.error('[create-checkout-session] Payment gateway is not fully configured — order remains pending_payment');
+      return res.status(503).json({
+        success: false,
+        code: 'PAYMENT_UNAVAILABLE',
+        order_id: orderId,
+        order_number: orderNumber,
+        message: 'Online payment is temporarily unavailable. Your order has not been confirmed or charged. Please try again later.'
+      });
     }
 
     const checkoutRes = await fetch('https://polsia.com/api/payments/checkout-session', {
@@ -857,7 +884,7 @@ app.post('/api/create-checkout-session', async (req, res) => {
         amount: totalAmount,
         name: `Sugar Oak Lane — ${order_data.product_name || 'Arrangement'}`,
         description: `Delivery to ${order_data.delivery_address}`,
-        success_url: `${APP_URL}/order-success?order_id=${orderId}&session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${APP_URL}/order-success?order_id=${orderId}&session_id={CHECKOUT_SESSION_ID}&confirm_token=${encodeURIComponent(confirmToken)}`,
         cancel_url: `${APP_URL}/?cancelled=1`
       })
     });
@@ -865,9 +892,13 @@ app.post('/api/create-checkout-session', async (req, res) => {
     if (!checkoutRes.ok) {
       const errText = await checkoutRes.text();
       console.error('[create-checkout-session] Polsia payment API error:', checkoutRes.status, errText);
-      // Fallback: mark order as confirmed and redirect to tracker
-      await pool.query(`UPDATE sol_orders SET status='confirmed', tracker_stage='order_received' WHERE id=$1`, [orderId]);
-      return res.json({ success: true, order_id: orderId, order_number: orderNumber, fallback: true, redirect_url: `/order-tracker?order=${orderNumber}&confirmed=1`, total_price: totalAmount });
+      return res.status(502).json({
+        success: false,
+        code: 'PAYMENT_GATEWAY_ERROR',
+        order_id: orderId,
+        order_number: orderNumber,
+        message: 'We could not open the secure payment page. Your order has not been confirmed or charged. Please try again.'
+      });
     }
 
     const checkoutData = await checkoutRes.json();
@@ -1681,40 +1712,41 @@ app.post('/api/events', async (req, res) => {
 // Order success page
 // ─────────────────────────────────────────────────────────────────────────────
 app.get('/order-success', async (req, res) => {
-  const { order_id, session_id } = req.query;
+  const { order_id, session_id, confirm_token } = req.query;
   let orderNumber = null;
-  // Mark order as confirmed and redirect to order tracker
-  if (order_id && session_id) {
+
+  if (order_id && session_id && confirm_token) {
     try {
-      const result = await pool.query(
-        `UPDATE sol_orders SET status='confirmed', tracker_stage='order_received',
-           stripe_session_id = $1
-         WHERE id=$2 AND status='pending_payment'
-         RETURNING order_number`,
-        [session_id, order_id]
+      const pending = await pool.query(
+        `SELECT id, order_number, total_price, status FROM sol_orders WHERE id=$1 LIMIT 1`,
+        [order_id]
       );
-      if (result.rows.length) {
-        orderNumber = result.rows[0].order_number;
+      const order = pending.rows[0];
+      if (order && isValidCheckoutConfirmToken(confirm_token, order.id, order.order_number, order.total_price)) {
+        if (order.status === 'pending_payment') {
+          const result = await pool.query(
+            `UPDATE sol_orders
+             SET status='confirmed', tracker_stage='order_received', stripe_session_id=$1
+             WHERE id=$2 AND status='pending_payment'
+             RETURNING order_number`,
+            [session_id, order_id]
+          );
+          if (result.rows.length) orderNumber = result.rows[0].order_number;
+        } else if (order.status === 'confirmed') {
+          orderNumber = order.order_number;
+        }
       } else {
-        // Already confirmed — just get the order_number
-        const r2 = await pool.query(`SELECT order_number FROM sol_orders WHERE id=$1`, [order_id]);
-        if (r2.rows.length) orderNumber = r2.rows[0].order_number;
+        console.warn('[order-success] Rejected invalid payment confirmation token for order', order_id);
       }
-    } catch(e) { console.error('[order-success]', e.message); }
+    } catch(e) {
+      console.error('[order-success]', e.message);
+    }
   }
-  // Redirect to tracker page (Domino's-style)
+
   if (orderNumber) {
     return res.redirect(`/order-tracker?order=${encodeURIComponent(orderNumber)}&confirmed=1`);
   }
-  // Fallback: serve static success page
-  const htmlPath = path.join(__dirname, 'public', 'order-success.html');
-  if (fs.existsSync(htmlPath)) {
-    let html = fs.readFileSync(htmlPath, 'utf8');
-    html = html.replace('__ORDER_ID__', order_id || '').replace('__POLSIA_SLUG__', process.env.POLSIA_ANALYTICS_SLUG || '');
-    res.set('Cache-Control', 'no-cache').type('html').send(html);
-  } else {
-    res.redirect('/');
-  }
+  return res.redirect('/?payment=incomplete');
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -2856,29 +2888,20 @@ app.post('/api/sol/checkout', async (req, res) => {
     const orderNumber = `SOL-FARM-${today}-${String(orderId).padStart(4,'0')}`;
     await pool.query(`UPDATE sol_orders SET order_number = $1 WHERE id = $2`, [orderNumber, orderId]);
 
-    // Mark promo code as used
-    if (appliedPromo === 'WELCOME10') {
-      await pool.query(
-        `UPDATE sol_subscribers SET discount_code_used = TRUE WHERE email = $1`,
-        [cleanEmail]
-      ).catch(err => console.warn('[checkout] Could not mark promo used:', err.message));
-    }
-
     console.log(`[sol/checkout] New order #${orderId} (${orderNumber}) — ${customer_name} — $${totalAmt} — ${fulfillment_type}${appliedPromo ? ` — promo: ${appliedPromo} (-$${discountAmount})` : ''}`);
 
     // Stripe via Polsia proxy
     const polsiaApiKey = process.env.POLSIA_API_KEY;
-    if (!polsiaApiKey) {
-      const fallbackRes = await pool.query(`UPDATE sol_orders SET status='confirmed', order_status='new' WHERE id=$1 RETURNING *`, [orderId]);
-      console.warn('[sol/checkout] POLSIA_API_KEY not set — order confirmed without payment');
-      // Send email notifications even without Stripe
-      if (fallbackRes.rows.length > 0) {
-        const fbOrder = fallbackRes.rows[0];
-        if (typeof fbOrder.items === 'string') { try { fbOrder.items = JSON.parse(fbOrder.items); } catch(e) {} }
-        sendOrderNotificationEmails(fbOrder);
-      }
-      const fulfillSuffix = fulfillment_type === 'ship' ? '&fulfillment=ship' : '';
-      return res.json({ success: true, order_id: orderId, order_number: orderNumber, redirect_url: `/sol/order-confirmed?order=${orderNumber}${fulfillSuffix}` });
+    const confirmToken = checkoutConfirmToken(orderId, orderNumber, totalAmt);
+    if (!polsiaApiKey || !confirmToken) {
+      console.error('[sol/checkout] Payment gateway is not fully configured — order remains pending_payment');
+      return res.status(503).json({
+        success: false,
+        code: 'PAYMENT_UNAVAILABLE',
+        order_id: orderId,
+        order_number: orderNumber,
+        message: 'Online payment is temporarily unavailable. Your order has not been confirmed or charged. Please try again later.'
+      });
     }
 
     // Build product name for Stripe
@@ -2892,7 +2915,7 @@ app.post('/api/sol/checkout', async (req, res) => {
         amount: totalAmt,
         name: `Sugar Oak Lane — ${itemSummary}`,
         description: fulfillment_type === 'pickup' ? 'Farm pickup order' : `Ship to ${shipping_city || 'your address'}`,
-        success_url: `${APP_URL}/sol/order-confirmed?order=${orderNumber}&session_id={CHECKOUT_SESSION_ID}${fulfillSuffix}`,
+        success_url: `${APP_URL}/sol/order-confirmed?order=${orderNumber}&session_id={CHECKOUT_SESSION_ID}&confirm_token=${encodeURIComponent(confirmToken)}${fulfillSuffix}`,
         cancel_url: `${APP_URL}/shop/cart`
       })
     });
@@ -2900,8 +2923,13 @@ app.post('/api/sol/checkout', async (req, res) => {
     if (!checkoutRes.ok) {
       const errText = await checkoutRes.text();
       console.error('[sol/checkout] Polsia payment error:', checkoutRes.status, errText);
-      await pool.query(`UPDATE sol_orders SET status='confirmed' WHERE id=$1`, [orderId]);
-      return res.json({ success: true, order_id: orderId, order_number: orderNumber, redirect_url: `/sol/order-confirmed?order=${orderNumber}${fulfillSuffix}` });
+      return res.status(502).json({
+        success: false,
+        code: 'PAYMENT_GATEWAY_ERROR',
+        order_id: orderId,
+        order_number: orderNumber,
+        message: 'We could not open the secure payment page. Your order has not been confirmed or charged. Please try again.'
+      });
     }
 
     const checkoutData = await checkoutRes.json();
@@ -2916,26 +2944,74 @@ app.post('/api/sol/checkout', async (req, res) => {
 // SOL order confirmation (after Stripe payment)
 // ─────────────────────────────────────────────────────────────────────────────
 app.get('/sol/order-confirmed', async (req, res) => {
-  const { order, session_id } = req.query;
-  if (order && session_id) {
+  const { order, session_id, confirm_token, paid, fulfillment } = req.query;
+
+  // Clean, post-verification URL: only render the confirmation page if the DB
+  // already shows this order as confirmed.
+  if (paid === '1' && order) {
     try {
+      const check = await pool.query(
+        `SELECT status FROM sol_orders WHERE order_number=$1 LIMIT 1`,
+        [order]
+      );
+      if (check.rows[0]?.status === 'confirmed') {
+        return serveStaticPage('sol-order-confirmed')(req, res);
+      }
+    } catch(e) {
+      console.error('[sol/order-confirmed check]', e.message);
+    }
+    return res.redirect('/shop/cart?payment=incomplete');
+  }
+
+  if (order && session_id && confirm_token) {
+    try {
+      const pending = await pool.query(
+        `SELECT * FROM sol_orders WHERE order_number=$1 LIMIT 1`,
+        [order]
+      );
+      const pendingOrder = pending.rows[0];
+
+      if (!pendingOrder || !isValidCheckoutConfirmToken(confirm_token, pendingOrder.id, pendingOrder.order_number, pendingOrder.total_price)) {
+        console.warn('[sol/order-confirmed] Rejected invalid payment confirmation token for', order);
+        return res.redirect('/shop/cart?payment=incomplete');
+      }
+
       const updateRes = await pool.query(
-        `UPDATE sol_orders SET status='confirmed', order_status='new', stripe_session_id=$1 WHERE order_number=$2 AND status='pending_payment' RETURNING *`,
+        `UPDATE sol_orders
+         SET status='confirmed', order_status='new', stripe_session_id=$1
+         WHERE order_number=$2 AND status='pending_payment'
+         RETURNING *`,
         [session_id, order]
       );
-      // Send email notifications for confirmed orders
+
       if (updateRes.rows.length > 0) {
         const confirmedOrder = updateRes.rows[0];
-        // Parse items if stored as string
         if (typeof confirmedOrder.items === 'string') {
           try { confirmedOrder.items = JSON.parse(confirmedOrder.items); } catch(e) {}
         }
+
+        if (confirmedOrder.promo_code === 'WELCOME10' && confirmedOrder.customer_email) {
+          await pool.query(
+            `UPDATE sol_subscribers SET discount_code_used = TRUE WHERE email = $1`,
+            [String(confirmedOrder.customer_email).trim().toLowerCase()]
+          ).catch(err => console.warn('[checkout] Could not mark promo used after payment:', err.message));
+        }
+
         sendOrderNotificationEmails(confirmedOrder);
         decrementInventory(confirmedOrder);
+      } else if (pendingOrder.status !== 'confirmed') {
+        return res.redirect('/shop/cart?payment=incomplete');
       }
-    } catch(e) { console.error('[sol/order-confirmed]', e.message); }
+
+      const fulfillSuffix = fulfillment === 'ship' ? '&fulfillment=ship' : '';
+      return res.redirect(`/sol/order-confirmed?order=${encodeURIComponent(order)}&paid=1${fulfillSuffix}`);
+    } catch(e) {
+      console.error('[sol/order-confirmed]', e.message);
+      return res.redirect('/shop/cart?payment=incomplete');
+    }
   }
-  serveStaticPage('sol-order-confirmed')(req, res);
+
+  return res.redirect('/shop/cart?payment=incomplete');
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
