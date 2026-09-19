@@ -3079,13 +3079,19 @@ app.get('/product/:slug', (req, res) => {
   res.redirect(301, `/shop/product/${req.params.slug}`);
 });
 
+function injectUnifiedNavigation(html) {
+  if (!html || html.includes('/js/sol-unified-nav.js')) return html;
+  return html.replace(/<\/body>/i, '<script src="/js/sol-unified-nav.js"></script>\n</body>');
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Homepage (must come before express.static to override index.html)
 // ─────────────────────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
   const htmlPath = path.join(__dirname, 'public', 'sol-home.html');
   if (fs.existsSync(htmlPath)) {
-    res.set('Cache-Control', 'no-cache, no-store, must-revalidate').sendFile(htmlPath);
+    const html = injectUnifiedNavigation(fs.readFileSync(htmlPath, 'utf8'));
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate').type('html').send(html);
   } else {
     res.redirect('/sugar-oak-lane');
   }
@@ -3185,7 +3191,8 @@ function serveStaticPage(pageName) {
   return (req, res) => {
     const htmlPath = path.join(__dirname, 'public', `${pageName}.html`);
     if (fs.existsSync(htmlPath)) {
-      res.set('Cache-Control', 'no-cache, no-store, must-revalidate').sendFile(htmlPath);
+      const html = injectUnifiedNavigation(fs.readFileSync(htmlPath, 'utf8'));
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate').type('html').send(html);
     } else {
       res.redirect('/');
     }
@@ -4127,6 +4134,7 @@ app.get('/blog/:slug', async (req, res) => {
     );
   }
   html = html.replace('__BLOG_CONTENT__', post.content);
+  html = injectUnifiedNavigation(html);
   res.set('Cache-Control', 'no-cache').type('html').send(html);
 });
 
