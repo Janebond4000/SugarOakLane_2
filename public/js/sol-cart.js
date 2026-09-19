@@ -131,11 +131,35 @@
   /* ── Wire up cart buttons ────────────────────────────────────────────── */
 
   function wireCartButtons() {
+    const wagonSvg = `
+      <svg viewBox="0 0 40 32" aria-hidden="true" style="width:31px;height:31px">
+        <path d="M7 14h26l-3 10H12L7 14Z"/>
+        <path d="M7 15 4 9H1"/>
+        <circle cx="14" cy="27" r="2.4"/><circle cx="28" cy="27" r="2.4"/>
+        <path d="M17 14V8m7 6V6m5 8V9"/>
+        <path d="M14.2 7.8c1.8-2.6 4.2-2.6 5.8 0-1.7 1.8-4.1 1.8-5.8 0Z"/>
+        <path d="M21.5 5.5c1.8-3.2 4.8-3.2 6.6 0-2 2-4.6 2-6.6 0Z"/>
+        <path d="M27 8.8c1.5-2.4 3.8-2.4 5.3 0-1.5 1.7-3.8 1.7-5.3 0Z"/>
+      </svg>`;
+
     document.querySelectorAll('[data-sol-cart-btn]').forEach(btn => {
+      if (!btn.dataset.solWagonApplied) {
+        const oldIcon = btn.querySelector('svg');
+        if (oldIcon) oldIcon.outerHTML = wagonSvg;
+        btn.dataset.solWagonApplied = '1';
+      }
       if (btn.dataset.solCartWired) return;
       btn.dataset.solCartWired = '1';
       btn.addEventListener('click', () => {
         window.location.href = '/shop/cart';
+      });
+    });
+
+    document.querySelectorAll('.header-icon-btn[aria-label="Account"]').forEach(btn => {
+      if (btn.dataset.solAccountWired) return;
+      btn.dataset.solAccountWired = '1';
+      btn.addEventListener('click', () => {
+        window.location.href = '/order-tracker';
       });
     });
   }
