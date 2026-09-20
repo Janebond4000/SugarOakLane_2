@@ -36,8 +36,9 @@
 
     nav.setAttribute('aria-label', 'Main navigation');
     nav.innerHTML = [
-      dropdown('/flowers', 'Flowers', 'flowers', [
+      dropdown('/shop/flower-shop', 'Flowers', 'flowers', [
         ['/shop/flower-shop', 'Shop Flowers'],
+        ['/flowers', 'Farm Flowers'],
         ['/flowers#bouquets', 'Farm Bouquets'],
         ['/subscriptions', 'Flower Subscriptions'],
         ['/flowers#seasonal', 'Seasonal Flowers'],
@@ -80,7 +81,7 @@
     if (!drawer) return;
     drawer.innerHTML = `
       <div class="drawer-section-label">Main Navigation</div>
-      <a href="/flowers">Flowers</a>
+      <a href="/shop/flower-shop">Flowers</a>
       <a href="/shop">Seeds+Plants</a>
       <a href="/wholesale">Wholesale</a>
       <a href="/weddings">Weddings + Events</a>
