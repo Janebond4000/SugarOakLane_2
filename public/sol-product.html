@@ -655,6 +655,14 @@
     <div id="product-nl-success" role="status"></div>
   </div>
   <script>
+function approvedProductImages(p) {
+  const status = p.image_status || (p.seed_details && p.seed_details.image_status);
+  if (!['approved','complete','published'].includes(status)) return [];
+  let images = p.images;
+  try { if (typeof images === 'string') images = JSON.parse(images); } catch { return []; }
+  return Array.isArray(images) ? images.filter(url => typeof url === 'string' && /^(https?:\/\/|\/(?!\/))/.test(url)) : [];
+}
+
   async function handleProductNlSubmit(e) {
     e.preventDefault();
     var email = document.getElementById('product-nl-email').value.trim();
@@ -898,7 +906,7 @@ function renderProduct(p) {
   const seoTitle = (p.seo_title || p.name) + ' | Sugar Oak Lane';
   const seoDesc = p.seo_description || p.short_description || '';
   const productUrl = 'https://www.sugaroaklane.com/shop/product/' + p.slug;
-  const productImage = 'https://www.sugaroaklane.com/assets/product-placeholder.svg';
+  const productImage = approvedProductImages(p)[0] || 'https://www.sugaroaklane.com/assets/product-placeholder.svg';
   document.getElementById('page-title').textContent = seoTitle;
   document.getElementById('page-desc').content = seoDesc;
   // Canonical
@@ -1033,7 +1041,7 @@ function renderProduct(p) {
   descEl.innerHTML = descText.split('\n\n').map(para => `<p>${para.replace(/\n/g, '<br/>')}</p>`).join('');
 
   // Gallery
-  const images = []; // Official product photography has not been approved yet; show the Sugar Oak Lane wireframe on every listing.
+  const images = approvedProductImages(p);
   const mainImg = document.getElementById('main-image');
   const thumbRow = document.getElementById('thumb-row');
   const imgFallback = '/assets/product-placeholder.svg';
@@ -1077,7 +1085,7 @@ async function loadRelated(current) {
 
     const grid = document.getElementById('related-grid');
     grid.innerHTML = others.map(p => {
-      const imgs = []; // Related products also stay wireframe until official photography is approved.
+      const imgs = approvedProductImages(p);
       const relFallback = '/assets/product-placeholder.svg';
       const imgHtml = imgs[0] ? `<img src="${imgs[0]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="if(this.src!=='${relFallback}')this.src='${relFallback}';" />` : `<img src="/assets/product-placeholder.svg" alt="Product image coming soon" style="width:100%;height:100%;object-fit:cover" loading="lazy" />`;
       return `
@@ -1232,3 +1240,4 @@ loadProduct();
 <script src="/js/email-capture.js"></script>
 </body>
 </html>
+

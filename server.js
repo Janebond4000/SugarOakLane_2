@@ -2555,11 +2555,11 @@ app.get('/api/sol/products', async (req, res) => {
       where += ` AND (name ILIKE $${params.length} OR short_description ILIKE $${params.length} OR description ILIKE $${params.length})`;
     }
 
-    const limitClause = limit ? `LIMIT ${Math.min(parseInt(limit, 10) || 50, 200)}` : `LIMIT 50`;
+    const limitClause = limit ? `LIMIT ${Math.min(Math.max(parseInt(limit, 10) || 50, 1), 1000)}` : `LIMIT 50`;
 
     const result = await pool.query(
       `SELECT sp.id, sp.name, sp.slug, sp.sol_category, sp.subcategory, sp.short_description,
-              sp.price, sp.price_label, sp.images, sp.availability, sp.inventory_count,
+              sp.price, sp.price_label, sp.images, sp.seed_details->>'image_status' AS image_status, sp.availability, sp.inventory_count,
               sp.season_tags, sp.type_tags, sp.is_featured, sp.sort_order, sp.seo_title, sp.seo_description,
               sp.flower_name, sp.flower_type, sp.dahlia_type,
               sp.stock_quantity, sp.track_inventory, sp.low_stock_threshold,
@@ -2856,6 +2856,9 @@ app.post('/api/sol/checkout', async (req, res) => {
       return res.status(400).json({ success: false, message: 'No items in cart.' });
     }
 
+    if (!process.env.POLSIA_API_KEY) {
+      return res.status(503).json({ success: false, code: 'PAYMENT_UNAVAILABLE', message: 'Online payment is temporarily unavailable. Your order has not been confirmed or charged.' });
+    }
     const sub = parseFloat(subtotal) || 0;
     const cleanEmail = customer_email.trim().toLowerCase();
 

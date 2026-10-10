@@ -1245,7 +1245,7 @@ async function loadShopProducts() {
     }
 
     if (s.in_stock) params.set('in_stock', 'true');
-    params.set('limit', '200');
+    params.set('limit', '1000');
 
     const res = await fetch('/api/sol/products?' + params.toString());
     const data = await res.json();
@@ -1308,10 +1308,18 @@ const _BESTSELLER_SLUGS = new Set([
   'zinnia-seeds-benarys-giant'
 ]);
 
+function approvedProductImages(p) {
+  const status = p.image_status || (p.seed_details && p.seed_details.image_status);
+  if (!['approved','complete','published'].includes(status)) return [];
+  let images = p.images;
+  try { if (typeof images === 'string') images = JSON.parse(images); } catch { return []; }
+  return Array.isArray(images) ? images.filter(url => typeof url === 'string' && /^(https?:\/\/|\/(?!\/))/.test(url)) : [];
+}
+
 function renderProductCard(p) {
   let imgs = [];
   try { imgs = Array.isArray(p.images) ? p.images : JSON.parse(p.images || '[]'); } catch(e) {}
-  const img = '/assets/product-placeholder.svg'; // Entire catalog stays wireframe until official product photography is approved.
+  const img = (approvedProductImages(p)[0] || '/assets/product-placeholder.svg').replace(/&/g,'&amp;').replace(/"/g,'&quot;');
   const sold = p.availability === 'out_of_stock' || p.availability === 'sold_out' || (p.track_inventory && p.stock_quantity === 0);
   const isLowStock = !sold && p.track_inventory && p.stock_quantity !== null && p.stock_quantity !== undefined && p.stock_quantity > 0 && p.stock_quantity <= (p.low_stock_threshold || 5);
   const isBestseller = !sold && _BESTSELLER_SLUGS.has(p.slug);
@@ -1484,3 +1492,4 @@ function toTitleCase(str) {
 <script src="/js/email-capture.js"></script>
 </body>
 </html>
+
