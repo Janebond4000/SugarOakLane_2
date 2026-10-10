@@ -28,7 +28,7 @@
     .product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; padding: 64px 0 96px; align-items: start; }
     .product-gallery { position: sticky; top: 100px; }
     .product-main-img {
-      aspect-ratio: 4/5; border-radius: 2px; overflow: hidden;
+      aspect-ratio: 1; border-radius: 2px; overflow: hidden;
       background: var(--linen-dk);
       margin-bottom: 12px;
       position: relative;
@@ -463,7 +463,7 @@
     <!-- Skeleton loading -->
     <div id="product-loading" style="padding:64px 0 96px">
       <div class="product-detail">
-        <div><div class="skeleton" style="aspect-ratio:4/5;margin-bottom:12px"></div></div>
+        <div><div class="skeleton" style="aspect-ratio:1;margin-bottom:12px"></div></div>
         <div>
           <div class="skeleton" style="height:14px;width:180px;margin-bottom:20px"></div>
           <div class="skeleton" style="height:44px;width:80%;margin-bottom:16px"></div>
@@ -785,7 +785,7 @@ function addToCart() {
     name: _currentProduct.name,
     price: _currentProduct.price,
     price_label: _currentProduct.price_label,
-    image: '/assets/product-placeholder.svg',
+    image: approvedProductImages(_currentProduct)[0] || '/assets/product-placeholder.svg',
     category: _currentProduct.sol_category,
     fulfillment: _currentProduct.fulfillment_type || 'pickup',
     notes: notes || '',
@@ -1004,11 +1004,12 @@ function renderProduct(p) {
   document.getElementById('fulfillment-label').textContent = fulfill.label;
 
   // Disable if out of stock / sold out (also catches track_inventory=true + stock_quantity=0)
+  const isComingSoon = p.availability === 'coming_soon';
   const isSoldOut = p.availability === 'out_of_stock' || p.availability === 'sold_out' || (p.track_inventory && p.stock_quantity === 0);
-  if (isSoldOut) {
+  if (isSoldOut || isComingSoon) {
     const btn = document.getElementById('atc-btn');
     btn.disabled = true;
-    btn.textContent = 'Sold Out';
+    btn.textContent = isComingSoon ? 'Coming Soon' : 'Sold Out';
   }
 
   // Low-stock urgency text

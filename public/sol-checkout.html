@@ -519,9 +519,9 @@ async function submitCheckout(e) {
       delivery_zip: deliveryZip,
       delivery_fee: deliveryFee,
       shipping_fee: _shippingFee,
-      subtotal: discountedSubtotal,
+      subtotal,
       total_price: total,
-      items: items.map(i => ({ slug:i.slug, name:i.name, price:i.price, qty:i.qty||1, notes:i.notes||'' })),
+      items: items.map(i => ({ slug:i.slug, name:i.name, price:i.price, qty:i.qty||1, notes:i.notes||'', floral:i.floral||false, floralDetails:i.floralDetails||null, floralAddons:i.floralAddons||[] })),
       notes: notes || null,
       promo_code: _promoCode || null,
     };
@@ -559,5 +559,6 @@ async function submitCheckout(e) {
 
 renderSummary();
 </script>
+<script src="/js/sol-unified-nav.js"></script>
 </body>
 </html>

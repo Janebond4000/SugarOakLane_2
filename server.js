@@ -2856,10 +2856,54 @@ app.post('/api/sol/checkout', async (req, res) => {
       return res.status(400).json({ success: false, message: 'No items in cart.' });
     }
 
+    if (!Array.isArray(items) || items.length > 100 || !['pickup', 'ship', 'delivery'].includes(fulfillment_type)) {
+      return res.status(400).json({ success: false, message: 'Please review your cart and fulfillment option.' });
+    }
+    // Prices, availability and quantities come from the current catalog.
+    const currentProducts = await pool.query(
+      'SELECT slug, name, price, availability, track_inventory, stock_quantity FROM sol_products WHERE is_active = TRUE AND slug = ANY($1::text[])',
+      [items.map(item => item.slug)]
+    );
+    const bySlug = new Map(currentProducts.rows.map(product => [product.slug, product]));
+    const quantityBySlug = new Map();
+    const currentAddons = await pool.query('SELECT id, price, max_quantity FROM sol_floral_addons WHERE active = TRUE');
+    const byAddon = new Map(currentAddons.rows.map(addon => [Number(addon.id), addon]));
+    let computedSubtotal = 0;
+    for (const item of items) {
+      const product = bySlug.get(item.slug);
+      const quantity = Number(item.qty);
+      if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 99 || ['out_of_stock', 'sold_out', 'coming_soon'].includes(product.availability)) {
+        return res.status(400).json({ success: false, message: 'An item in your cart is unavailable. Please review your cart.' });
+      }
+      quantityBySlug.set(item.slug, (quantityBySlug.get(item.slug) || 0) + quantity);
+      if (product.track_inventory && quantityBySlug.get(item.slug) > Number(product.stock_quantity || 0)) {
+        return res.status(400).json({ success: false, message: `The requested quantity of ${product.name} is unavailable.` });
+      }
+      item.name = product.name;
+      item.price = Number(product.price);
+      computedSubtotal += item.price * quantity;
+      if (item.floralAddons && !Array.isArray(item.floralAddons)) {
+        return res.status(400).json({ success: false, message: 'Please review your floral add-ons.' });
+      }
+      const seenAddons = new Set();
+      for (const addon of item.floralAddons || []) {
+        const current = byAddon.get(Number(addon.addon_id));
+        const addonQty = Number(addon.quantity);
+        if (!current || seenAddons.has(current.id) || !Number.isInteger(addonQty) || addonQty < 1 || addonQty > Number(current.max_quantity || 99)) {
+          return res.status(400).json({ success: false, message: 'A floral add-on is unavailable. Please review your cart.' });
+        }
+        seenAddons.add(current.id);
+        addon.price = Number(current.price);
+        computedSubtotal += addon.price * addonQty;
+      }
+    }
+    const sub = Math.round(computedSubtotal * 100) / 100;
+    if (!Number.isFinite(sub) || sub <= 0) {
+      return res.status(400).json({ success: false, message: 'Invalid order total.' });
+    }
     if (!process.env.POLSIA_API_KEY) {
       return res.status(503).json({ success: false, code: 'PAYMENT_UNAVAILABLE', message: 'Online payment is temporarily unavailable. Your order has not been confirmed or charged.' });
     }
-    const sub = parseFloat(subtotal) || 0;
     const cleanEmail = customer_email.trim().toLowerCase();
 
     // ── Promo code validation ─────────────────────────────────────────────────
@@ -2900,7 +2944,14 @@ app.post('/api/sol/checkout', async (req, res) => {
     const SOL_SHIP_FEE = 4.79;
     const SOL_FREE_SHIP_THRESHOLD = 50;
     let calcShippingFee = 0;
-    let calcDeliveryFee = parseFloat(delivery_fee) || 0;
+    let calcDeliveryFee = 0;
+    if (fulfillment_type === 'delivery') {
+      const zone = getZoneForZip(String(delivery_zip || '').trim());
+      if (!zone || zone === 'metro_atlanta') {
+        return res.status(400).json({ success: false, message: 'Delivery is not available for this ZIP code.' });
+      }
+      calcDeliveryFee = ZONE_FEES[zone];
+    }
     if (fulfillment_type === 'ship') {
       calcShippingFee = discountedSub >= SOL_FREE_SHIP_THRESHOLD ? 0 : SOL_SHIP_FEE;
     }
@@ -2968,6 +3019,7 @@ app.post('/api/sol/checkout', async (req, res) => {
     // Build product name for Stripe
     const itemSummary = items.slice(0,2).map(i => i.name).join(', ') + (items.length > 2 ? ` +${items.length-2} more` : '');
     const fulfillSuffix = fulfillment_type === 'ship' ? '&fulfillment=ship' : '';
+    const storefrontUrl = (process.env.STOREFRONT_URL || 'https://sugar-oak-lane-web-production.up.railway.app').replace(/\/$/, '');
 
     const checkoutRes = await fetch('https://polsia.com/api/payments/checkout-session', {
       method: 'POST',
@@ -2976,8 +3028,8 @@ app.post('/api/sol/checkout', async (req, res) => {
         amount: totalAmt,
         name: `Sugar Oak Lane — ${itemSummary}`,
         description: fulfillment_type === 'pickup' ? 'Farm pickup order' : `Ship to ${shipping_city || 'your address'}`,
-        success_url: `${APP_URL}/sol/order-confirmed?order=${orderNumber}&session_id={CHECKOUT_SESSION_ID}&confirm_token=${encodeURIComponent(confirmToken)}${fulfillSuffix}`,
-        cancel_url: `${APP_URL}/shop/cart`
+        success_url: `${storefrontUrl}/sol/order-confirmed?order=${orderNumber}&session_id={CHECKOUT_SESSION_ID}&confirm_token=${encodeURIComponent(confirmToken)}${fulfillSuffix}`,
+        cancel_url: `${storefrontUrl}/shop/cart`
       })
     });
 
@@ -6747,3 +6799,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
