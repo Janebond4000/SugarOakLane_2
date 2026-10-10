@@ -934,7 +934,7 @@ const SHOP_STATE = {
   perPage: 16
 };
 
-let CAT_LABELS = {};
+let CAT_LABELS = {'seeds-bulbs':'Seeds & Bulbs'};
 let CAT_ACCORDION_KEY = {};
 let _categoryTree = [];
 let _allProducts = [];
@@ -1098,7 +1098,7 @@ async function buildSidebar() {
     _categoryTree = data.tree || [];
     const flat = data.categories || [];
 
-    CAT_LABELS = {};
+    CAT_LABELS = {'seeds-bulbs':'Seeds & Bulbs'};
     CAT_ACCORDION_KEY = {};
     flat.forEach(c => {
       CAT_LABELS[c.slug] = c.name;

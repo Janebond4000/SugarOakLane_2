@@ -2505,7 +2505,8 @@ app.get('/api/sol/products', async (req, res) => {
       where += ` AND (LOWER(COALESCE(flower_name,'')) LIKE 'dahlia%' OR dahlia_type IS NOT NULL)`;
     } else if (category) {
       // Hierarchical lookup: get this category + all descendant category slugs
-      const allSlugs = await getDescendantSlugs(pool, category);
+      const descendantSlugs = await getDescendantSlugs(pool, category);
+      const allSlugs = descendantSlugs.length ? descendantSlugs : [String(category)];
       if (allSlugs.length > 0) {
         params.push(allSlugs);
         const pidx = params.length;
