@@ -2846,17 +2846,17 @@ app.post('/api/sol/checkout', async (req, res) => {
       promo_code,
     } = req.body || {};
 
-    if (!customer_name || !customer_name.trim()) {
+    if (typeof customer_name !== 'string' || !customer_name.trim()) {
       return res.status(400).json({ success: false, message: 'Your name is required.' });
     }
-    if (!customer_email || !customer_email.includes('@')) {
+    if (typeof customer_email !== 'string' || !customer_email.includes('@')) {
       return res.status(400).json({ success: false, message: 'A valid email is required.' });
     }
     if (!items || !items.length) {
       return res.status(400).json({ success: false, message: 'No items in cart.' });
     }
 
-    if (!Array.isArray(items) || items.length > 100 || !['pickup', 'ship', 'delivery'].includes(fulfillment_type)) {
+    if (!Array.isArray(items) || items.length > 100 || items.some(item => !item || typeof item !== 'object' || typeof item.slug !== 'string') || !['pickup', 'ship', 'delivery'].includes(fulfillment_type)) {
       return res.status(400).json({ success: false, message: 'Please review your cart and fulfillment option.' });
     }
     // Prices, availability and quantities come from the current catalog.
@@ -3136,7 +3136,7 @@ app.get('/product/:slug', (req, res) => {
 
 function injectUnifiedNavigation(html) {
   if (!html || html.includes('/js/sol-unified-nav.js')) return html;
-  return html.replace(/<\/body>/i, '<script src="/js/sol-unified-nav.js"></script>\n</body>');
+  return html.replace(/<\/body>/i, '<script src="/js/sol-unified-nav.js?v=20261010-final"></script>\n</body>');
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
